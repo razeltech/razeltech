@@ -181,11 +181,11 @@ const Layout = ({ children }) => {
       
       <div className="relative z-10">
         <nav className="p-6 border-b border-cyber-blue/20 flex justify-between items-center backdrop-blur-sm sticky top-0 z-50 bg-obsidian/80">
-          <Link to="/" className="flex items-center space-x-2 group">
-            <div className="w-8 h-8 bg-cyber-blue flex items-center justify-center rounded group-hover:bg-white transition-colors">
-              <Terminal size={18} className="text-black" />
+          <Link to="/" className="flex items-center space-x-3 group">
+            <div className="w-10 h-10 flex items-center justify-center rounded overflow-hidden transition-transform duration-300 group-hover:scale-110">
+              <img src="/src/assets/logo_white.png" alt="RazelTech Logo" className="w-full h-full object-contain" />
             </div>
-            <span className="font-black tracking-tighter text-xl terminal-text group-hover:text-white transition-colors uppercase">RAZELTECH_HUB</span>
+            <span className="font-black tracking-tighter text-2xl terminal-text group-hover:text-white transition-colors uppercase">RAZEL TECH</span>
           </Link>
           <div className="hidden md:flex space-x-8 text-[10px] font-bold tracking-widest text-cyber-blue/60 uppercase">
             <Link to="/core" className="hover:text-cyber-blue transition-colors border-b border-transparent hover:border-cyber-blue pb-1">[ CORE_ENGINES ]</Link>
@@ -197,7 +197,11 @@ const Layout = ({ children }) => {
         <ScrollToTop />
         <footer className="p-12 border-t border-cyber-blue/10 text-center text-[10px] text-cyber-blue/40 tracking-[0.3em] uppercase">
           <div className="mb-4 text-cyber-blue/20">SYSTEM_ACCESS::AUTHENTICATED // BUFFER_STATUS::SYNCED</div>
-          <div className="mb-2 text-cyber-blue/10">MSME_REG::UDYAM-AP-04-0112603 // RAZEL_TECH_SOLUTIONS</div>
+          <div className="mb-2 text-cyber-blue/10 flex items-center justify-center space-x-2">
+            <span>MSME_REG::UDYAM-AP-04-0112603</span>
+            <img src="/src/assets/verified_badge.png" alt="Verified" className="w-3 h-3 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all cursor-help" title="MSME Certified" />
+            <span>// RAZEL_TECH_SOLUTIONS</span>
+          </div>
           © RAZELTECH // SYSTEMS_EST_2025 // ALL_RIGHTS_RESERVED
         </footer>
       </div>
