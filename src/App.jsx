@@ -183,7 +183,7 @@ const Layout = ({ children }) => {
         <nav className="p-6 border-b border-cyber-blue/20 flex justify-between items-center backdrop-blur-sm sticky top-0 z-50 bg-obsidian/80">
           <Link to="/" className="flex items-center space-x-3 group">
             <div className="w-10 h-10 flex items-center justify-center rounded overflow-hidden transition-transform duration-300 group-hover:scale-110">
-              <img src="/src/assets/logo_white.png" alt="RazelTech Logo" className="w-full h-full object-contain" />
+              <img src="./logo.png" alt="RazelTech Logo" className="w-full h-full object-contain" />
             </div>
             <span className="font-black tracking-tighter text-2xl terminal-text group-hover:text-white transition-colors uppercase">RAZEL TECH</span>
           </Link>
@@ -199,7 +199,7 @@ const Layout = ({ children }) => {
           <div className="mb-4 text-cyber-blue/20">SYSTEM_ACCESS::AUTHENTICATED // BUFFER_STATUS::SYNCED</div>
           <div className="mb-2 text-cyber-blue/10 flex items-center justify-center space-x-2">
             <span>MSME_REG::UDYAM-AP-04-0112603</span>
-            <img src="/src/assets/verified_badge.png" alt="Verified" className="w-3 h-3 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all cursor-help" title="MSME Certified" />
+            <img src="./verified_badge.png" alt="Verified" className="w-3 h-3 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all cursor-help" title="MSME Certified" />
             <span>// RAZEL_TECH_SOLUTIONS</span>
           </div>
           © RAZELTECH // SYSTEMS_EST_2025 // ALL_RIGHTS_RESERVED
