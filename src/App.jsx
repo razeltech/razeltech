@@ -19,89 +19,120 @@ import ScrollReveal from './components/ScrollReveal';
 // --- DATA ---
 const PROJECTS = [
   {
-    id: 'army-sim',
-    title: 'DEFENSE_COMMAND_X',
-    type: 'CORE_ENGINE',
-    tags: ['Unity', 'Multiplayer', 'Defense'],
-    description: 'Mission-critical multiplayer simulations for Indian Army programs. Real-time tactical coordination and high-stakes simulation logic.',
+    id: 't4s-sim',
+    title: 'T4S_TACTICAL_SIM',
+    type: 'LOGIC_DATA',
+    tags: ['Unity', 'HLA_RTI', 'Defense'],
+    description: 'Tank Troop Tactical Training Simulator. Multi-user tactical environment supporting 50+ concurrent trainees using Portico RTI and HLA protocols.',
     link: '#',
-    status: 'CLASSIFIED'
+    status: 'MISSION_CRITICAL'
   },
   {
-    id: 'razelstudio',
+    id: 'aglsds-sim',
+    title: 'AGLSDS_HARDWARE',
+    type: 'LOGIC_DATA',
+    tags: ['Unity', 'Hardware', 'Defense', 'Embedded'],
+    description: 'Anti-Guided Missile Launcher Simulator with hardware-embedded integration. Real-world weapon system interface simulation.',
+    link: '#',
+    status: 'DEPLOYED'
+  },
+  {
+    id: 'motion-sims',
+    title: '6DOF_MOTION_SIMULATORS',
+    type: 'LOGIC_DATA',
+    tags: ['Unity', 'Sockets', 'Hardware'],
+    description: 'Hardware-integrated simulator projects involving low-level socket programming and real-world 3DOF/6DOF motion controls.',
+    link: '#',
+    status: 'ACTIVE'
+  },
+  {
+    id: 'razel-studio',
     title: 'RAZEL_STUDIO_XR',
     type: 'CORE_ENGINE',
-    tags: ['VR', 'AR', 'Simulation'],
-    description: 'Advanced VR/AR simulation framework for industrial training. Expert-level spatial interactions and multiplayer physics.',
+    tags: ['Unity', 'Configurator', 'XR'],
+    description: 'Interior Texture & Paint Configurator. Advanced real-time material swapping and spatial visualization framework.',
     link: 'https://r2dapps.github.io/RazelStudio/',
     status: 'ACTIVE'
   },
   {
-    id: 'bim',
-    title: 'BIM_VISUALIZATION',
+    id: 'painter-pro',
+    title: 'PAINTER_PRO_STUDIO',
     type: 'CORE_ENGINE',
-    tags: ['Unity', 'BIM', 'Industrial'],
-    description: 'Real-time WebGL visualization for complex Building Information Modeling data. Seamless industrial spatial data integration.',
-    link: 'https://r2dapps.github.io/BimWebDemo/',
+    tags: ['WebGL', 'Interior', 'Visualizer'],
+    description: 'Professional interior painting demonstration platform with high-fidelity color accuracy.',
+    link: 'https://r2dapps.github.io/PainterProStudio/',
     status: 'STABLE'
   },
   {
-    id: 'medicore-app',
-    title: 'MEDICORE_PRO_LIVE',
-    type: 'LOGIC_DATA',
-    tags: ['React', 'SaaS', 'Clinical'],
-    description: 'Enterprise clinical intelligence dashboard. Features complex data visualization and mission-critical patient management.',
+    id: 'medicore-pro',
+    title: 'MEDICORE_PRO_SaaS',
+    type: 'LABS',
+    tags: ['React', 'Clinical', 'Analytics'],
+    description: 'Enterprise healthcare intelligence dashboard. Mission-critical patient management and data visualization.',
     link: 'https://medi-core-pro.vercel.app/',
     status: 'OPERATIONAL'
   },
   {
     id: 'medicore-demo',
-    title: 'MEDICORE_PRO_SHOWCASE',
-    type: 'LOGIC_DATA',
-    tags: ['React', 'SaaS', 'Sales'],
-    description: 'Professional sales and demonstration platform for the MediCorePro healthcare ecosystem.',
+    title: 'CLINIC_APP_DEMO',
+    type: 'LABS',
+    tags: ['React', 'Healthcare', 'Demo'],
+    description: 'Sales and demonstration platform for the MediCorePro healthcare ecosystem.',
     link: 'https://r2dapps.github.io/ClinicAppDemo/',
     status: 'ACTIVE'
   },
   {
-    id: 'resume',
-    title: 'RESUME_ENGINE',
+    id: 'bim-web',
+    title: 'INDUSTRIAL_BIM_CORE',
+    type: 'CORE_ENGINE',
+    tags: ['Unity', 'BIM', 'Industrial'],
+    description: 'Real-time WebGL visualization for complex Building Information Modeling data.',
+    link: 'https://r2dapps.github.io/BimWebDemo/',
+    status: 'STABLE'
+  },
+  {
+    id: 'webar-demo',
+    title: 'WebAR_SYSTEMS',
+    type: 'CORE_ENGINE',
+    tags: ['AR', 'Web', 'Visualizer'],
+    description: 'Web-based Augmented Reality visualization systems for instant spatial interaction.',
+    link: 'https://r2dapps.github.io/webAR/',
+    status: 'EXPERIMENTAL'
+  },
+  {
+    id: 'resume-react',
+    title: 'RESUME_ENGINE_REACT',
     type: 'LABS',
-    tags: ['React', 'Utility', 'PDF'],
-    description: 'High-fidelity resume builder with 100% print parity. Engineered for zero-margin A4 hardened layouts.',
+    tags: ['React', 'PDF', 'Printing'],
+    description: 'High-fidelity resume builder with 100% print parity and hardened A4 layouts.',
     link: 'https://r2dapps.github.io/react-resume-builder/',
     status: 'STABLE'
+  },
+  {
+    id: 'resume-basic',
+    title: 'RESUME_BUILDER_V1',
+    type: 'LABS',
+    tags: ['HTML', 'CSS', 'JS'],
+    description: 'Foundational web-based resume builder using core web technologies.',
+    link: 'https://r2dapps.github.io/ResumeBuilder/',
+    status: 'LEGACY'
   }
 ];
 
 const CAREER_LOG = [
   {
     year: '2025 - PRESENT',
-    role: 'FOUNDER & PRINCIPAL SYSTEMS ENGINEER',
+    role: 'PRINCIPAL_SYSTEMS_ENGINEER',
     company: 'RAZEL TECH',
-    description: 'Building real-time Unity solutions for simulation, XR, and industrial systems. MSME registered studio focusing on high-fidelity defense simulations.',
-    type: 'STRATEGIC_COMMAND'
+    description: 'Leading a specialized MSME studio focused on defense-grade Unity simulations, high-fidelity BIM visualization, and custom AR/VR frameworks.',
+    type: 'STRATEGIC_LEAD'
   },
   {
-    year: '2023 - 2025',
-    role: 'PROJECT MANAGER',
-    company: 'CODECHAI TECH PVT LTD',
-    description: 'Managed international development pipelines and complex systems integration for enterprise clients.',
-    type: 'MANAGEMENT_LOGIC'
-  },
-  {
-    year: '2018 - 2025',
-    role: 'TECHNICAL MANAGER',
-    company: 'GREEN VISION SOLUTIONS INC',
-    description: 'Led technical delivery for mission-critical Unity simulations for Indian Army programs, specializing in multiplayer and embedded systems.',
-    type: 'DEFENSE_SIMULATION'
-  },
-  {
-    year: '2014 - 2018',
-    role: 'UNITY 3D DEVELOPER',
-    company: 'GREEN VISION SOLUTIONS INC',
-    description: 'Developed high-performance interactive 3D applications and simulation engines for industrial use.',
-    type: 'CORE_ENGINEERING'
+    year: '2014 - 2025',
+    role: 'LEAD UNITY DEVELOPER / TECH LEAD',
+    company: 'GREEN VISION SOLUTIONS (GVS)',
+    description: 'Architecture and delivery of 10+ mission-critical tactical simulators for the Indian Army. Specializing in HLA/RTI networking and 6DOF motion hardware.',
+    type: 'DEFENSE_ENGINEERING'
   }
 ];
 
@@ -261,7 +292,7 @@ const Layout = ({ children }) => {
               <img src="./verified_badge.png" alt="Verified" className="w-3 h-3 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all cursor-help" title="MSME Certified" />
               <span className="md:hidden opacity-40">//</span>
             </div>
-            <span>RAZEL_TECH_SOLUTIONS</span>
+            <span>RAZEL_TECH_SOLUTIONS // ANDHRA_PRADESH</span>
           </div>
           © RAZELTECH // SYSTEMS_EST_2025 // ALL_RIGHTS_RESERVED
         </footer>
@@ -272,7 +303,7 @@ const Layout = ({ children }) => {
 
 const ScrambledText = ({ text }) => {
   const [displayedText, setDisplayedText] = useState(text);
-  const chars = '!<>-_\\/[]{}—=+*^?#________';
+  const chars = 'ABCDEF0123456789<>-_\\/[]{}!@#$%^&*+';
   
   const scramble = () => {
     let iteration = 0;
@@ -280,6 +311,8 @@ const ScrambledText = ({ text }) => {
       setDisplayedText(prev => 
         text.split('').map((char, index) => {
           if (index < iteration) return text[index];
+          // Use fixed-width space for non-visible characters to prevent layout shift
+          if (char === ' ') return ' ';
           return chars[Math.floor(Math.random() * chars.length)];
         }).join('')
       );
@@ -293,7 +326,15 @@ const ScrambledText = ({ text }) => {
     scramble();
   }, [text]);
 
-  return <span onMouseEnter={scramble} className="cursor-pointer">{displayedText}</span>;
+  return (
+    <span 
+      onMouseEnter={scramble} 
+      className="cursor-pointer inline-block font-mono"
+      style={{ minWidth: `${text.length}ch` }}
+    >
+      {displayedText}
+    </span>
+  );
 };
 
 const NotFound = () => (
@@ -416,15 +457,15 @@ const ProfileCard = () => (
           <Cpu className="text-cyber-blue" size={24} />
         </div>
         <div>
-          <div className="text-[10px] font-bold text-cyber-blue/60 uppercase tracking-widest">Founder</div>
-          <div className="text-sm font-black italic uppercase">Razel Tech</div>
+          <div className="text-[10px] font-bold text-cyber-blue/60 uppercase tracking-widest">Lead_Systems_Architect</div>
+          <div className="text-sm font-black italic uppercase">Mr. V. Raja Vamsi Dhar</div>
         </div>
       </div>
 
       <div className="space-y-4 text-[10px] font-bold tracking-widest text-cyber-blue/60 uppercase">
         <div className="flex items-center space-x-3">
           <Globe size={14} className="text-cyber-blue" />
-          <span>Hyderabad, India</span>
+          <span>Andhra Pradesh, India</span>
         </div>
         <div className="flex items-center space-x-3">
           <Terminal size={14} className="text-cyber-blue" />
@@ -509,15 +550,64 @@ const CareerTimeline = () => {
 };
 
 const ProjectGrid = ({ filter = null }) => {
-  const filteredProjects = filter 
-    ? PROJECTS.filter(p => p.type === filter)
+  const [activeFilter, setActiveFilter] = useState(null);
+  
+  const currentFilter = filter || activeFilter;
+  
+  const filteredProjects = currentFilter 
+    ? PROJECTS.filter(p => p.type === currentFilter) 
     : PROJECTS;
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-      {filteredProjects.map((project) => (
-        <SpotlightCard key={project.id} project={project} />
-      ))}
+    <div>
+      {/* Sim-vs-SaaS Toggle */}
+      {!filter && (
+        <div className="flex justify-center mb-12">
+          <div className="bg-obsidian/50 border border-cyber-blue/20 p-1 rounded-full flex">
+            <button 
+              onClick={() => setActiveFilter(null)}
+              className={`px-6 py-2 rounded-full text-[10px] font-black tracking-widest transition-all ${!activeFilter ? 'bg-cyber-blue text-black' : 'text-cyber-blue/60 hover:text-white'}`}
+            >
+              ALL_SYSTEMS
+            </button>
+            <button 
+              onClick={() => setActiveFilter('CORE_ENGINE')}
+              className={`px-6 py-2 rounded-full text-[10px] font-black tracking-widest transition-all ${activeFilter === 'CORE_ENGINE' ? 'bg-cyber-blue text-black' : 'text-cyber-blue/60 hover:text-white'}`}
+            >
+              UNITY_PROJECTS
+            </button>
+            <button 
+              onClick={() => setActiveFilter('LOGIC_DATA')}
+              className={`px-6 py-2 rounded-full text-[10px] font-black tracking-widest transition-all ${activeFilter === 'LOGIC_DATA' ? 'bg-cyber-blue text-black' : 'text-cyber-blue/60 hover:text-white'}`}
+            >
+              SIMULATORS
+            </button>
+            <button 
+              onClick={() => setActiveFilter('LABS')}
+              className={`px-6 py-2 rounded-full text-[10px] font-black tracking-widest transition-all ${activeFilter === 'LABS' ? 'bg-cyber-blue text-black' : 'text-cyber-blue/60 hover:text-white'}`}
+            >
+              SAAS_DASHBOARDS
+            </button>
+          </div>
+        </div>
+      )}
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <AnimatePresence mode="popLayout">
+          {filteredProjects.map((project) => (
+            <motion.div
+              layout
+              key={project.id}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{ duration: 0.3 }}
+            >
+              <SpotlightCard project={project} />
+            </motion.div>
+          ))}
+        </AnimatePresence>
+      </div>
     </div>
   );
 };
@@ -637,57 +727,81 @@ const Home = () => {
   return (
     <div className="max-w-7xl mx-auto px-6 py-20">
       {/* Hero Section */}
-      <section className="mb-16 md:mb-32 flex flex-col lg:flex-row lg:items-start lg:justify-between gap-12">
-        <div className="max-w-3xl">
+      <section className="mb-24 md:mb-32">
+        <div className="max-w-4xl">
           <div className="inline-flex items-center space-x-2 text-cyber-green text-[8px] md:text-[10px] font-bold tracking-[0.2em] mb-6 uppercase">
             <Zap size={12} />
-            <span className="truncate">Connection_Established // raja_vamsi_dhar</span>
+            <span className="truncate">Secure_Link_Established // razel_tech // industrial_division</span>
           </div>
-          <h1 className="text-4xl md:text-7xl font-black tracking-tighter mb-4 leading-[0.9] italic uppercase">
-            <ScrambledText text="PRINCIPAL" /><br />
-            <span className="text-cyber-blue terminal-text">
-              <ScrambledText text="SYSTEMS_ENGINEER" />
+          <h1 className="text-4xl md:text-8xl font-black tracking-tighter mb-6 leading-[0.9] italic uppercase overflow-hidden">
+            <span className="inline-block"><ScrambledText text="PRECISION" /></span><br />
+            <span className="text-cyber-blue terminal-text inline-block">
+              <ScrambledText text="SYSTEMS_ENGINEERING" />
             </span>
           </h1>
-          <div className="mb-8 md:mb-10 flex items-center space-x-4">
-             <div className="h-px w-6 md:w-8 bg-cyber-blue/50"></div>
-             <span className="text-cyber-blue/60 font-bold tracking-[0.2em] md:tracking-[0.3em] text-[8px] md:text-[10px] uppercase">Raja Vamsi Dhar // Defense Simulation Specialist</span>
+          <div className="mb-10 flex items-center space-x-4">
+             <div className="h-px w-12 bg-cyber-blue/50"></div>
+             <span className="text-cyber-blue/60 font-bold tracking-[0.2em] md:tracking-[0.3em] text-[9px] md:text-[12px] uppercase">Razel Tech // Mission-Critical Simulators & Industrial AR/VR</span>
           </div>
-          <p className="text-base md:text-xl text-cyber-blue/60 max-w-2xl font-medium leading-relaxed mb-10 md:mb-12">
-            <TypewriterText text="Architecting mission-critical Unity simulations and high-fidelity industrial BIM pipelines. Focused on zero-latency spatial intelligence and defense-grade immersive systems." />
+          <p className="text-lg md:text-2xl text-cyber-blue/80 max-w-3xl font-medium leading-relaxed mb-12">
+            <TypewriterText text="Specializing in defense-grade tactical simulators, high-fidelity BIM pipelines, and spatial intelligence systems. We bridge the gap between complex hardware and immersive software ecosystems." />
           </p>
+          
+          <div className="flex flex-wrap gap-4">
+            <a href="#core" className="px-8 py-4 bg-cyber-blue/10 border border-cyber-blue/30 text-cyber-blue text-[10px] font-black tracking-widest uppercase hover:bg-cyber-blue hover:text-black transition-all">
+              View_System_Dossiers
+            </a>
+            <div className="px-8 py-4 border border-cyber-blue/10 text-cyber-blue/40 text-[10px] font-black tracking-widest uppercase">
+              EST_2025 // AP_REGION
+            </div>
+          </div>
         </div>
-        
-        <div className="lg:mt-12 w-full lg:w-auto">
-          <ProfileCard />
+      </section>
+
+      {/* Corporate Capabilities */}
+      <section className="mb-32 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="p-8 border border-cyber-blue/10 bg-cyber-blue/5 rounded-lg">
+          <div className="text-cyber-blue mb-4"><Cpu size={32} /></div>
+          <h3 className="text-lg font-black uppercase mb-2">Defense_Simulations</h3>
+          <p className="text-xs text-cyber-blue/60 leading-relaxed uppercase tracking-wider">Tactical training environments, AGLSDS hardware integration, and multi-user HLA platforms.</p>
+        </div>
+        <div className="p-8 border border-cyber-blue/10 bg-cyber-blue/5 rounded-lg">
+          <div className="text-cyber-blue mb-4"><Box size={32} /></div>
+          <h3 className="text-lg font-black uppercase mb-2">Industrial_SaaS</h3>
+          <p className="text-xs text-cyber-blue/60 leading-relaxed uppercase tracking-wider">MediCorePro clinical intelligence, healthcare dashboards, and enterprise CRM ecosystem development.</p>
+        </div>
+        <div className="p-8 border border-cyber-blue/10 bg-cyber-blue/5 rounded-lg">
+          <div className="text-cyber-blue mb-4"><Zap size={32} /></div>
+          <h3 className="text-lg font-black uppercase mb-2">XR_Configurators</h3>
+          <p className="text-xs text-cyber-blue/60 leading-relaxed uppercase tracking-wider">Razel Studio interior configurators, Painter Pro Studio, and high-fidelity WebAR visualizers.</p>
         </div>
       </section>
 
       {/* Stats / Capabilities */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-32 border-y border-cyber-blue/10 py-12">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-32 border-y border-cyber-blue/10 py-12">
         <div>
           <div className="text-cyber-blue/40 text-[10px] font-bold uppercase tracking-widest mb-2 flex items-center gap-2">
-            <span className="w-1 h-1 bg-cyber-blue rounded-full"></span> Service_Period
+            <span className="w-1 h-1 bg-cyber-blue rounded-full"></span> Service_Tenure
           </div>
-          <div className="text-3xl font-black">12+ YRS</div>
+          <div className="text-2xl sm:text-3xl font-black italic">12+ YEARS</div>
         </div>
         <div>
           <div className="text-cyber-blue/40 text-[10px] font-bold uppercase tracking-widest mb-2 flex items-center gap-2">
-            <span className="w-1 h-1 bg-cyber-blue rounded-full"></span> Systems_Deployed
+            <span className="w-1 h-1 bg-cyber-blue rounded-full"></span> Production_Deployments
           </div>
-          <div className="text-3xl font-black italic underline decoration-cyber-blue/30 underline-offset-8">25+ CORE</div>
+          <div className="text-2xl sm:text-3xl font-black italic underline decoration-cyber-blue/30 underline-offset-8">25+ CORE</div>
         </div>
         <div>
           <div className="text-cyber-blue/40 text-[10px] font-bold uppercase tracking-widest mb-2 flex items-center gap-2">
-            <span className="w-1 h-1 bg-cyber-blue rounded-full"></span> Expertise_Primary
+            <span className="w-1 h-1 bg-cyber-blue rounded-full"></span> Sector_Focus
           </div>
-          <div className="text-3xl font-black text-cyber-green">UNITY_DEFENSE</div>
+          <div className="text-2xl sm:text-3xl font-black text-cyber-green italic">DEFENSE_R&D</div>
         </div>
         <div>
           <div className="text-cyber-blue/40 text-[10px] font-bold uppercase tracking-widest mb-2 flex items-center gap-2">
-            <span className="w-1 h-1 bg-cyber-blue rounded-full"></span> Logic_Layer
+            <span className="w-1 h-1 bg-cyber-blue rounded-full"></span> Platform_Lead
           </div>
-          <div className="text-3xl font-black text-cyber-blue">REACT_SAAS</div>
+          <div className="text-2xl sm:text-3xl font-black text-cyber-blue italic">UNITY_SYSTEMS</div>
         </div>
       </div>
 
@@ -695,14 +809,25 @@ const Home = () => {
       <CareerTimeline />
 
       {/* Featured Projects */}
-      <section id="core">
+      <section id="core" className="mb-32">
         <div className="flex items-center space-x-4 mb-12">
           <div className="w-12 h-px bg-cyber-blue/30"></div>
           <h2 className="text-xl font-black tracking-tighter uppercase italic">
-            <ScrambledText text="Featured_Systems" />
+            <ScrambledText text="Mission_Operational_Systems" />
           </h2>
         </div>
         <ProjectGrid />
+      </section>
+
+      {/* Leadership Profile */}
+      <section className="mb-32 flex flex-col items-center">
+        <div className="text-center mb-16">
+          <div className="text-[10px] font-black text-cyber-blue/40 tracking-[0.5em] uppercase mb-4">// System_Leadership //</div>
+          <h2 className="text-3xl font-black italic uppercase">Principal_Dossier</h2>
+        </div>
+        <div className="w-full flex justify-center">
+          <ProfileCard />
+        </div>
       </section>
 
       {/* Terminal Footer */}
