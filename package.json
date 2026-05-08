@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://r2dapps.github.io/razeltech-hub/",
+  "homepage": "https://razeltech.github.io/razeltech/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -15,6 +15,7 @@
   "dependencies": {
     "clsx": "^2.1.1",
     "framer-motion": "^12.38.0",
+    "gsap": "^3.15.0",
     "lucide-react": "^0.474.0",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
