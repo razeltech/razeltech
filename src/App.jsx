@@ -8,11 +8,7 @@ import {
   Code2, 
   Box, 
   Zap, 
-  ExternalLink,
-  ShieldAlert,
-  ChevronUp,
-  Menu,
-  X
+  ChevronUp
 } from 'lucide-react';
 import CyberGrid from './components/CyberGrid';
 import ShapeGrid from './components/ShapeGrid';
@@ -198,10 +194,15 @@ const Layout = ({ children }) => {
 
           {/* Mobile Menu Toggle */}
           <button 
-            className="md:hidden p-2 text-cyber-blue hover:text-white transition-colors"
+            className="md:hidden p-2 text-cyber-blue hover:text-white transition-colors z-50"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle Menu"
           >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMenuOpen ? (
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            ) : (
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            )}
           </button>
         </nav>
 
@@ -296,7 +297,7 @@ const ScrambledText = ({ text }) => {
 const NotFound = () => (
   <div className="max-w-7xl mx-auto px-6 py-40 text-center">
     <div className="inline-flex items-center space-x-2 text-red-500 text-[10px] font-black tracking-[0.4em] mb-12 uppercase">
-      <ShieldAlert size={14} />
+      <ShieldAlertIcon size={14} />
       <span>Error_404 // Access_Denied // Connection_Lost</span>
     </div>
     <h1 className="text-6xl md:text-9xl font-black tracking-tighter mb-12 italic uppercase">
@@ -346,6 +347,14 @@ const LinkedinIcon = ({ size = 24, className = "" }) => (
   >
     <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
   </svg>
+);
+
+const ShieldAlertIcon = ({ size = 24, className = "" }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+);
+
+const ExternalLinkIcon = ({ size = 24, className = "" }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
 );
 
 const ScrollToTop = () => {
@@ -578,11 +587,11 @@ const SpotlightCard = ({ project }) => {
                 className="flex items-center space-x-2 text-[11px] font-black uppercase tracking-widest text-cyber-blue hover:text-white transition-all"
               >
                 <span>Initialize_Interface</span>
-                <ExternalLink size={14} />
+                <ExternalLinkIcon size={14} />
               </a>
             ) : (
               <div className="flex items-center space-x-2 text-[11px] font-black uppercase tracking-widest text-red-500/50">
-                <ShieldAlert size={14} />
+                <ShieldAlertIcon size={14} />
                 <span>Access_Restricted</span>
               </div>
             )}
