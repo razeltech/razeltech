@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { HashRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { 
@@ -10,8 +10,8 @@ import {
   Zap, 
   ChevronUp
 } from 'lucide-react';
-import CyberGrid from './components/CyberGrid';
-import ShapeGrid from './components/ShapeGrid';
+const CyberGrid = lazy(() => import('./components/CyberGrid'));
+const ShapeGrid = lazy(() => import('./components/ShapeGrid'));
 import DotField from './components/DotField';
 import BorderGlow from './components/BorderGlow';
 import ScrollReveal from './components/ScrollReveal';
@@ -180,26 +180,19 @@ const Layout = ({ children }) => {
 
       {/* RAZEL_ENGINE::Composite_Background_Layer */}
       <div className="fixed inset-0 -z-10 overflow-hidden">
-        <ShapeGrid 
-          speed={0.2} 
-          squareSize={50}
-          direction='diagonal'
-          borderColor='rgba(0, 243, 255, 0.08)'
-          hoverFillColor='rgba(0, 243, 255, 0.15)'
-          hoverTrailAmount={10}
-        />
-        {/* <div className="absolute inset-0">
-          <DotField 
-            mouseX={rawMouse.x} 
-            mouseY={rawMouse.y}
-            dotSpacing={30}
-            dotRadius={1.2}
-            glowColor="rgba(0, 243, 255, 0.3)"
+        <Suspense fallback={<div className="absolute inset-0 bg-obsidian" />}>
+          <ShapeGrid 
+            speed={0.2} 
+            squareSize={50}
+            direction='diagonal'
+            borderColor='rgba(0, 243, 255, 0.08)'
+            hoverFillColor='rgba(0, 243, 255, 0.15)'
+            hoverTrailAmount={10}
           />
-        </div> */}
-        <div className="absolute inset-0">
-          <CyberGrid />
-        </div>
+          <div className="absolute inset-0">
+            <CyberGrid />
+          </div>
+        </Suspense>
         {/* Cinematic Vignette Overlay */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(5,5,5,0.9)_100%)] pointer-events-none" />
       </div>
@@ -453,11 +446,11 @@ const ProfileCard = () => (
       className="bg-cyber-blue/5 border border-cyber-blue/10 p-8 rounded-lg backdrop-blur-md w-full lg:w-80 relative overflow-hidden"
     >
       <div className="flex items-center space-x-4 mb-8">
-        <div className="w-12 h-12 bg-cyber-blue/10 border border-cyber-blue/30 flex items-center justify-center rounded-lg">
+        <div className="w-12 h-12 bg-cyber-blue/10 border border-cyber-blue/30 flex items-center justify-center rounded-lg shrink-0">
           <Cpu className="text-cyber-blue" size={24} />
         </div>
         <div>
-          <div className="text-[10px] font-bold text-cyber-blue/60 uppercase tracking-widest">Lead_Systems_Architect</div>
+          <div className="text-[10px] font-bold text-cyber-blue/60 uppercase tracking-widest">Founder & CEO // Lead_Systems_Architect</div>
           <div className="text-sm font-black italic uppercase">Mr. V. Raja Vamsi Dhar</div>
         </div>
       </div>
@@ -733,9 +726,9 @@ const Home = () => {
             <Zap size={12} />
             <span className="truncate">Secure_Link_Established // razel_tech // industrial_division</span>
           </div>
-          <h1 className="text-4xl md:text-8xl font-black tracking-tighter mb-6 leading-[0.9] italic uppercase overflow-hidden">
-            <span className="inline-block"><ScrambledText text="PRECISION" /></span><br />
-            <span className="text-cyber-blue terminal-text inline-block">
+          <h1 className="text-[11vw] sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter mb-6 leading-[0.9] italic uppercase w-full max-w-full">
+            <span className="inline-block break-words max-w-full"><ScrambledText text="PRECISION" /></span><br />
+            <span className="text-cyber-blue terminal-text inline-block break-words max-w-full">
               <ScrambledText text="SYSTEMS_ENGINEERING" />
             </span>
           </h1>
