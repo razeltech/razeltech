@@ -726,9 +726,9 @@ const Home = () => {
             <Zap size={12} />
             <span className="truncate">Secure_Link_Established // razel_tech // industrial_division</span>
           </div>
-          <h1 className="text-[11vw] sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter mb-6 leading-[0.9] italic uppercase w-full max-w-full">
-            <span className="inline-block break-words max-w-full"><ScrambledText text="PRECISION" /></span><br />
-            <span className="text-cyber-blue terminal-text inline-block break-words max-w-full">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tighter mb-6 leading-[0.9] italic uppercase w-full">
+            <span className="inline-block"><ScrambledText text="PRECISION" /></span><br />
+            <span className="text-cyber-blue terminal-text inline-block mt-2">
               <ScrambledText text="SYSTEMS_ENGINEERING" />
             </span>
           </h1>
