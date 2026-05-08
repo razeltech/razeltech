@@ -457,7 +457,9 @@ const CareerTimeline = () => {
     <section id="timeline" className="mb-32">
       <div className="flex items-center space-x-4 mb-16">
         <div className="w-12 h-px bg-cyber-blue/30"></div>
-        <h2 className="text-xl font-black tracking-tighter uppercase italic">Career_Log</h2>
+        <h2 className="text-xl font-black tracking-tighter uppercase italic">
+          <ScrambledText text="Career_Log" />
+        </h2>
       </div>
 
       <div className="relative border-l border-cyber-blue/20 ml-4 md:ml-8 space-y-12 pb-8">
@@ -488,7 +490,9 @@ const CareerTimeline = () => {
               </div>
             </div>
 
-            <h3 className="text-2xl font-black tracking-tight italic mb-1">{item.role}</h3>
+            <h3 className="text-2xl font-black tracking-tight italic mb-1">
+              <ScrambledText text={item.role} />
+            </h3>
             <div className="text-cyber-green text-[11px] font-bold tracking-widest mb-4 uppercase">@ {item.company}</div>
             
             <ScrollReveal baseOpacity={0.15} blurStrength={3} containerClassName="max-w-2xl">
@@ -610,7 +614,9 @@ const DossierPage = ({ title, type }) => {
       <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-16 gap-4">
         <div className="flex items-center space-x-4">
           <div className="w-12 h-px bg-cyber-blue/30"></div>
-          <h2 className="text-3xl font-black tracking-tighter uppercase italic">Dossier::{title}</h2>
+          <h2 className="text-3xl font-black tracking-tighter uppercase italic">
+            Dossier::<ScrambledText text={title} />
+          </h2>
         </div>
         <div className="text-[10px] font-mono text-cyber-blue/30 tracking-widest">
           ACCESS_LEVEL::LVL_04 // SCAN_TIME::0.003ms
@@ -692,7 +698,9 @@ const Home = () => {
       <section id="core">
         <div className="flex items-center space-x-4 mb-12">
           <div className="w-12 h-px bg-cyber-blue/30"></div>
-          <h2 className="text-xl font-black tracking-tighter uppercase italic">Featured_Systems</h2>
+          <h2 className="text-xl font-black tracking-tighter uppercase italic">
+            <ScrambledText text="Featured_Systems" />
+          </h2>
         </div>
         <ProjectGrid />
       </section>
