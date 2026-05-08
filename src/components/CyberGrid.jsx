@@ -76,8 +76,9 @@ const CyberGrid = () => {
     const ctx = canvas.getContext('2d');
     let animationFrameId;
 
-    const particleCount = 200; // Balanced for performance and density
-    const connectionDistance = 160;
+    const isMobile = window.innerWidth < 768;
+    const particleCount = isMobile ? 80 : 200; 
+    const connectionDistance = isMobile ? 120 : 160;
 
     const init = () => {
       canvas.width = window.innerWidth;

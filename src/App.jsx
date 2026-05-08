@@ -12,7 +12,9 @@ import {
   ShieldAlert,
   ChevronUp,
   Github,
-  Linkedin
+  Linkedin,
+  Menu,
+  X
 } from 'lucide-react';
 import CyberGrid from './components/CyberGrid';
 import ShapeGrid from './components/ShapeGrid';
@@ -131,6 +133,7 @@ const Layout = ({ children }) => {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   const [rawMouse, setRawMouse] = useState({ x: 0, y: 0 });
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const springConfig = { damping: 25, stiffness: 700 };
   const smoothX = useSpring(mouseX, springConfig);
@@ -180,27 +183,84 @@ const Layout = ({ children }) => {
       <CustomCursor mouseX={smoothX} mouseY={smoothY} />
       
       <div className="relative z-10">
-        <nav className="p-6 border-b border-cyber-blue/20 flex justify-between items-center backdrop-blur-sm sticky top-0 z-50 bg-obsidian/80">
-          <Link to="/" className="flex items-center space-x-3 group">
-            <div className="w-10 h-10 flex items-center justify-center rounded overflow-hidden transition-transform duration-300 group-hover:scale-110">
+        <nav className="p-4 md:p-6 border-b border-cyber-blue/20 flex justify-between items-center backdrop-blur-md sticky top-0 z-50 bg-obsidian/80">
+          <Link to="/" className="flex items-center space-x-2 md:space-x-3 group" onClick={() => setIsMenuOpen(false)}>
+            <div className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded overflow-hidden transition-transform duration-300 group-hover:scale-110">
               <img src="./logo.png" alt="RazelTech Logo" className="w-full h-full object-contain" />
             </div>
-            <span className="font-black tracking-tighter text-2xl terminal-text group-hover:text-white transition-colors uppercase">RAZEL TECH</span>
+            <span className="font-black tracking-tighter text-lg md:text-2xl terminal-text group-hover:text-white transition-colors uppercase">RAZEL TECH</span>
           </Link>
+          
+          {/* Desktop Nav */}
           <div className="hidden md:flex space-x-8 text-[10px] font-bold tracking-widest text-cyber-blue/60 uppercase">
             <Link to="/core" className="hover:text-cyber-blue transition-colors border-b border-transparent hover:border-cyber-blue pb-1">[ CORE_ENGINES ]</Link>
             <Link to="/logic" className="hover:text-cyber-blue transition-colors border-b border-transparent hover:border-cyber-blue pb-1">[ LOGIC_DATA ]</Link>
             <Link to="/labs" className="hover:text-cyber-blue transition-colors border-b border-transparent hover:border-cyber-blue pb-1">[ LABS ]</Link>
           </div>
+
+          {/* Mobile Menu Toggle */}
+          <button 
+            className="md:hidden p-2 text-cyber-blue hover:text-white transition-colors"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </nav>
+
+        {/* Mobile Menu Overlay */}
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="fixed inset-0 z-40 bg-obsidian/95 backdrop-blur-xl md:hidden pt-24 px-6"
+            >
+              <div className="flex flex-col space-y-8 text-center">
+                <Link 
+                  to="/core" 
+                  onClick={() => setIsMenuOpen(false)}
+                  className="text-2xl font-black tracking-[0.2em] text-cyber-blue uppercase"
+                >
+                  [ CORE_ENGINES ]
+                </Link>
+                <Link 
+                  to="/logic" 
+                  onClick={() => setIsMenuOpen(false)}
+                  className="text-2xl font-black tracking-[0.2em] text-cyber-blue uppercase"
+                >
+                  [ LOGIC_DATA ]
+                </Link>
+                <Link 
+                  to="/labs" 
+                  onClick={() => setIsMenuOpen(false)}
+                  className="text-2xl font-black tracking-[0.2em] text-cyber-blue uppercase"
+                >
+                  [ LABS ]
+                </Link>
+                <div className="pt-12 border-t border-cyber-blue/10">
+                  <div className="text-[10px] text-cyber-blue/40 tracking-widest uppercase mb-4">Secure_Session_Active</div>
+                  <div className="flex justify-center space-x-6">
+                    <a href="https://linkedin.com" className="text-cyber-blue/60 hover:text-white transition-colors"><Linkedin size={20} /></a>
+                    <a href="https://github.com" className="text-cyber-blue/60 hover:text-white transition-colors"><Github size={20} /></a>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
         <main className="relative z-10">{children}</main>
         <ScrollToTop />
-        <footer className="p-12 border-t border-cyber-blue/10 text-center text-[10px] text-cyber-blue/40 tracking-[0.3em] uppercase">
+        <footer className="p-8 md:p-12 border-t border-cyber-blue/10 text-center text-[8px] md:text-[10px] text-cyber-blue/40 tracking-[0.2em] md:tracking-[0.3em] uppercase">
           <div className="mb-4 text-cyber-blue/20">SYSTEM_ACCESS::AUTHENTICATED // BUFFER_STATUS::SYNCED</div>
-          <div className="mb-2 text-cyber-blue/10 flex items-center justify-center space-x-2">
+          <div className="mb-2 text-cyber-blue/10 flex flex-col md:flex-row items-center justify-center gap-2">
             <span>MSME_REG::UDYAM-AP-04-0112603</span>
-            <img src="./verified_badge.png" alt="Verified" className="w-3 h-3 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all cursor-help" title="MSME Certified" />
-            <span>// RAZEL_TECH_SOLUTIONS</span>
+            <div className="flex items-center space-x-2">
+              <img src="./verified_badge.png" alt="Verified" className="w-3 h-3 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all cursor-help" title="MSME Certified" />
+              <span className="md:hidden opacity-40">//</span>
+            </div>
+            <span>RAZEL_TECH_SOLUTIONS</span>
           </div>
           © RAZELTECH // SYSTEMS_EST_2025 // ALL_RIGHTS_RESERVED
         </footer>
@@ -536,28 +596,28 @@ const Home = () => {
   return (
     <div className="max-w-7xl mx-auto px-6 py-20">
       {/* Hero Section */}
-      <section className="mb-32 flex flex-col lg:flex-row lg:items-start lg:justify-between gap-12">
+      <section className="mb-16 md:mb-32 flex flex-col lg:flex-row lg:items-start lg:justify-between gap-12">
         <div className="max-w-3xl">
-          <div className="inline-flex items-center space-x-2 text-cyber-green text-[10px] font-bold tracking-[0.2em] mb-6 uppercase">
+          <div className="inline-flex items-center space-x-2 text-cyber-green text-[8px] md:text-[10px] font-bold tracking-[0.2em] mb-6 uppercase">
             <Zap size={12} />
-            <span>Connection_Established // raja_vamsi_dhar // system_lead</span>
+            <span className="truncate">Connection_Established // raja_vamsi_dhar</span>
           </div>
-          <h1 className="text-5xl md:text-7xl font-black tracking-tighter mb-4 leading-none italic uppercase">
+          <h1 className="text-4xl md:text-7xl font-black tracking-tighter mb-4 leading-[0.9] italic uppercase">
             <ScrambledText text="PRINCIPAL" /><br />
             <span className="text-cyber-blue terminal-text">
               <ScrambledText text="SYSTEMS_ENGINEER" />
             </span>
           </h1>
-          <div className="mb-10 flex items-center space-x-4">
-             <div className="h-px w-8 bg-cyber-blue/50"></div>
-             <span className="text-cyber-blue/60 font-bold tracking-[0.3em] text-[10px] uppercase">Raja Vamsi Dhar // Defense Simulation Specialist</span>
+          <div className="mb-8 md:mb-10 flex items-center space-x-4">
+             <div className="h-px w-6 md:w-8 bg-cyber-blue/50"></div>
+             <span className="text-cyber-blue/60 font-bold tracking-[0.2em] md:tracking-[0.3em] text-[8px] md:text-[10px] uppercase">Raja Vamsi Dhar // Defense Simulation Specialist</span>
           </div>
-          <p className="text-lg md:text-xl text-cyber-blue/60 max-w-2xl font-medium leading-relaxed mb-12">
+          <p className="text-base md:text-xl text-cyber-blue/60 max-w-2xl font-medium leading-relaxed mb-10 md:mb-12">
             <TypewriterText text="Architecting mission-critical Unity simulations and high-fidelity industrial BIM pipelines. Focused on zero-latency spatial intelligence and defense-grade immersive systems." />
           </p>
         </div>
         
-        <div className="lg:mt-12">
+        <div className="lg:mt-12 w-full lg:w-auto">
           <ProfileCard />
         </div>
       </section>
