@@ -450,8 +450,8 @@ const ProfileCard = () => (
           <Cpu className="text-cyber-blue" size={24} />
         </div>
         <div>
-          <div className="text-[10px] font-bold text-cyber-blue/60 uppercase tracking-widest">Founder & CEO // Lead_Systems_Architect</div>
-          <div className="text-sm font-black italic uppercase">Mr. V. Raja Vamsi Dhar</div>
+          <div className="text-[10px] font-bold text-cyber-blue/60 uppercase tracking-widest mb-1">Founder & CEO // Lead_Systems_Architect</div>
+          <div className="text-xl md:text-2xl font-black tracking-tighter uppercase italic text-white leading-none">RAJA VAMSI DHAR V</div>
         </div>
       </div>
 
@@ -816,7 +816,7 @@ const Home = () => {
       <section className="mb-32 flex flex-col items-center">
         <div className="text-center mb-16">
           <div className="text-[10px] font-black text-cyber-blue/40 tracking-[0.5em] uppercase mb-4">// System_Leadership //</div>
-          <h2 className="text-3xl font-black italic uppercase">Principal_Dossier</h2>
+          <h2 className="text-3xl font-black italic uppercase">CEO & Founder Profile</h2>
         </div>
         <div className="w-full flex justify-center">
           <ProfileCard />
