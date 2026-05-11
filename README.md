@@ -1,7 +1,8 @@
 <div align="center">
-  <h1>RAJA VAMSI DHAR V</h1>
+  <img src="https://razeltech.github.io/razeltech/logo.png" width="120" alt="RazelTech Logo" />
+  <h1>RAZEL TECH</h1>
   <p><b>Founder & CEO // Principal Systems Architect</b></p>
-  <p><i>Defense Simulators • Industrial XR • Enterprise SaaS</i></p>
+  <h3>RAJA VAMSI DHAR V</h3>
 
   <p>
     <img src="https://img.shields.io/badge/MSME-Certified-00f3ff?style=for-the-badge&logo=shield" alt="MSME Certified" />
