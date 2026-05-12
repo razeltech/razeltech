@@ -64,6 +64,15 @@ const PROJECTS = [
     status: 'STABLE'
   },
   {
+    id: 'showroom-os',
+    title: 'SHOWROOM_OS_CRM',
+    type: 'LABS',
+    tags: ['Next.js', 'CRM', 'Automotive'],
+    description: 'Enterprise Sales CRM for Hyundai dealerships. Real-time lead tracking, inventory management, and revenue analytics for high-volume showrooms.',
+    link: 'https://showroomos.vercel.app/',
+    status: 'OPERATIONAL'
+  },
+  {
     id: 'medicore-pro',
     title: 'MEDICORE_PRO_SaaS',
     type: 'LABS',
@@ -761,7 +770,7 @@ const Home = () => {
         <div className="p-8 border border-cyber-blue/10 bg-cyber-blue/5 rounded-lg">
           <div className="text-cyber-blue mb-4"><Box size={32} /></div>
           <h3 className="text-lg font-black uppercase mb-2">Industrial_SaaS</h3>
-          <p className="text-xs text-cyber-blue/60 leading-relaxed uppercase tracking-wider">MediCorePro clinical intelligence, healthcare dashboards, and enterprise CRM ecosystem development.</p>
+          <p className="text-xs text-cyber-blue/60 leading-relaxed uppercase tracking-wider">ShowroomOS automotive CRM, MediCorePro clinical intelligence, and enterprise healthcare dashboards.</p>
         </div>
         <div className="p-8 border border-cyber-blue/10 bg-cyber-blue/5 rounded-lg">
           <div className="text-cyber-blue mb-4"><Zap size={32} /></div>
