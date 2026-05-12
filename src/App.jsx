@@ -210,7 +210,7 @@ const Layout = ({ children }) => {
       <CustomCursor mouseX={smoothX} mouseY={smoothY} />
       
       <div className="relative z-10">
-        <nav className="px-4 py-3 md:px-6 md:py-6 border-b border-cyber-blue/20 flex justify-between items-center backdrop-blur-md fixed top-0 left-0 w-full z-[100] bg-obsidian/80">
+        <nav className="px-4 py-3 md:px-6 md:py-6 border-b border-cyber-blue/20 flex justify-between items-center backdrop-blur-md fixed top-0 left-0 w-full z-[100] bg-obsidian/80 transform-gpu">
           <Link to="/" className="flex items-center space-x-1.5 md:space-x-3 group shrink-0" onClick={() => setIsMenuOpen(false)}>
             <div className="w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 flex items-center justify-center rounded overflow-hidden transition-transform duration-300 group-hover:scale-110">
               <img src="./logo.png" alt="RazelTech Logo" className="w-full h-full object-contain" />
@@ -284,7 +284,7 @@ const Layout = ({ children }) => {
           )}
         </AnimatePresence>
 
-        <main className="relative z-10 pt-[53px] md:pt-[88px]">{children}</main>
+        <main className="relative z-10 pt-[53px] md:pt-[88px] transform-gpu">{children}</main>
         <ScrollToTop />
         <footer className="p-8 md:p-12 border-t border-cyber-blue/10 text-center text-[8px] md:text-[10px] text-cyber-blue/40 tracking-[0.2em] md:tracking-[0.3em] uppercase">
           <div className="mb-4 text-cyber-blue/20">SYSTEM_ACCESS::AUTHENTICATED // BUFFER_STATUS::SYNCED</div>
@@ -331,7 +331,7 @@ const ScrambledText = ({ text }) => {
   return (
     <span 
       onMouseEnter={scramble} 
-      className="cursor-pointer inline font-mono break-all sm:break-normal"
+      className="cursor-pointer inline-block font-mono max-w-full break-all sm:break-normal transform-gpu"
     >
       {displayedText}
     </span>
