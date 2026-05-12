@@ -1,6 +1,7 @@
 import { useEffect, useRef, useMemo } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
 import './ScrollReveal.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -35,39 +36,74 @@ const ScrollReveal = ({
     const el = containerRef.current;
     if (!el) return;
 
-    const ctx = gsap.context(() => {
-      const words = el.querySelectorAll('.word');
+    const scroller = scrollContainerRef && scrollContainerRef.current ? scrollContainerRef.current : window;
 
+    const ctx = gsap.context(() => {
+      // Container rotation
       gsap.fromTo(
-        words,
+        el,
+        { transformOrigin: '0% 50%', rotate: baseRotation },
         {
-          opacity: baseOpacity,
-          rotateX: baseRotation,
-          filter: enableBlur ? `blur(${blurStrength}px)` : 'none'
-        },
-        {
-          opacity: 1,
-          rotateX: 0,
-          filter: 'blur(0px)',
-          stagger: 0.1,
+          ease: 'none',
+          rotate: 0,
           scrollTrigger: {
             trigger: el,
-            start: 'top 90%',
-            end: wordAnimationEnd || 'bottom 60%',
-            scrub: true,
-            container: scrollContainerRef?.current || undefined
+            scroller,
+            start: 'top bottom',
+            end: rotationEnd,
+            scrub: true
           }
         }
       );
+
+      const wordElements = el.querySelectorAll('.word');
+
+      // Word opacity
+      gsap.fromTo(
+        wordElements,
+        { opacity: baseOpacity, willChange: 'opacity' },
+        {
+          ease: 'none',
+          opacity: 1,
+          stagger: 0.05,
+          scrollTrigger: {
+            trigger: el,
+            scroller,
+            start: 'top bottom-=20%',
+            end: wordAnimationEnd,
+            scrub: true
+          }
+        }
+      );
+
+      // Word blur
+      if (enableBlur) {
+        gsap.fromTo(
+          wordElements,
+          { filter: `blur(${blurStrength}px)` },
+          {
+            ease: 'none',
+            filter: 'blur(0px)',
+            stagger: 0.05,
+            scrollTrigger: {
+              trigger: el,
+              scroller,
+              start: 'top bottom-=20%',
+              end: wordAnimationEnd,
+              scrub: true
+            }
+          }
+        );
+      }
     }, el);
 
     return () => ctx.revert();
-  }, [scrollContainerRef, enableBlur, baseRotation, baseOpacity, wordAnimationEnd, blurStrength]);
+  }, [scrollContainerRef, enableBlur, baseRotation, baseOpacity, rotationEnd, wordAnimationEnd, blurStrength]);
 
   return (
-    <div ref={containerRef} className={`scroll-reveal ${containerClassName}`}>
+    <h2 ref={containerRef} className={`scroll-reveal ${containerClassName}`}>
       <p className={`scroll-reveal-text ${textClassName}`}>{splitText}</p>
-    </div>
+    </h2>
   );
 };
 

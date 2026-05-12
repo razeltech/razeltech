@@ -1,15 +1,13 @@
 .scroll-reveal {
   margin: 1rem 0;
-  perspective: 1000px;
 }
 
 .scroll-reveal-text {
   font-size: inherit;
   line-height: 1.6;
+  font-weight: inherit;
 }
 
 .word {
   display: inline-block;
-  transform-style: preserve-3d;
-  will-change: transform, opacity, filter;
 }

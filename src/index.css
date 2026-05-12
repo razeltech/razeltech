@@ -115,3 +115,12 @@ body {
   transform: translate(-50%, -50%);
   box-shadow: 0 0 10px var(--color-cyber-blue);
 }
+
+/* Scrollbar Utilities */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
