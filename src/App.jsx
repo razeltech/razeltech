@@ -332,6 +332,7 @@ const ScrambledText = ({ text }) => {
     <span 
       onMouseEnter={scramble} 
       className="cursor-pointer inline-block font-mono max-w-full break-all sm:break-normal transform-gpu"
+      style={{ minWidth: `${text.length}ch`, textAlign: 'left' }}
     >
       {displayedText}
     </span>
