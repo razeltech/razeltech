@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 const CyberGrid = lazy(() => import('./components/CyberGrid'));
 const ShapeGrid = lazy(() => import('./components/ShapeGrid'));
+const DigitalCard = lazy(() => import('./components/DigitalCard'));
 import DotField from './components/DotField';
 import BorderGlow from './components/BorderGlow';
 import ScrollReveal from './components/ScrollReveal';
@@ -62,6 +63,24 @@ const PROJECTS = [
     description: 'Professional interior painting demonstration platform with high-fidelity color accuracy.',
     link: 'https://r2dapps.github.io/PainterProStudio/',
     status: 'STABLE'
+  },
+  {
+    id: 'contenthub',
+    title: 'CONTENT_HUB_OS',
+    type: 'LABS',
+    tags: ['React', 'Firebase', 'Marketing', 'Automation'],
+    description: 'The Multi-Tenant Marketing OS. A secure, premium marketing suite designed to centralize media assets, automate multi-platform scheduling, and facilitate collaboration.',
+    link: 'https://contenthub-demo.vercel.app/',
+    status: 'OPERATIONAL'
+  },
+  {
+    id: 'moodstreak',
+    title: 'MOODSTREAK_JOURNAL',
+    type: 'LABS',
+    tags: ['React', 'Mindfulness', 'Canvas', 'PWA'],
+    description: 'Premium minimalist digital journaling application designed for mindfulness and creative expression. Supports rich text, voice recordings, and sketches.',
+    link: 'https://moodstreak.vercel.app/',
+    status: 'ACTIVE'
   },
   {
     id: 'showroom-os',
@@ -223,6 +242,7 @@ const Layout = ({ children }) => {
             <Link to="/core" className="hover:text-cyber-blue transition-colors border-b border-transparent hover:border-cyber-blue pb-1">[ CORE_ENGINES ]</Link>
             <Link to="/logic" className="hover:text-cyber-blue transition-colors border-b border-transparent hover:border-cyber-blue pb-1">[ LOGIC_DATA ]</Link>
             <Link to="/labs" className="hover:text-cyber-blue transition-colors border-b border-transparent hover:border-cyber-blue pb-1">[ LABS ]</Link>
+            <Link to="/vcard" className="hover:text-cyber-blue transition-colors border-b border-transparent hover:border-cyber-blue pb-1">[ VCARD ]</Link>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -271,6 +291,13 @@ const Layout = ({ children }) => {
                   className="text-2xl font-black tracking-[0.2em] text-cyber-blue uppercase"
                 >
                   [ LABS ]
+                </Link>
+                <Link 
+                  to="/vcard" 
+                  onClick={() => setIsMenuOpen(false)}
+                  className="text-2xl font-black tracking-[0.2em] text-cyber-blue uppercase"
+                >
+                  [ VCARD ]
                 </Link>
                 <div className="pt-12 border-t border-cyber-blue/10">
                   <div className="text-[10px] text-cyber-blue/40 tracking-widest uppercase mb-4">Secure_Session_Active</div>
@@ -490,6 +517,12 @@ const ProfileCard = () => (
          <div className="text-[8px] font-bold text-cyber-blue/40 tracking-widest uppercase text-center border border-cyber-blue/10 py-2 rounded">
             MSME_REG::UDYAM-AP-04-0112603 // LICENSED_STUDIO
          </div>
+         <Link 
+            to="/vcard" 
+            className="mt-3 block text-[8px] font-black text-center text-cyber-blue hover:text-white border border-cyber-blue/30 hover:bg-cyber-blue/15 py-2.5 rounded transition-all tracking-[0.2em] uppercase"
+          >
+             [ INITIALIZE_DIGITAL_VCARD ]
+          </Link>
       </div>
     </motion.div>
   </BorderGlow>
@@ -863,6 +896,7 @@ function App() {
           <Route path="/core" element={<DossierPage title="CORE_ENGINES" type="CORE_ENGINE" />} />
           <Route path="/logic" element={<DossierPage title="LOGIC_DATA" type="LOGIC_DATA" />} />
           <Route path="/labs" element={<DossierPage title="LABS" type="LABS" />} />
+          <Route path="/vcard" element={<DigitalCard />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Layout>
