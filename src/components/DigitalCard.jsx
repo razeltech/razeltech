@@ -50,6 +50,14 @@ export default function DigitalCard() {
     address: "Andhra Pradesh, India"
   };
 
+  useEffect(() => {
+    const originalTitle = document.title;
+    document.title = `${contact.fullName} | ${contact.orgName} Digital Business Card`;
+    return () => {
+      document.title = originalTitle;
+    };
+  }, [contact.fullName, contact.orgName]);
+
   const cardUrl = window.location.href;
   const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&color=00f3ff&bgcolor=050505&data=${encodeURIComponent(cardUrl)}`;
 
