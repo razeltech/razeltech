@@ -13,6 +13,7 @@ import {
 const CyberGrid = lazy(() => import('./components/CyberGrid'));
 const ShapeGrid = lazy(() => import('./components/ShapeGrid'));
 const DigitalCard = lazy(() => import('./components/DigitalCard'));
+const CapabilityDeck = lazy(() => import('./components/CapabilityDeck'));
 import DotField from './components/DotField';
 import BorderGlow from './components/BorderGlow';
 import ScrollReveal from './components/ScrollReveal';
@@ -238,10 +239,11 @@ const Layout = ({ children }) => {
           </Link>
           
           {/* Desktop Nav */}
-          <div className="hidden md:flex space-x-8 text-[10px] font-bold tracking-widest text-cyber-blue/60 uppercase">
+          <div className="hidden md:flex space-x-6 text-[10px] font-bold tracking-widest text-cyber-blue/60 uppercase">
             <Link to="/core" className="hover:text-cyber-blue transition-colors border-b border-transparent hover:border-cyber-blue pb-1">[ CORE_ENGINES ]</Link>
             <Link to="/logic" className="hover:text-cyber-blue transition-colors border-b border-transparent hover:border-cyber-blue pb-1">[ LOGIC_DATA ]</Link>
             <Link to="/labs" className="hover:text-cyber-blue transition-colors border-b border-transparent hover:border-cyber-blue pb-1">[ LABS ]</Link>
+            <Link to="/deck" className="hover:text-cyber-blue transition-colors border-b border-transparent hover:border-cyber-blue pb-1">[ CAPABILITY_DECK ]</Link>
             <Link to="/vcard" className="hover:text-cyber-blue transition-colors border-b border-transparent hover:border-cyber-blue pb-1">[ VCARD ]</Link>
           </div>
 
@@ -291,6 +293,13 @@ const Layout = ({ children }) => {
                   className="text-2xl font-black tracking-[0.2em] text-cyber-blue uppercase"
                 >
                   [ LABS ]
+                </Link>
+                <Link 
+                  to="/deck" 
+                  onClick={() => setIsMenuOpen(false)}
+                  className="text-2xl font-black tracking-[0.2em] text-cyber-blue uppercase"
+                >
+                  [ CAPABILITY_DECK ]
                 </Link>
                 <Link 
                   to="/vcard" 
@@ -517,9 +526,15 @@ const ProfileCard = () => (
          <div className="text-[8px] font-bold text-cyber-blue/40 tracking-widest uppercase text-center border border-cyber-blue/10 py-2 rounded">
             MSME_REG::UDYAM-AP-04-0112603 // LICENSED_STUDIO
          </div>
-         <Link 
-            to="/vcard" 
+          <Link 
+            to="/deck" 
             className="mt-3 block text-[8px] font-black text-center text-cyber-blue hover:text-white border border-cyber-blue/30 hover:bg-cyber-blue/15 py-2.5 rounded transition-all tracking-[0.2em] uppercase"
+          >
+             [ VIEW_CAPABILITY_DECK ]
+          </Link>
+          <Link 
+            to="/vcard" 
+            className="mt-2 block text-[8px] font-black text-center text-cyber-blue hover:text-white border border-cyber-blue/30 hover:bg-cyber-blue/15 py-2.5 rounded transition-all tracking-[0.2em] uppercase"
           >
              [ INITIALIZE_DIGITAL_VCARD ]
           </Link>
@@ -897,6 +912,7 @@ function App() {
           <Route path="/logic" element={<DossierPage title="LOGIC_DATA" type="LOGIC_DATA" />} />
           <Route path="/labs" element={<DossierPage title="LABS" type="LABS" />} />
           <Route path="/vcard" element={<DigitalCard />} />
+          <Route path="/deck" element={<CapabilityDeck />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Layout>
