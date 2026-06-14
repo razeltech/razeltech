@@ -82,13 +82,13 @@ export default function CapabilityDeck() {
       addLog('PDF_COMPILER::INITIALIZING_JSPDF');
       
       const pdf = new jsPDF({
-        orientation: 'portrait',
+        orientation: 'landscape', // Landscape orientation for tri-fold foldable brochure
         unit: 'mm',
         format: 'a4',
         compress: true
       });
 
-      const pages = ['brochure-page-1', 'brochure-page-2', 'brochure-page-3'];
+      const pages = ['brochure-page-1', 'brochure-page-2'];
       
       for (let i = 0; i < pages.length; i++) {
         setExportProgress(`Compiling Page ${i + 1} (4K Quality)...`);
@@ -105,7 +105,7 @@ export default function CapabilityDeck() {
         
         const imgData = canvas.toDataURL('image/png'); // Lossless PNG
         if (i > 0) pdf.addPage();
-        pdf.addImage(imgData, 'PNG', 0, 0, 210, 297, undefined, 'FAST');
+        pdf.addImage(imgData, 'PNG', 0, 0, 297, 210, undefined, 'FAST');
       }
 
       setExportProgress('Generating brochure...');
@@ -584,306 +584,333 @@ export default function CapabilityDeck() {
       */}
       <div style={{ position: 'absolute', left: '-9999px', top: '0' }}>
         
-        {/* PAGE 1 BROCHURE TEMPLATE */}
-        <div id="brochure-page-1" className="brochure-export-page" style={{ width: '794px', height: '1123px', padding: '50px', backgroundColor: '#050505', color: '#ffffff', boxSizing: 'border-box', position: 'relative', fontFamily: 'monospace', overflow: 'hidden' }}>
+        {/* PAGE 1 BROCHURE TEMPLATE (OUTSIDE SPREAD) */}
+        <div id="brochure-page-1" className="brochure-export-page" style={{ 
+          width: '1123px', 
+          height: '794px', 
+          padding: '50px 0', 
+          backgroundColor: '#050505', 
+          color: '#ffffff', 
+          boxSizing: 'border-box', 
+          position: 'relative', 
+          fontFamily: 'Consolas, Monaco, monospace', 
+          overflow: 'hidden' 
+        }}>
           
-          {/* Header Banner */}
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '2px solid #00f3ff', paddingBottom: '20px', marginBottom: '30px' }}>
-            <div style={{ display: 'flex', alignItems: 'center' }}>
-              <div style={{ width: '50px', height: '50px', borderRadius: '4px', backgroundColor: '#dcdcdc', border: '1px solid #00f3ff', display: 'flex', alignItems: 'center', justifyItems: 'center', marginRight: '15px' }}>
-                <img src="./logo.png" alt="Razel Tech" style={{ width: '40px', height: '40px', margin: 'auto', display: 'block' }} />
-              </div>
-              <div>
-                <h2 style={{ fontSize: '24px', fontWeight: '900', fontStyle: 'italic', margin: '0', color: '#ffffff' }}>RAZEL TECH</h2>
-                <p style={{ fontSize: '8px', letterSpacing: '3px', color: '#00f3ff', margin: '4px 0 0 0', textTransform: 'uppercase', fontWeight: 'bold' }}>
-                  MISSION-CRITICAL SYSTEMS & SIMULATION
-                </p>
-              </div>
-            </div>
-            <div style={{ textAlign: 'right', fontSize: '8px', color: '#7a8b9e', textTransform: 'uppercase', lineHeight: '1.4', fontWeight: 'bold' }}>
-              DOSSIER::CAPABILITY_STATEMENT <br />
-              EST::2025 // MSME CERTIFIED
-            </div>
-          </div>
+          {/* Fold Guides */}
+          <div style={{ position: 'absolute', top: 0, bottom: 0, left: '374.33px', width: '1px', borderLeft: '1px dashed #00f3ff', opacity: 0.25, zIndex: 10 }} />
+          <div style={{ position: 'absolute', top: 0, bottom: 0, left: '748.67px', width: '1px', borderLeft: '1px dashed #00f3ff', opacity: 0.25, zIndex: 10 }} />
 
-          {/* About Section */}
-          <div style={{ marginBottom: '35px' }}>
-            <h3 style={{ fontSize: '12px', fontWeight: '900', color: '#39ff14', textTransform: 'uppercase', letterSpacing: '2px', marginBottom: '10px' }}>
-              [ About Me & Firm Vision ]
-            </h3>
-            <p style={{ fontSize: '11px', color: '#d1e2f3', lineHeight: '1.6', margin: '0', textTransform: 'uppercase' }}>
-              Razel Tech is a specialized systems engineering firm founded by Raja Vamsi Dhar V, a Principal Architect and Lead Unity Developer with over 12 years of professional experience. We bridge the gap between embedded hardware mechanics and interactive software layouts, deploying defense-grade tactical simulators, high-fidelity real-time VR/AR configurations, and enterprise-grade SaaS infrastructure.
-            </p>
-          </div>
-
-          {/* Core Competencies Pillars */}
-          <div style={{ marginBottom: '35px' }}>
-            <h3 style={{ fontSize: '12px', fontWeight: '900', color: '#39ff14', textTransform: 'uppercase', letterSpacing: '2px', marginBottom: '15px' }}>
-              [ Core Engineering Pillars ]
-            </h3>
+          {/* Panels Grid */}
+          <div style={{ display: 'flex', height: '100%', boxSizing: 'border-box' }}>
             
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
-              
-              <div style={{ border: '1px solid rgba(0, 243, 255, 0.2)', backgroundColor: 'rgba(0, 243, 255, 0.03)', padding: '15px', borderRadius: '6px' }}>
-                <h4 style={{ fontSize: '11px', fontWeight: 'bold', color: '#ffffff', margin: '0 0 6px 0', fontStyle: 'italic', textTransform: 'uppercase' }}>
-                  Unity Engine & Simulation
-                </h4>
-                <p style={{ fontSize: '9px', color: '#a0aec0', margin: '0', lineHeight: '1.4', textTransform: 'uppercase' }}>
-                  Unity 2021.3 LTS core development, C# 9.0 compilation, low-level serial driver handshakes, custom graphics shaders, and Material Property Blocks optimization.
-                </p>
-              </div>
-
-              <div style={{ border: '1px solid rgba(0, 243, 255, 0.2)', backgroundColor: 'rgba(0, 243, 255, 0.03)', padding: '15px', borderRadius: '6px' }}>
-                <h4 style={{ fontSize: '11px', fontWeight: 'bold', color: '#ffffff', margin: '0 0 6px 0', fontStyle: 'italic', textTransform: 'uppercase' }}>
-                  VR, AR & Spatial Tech
-                </h4>
-                <p style={{ fontSize: '9px', color: '#a0aec0', margin: '0', lineHeight: '1.4', textTransform: 'uppercase' }}>
-                  XR Interaction Toolkit for spatial VR, AR Foundation (ARKit/ARCore) portals, high-fidelity WebAR visualizers, and WebGL Building Information Modeling (BIM) core renders.
-                </p>
-              </div>
-
-              <div style={{ border: '1px solid rgba(0, 243, 255, 0.2)', backgroundColor: 'rgba(0, 243, 255, 0.03)', padding: '15px', borderRadius: '6px' }}>
-                <h4 style={{ fontSize: '11px', fontWeight: 'bold', color: '#ffffff', margin: '0 0 6px 0', fontStyle: 'italic', textTransform: 'uppercase' }}>
-                  Multiplayer & Netcode
-                </h4>
-                <p style={{ fontSize: '9px', color: '#a0aec0', margin: '0', lineHeight: '1.4', textTransform: 'uppercase' }}>
-                  Unity Mirror, Photon Engine, socket networking, client prediction, anti-lag network sync, Portico RTI, and HLA (High Level Architecture) defense protocols.
-                </p>
-              </div>
-
-              <div style={{ border: '1px solid rgba(0, 243, 255, 0.2)', backgroundColor: 'rgba(0, 243, 255, 0.03)', padding: '15px', borderRadius: '6px' }}>
-                <h4 style={{ fontSize: '11px', fontWeight: 'bold', color: '#ffffff', margin: '0 0 6px 0', fontStyle: 'italic', textTransform: 'uppercase' }}>
-                  Enterprise SaaS Systems
-                </h4>
-                <p style={{ fontSize: '9px', color: '#a0aec0', margin: '0', lineHeight: '1.4', textTransform: 'uppercase' }}>
-                  React 19, Next.js, and Vite dashboard structures, Next.js CRM databases, medical patient telemetry grids, and automated print layouts.
-                </p>
-              </div>
-
-            </div>
-          </div>
-
-          {/* Technical Matrix */}
-          <div style={{ marginBottom: '35px' }}>
-            <h3 style={{ fontSize: '12px', fontWeight: '900', color: '#39ff14', textTransform: 'uppercase', letterSpacing: '2px', marginBottom: '10px' }}>
-              [ Technical Matrix ]
-            </h3>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr', gap: '10px', backgroundColor: 'rgba(0, 243, 255, 0.05)', border: '1px solid rgba(0, 243, 255, 0.1)', padding: '12px', borderRadius: '6px', fontSize: '9px', color: '#a0aec0' }}>
+            {/* Panel 1: Inside Flap */}
+            <div style={{ width: '374.33px', padding: '0 30px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxSizing: 'border-box' }}>
               <div>
-                <span style={{ color: '#ffffff', display: 'block', fontWeight: 'bold', marginBottom: '4px' }}>SIM_ENGINE</span>
-                UNITY 3D<br />PORTICO RTI<br />HLA NETWORKS
+                <div style={{ borderBottom: '1px solid #00f3ff', paddingBottom: '8px', marginBottom: '15px' }}>
+                  <span style={{ fontSize: '11px', fontWeight: 'bold', color: '#00f3ff', letterSpacing: '2px' }}>[ MISSION PROFILE ]</span>
+                </div>
+                
+                <p style={{ fontSize: '9.5px', color: '#d1e2f3', lineHeight: '1.5', margin: '0 0 15px 0', textTransform: 'uppercase' }}>
+                  Raja Vamsi Dhar V is a Principal Systems Architect and Lead Unity Developer with 12+ years of professional engineering tenure. Specializing in bridging the gap between embedded hardware integrations and interactive software ecosystems.
+                </p>
+
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                  <div style={{ borderLeft: '2px solid #39ff14', paddingLeft: '8px', marginBottom: '4px' }}>
+                    <span style={{ fontSize: '8.5px', fontWeight: 'bold', color: '#ffffff', display: 'block', textTransform: 'uppercase' }}>CYBER-PHYSICAL INTEGRATIONS</span>
+                    <span style={{ fontSize: '8px', color: '#a0aec0', textTransform: 'uppercase' }}>Low-level serial/UDP linkages and hardware handshake controllers.</span>
+                  </div>
+
+                  <div style={{ borderLeft: '2px solid #39ff14', paddingLeft: '8px', marginBottom: '4px' }}>
+                    <span style={{ fontSize: '8.5px', fontWeight: 'bold', color: '#ffffff', display: 'block', textTransform: 'uppercase' }}>PERFORMANCE CRITICAL</span>
+                    <span style={{ fontSize: '8px', color: '#a0aec0', textTransform: 'uppercase' }}>Unity memory profile optimization, garbage collection elimination, GC reduction.</span>
+                  </div>
+
+                  <div style={{ borderLeft: '2px solid #39ff14', paddingLeft: '8px', marginBottom: '4px' }}>
+                    <span style={{ fontSize: '8.5px', fontWeight: 'bold', color: '#ffffff', display: 'block', textTransform: 'uppercase' }}>WebGL & BIM DEPLOYMENTS</span>
+                    <span style={{ fontSize: '8px', color: '#a0aec0', textTransform: 'uppercase' }}>Real-time 3D viewers for complex architectures and dashboard telemetry.</span>
+                  </div>
+                </div>
               </div>
-              <div>
-                <span style={{ color: '#ffffff', display: 'block', fontWeight: 'bold', marginBottom: '4px' }}>MULTIPLAYER</span>
-                UNITY MIRROR<br />PHOTON ENGINE<br />TCP/UDP SOCKETS
-              </div>
-              <div>
-                <span style={{ color: '#ffffff', display: 'block', fontWeight: 'bold', marginBottom: '4px' }}>XR_DEV</span>
-                XR TOOLKIT<br />AR FOUNDATION<br />WEBGL BIM
-              </div>
-              <div>
-                <span style={{ color: '#ffffff', display: 'block', fontWeight: 'bold', marginBottom: '4px' }}>SaaS_STACK</span>
-                REACT 19<br />NEXT.JS CRM<br />VITE / TAILWIND
+
+              <div style={{ borderTop: '1px solid rgba(0, 243, 255, 0.1)', paddingTop: '10px', fontSize: '8px', color: '#566c85', letterSpacing: '1px', fontWeight: 'bold' }}>
+                RAZEL TECH // OUTSIDE FLAP
               </div>
             </div>
-          </div>
 
-          {/* Page Footer */}
-          <div style={{ position: 'absolute', bottom: '40px', left: '50px', right: '50px', display: 'flex', justifyContent: 'space-between', borderTop: '1px solid rgba(0, 243, 255, 0.1)', paddingTop: '15px', fontSize: '8px', color: '#566c85', letterSpacing: '2px', fontWeight: 'bold' }}>
-            <span>RAZEL TECH // CAPABILITY PROFILE</span>
-            <span>PAGE 01</span>
-          </div>
-
-        </div>        {/* PAGE 2 BROCHURE TEMPLATE */}
-        <div id="brochure-page-2" className="brochure-export-page" style={{ width: '794px', height: '1123px', padding: '50px', backgroundColor: '#050505', color: '#ffffff', boxSizing: 'border-box', position: 'relative', fontFamily: 'monospace', overflow: 'hidden' }}>
-          
-          {/* Header */}
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'end', borderBottom: '1px solid rgba(0, 243, 255, 0.2)', paddingBottom: '15px', marginBottom: '25px' }}>
-            <h3 style={{ fontSize: '12px', fontWeight: '900', color: '#00f3ff', margin: '0', fontStyle: 'italic', letterSpacing: '2px', textTransform: 'uppercase' }}>
-              DOSSIER::IMMERSIVE_SIMULATIONS_&_DEFENSE_SYSTEMS
-            </h3>
-            <span style={{ fontSize: '8px', color: '#7a8b9e', textTransform: 'uppercase', letterSpacing: '1px' }}>
-              SECURE_FILE_VERIFIED
-            </span>
-          </div>
-
-          {/* Past Performances Section */}
-          <div style={{ marginBottom: '30px' }}>
-            <h3 style={{ fontSize: '11px', fontWeight: '900', color: '#39ff14', textTransform: 'uppercase', letterSpacing: '2px', marginBottom: '15px' }}>
-              [ Immersive Simulation Projects & Netcode ]
-            </h3>
-            
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
-              
-              {/* T4S Simulator */}
-              <div style={{ border: '1px solid rgba(0, 243, 255, 0.15)', backgroundColor: 'rgba(0, 243, 255, 0.03)', padding: '12px', borderRadius: '6px', display: 'flex', gap: '15px', alignItems: 'center' }}>
-                <div style={{ flex: '1' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start' }}>
-                    <h4 style={{ fontSize: '11px', fontWeight: 'bold', color: '#ffffff', margin: '0 0 4px 0', fontStyle: 'italic', textTransform: 'uppercase' }}>
-                      T4S Tactical Simulator
-                    </h4>
-                    <span style={{ fontSize: '8px', color: '#00f3ff', display: 'flex', alignItems: 'center' }}>
-                      ENGINE::UNITY&nbsp;&nbsp;<UnityLogo size={10} />
-                    </span>
-                  </div>
-                  <span style={{ fontSize: '7px', color: '#39ff14', textTransform: 'uppercase', fontWeight: 'bold', display: 'block', marginBottom: '6px' }}>
-                    Lead Network Architect // Multiplayer Tank Troop Simulator
-                  </span>
-                  <p style={{ fontSize: '9px', color: '#a0aec0', margin: '0', lineHeight: '1.4', textTransform: 'uppercase' }}>
-                    Engineered client-server synchronization matrices handling 50+ simultaneous military trainees. Deployed Portico RTI and HLA protocols to synchronize ballistic trajectories, projectile physics, and vehicle positions over local tactical LANs.
-                  </p>
+            {/* Panel 2: Back Cover (Center) */}
+            <div style={{ width: '374.33px', padding: '0 30px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxSizing: 'border-box' }}>
+              <div>
+                <div style={{ borderBottom: '1px solid #00f3ff', paddingBottom: '8px', marginBottom: '15px' }}>
+                  <span style={{ fontSize: '11px', fontWeight: 'bold', color: '#00f3ff', letterSpacing: '2px' }}>[ TRANSMISSION HUB ]</span>
                 </div>
-                <img src="./t4s_simulator.png" alt="T4S" style={{ width: '100px', height: '60px', borderRadius: '4px', border: '1px solid rgba(0, 243, 255, 0.3)', objectFit: 'cover', flexShrink: 0 }} />
+
+                <div style={{ fontSize: '9px', textTransform: 'uppercase', marginBottom: '20px' }}>
+                  <div style={{ marginBottom: '10px' }}>
+                    <span style={{ color: '#566c85', display: 'block', fontSize: '7.5px', fontWeight: 'bold' }}>OPERATIONS BASE</span>
+                    <span style={{ color: '#ffffff', fontWeight: 'bold' }}>ANDHRA PRADESH, INDIA</span>
+                  </div>
+                  
+                  <div style={{ marginBottom: '10px' }}>
+                    <span style={{ color: '#566c85', display: 'block', fontSize: '7.5px', fontWeight: 'bold' }}>TRANSMISSION CHANNEL</span>
+                    <span style={{ color: '#ffffff', fontWeight: 'bold' }}>RAZELTECH.IN@GMAIL.COM</span>
+                  </div>
+
+                  <div style={{ marginBottom: '10px' }}>
+                    <span style={{ color: '#566c85', display: 'block', fontSize: '7.5px', fontWeight: 'bold' }}>PORTAL DIRECTORY</span>
+                    <span style={{ color: '#00f3ff', fontWeight: 'bold' }}>RAZELTECH.GITHUB.IO/RAZELTECH</span>
+                  </div>
+                </div>
+
+                {/* QR Placeholder Grid */}
+                <div style={{ border: '1px solid rgba(0, 243, 255, 0.2)', backgroundColor: 'rgba(0, 243, 255, 0.02)', padding: '12px', borderRadius: '4px', textAlign: 'center' }}>
+                  <span style={{ fontSize: '8px', color: '#00f3ff', display: 'block', fontWeight: 'bold', letterSpacing: '1px' }}>SYSTEM REGISTRATION</span>
+                  <span style={{ fontSize: '7px', color: '#7a8b9e', display: 'block', marginTop: '2px' }}>[ UDYAM-AP-04-0112603 ]</span>
+                  
+                  <div style={{ width: '70px', height: '70px', border: '1px dashed #39ff14', margin: '10px auto', display: 'flex', alignItems: 'center', justifyContent: 'center', boxSizing: 'border-box' }}>
+                    <div style={{ width: '50px', height: '50px', border: '2px solid #00f3ff', boxSizing: 'border-box', position: 'relative' }}>
+                      <div style={{ position: 'absolute', top: '3px', left: '3px', width: '10px', height: '10px', backgroundColor: '#00f3ff' }} />
+                      <div style={{ position: 'absolute', top: '3px', right: '3px', width: '10px', height: '10px', backgroundColor: '#00f3ff' }} />
+                      <div style={{ position: 'absolute', bottom: '3px', left: '3px', width: '10px', height: '10px', backgroundColor: '#00f3ff' }} />
+                      <div style={{ position: 'absolute', top: '20px', left: '20px', width: '10px', height: '10px', border: '1.5px solid #39ff14' }} />
+                    </div>
+                  </div>
+                  <span style={{ fontSize: '7px', color: '#39ff14', fontWeight: 'bold' }}>VERIFIED B2B VENDOR</span>
+                </div>
               </div>
 
-              {/* AGLSDS Simulator */}
-              <div style={{ border: '1px solid rgba(0, 243, 255, 0.15)', backgroundColor: 'rgba(0, 243, 255, 0.03)', padding: '12px', borderRadius: '6px', display: 'flex', gap: '15px', alignItems: 'center' }}>
-                <div style={{ flex: '1' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start' }}>
-                    <h4 style={{ fontSize: '11px', fontWeight: 'bold', color: '#ffffff', margin: '0 0 4px 0', fontStyle: 'italic', textTransform: 'uppercase' }}>
-                      AGLSDS Missile Simulator
-                    </h4>
-                    <span style={{ fontSize: '8px', color: '#00f3ff', display: 'flex', alignItems: 'center' }}>
-                      ENGINE::UNITY&nbsp;&nbsp;<UnityLogo size={10} />
-                    </span>
-                  </div>
-                  <span style={{ fontSize: '7px', color: '#39ff14', textTransform: 'uppercase', fontWeight: 'bold', display: 'block', marginBottom: '6px' }}>
-                    Systems Tech Lead // Anti-Guided Launcher Simulator
-                  </span>
-                  <p style={{ fontSize: '9px', color: '#a0aec0', margin: '0', lineHeight: '1.4', textTransform: 'uppercase' }}>
-                    Implemented low-level driver handshakes linking weapon hardware to Unity displays via serial sockets. Coded ballistic calculation matrices and custom targeting analysis trackers.
-                  </p>
-                </div>
-                <img src="./aglsds_launcher.png" alt="AGLSDS" style={{ width: '100px', height: '60px', borderRadius: '4px', border: '1px solid rgba(0, 243, 255, 0.3)', objectFit: 'cover', flexShrink: 0 }} />
+              <div style={{ borderTop: '1px solid rgba(0, 243, 255, 0.1)', paddingTop: '10px', fontSize: '8px', color: '#566c85', letterSpacing: '1px', fontWeight: 'bold' }}>
+                RAZEL TECH // BACK COVER
               </div>
-
-              {/* 6DOF & Razel Studio */}
-              <div style={{ border: '1px solid rgba(0, 243, 255, 0.15)', backgroundColor: 'rgba(0, 243, 255, 0.03)', padding: '12px', borderRadius: '6px', display: 'flex', gap: '15px', alignItems: 'center' }}>
-                <div style={{ flex: '1' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start' }}>
-                    <h4 style={{ fontSize: '11px', fontWeight: 'bold', color: '#ffffff', margin: '0 0 4px 0', fontStyle: 'italic', textTransform: 'uppercase' }}>
-                      6DOF Platforms & Razel Studio XR
-                    </h4>
-                    <span style={{ fontSize: '8px', color: '#00f3ff', display: 'flex', alignItems: 'center' }}>
-                      ENGINE::UNITY&nbsp;&nbsp;<UnityLogo size={10} />
-                    </span>
-                  </div>
-                  <span style={{ fontSize: '7px', color: '#39ff14', textTransform: 'uppercase', fontWeight: 'bold', display: 'block', marginBottom: '6px' }}>
-                    Simulation Dev // Sockets, XR Toolkit, & AR Foundation
-                  </span>
-                  <p style={{ fontSize: '9px', color: '#a0aec0', margin: '0', lineHeight: '1.4', textTransform: 'uppercase' }}>
-                    Wrote custom socket programming drivers connecting Unity real-time physics engines with physical 3DOF/6DOF hydraulic motion seats to translate roll, pitch, and yaw with low latency.
-                  </p>
-                </div>
-                <img src="./razel_studio.png" alt="Razel Studio" style={{ width: '100px', height: '60px', borderRadius: '4px', border: '1px solid rgba(0, 243, 255, 0.3)', objectFit: 'cover', flexShrink: 0 }} />
-              </div>
-
             </div>
-          </div>
 
-          {/* Page Footer */}
-          <div style={{ position: 'absolute', bottom: '40px', left: '50px', right: '50px', display: 'flex', justifyContent: 'space-between', borderTop: '1px solid rgba(0, 243, 255, 0.1)', paddingTop: '15px', fontSize: '8px', color: '#566c85', letterSpacing: '2px', fontWeight: 'bold' }}>
-            <span>RAZEL TECH // DEFENSE SIMULATION SPECIALIZATION</span>
-            <span>PAGE 02</span>
-          </div>
+            {/* Panel 3: Front Cover (Right) */}
+            <div style={{ width: '374.33px', padding: '0 30px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxSizing: 'border-box' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', height: '80%', justifyContent: 'center' }}>
+                <div style={{ width: '60px', height: '60px', borderRadius: '4px', backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid #00f3ff', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '15px' }}>
+                  <img src="./logo.png" alt="Razel Tech" style={{ width: '45px', height: '45px', display: 'block' }} />
+                </div>
+                
+                <h2 style={{ fontSize: '26px', fontWeight: '900', fontStyle: 'italic', margin: '0', color: '#ffffff', letterSpacing: '1px' }}>RAZEL TECH</h2>
+                
+                <div style={{ width: '80px', height: '2px', backgroundColor: '#00f3ff', margin: '10px auto' }} />
 
+                <span style={{ fontSize: '8px', letterSpacing: '3px', color: '#39ff14', textTransform: 'uppercase', fontWeight: 'bold' }}>
+                  SYSTEMS ENGINEERING
+                </span>
+                
+                <div style={{ marginTop: '40px', border: '1px solid rgba(0, 243, 255, 0.15)', padding: '15px 10px', borderRadius: '6px', backgroundColor: 'rgba(0, 243, 255, 0.02)', width: '100%', boxSizing: 'border-box' }}>
+                  <span style={{ fontSize: '11px', fontWeight: 'bold', color: '#ffffff', letterSpacing: '2px', display: 'block', marginBottom: '8px' }}>CAPABILITY STATEMENT</span>
+                  <div style={{ fontSize: '7.5px', color: '#a0aec0', textTransform: 'uppercase', lineHeight: '1.6', textAlign: 'left', display: 'inline-block' }}>
+                    <div>• TACTICAL DEFENSE SIMULATORS</div>
+                    <div>• VR/AR IMAGING PIPELINES</div>
+                    <div>• REAL-TIME WEBGL BIM CORE</div>
+                    <div>• HIGH-DENSITY ENTERPRISE SaaS</div>
+                  </div>
+                </div>
+              </div>
+
+              <div style={{ borderTop: '1px solid rgba(0, 243, 255, 0.1)', paddingTop: '10px', fontSize: '8px', color: '#566c85', letterSpacing: '1px', fontWeight: 'bold', display: 'flex', justifyContent: 'space-between', width: '100%' }}>
+                <span>EST 2025 // SECURE DOSSIER</span>
+                <span>FRONT COVER</span>
+              </div>
+            </div>
+
+          </div>
         </div>
 
-        {/* PAGE 3 BROCHURE TEMPLATE */}
-        <div id="brochure-page-3" className="brochure-export-page" style={{ width: '794px', height: '1123px', padding: '50px', backgroundColor: '#050505', color: '#ffffff', boxSizing: 'border-box', position: 'relative', fontFamily: 'monospace', overflow: 'hidden' }}>
+        {/* PAGE 2 BROCHURE TEMPLATE (INSIDE SPREAD) */}
+        <div id="brochure-page-2" className="brochure-export-page" style={{ 
+          width: '1123px', 
+          height: '794px', 
+          padding: '50px 0', 
+          backgroundColor: '#050505', 
+          color: '#ffffff', 
+          boxSizing: 'border-box', 
+          position: 'relative', 
+          fontFamily: 'Consolas, Monaco, monospace', 
+          overflow: 'hidden' 
+        }}>
           
-          {/* Header */}
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'end', borderBottom: '1px solid rgba(0, 243, 255, 0.2)', paddingBottom: '15px', marginBottom: '25px' }}>
-            <h3 style={{ fontSize: '12px', fontWeight: '900', color: '#00f3ff', margin: '0', fontStyle: 'italic', letterSpacing: '2px', textTransform: 'uppercase' }}>
-              DOSSIER::ENTERPRISE_SAAS_&_SPATIAL_WEBGL
-            </h3>
-            <span style={{ fontSize: '8px', color: '#7a8b9e', textTransform: 'uppercase', letterSpacing: '1px' }}>
-              SECURE_FILE_VERIFIED
-            </span>
-          </div>
+          {/* Fold Guides */}
+          <div style={{ position: 'absolute', top: 0, bottom: 0, left: '374.33px', width: '1px', borderLeft: '1px dashed #00f3ff', opacity: 0.25, zIndex: 10 }} />
+          <div style={{ position: 'absolute', top: 0, bottom: 0, left: '748.67px', width: '1px', borderLeft: '1px dashed #00f3ff', opacity: 0.25, zIndex: 10 }} />
 
-          {/* SaaS section */}
-          <div style={{ marginBottom: '30px' }}>
-            <h3 style={{ fontSize: '11px', fontWeight: '900', color: '#39ff14', textTransform: 'uppercase', letterSpacing: '2px', marginBottom: '10px' }}>
-              [ Enterprise SaaS Dashboards & BIM Visualizers ]
-            </h3>
+          {/* Panels Grid */}
+          <div style={{ display: 'flex', height: '100%', boxSizing: 'border-box' }}>
             
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px' }}>
-              
-              {/* MediCorePro */}
-              <div style={{ border: '1px solid rgba(0, 243, 255, 0.1)', backgroundColor: 'rgba(0, 243, 255, 0.02)', padding: '12px', borderRadius: '6px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                <div style={{ width: '100%', height: '55px', borderRadius: '4px', overflow: 'hidden', border: '1px solid rgba(0, 243, 255, 0.2)' }}>
-                  <img src="./saas_dashboard.png" alt="MediCorePro Screenshot" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            {/* Panel 1: Immersive Simulators */}
+            <div style={{ width: '374.33px', padding: '0 30px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxSizing: 'border-box' }}>
+              <div>
+                <div style={{ borderBottom: '1px solid #00f3ff', paddingBottom: '8px', marginBottom: '12px' }}>
+                  <span style={{ fontSize: '11px', fontWeight: 'bold', color: '#00f3ff', letterSpacing: '2px' }}>[ SIMULATION DOSSIER ]</span>
                 </div>
-                <div>
-                  <h4 style={{ fontSize: '10px', fontWeight: 'bold', color: '#ffffff', margin: '0 0 2px 0', textTransform: 'uppercase' }}>
-                    MediCorePro SaaS
-                  </h4>
-                  <span style={{ fontSize: '6.5px', color: '#00f3ff', textTransform: 'uppercase', fontWeight: 'bold', display: 'block', marginBottom: '4px' }}>
-                    Clinical Analytics Dashboard
-                  </span>
-                  <p style={{ fontSize: '8.5px', color: '#a0aec0', margin: '0', lineHeight: '1.3', textTransform: 'uppercase' }}>
-                    Clinical intelligence dashboard displaying real-time patient telemetry metrics, healthcare charts, diagnostics logs, and telemetry grids.
-                  </p>
+
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                  
+                  {/* T4S Project */}
+                  <div style={{ border: '1px solid rgba(0, 243, 255, 0.15)', padding: '8px', borderRadius: '4px', backgroundColor: 'rgba(0,0,0,0.4)' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
+                      <span style={{ fontSize: '8.5px', fontWeight: 'bold', color: '#ffffff' }}>T4S TACTICAL SIMULATOR</span>
+                      <span style={{ fontSize: '6.5px', color: '#39ff14', fontWeight: 'bold' }}>UNITY</span>
+                    </div>
+                    <div style={{ width: '100%', height: '42px', borderRadius: '3px', overflow: 'hidden', border: '1px solid rgba(0, 243, 255, 0.2)', marginBottom: '4px' }}>
+                      <img src="./t4s_simulator.png" alt="T4S" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    </div>
+                    <p style={{ fontSize: '7px', color: '#a0aec0', margin: '0', lineHeight: '1.2', textTransform: 'uppercase' }}>
+                      Tank simulation utilizing Portico RTI/HLA network synchronization layer for 50+ concurrent military trainees.
+                    </p>
+                  </div>
+
+                  {/* AGLSDS Project */}
+                  <div style={{ border: '1px solid rgba(0, 243, 255, 0.15)', padding: '8px', borderRadius: '4px', backgroundColor: 'rgba(0,0,0,0.4)' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
+                      <span style={{ fontSize: '8.5px', fontWeight: 'bold', color: '#ffffff' }}>AGLSDS MISSILE LAUNCHER</span>
+                      <span style={{ fontSize: '6.5px', color: '#39ff14', fontWeight: 'bold' }}>UNITY</span>
+                    </div>
+                    <div style={{ width: '100%', height: '42px', borderRadius: '3px', overflow: 'hidden', border: '1px solid rgba(0, 243, 255, 0.2)', marginBottom: '4px' }}>
+                      <img src="./aglsds_launcher.png" alt="AGLSDS" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    </div>
+                    <p style={{ fontSize: '7px', color: '#a0aec0', margin: '0', lineHeight: '1.2', textTransform: 'uppercase' }}>
+                      Anti-guided weapon telemetry. Deployed low-level serial handshakes and ballistics calculator grids.
+                    </p>
+                  </div>
+
+                  {/* 6DOF Platforms */}
+                  <div style={{ border: '1px solid rgba(0, 243, 255, 0.15)', padding: '8px', borderRadius: '4px', backgroundColor: 'rgba(0,0,0,0.4)' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
+                      <span style={{ fontSize: '8.5px', fontWeight: 'bold', color: '#ffffff' }}>6DOF DRIVERS & XR STUDIO</span>
+                      <span style={{ fontSize: '6.5px', color: '#39ff14', fontWeight: 'bold' }}>UNITY</span>
+                    </div>
+                    <div style={{ width: '100%', height: '42px', borderRadius: '3px', overflow: 'hidden', border: '1px solid rgba(0, 243, 255, 0.2)', marginBottom: '4px' }}>
+                      <img src="./razel_studio.png" alt="6DOF" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    </div>
+                    <p style={{ fontSize: '7px', color: '#a0aec0', margin: '0', lineHeight: '1.2', textTransform: 'uppercase' }}>
+                      UDP socket programming for hydraulic actuators. Implemented custom spatial PBR shaders and XR controllers.
+                    </p>
+                  </div>
+
                 </div>
               </div>
 
-              {/* ShowroomOS */}
-              <div style={{ border: '1px solid rgba(0, 243, 255, 0.1)', backgroundColor: 'rgba(0, 243, 255, 0.02)', padding: '12px', borderRadius: '6px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                <div style={{ width: '100%', height: '55px', borderRadius: '4px', overflow: 'hidden', border: '1px solid rgba(0, 243, 255, 0.2)' }}>
-                  <img src="./saas_dashboard.png" alt="ShowroomOS Screenshot" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                </div>
-                <div>
-                  <h4 style={{ fontSize: '10px', fontWeight: 'bold', color: '#ffffff', margin: '0 0 2px 0', textTransform: 'uppercase' }}>
-                    ShowroomOS CRM
-                  </h4>
-                  <span style={{ fontSize: '6.5px', color: '#00f3ff', textTransform: 'uppercase', fontWeight: 'bold', display: 'block', marginBottom: '4px' }}>
-                    Dealership Operations CRM
-                  </span>
-                  <p style={{ fontSize: '8.5px', color: '#a0aec0', margin: '0', lineHeight: '1.3', textTransform: 'uppercase' }}>
-                    Hyundai showroom operations database. Manages live sales grids, auto inventories, sales pipelines, and branch performance analytics.
-                  </p>
-                </div>
+              <div style={{ borderTop: '1px solid rgba(0, 243, 255, 0.1)', paddingTop: '10px', fontSize: '8px', color: '#566c85', letterSpacing: '1px', fontWeight: 'bold' }}>
+                RAZEL TECH // MILITARY APPLICATIONS
               </div>
-
             </div>
-          </div>
 
-          {/* Credentials and contact details */}
-          <div style={{ marginBottom: '35px' }}>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px' }}>
-              
-              <div style={{ border: '1px solid rgba(0, 243, 255, 0.1)', backgroundColor: 'rgba(0, 0, 0, 0.4)', padding: '12px', borderRadius: '6px' }}>
-                <span style={{ fontSize: '7.5px', fontWeight: 'bold', color: '#00f3ff', display: 'block', marginBottom: '4px', textTransform: 'uppercase' }}>
-                  Corporate Credentials
-                </span>
-                <div style={{ fontSize: '7.5px', color: '#a0aec0', lineHeight: '1.6', textTransform: 'uppercase' }}>
-                  • UDYAM REG:: UDYAM-AP-04-0112603 <br />
-                  • NETCODE:: UNITY MIRROR / PHOTON / MULTIPLAYER <br />
-                  • CORE FOCUS:: IMMERSIVE SIMULATIONS & XR
+            {/* Panel 2: Technical Arsenal */}
+            <div style={{ width: '374.33px', padding: '0 30px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxSizing: 'border-box' }}>
+              <div>
+                <div style={{ borderBottom: '1px solid #00f3ff', paddingBottom: '8px', marginBottom: '12px' }}>
+                  <span style={{ fontSize: '11px', fontWeight: 'bold', color: '#00f3ff', letterSpacing: '2px' }}>[ TECHNICAL ARSENAL ]</span>
+                </div>
+
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                  
+                  <div style={{ border: '1px solid rgba(0, 243, 255, 0.1)', padding: '10px', borderRadius: '4px', backgroundColor: 'rgba(0,0,0,0.2)' }}>
+                    <span style={{ fontSize: '8.5px', fontWeight: 'bold', color: '#39ff14', display: 'block', textTransform: 'uppercase', marginBottom: '4px' }}>
+                      Unity Engine & C#
+                    </span>
+                    <p style={{ fontSize: '7.5px', color: '#a0aec0', margin: '0', lineHeight: '1.3', textTransform: 'uppercase' }}>
+                      Unity 2021.3 LTS enterprise development. C# 9.0 compilation optimizations, minimal GC structures, and Material Property Blocks setup.
+                    </p>
+                  </div>
+
+                  <div style={{ border: '1px solid rgba(0, 243, 255, 0.1)', padding: '10px', borderRadius: '4px', backgroundColor: 'rgba(0,0,0,0.2)' }}>
+                    <span style={{ fontSize: '8.5px', fontWeight: 'bold', color: '#39ff14', display: 'block', textTransform: 'uppercase', marginBottom: '4px' }}>
+                      VR, AR & Spatial Tech
+                    </span>
+                    <p style={{ fontSize: '7.5px', color: '#a0aec0', margin: '0', lineHeight: '1.3', textTransform: 'uppercase' }}>
+                      XR Interaction Toolkit, AR Foundation (ARKit/ARCore) for spatial apps, custom web and WebGL Building Information Modeling (BIM).
+                    </p>
+                  </div>
+
+                  <div style={{ border: '1px solid rgba(0, 243, 255, 0.1)', padding: '10px', borderRadius: '4px', backgroundColor: 'rgba(0,0,0,0.2)' }}>
+                    <span style={{ fontSize: '8.5px', fontWeight: 'bold', color: '#39ff14', display: 'block', textTransform: 'uppercase', marginBottom: '4px' }}>
+                      Multiplayer & Netcode
+                    </span>
+                    <p style={{ fontSize: '7.5px', color: '#a0aec0', margin: '0', lineHeight: '1.3', textTransform: 'uppercase' }}>
+                      Unity Mirror & Photon engines, TCP/UDP sockets, Client Prediction, server reconciliation, and HLA/Portico RTI military networks.
+                    </p>
+                  </div>
+
+                  <div style={{ border: '1px solid rgba(0, 243, 255, 0.1)', padding: '10px', borderRadius: '4px', backgroundColor: 'rgba(0,0,0,0.2)' }}>
+                    <span style={{ fontSize: '8.5px', fontWeight: 'bold', color: '#39ff14', display: 'block', textTransform: 'uppercase', marginBottom: '4px' }}>
+                      Enterprise SaaS Stack
+                    </span>
+                    <p style={{ fontSize: '7.5px', color: '#a0aec0', margin: '0', lineHeight: '1.3', textTransform: 'uppercase' }}>
+                      React 19, Next.js databases, Vite dashboard architectures, Tailwind CSS designs, and high-contrast automated PDF generators.
+                    </p>
+                  </div>
+
                 </div>
               </div>
 
-              <div style={{ border: '1px solid rgba(0, 243, 255, 0.1)', backgroundColor: 'rgba(0, 0, 0, 0.4)', padding: '12px', borderRadius: '6px' }}>
-                <span style={{ fontSize: '7.5px', fontWeight: 'bold', color: '#00f3ff', display: 'block', marginBottom: '4px', textTransform: 'uppercase' }}>
-                  Transmission Channels
-                </span>
-                <div style={{ fontSize: '7.5px', color: '#a0aec0', lineHeight: '1.6', textTransform: 'uppercase' }}>
-                  • EMAIL:: RAZELTECH.IN@GMAIL.COM <br />
-                  • WEB:: RAZELTECH.GITHUB.IO/RAZELTECH <br />
-                  • OPERATIONS BASE:: AP, INDIA
-                </div>
+              <div style={{ borderTop: '1px solid rgba(0, 243, 255, 0.1)', paddingTop: '10px', fontSize: '8px', color: '#566c85', letterSpacing: '1px', fontWeight: 'bold' }}>
+                RAZEL TECH // TECHNICAL CAPABILITIES
               </div>
-
             </div>
-          </div>
 
-          {/* Page Footer */}
-          <div style={{ position: 'absolute', bottom: '40px', left: '50px', right: '50px', display: 'flex', justifyContent: 'space-between', borderTop: '1px solid rgba(0, 243, 255, 0.1)', paddingTop: '15px', fontSize: '8px', color: '#566c85', letterSpacing: '2px', fontWeight: 'bold' }}>
-            <span>RAZEL TECH // CORE ENGINEERING METRICS</span>
-            <span>PAGE 03</span>
-          </div>
+            {/* Panel 3: Enterprise SaaS & BIM */}
+            <div style={{ width: '374.33px', padding: '0 30px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxSizing: 'border-box' }}>
+              <div>
+                <div style={{ borderBottom: '1px solid #00f3ff', paddingBottom: '8px', marginBottom: '12px' }}>
+                  <span style={{ fontSize: '11px', fontWeight: 'bold', color: '#00f3ff', letterSpacing: '2px' }}>[ ENTERPRISE SYSTEMS ]</span>
+                </div>
 
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                  
+                  {/* MediCorePro */}
+                  <div style={{ border: '1px solid rgba(0, 243, 255, 0.15)', padding: '8px', borderRadius: '4px', backgroundColor: 'rgba(0,0,0,0.4)' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
+                      <span style={{ fontSize: '8.5px', fontWeight: 'bold', color: '#ffffff' }}>MEDICOREPRO SaaS</span>
+                      <span style={{ fontSize: '6.5px', color: '#39ff14', fontWeight: 'bold' }}>HEALTH_SaaS</span>
+                    </div>
+                    <div style={{ width: '100%', height: '42px', borderRadius: '3px', overflow: 'hidden', border: '1px solid rgba(0, 243, 255, 0.2)', marginBottom: '4px' }}>
+                      <img src="./saas_dashboard.png" alt="MediCorePro" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    </div>
+                    <p style={{ fontSize: '7px', color: '#a0aec0', margin: '0', lineHeight: '1.2', textTransform: 'uppercase' }}>
+                      Clinical intelligence dashboard displaying real-time patient telemetry trackers, medical charts, and diagnostics.
+                    </p>
+                  </div>
+
+                  {/* ShowroomOS */}
+                  <div style={{ border: '1px solid rgba(0, 243, 255, 0.15)', padding: '8px', borderRadius: '4px', backgroundColor: 'rgba(0,0,0,0.4)' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
+                      <span style={{ fontSize: '8.5px', fontWeight: 'bold', color: '#ffffff' }}>SHOWROOMOS CRM</span>
+                      <span style={{ fontSize: '6.5px', color: '#39ff14', fontWeight: 'bold' }}>AUTO_CRM</span>
+                    </div>
+                    <div style={{ width: '100%', height: '42px', borderRadius: '3px', overflow: 'hidden', border: '1px solid rgba(0, 243, 255, 0.2)', marginBottom: '4px' }}>
+                      <img src="./saas_dashboard.png" alt="ShowroomOS" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    </div>
+                    <p style={{ fontSize: '7px', color: '#a0aec0', margin: '0', lineHeight: '1.2', textTransform: 'uppercase' }}>
+                      Hyundai operations CRM managing live lead data grids, auto sales pipelines, and dealership analytics.
+                    </p>
+                  </div>
+
+                  {/* BIM Core */}
+                  <div style={{ border: '1px solid rgba(0, 243, 255, 0.15)', padding: '8px', borderRadius: '4px', backgroundColor: 'rgba(0,0,0,0.4)' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
+                      <span style={{ fontSize: '8.5px', fontWeight: 'bold', color: '#ffffff' }}>INDUSTRIAL WebGL BIM</span>
+                      <span style={{ fontSize: '6.5px', color: '#39ff14', fontWeight: 'bold' }}>3D_BIM</span>
+                    </div>
+                    <div style={{ width: '100%', height: '42px', borderRadius: '3px', overflow: 'hidden', border: '1px solid rgba(0, 243, 255, 0.2)', marginBottom: '4px' }}>
+                      <img src="./razel_studio.png" alt="BIM Core" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    </div>
+                    <p style={{ fontSize: '7px', color: '#a0aec0', margin: '0', lineHeight: '1.2', textTransform: 'uppercase' }}>
+                      Browser-based real-time 3D model rendering for loading and inspecting massive spatial building structures.
+                    </p>
+                  </div>
+
+                </div>
+              </div>
+
+              <div style={{ borderTop: '1px solid rgba(0, 243, 255, 0.1)', paddingTop: '10px', fontSize: '8px', color: '#566c85', letterSpacing: '1px', fontWeight: 'bold' }}>
+                RAZEL TECH // WEB & ENTERPRISE
+              </div>
+            </div>
+
+          </div>
         </div>
 
       </div>
