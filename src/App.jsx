@@ -66,6 +66,15 @@ const PROJECTS = [
     status: 'STABLE'
   },
   {
+    id: 'invoicevault',
+    title: 'INVOICE_VAULT_PRO',
+    type: 'LABS',
+    tags: ['React', 'Desktop', 'Billing', 'Offline'],
+    description: 'Offline GST billing and business management software for Indian SMBs. Complete with GSTR-1 & 3B generation, inventory tracking, and automated ledger management.',
+    link: 'https://razeltech.github.io/InvoiceVaultDemo/',
+    status: 'OPERATIONAL'
+  },
+  {
     id: 'contenthub',
     title: 'CONTENT_HUB_OS',
     type: 'LABS',

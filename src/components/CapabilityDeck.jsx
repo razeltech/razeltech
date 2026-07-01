@@ -491,8 +491,20 @@ export default function CapabilityDeck() {
                     // Slide 4: SaaS & Web
                     <div className="space-y-4">
                       
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                         
+                        <div className="border border-cyber-blue/10 bg-black/45 p-4 rounded-xl relative group hover:border-cyber-blue/30 transition-all flex flex-col gap-3">
+                          <div className="w-full h-24 rounded-lg overflow-hidden border border-cyber-blue/20 bg-black/60 shrink-0">
+                            <img src="./invoicevault.png" alt="InvoiceVault Screenshot" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                          </div>
+                          <div>
+                            <h4 className="text-xs font-black text-white uppercase italic mb-0.5">INVOICE_VAULT_PRO</h4>
+                            <span className="text-[7px] font-mono text-cyber-blue/40 block tracking-widest uppercase mb-1">Desktop Billing Software</span>
+                            <p className="text-[9px] text-cyber-blue/60 leading-normal uppercase">
+                              Offline GST billing and business management platform. Complete with GSTR-1/3B generation and automated ledger tracking.
+                            </p>
+                          </div>
+                        </div>
                         <div className="border border-cyber-blue/10 bg-black/45 p-4 rounded-xl relative group hover:border-cyber-blue/30 transition-all flex flex-col gap-3">
                           <div className="w-full h-24 rounded-lg overflow-hidden border border-cyber-blue/20 bg-black/60 shrink-0">
                             <img src="./saas_dashboard.png" alt="MediCorePro Screenshot" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
@@ -860,7 +872,20 @@ export default function CapabilityDeck() {
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                   
-                  {/* MediCorePro */}
+                  
+                  {/* InvoiceVault */}
+                  <div style={{ border: '1px solid rgba(0, 243, 255, 0.15)', padding: '6px', borderRadius: '4px', backgroundColor: 'rgba(0,0,0,0.4)' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2px' }}>
+                      <span style={{ fontSize: '8.5px', fontWeight: 'bold', color: '#ffffff' }}>INVOICE_VAULT_PRO</span>
+                      <span style={{ fontSize: '6.5px', color: '#39ff14', fontWeight: 'bold' }}>DESKTOP_APP</span>
+                    </div>
+                    <div style={{ width: '100%', height: '36px', borderRadius: '3px', overflow: 'hidden', border: '1px solid rgba(0, 243, 255, 0.2)', marginBottom: '2px' }}>
+                      <img src="./invoicevault.png" alt="InvoiceVault" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    </div>
+                    <p style={{ fontSize: '7px', color: '#a0aec0', margin: '0', lineHeight: '1.2', textTransform: 'uppercase' }}>
+                      Offline GST billing and business management platform with GSTR-1/3B generation.
+                    </p>
+                  </div>{/* MediCorePro */}
                   <div style={{ border: '1px solid rgba(0, 243, 255, 0.15)', padding: '8px', borderRadius: '4px', backgroundColor: 'rgba(0,0,0,0.4)' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
                       <span style={{ fontSize: '8.5px', fontWeight: 'bold', color: '#ffffff' }}>MEDICOREPRO SaaS</span>
