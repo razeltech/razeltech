@@ -743,7 +743,7 @@ const SpotlightCard = ({ project }) => {
                 href={project.link} 
                 target="_blank" 
                 rel="noreferrer"
-                className="flex items-center space-x-2 text-[11px] font-black uppercase tracking-widest text-cyber-blue hover:text-white transition-all"
+                className="flex items-center space-x-2 text-[11px] font-black uppercase tracking-widest text-cyber-blue hover:text-white border border-cyber-blue/30 hover:bg-cyber-blue/15 px-4 py-2 rounded transition-all"
               >
                 <span>Initialize_Interface</span>
                 <ExternalLinkIcon size={14} />
