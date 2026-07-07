@@ -547,7 +547,7 @@ const ProfileCard = () => (
                <a href="https://www.linkedin.com/in/raja-vamsi-dhar-vallabhapurapu-71b10475/" target="_blank" rel="noreferrer" className="p-1.5 hover:text-cyber-blue transition-colors">
                   <LinkedinIcon size={16} />
                </a>
-               <a href="https://github.com/r2dapps" target="_blank" rel="noreferrer" className="p-1.5 hover:text-cyber-blue transition-colors">
+               <a href="https://github.com/razeltech" target="_blank" rel="noreferrer" className="p-1.5 hover:text-cyber-blue transition-colors">
                   <GithubIcon size={16} />
                </a>
             </div>

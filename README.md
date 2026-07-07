@@ -49,11 +49,13 @@ I am the founder of **Razel Tech** (MSME Certified), specializing in bridging th
 #### 3. [ SAAS_DASHBOARDS ] :: Enterprise Logic
 *   **MediCorePro**: An enterprise-grade clinical intelligence dashboard and patient management system.
 *   **Resume Engine React**: A hardened, print-ready React application for producing pixel-perfect A4 resumes.
+*   **Invoice Vault Pro**: Offline GST billing and business management software for SMBs.
+*   **Content Hub OS**: Multi-Tenant Marketing OS for media centralization and automation.
 
 ---
 
 ### 🌐 System Access
-*   **Interactive Portfolio**: [RazelTech Hub Live](https://razeltech.github.io/razeltech/)
+*   **Interactive Portfolio**: [RazelTech Hub Live](https://razeltech.github.io/)
 *   **Location**: Andhra Pradesh, India
 *   **Status**: Open for strategic engineering roles and industrial consulting.
 
@@ -65,7 +67,7 @@ I am the founder of **Razel Tech** (MSME Certified), specializing in bridging th
     <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
   </a>
   &nbsp;
-  <a href="https://github.com/r2dapps">
+  <a href="https://github.com/razeltech">
     <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
   </a>
   &nbsp;

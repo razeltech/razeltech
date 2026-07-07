@@ -45,7 +45,7 @@ export default function DigitalCard() {
     phone: "+91 94949 15264", // Main corporate line
     website: "https://razeltech.github.io/razeltech/",
     linkedin: "https://www.linkedin.com/in/raja-vamsi-dhar-vallabhapurapu-71b10475/",
-    githubPersonal: "https://github.com/r2dapps",
+    githubPersonal: "https://github.com/razeltech",
     githubOrg: "https://github.com/razeltech",
     address: "Andhra Pradesh, India"
   };
@@ -290,7 +290,7 @@ export default function DigitalCard() {
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="p-2 rounded-full border border-cyber-blue/20 bg-cyber-blue/5 text-cyber-blue/60 hover:text-cyber-blue hover:border-cyber-blue hover:scale-115 transition-all"
-                title="Personal GitHub (r2dapps)"
+                title="GitHub (razeltech)"
               >
                 <GithubIcon size={18} />
               </a>
