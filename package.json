@@ -3,14 +3,14 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://razeltech.github.io/razeltech/",
+  "homepage": "https://razeltech.github.io/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist -r https://github.com/razeltech/razeltech.github.io.git -b main"
   },
   "dependencies": {
     "clsx": "^2.1.1",

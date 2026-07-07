@@ -1,5 +1,5 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
-import { HashRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Link, useParams, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { 
   Terminal, 
@@ -27,7 +27,8 @@ const PROJECTS = [
     tags: ['Unity', 'HLA_RTI', 'Defense'],
     description: 'Tank Troop Tactical Training Simulator. Multi-user tactical environment supporting 50+ concurrent trainees using Portico RTI and HLA protocols.',
     link: '#',
-    status: 'MISSION_CRITICAL'
+    status: 'MISSION_CRITICAL',
+    images: ['projects/t4s-sim/dashboard.png', 'projects/t4s-sim/tank.png']
   },
   {
     id: 'aglsds-sim',
@@ -54,7 +55,8 @@ const PROJECTS = [
     tags: ['Unity', 'Configurator', 'XR'],
     description: 'Interior Texture & Paint Configurator. Advanced real-time material swapping and spatial visualization framework.',
     link: 'https://r2dapps.github.io/RazelStudio/',
-    status: 'ACTIVE'
+    status: 'ACTIVE',
+    images: ['projects/razel-studio/dashboard.png', 'projects/razel-studio/materials.png']
   },
   {
     id: 'painter-pro',
@@ -72,7 +74,8 @@ const PROJECTS = [
     tags: ['React', 'Desktop', 'Billing', 'Offline'],
     description: 'Offline GST billing and business management software for Indian SMBs. Complete with GSTR-1 & 3B generation, inventory tracking, and automated ledger management.',
     link: 'https://razeltech.github.io/InvoiceVaultDemo/',
-    status: 'OPERATIONAL'
+    status: 'OPERATIONAL',
+    images: ['projects/invoicevault/dashboard.png', 'projects/invoicevault/login.png']
   },
   {
     id: 'contenthub',
@@ -81,7 +84,8 @@ const PROJECTS = [
     tags: ['React', 'Firebase', 'Marketing', 'Automation'],
     description: 'The Multi-Tenant Marketing OS. A secure, premium marketing suite designed to centralize media assets, automate multi-platform scheduling, and facilitate collaboration.',
     link: 'https://contenthub-demo.vercel.app/',
-    status: 'OPERATIONAL'
+    status: 'OPERATIONAL',
+    images: ['projects/contenthub/dashboard.png', 'projects/contenthub/workflow.png']
   },
   {
     id: 'moodstreak',
@@ -385,20 +389,36 @@ const ScrambledText = ({ text }) => {
 };
 
 const NotFound = () => (
-  <div className="max-w-7xl mx-auto px-6 py-40 text-center">
-    <div className="inline-flex items-center space-x-2 text-red-500 text-[10px] font-black tracking-[0.4em] mb-12 uppercase">
-      <ShieldAlertIcon size={14} />
-      <span>Error_404 // Access_Denied // Connection_Lost</span>
+  <div className="max-w-7xl mx-auto px-6 py-40 text-center flex flex-col items-center">
+    <div className="relative mb-12">
+      <div className="absolute inset-0 bg-red-600/40 blur-[80px] rounded-full animate-pulse"></div>
+      <div className="inline-flex items-center space-x-2 text-red-500 text-[10px] font-black tracking-[0.4em] uppercase relative z-10 border border-red-500/50 px-6 py-2 bg-black/80 backdrop-blur-md rounded shadow-[0_0_15px_rgba(239,68,68,0.5)]">
+        <ShieldAlertIcon size={14} className="animate-ping" />
+        <span>CRITICAL_ERROR // 404 // ACCESS_DENIED</span>
+      </div>
     </div>
-    <h1 className="text-6xl md:text-9xl font-black tracking-tighter mb-12 italic uppercase">
-      LINK<br />
-      <span className="text-red-500 terminal-text">SEVERED</span>
+    
+    <h1 className="text-5xl md:text-7xl font-black tracking-tighter mb-8 italic uppercase relative group cursor-crosshair leading-tight">
+      <span className="opacity-40 absolute inset-0 text-red-500 blur-md translate-x-2 translate-y-2 animate-pulse">404 Error</span>
+      <ScrambledText text="Tech Glitch" /><br />
+      <span className="text-red-500 terminal-text relative inline-block mt-4">
+        <span className="absolute -inset-1 bg-red-500/30 blur-lg animate-pulse"></span>
+        <ScrambledText text="404 Not Found the Page" />
+      </span>
     </h1>
-    <p className="text-cyber-blue/40 font-mono text-xs tracking-widest mb-12 uppercase">
-      Requested_Endpoint_Not_Found_in_Core_Dossier.
+    
+    <div className="w-full max-w-lg mb-12 h-1 bg-gradient-to-r from-transparent via-red-500 to-transparent"></div>
+    
+    <p className="text-red-400 font-mono text-sm md:text-base tracking-widest mb-12 uppercase flex flex-col gap-2 font-bold max-w-xl text-center">
+      <span>&gt; FATAL: Requested_Endpoint_Not_Found.</span>
+      <span className="text-red-500 animate-pulse">&gt; Awaiting_New_Coordinates...</span>
     </p>
-    <Link to="/" className="px-8 py-3 border border-cyber-blue/30 text-cyber-blue text-[10px] font-black tracking-widest uppercase hover:bg-cyber-blue hover:text-black transition-all">
-      Re-Establish_Connection
+    
+    <Link to="/" className="group relative px-10 py-5 border-2 border-red-500/50 text-red-500 text-xs font-black tracking-widest uppercase overflow-hidden transition-all hover:border-red-500 hover:text-black hover:bg-red-500 hover:shadow-[0_0_30px_rgba(239,68,68,0.8)]">
+      <span className="relative flex items-center justify-center gap-3">
+        <Terminal size={16} />
+        EMERGENCY_OVERRIDE_TO_BASE
+      </span>
     </Link>
   </div>
 );
@@ -737,21 +757,28 @@ const SpotlightCard = ({ project }) => {
             ))}
           </div>
 
-          <div className="flex justify-between items-center">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+            <Link 
+              to={`/project/${project.id}`}
+              className="flex items-center space-x-2 text-[11px] font-black uppercase tracking-widest text-cyber-blue hover:text-black border border-cyber-blue/30 hover:bg-cyber-blue px-4 py-2 rounded transition-all w-full sm:w-auto justify-center"
+            >
+              <span>Access_Brochure</span>
+            </Link>
+            
             {project.link !== '#' ? (
               <a 
                 href={project.link} 
                 target="_blank" 
                 rel="noreferrer"
-                className="flex items-center space-x-2 text-[11px] font-black uppercase tracking-widest text-cyber-blue hover:text-white border border-cyber-blue/30 hover:bg-cyber-blue/15 px-4 py-2 rounded transition-all"
+                className="flex items-center justify-center space-x-2 text-[10px] font-black uppercase tracking-widest text-cyber-blue/60 hover:text-white transition-all w-full sm:w-auto"
               >
                 <span>Initialize_Interface</span>
-                <ExternalLinkIcon size={14} />
+                <ExternalLinkIcon size={12} />
               </a>
             ) : (
-              <div className="flex items-center space-x-2 text-[11px] font-black uppercase tracking-widest text-red-500/50">
-                <ShieldAlertIcon size={14} />
-                <span>Access_Restricted</span>
+              <div className="flex items-center justify-center space-x-2 text-[10px] font-black uppercase tracking-widest text-red-500/50 w-full sm:w-auto">
+                <ShieldAlertIcon size={12} />
+                <span>Restricted</span>
               </div>
             )}
           </div>
@@ -781,6 +808,120 @@ const DossierPage = ({ title, type }) => {
          <Link to="/" className="text-[10px] font-bold tracking-widest text-cyber-blue hover:text-white transition-colors uppercase">
             &lt; Return_to_Core_Systems
          </Link>
+      </div>
+    </div>
+  );
+};
+
+const ProjectDetails = () => {
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const project = PROJECTS.find(p => p.id === id);
+
+  if (!project) {
+    return <NotFound />;
+  }
+
+  const sections = [
+    {
+      title: 'SYSTEM_OVERVIEW',
+      text: project.description,
+      image: project.images?.[0]
+    },
+    {
+      title: 'CORE_CAPABILITIES',
+      text: `Integrated logic systems and framework tools utilized in this architecture: ${project.tags.join(', ')}. Engineered for maximum stability and performance in operational environments.`,
+      image: project.images?.[1]
+    }
+  ];
+
+  return (
+    <div className="max-w-7xl mx-auto px-6 py-20">
+      <button 
+        onClick={() => navigate(-1)} 
+        className="mb-12 text-[10px] font-bold tracking-widest text-cyber-blue hover:text-white transition-colors uppercase flex items-center space-x-2"
+      >
+        <span>&lt; Return_To_Previous</span>
+      </button>
+
+      <div className="mb-16 border-b border-cyber-blue/20 pb-16">
+        <div className="inline-flex items-center space-x-2 text-cyber-blue/40 text-[10px] font-bold uppercase tracking-[0.2em] mb-4">
+          <Terminal size={12} />
+          <span>{project.type} // {project.status}</span>
+        </div>
+        <h1 className="text-4xl md:text-6xl font-black tracking-tighter mb-6 italic uppercase">
+          <ScrambledText text={project.title} />
+        </h1>
+        
+        {project.link !== '#' && (
+          <a 
+            href={project.link} 
+            target="_blank" 
+            rel="noreferrer"
+            className="inline-flex items-center space-x-3 text-[12px] font-black uppercase tracking-widest text-black bg-cyber-blue hover:bg-white px-8 py-4 rounded transition-all mt-4"
+          >
+            <span>Initialize_Interface</span>
+            <ExternalLinkIcon size={16} />
+          </a>
+        )}
+      </div>
+
+      <div className="space-y-24">
+        {sections.map((section, idx) => {
+          const isReversed = idx % 2 !== 0;
+          
+          return (
+            <div key={idx} className={`flex flex-col ${isReversed ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-12`}>
+              {/* Text Column */}
+              <div className="w-full md:w-1/2">
+                <div className="flex items-center space-x-4 mb-6">
+                  <div className="w-8 h-px bg-cyber-blue/50"></div>
+                  <h2 className="text-2xl font-black tracking-tighter uppercase italic text-white">
+                    {section.title}
+                  </h2>
+                </div>
+                <p className="text-sm md:text-base text-cyber-blue/70 leading-relaxed text-justify">
+                  {section.text}
+                </p>
+                {idx === 0 && (
+                  <div className="mt-8 flex flex-wrap gap-2">
+                    {project.tags.map(tag => (
+                      <span key={tag} className="text-[9px] font-bold border border-cyber-blue/30 bg-cyber-blue/5 px-3 py-1.5 rounded text-cyber-blue">
+                        #{tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* Image Column */}
+              <div className="w-full md:w-1/2">
+                <div className="border border-cyber-blue/20 bg-cyber-blue/5 p-2 rounded-lg group h-full flex items-center justify-center min-h-[300px]">
+                  {section.image ? (
+                    <div className="relative overflow-hidden rounded w-full h-full">
+                      <img 
+                        src={`./${section.image}`} 
+                        alt={`${project.title} visual data`} 
+                        className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500 rounded" 
+                      />
+                      <div className="absolute inset-0 bg-cyber-blue/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+                    </div>
+                  ) : (
+                    <div className="flex flex-col items-center justify-center text-cyber-blue/30 p-12 text-center w-full h-full bg-black/40 rounded">
+                      <Code2 size={48} className="mb-4 opacity-50" />
+                      <div className="text-[10px] font-mono tracking-widest uppercase mb-2">
+                        [ VISUAL_DATA_UNAVAILABLE ]
+                      </div>
+                      <div className="text-[8px] uppercase tracking-wider opacity-60">
+                        Image matrix not found for this sector.
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
@@ -922,6 +1063,7 @@ function App() {
           <Route path="/labs" element={<DossierPage title="LABS" type="LABS" />} />
           <Route path="/vcard" element={<DigitalCard />} />
           <Route path="/deck" element={<CapabilityDeck />} />
+          <Route path="/project/:id" element={<ProjectDetails />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Layout>
