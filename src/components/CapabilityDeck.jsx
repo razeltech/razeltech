@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  FileDown, 
-  ArrowLeft, 
-  Cpu, 
-  Layers, 
-  Globe, 
-  Shield, 
-  Terminal, 
-  User, 
+import {
+  FileDown,
+  ArrowLeft,
+  Cpu,
+  Layers,
+  Globe,
+  Shield,
+  Terminal,
+  User,
   Zap,
   ChevronRight,
   ChevronLeft,
@@ -23,13 +23,13 @@ import BorderGlow from './BorderGlow';
 
 // Custom Unity Logo SVG
 const UnityLogo = ({ size = 18, className = "" }) => (
-  <svg 
-    viewBox="0 0 256 256" 
-    fill="currentColor" 
-    className={`${className}`} 
+  <svg
+    viewBox="0 0 256 256"
+    fill="currentColor"
+    className={`${className}`}
     style={{ width: size, height: size, display: 'inline-block' }}
   >
-    <path d="M128 0L24.8 59.6v119.2L128 256l103.2-59.6V77.2L128 0zm79.4 171.3l-55.8 32.2V136.2l55.8-32.2v67.3zm-103 32.2l-55.8-32.2V104l55.8 32.2v67.3zm79.4-114.7l-55.8 32.2V56.6l55.8-32.2v67.3zm-103 32.2l-55.8-32.2V24.4l55.8 32.2v67.3z"/>
+    <path d="M128 0L24.8 59.6v119.2L128 256l103.2-59.6V77.2L128 0zm79.4 171.3l-55.8 32.2V136.2l55.8-32.2v67.3zm-103 32.2l-55.8-32.2V104l55.8 32.2v67.3zm79.4-114.7l-55.8 32.2V56.6l55.8-32.2v67.3zm-103 32.2l-55.8-32.2V24.4l55.8 32.2v67.3z" />
   </svg>
 );
 
@@ -37,6 +37,16 @@ export default function CapabilityDeck() {
   const [activeSlide, setActiveSlide] = useState(0);
   const [activeArsenalTab, setActiveArsenalTab] = useState('unity');
   const [isExporting, setIsExporting] = useState(false);
+  const [pdfTheme, setPdfTheme] = useState('dark');
+  
+  const tBg = pdfTheme === 'dark' ? '#020b14' : '#ffffff';
+  const tBgImage = pdfTheme === 'dark' ? 'radial-gradient(circle at 20% 20%, rgba(0, 68, 204, 0.15), transparent 60%), radial-gradient(circle at 80% 80%, rgba(13, 25, 41, 0.9), transparent 60%)' : 'none';
+  const tText1 = pdfTheme === 'dark' ? '#ffffff' : '#0f172a';
+  const tText2 = pdfTheme === 'dark' ? '#8892b0' : '#334155';
+  const tText3 = pdfTheme === 'dark' ? '#e2e8f0' : '#475569';
+  const tCardBg = pdfTheme === 'dark' ? 'rgba(2, 11, 20, 0.6)' : 'rgba(248, 250, 252, 0.9)';
+  const tBorder = pdfTheme === 'dark' ? 'rgba(0, 102, 255, 0.2)' : 'rgba(0, 102, 255, 0.3)';
+
   const [exportProgress, setExportProgress] = useState('');
   const [systemLogs, setSystemLogs] = useState([]);
 
@@ -75,12 +85,15 @@ export default function CapabilityDeck() {
     addLog(`SLIDE_NAVIGATED::INDEX_0${idx + 1}`);
   };
 
-  const handleDownloadPDF = async () => {
+  const handleDownloadPDF = async (theme = 'dark') => {
+    setPdfTheme(theme);
+    await new Promise(r => setTimeout(r, 200)); // Wait for theme to apply
+
     try {
       setIsExporting(true);
       setExportProgress('Initializing engine...');
       addLog('PDF_COMPILER::INITIALIZING_JSPDF');
-      
+
       const pdf = new jsPDF({
         orientation: 'landscape', // Landscape orientation for presentation slides
         unit: 'mm',
@@ -88,34 +101,73 @@ export default function CapabilityDeck() {
         compress: true
       });
 
-      const pages = ['brochure-page-0', 'brochure-page-1', 'brochure-page-2', 'brochure-page-3'];
-      
+      const pages = ['brochure-page-1', 'brochure-page-2', 'brochure-page-3', 'brochure-page-4', 'brochure-page-5', 'brochure-page-6', 'brochure-page-7', 'brochure-page-8'];
+
+      const exportContainer = document.getElementById('pdf-export-container');
+      if (exportContainer) {
+        exportContainer.style.height = 'auto';
+        exportContainer.style.overflow = 'visible';
+      }
+
       for (let i = 0; i < pages.length; i++) {
         setExportProgress(`Compiling Page ${i + 1} (4K Quality)...`);
         addLog(`PDF_COMPILER::CAPTURING_PAGE_0${i + 1}_HR`);
         const element = document.getElementById(pages[i]);
         if (!element) continue;
-        
+
         const canvas = await html2canvas(element, {
           scale: 4, // 4x scale for high resolution (4K detail parity)
           useCORS: true,
           backgroundColor: '#050505',
-          logging: false
+          logging: false,
+          scrollY: -window.scrollY // Fixes vertical offsets causing page bleeding
         });
-        
+
+
         const imgData = canvas.toDataURL('image/png'); // Lossless PNG
         if (i > 0) pdf.addPage();
         pdf.addImage(imgData, 'PNG', 0, 0, 297, 210, undefined, 'FAST');
+
+        // --- ADD CLICKABLE LINKS ---
+        const links = element.querySelectorAll('[data-pdf-link]');
+        const containerRect = element.getBoundingClientRect();
+
+        links.forEach(linkEl => {
+          const rect = linkEl.getBoundingClientRect();
+          const url = linkEl.getAttribute('data-pdf-link');
+
+          // Calculate relative coordinates inside the 1123x794 container
+          const relX = rect.left - containerRect.left;
+          const relY = rect.top - containerRect.top;
+
+          // Map to 297x210 mm PDF dimensions
+          const ratioX = 297 / 1123;
+          const ratioY = 210 / 794;
+
+          pdf.link(relX * ratioX, relY * ratioY, rect.width * ratioX, rect.height * ratioY, { url });
+        });
+        // ---------------------------
+
       }
 
       setExportProgress('Generating brochure...');
       addLog('PDF_COMPILER::SAVING_FILE');
       pdf.save('RazelTech_Capability_Deck.pdf');
-      
+
+      if (exportContainer) {
+        exportContainer.style.height = '0px';
+        exportContainer.style.overflow = 'hidden';
+      }
+
       setExportProgress('');
       setIsExporting(false);
       addLog('PDF_COMPILER::EXPORT_SUCCESSFUL');
     } catch (error) {
+      const exportContainer = document.getElementById('pdf-export-container');
+      if (exportContainer) {
+        exportContainer.style.height = '0px';
+        exportContainer.style.overflow = 'hidden';
+      }
       console.error('PDF generation error:', error);
       setExportProgress('Error generating PDF.');
       addLog('PDF_COMPILER::ERROR_COMPILER_FAILED');
@@ -152,12 +204,12 @@ export default function CapabilityDeck() {
 
   return (
     <div className="min-h-screen max-w-7xl mx-auto px-4 md:px-6 py-20 relative">
-      
+
       {/* Header section */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-6">
         <div>
-          <Link 
-            to="/" 
+          <Link
+            to="/"
             className="inline-flex items-center space-x-2 text-[10px] font-bold tracking-widest text-cyber-blue hover:text-white mb-4 uppercase transition-colors"
           >
             <ArrowLeft size={12} />
@@ -172,22 +224,35 @@ export default function CapabilityDeck() {
         </div>
 
         {/* PDF Exporter Button */}
-        <button
-          onClick={handleDownloadPDF}
-          disabled={isExporting}
-          className="flex items-center space-x-3 px-6 py-3.5 bg-cyber-blue text-black font-black text-[10px] tracking-widest uppercase rounded-lg hover:bg-white hover:scale-[1.02] active:scale-95 transition-all cursor-pointer shadow-lg shadow-cyber-blue/20 disabled:opacity-50 disabled:cursor-not-allowed z-25"
-        >
-          <FileDown size={14} className={isExporting ? "animate-bounce" : ""} />
-          <span>{isExporting ? exportProgress : "Download PDF Brochure"}</span>
-        </button>
+        
+        <div className="flex flex-col sm:flex-row gap-3">
+          <button
+            onClick={() => handleDownloadPDF('dark')}
+            disabled={isExporting}
+            className="flex items-center space-x-3 px-6 py-3.5 bg-cyber-blue text-black font-black text-[10px] tracking-widest uppercase rounded-lg hover:bg-white hover:scale-[1.02] active:scale-95 transition-all cursor-pointer shadow-lg shadow-cyber-blue/20 disabled:opacity-50 disabled:cursor-not-allowed z-25"
+          >
+            <FileDown size={14} className={isExporting ? "animate-bounce" : ""} />
+            <span>{isExporting ? exportProgress : "PDF (Dark)"}</span>
+          </button>
+          
+          <button
+            onClick={() => handleDownloadPDF('light')}
+            disabled={isExporting}
+            className="flex items-center space-x-3 px-6 py-3.5 bg-white text-[#0066ff] border border-[#0066ff] font-black text-[10px] tracking-widest uppercase rounded-lg hover:bg-gray-100 hover:scale-[1.02] active:scale-95 transition-all cursor-pointer shadow-lg shadow-[#0066ff]/20 disabled:opacity-50 disabled:cursor-not-allowed z-25"
+          >
+            <FileDown size={14} className={isExporting ? "animate-bounce" : ""} />
+            <span>{isExporting ? exportProgress : "PDF (Light)"}</span>
+          </button>
+        </div>
+
       </div>
 
       {/* Main Console Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-        
+
         {/* Left Side: System Logs & Navigation Panel */}
         <div className="lg:col-span-4 flex flex-col justify-between space-y-6">
-          
+
           {/* Deck Selector Menu */}
           <BorderGlow
             borderRadius={16}
@@ -254,7 +319,7 @@ export default function CapabilityDeck() {
 
         {/* Right Side: The Interactive Slide Screen */}
         <div className="lg:col-span-8 flex flex-col justify-between bg-cyber-blue/5 border border-cyber-blue/15 rounded-2xl p-6 md:p-8 backdrop-blur-md relative overflow-hidden">
-          
+
           {/* Diagnostic Overlay Lines */}
           <div className="absolute inset-0 grid-bg opacity-15 pointer-events-none" />
           <div className="absolute top-0 right-0 w-24 h-1.5 bg-cyber-blue/10 rounded-bl border-l border-b border-cyber-blue/20 flex items-center justify-around px-2 py-0.5 opacity-40">
@@ -274,7 +339,7 @@ export default function CapabilityDeck() {
                 transition={{ duration: 0.3 }}
                 className="h-full flex flex-col"
               >
-                
+
                 {/* Slide Header */}
                 <div className="mb-6">
                   <div className="flex items-center space-x-2 text-cyber-green text-[8.5px] font-mono font-black tracking-widest uppercase">
@@ -321,7 +386,7 @@ export default function CapabilityDeck() {
                   {activeSlide === 1 && (
                     // Slide 2: Technical Arsenal (Expertise tabs)
                     <div className="space-y-6">
-                      
+
                       {/* Arsenal tabs menu */}
                       <div className="flex flex-wrap gap-2 border-b border-cyber-blue/10 pb-4">
                         {['unity', 'xr', 'networking', 'saas'].map((tab) => (
@@ -413,7 +478,7 @@ export default function CapabilityDeck() {
                   {activeSlide === 2 && (
                     // Slide 3: Simulators
                     <div className="space-y-4">
-                      
+
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div className="border border-cyber-blue/10 bg-black/45 p-4 rounded-xl relative group hover:border-cyber-blue/30 transition-all flex flex-col md:flex-row gap-4 items-stretch">
                           <div className="flex-1">
@@ -490,9 +555,9 @@ export default function CapabilityDeck() {
                   {activeSlide === 3 && (
                     // Slide 4: SaaS & Web
                     <div className="space-y-4">
-                      
+
                       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                        
+
                         <div className="border border-cyber-blue/10 bg-black/45 p-4 rounded-xl relative group hover:border-cyber-blue/30 transition-all flex flex-col gap-3">
                           <div className="w-full h-24 rounded-lg overflow-hidden border border-cyber-blue/20 bg-black/60 shrink-0">
                             <img src="./invoicevault.png" alt="InvoiceVault Screenshot" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
@@ -566,8 +631,8 @@ export default function CapabilityDeck() {
 
             <div className="flex space-x-2">
               {SLIDES.map((_, idx) => (
-                <span 
-                  key={idx} 
+                <span
+                  key={idx}
                   onClick={() => handleSelectSlide(idx)}
                   className={`w-1.5 h-1.5 rounded-full transition-all cursor-pointer ${activeSlide === idx ? 'bg-cyber-blue w-4' : 'bg-cyber-blue/30 hover:bg-cyber-blue/60'}`}
                 />
@@ -594,223 +659,301 @@ export default function CapabilityDeck() {
         We explicitly use inline styles with simple Hex/RGB color values to prevent 
         html2canvas from failing on Tailwind CSS v4 oklab/oklch colors.
       */}
-      <div style={{ position: 'absolute', left: '-9999px', top: '0' }}>
-        
-        {/* SLIDE 0: MISSION PROFILE */}
-        <div id="brochure-page-0" className="brochure-export-page" style={{ 
-          width: '1123px', height: '794px', padding: '60px 80px', 
-          backgroundColor: '#050505', color: '#ffffff', boxSizing: 'border-box', 
-          fontFamily: 'Consolas, Monaco, monospace', overflow: 'hidden', position: 'relative' 
+      <div id="pdf-export-container" style={{ position: 'absolute', top: 0, left: '-9999px', width: '1123px', height: 0, overflow: 'hidden' }}>
+
+        {/* PAGE 1: HERO SECTION */}
+        <div id="brochure-page-1" className="brochure-export-page" style={{
+          width: '1123px', height: '794px',
+          backgroundColor: tBg, backgroundImage: tBgImage,
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          boxSizing: 'border-box', overflow: 'hidden', position: 'relative',
+          padding: '60px'
         }}>
-          <div style={{ position: 'absolute', inset: 0, opacity: 0.15, backgroundImage: 'linear-gradient(#00f3ff 1px, transparent 1px), linear-gradient(90deg, #00f3ff 1px, transparent 1px)', backgroundSize: '20px 20px', zIndex: 0 }}></div>
-          
-          <div style={{ position: 'relative', zIndex: 10, height: '100%', display: 'flex', flexDirection: 'column' }}>
-            <div style={{ marginBottom: '40px' }}>
-              <span style={{ fontSize: '14px', fontWeight: 'bold', color: '#39ff14', letterSpacing: '2px' }}>SYSTEM_DOSSIER // SLIDE_01</span>
-              <h2 style={{ fontSize: '48px', fontWeight: '900', fontStyle: 'italic', margin: '10px 0 0 0', color: '#ffffff' }}>FOUNDER MISSION PROFILE</h2>
-              <p style={{ fontSize: '16px', color: '#607d8b', margin: '5px 0 0 0', textTransform: 'uppercase' }}>Executive overview & architectural vision</p>
+          <img src="./MainPage_logo.png" style={{ maxWidth: '100%', maxHeight: '100%', width: 'auto', height: 'auto', objectFit: 'contain' }} alt="Razel Tech Cover" />
+        </div>
+
+        {/* PAGE 2: WHO WE ARE */}
+        <div id="brochure-page-2" className="brochure-export-page" style={{
+          width: '1123px', height: '794px', padding: '60px 80px',
+          backgroundColor: tBg, backgroundImage: tBgImage,
+          color: tText1, boxSizing: 'border-box',
+          fontFamily: '"Inter", "Roboto", sans-serif', overflow: 'hidden', position: 'relative'
+        }}>
+          <div style={{ position: 'relative', zIndex: 10, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+            <div style={{ height: '140px', marginBottom: '20px' }}>
+              <span style={{ fontSize: '14px', fontWeight: 'bold', color: '#0066ff', letterSpacing: '2px', fontFamily: 'Consolas, Monaco, monospace' }}>01 // WHO WE ARE</span>
+              <h2 style={{ fontSize: '56px', fontWeight: '900', margin: '10px 0 5px 0', color: tText1, letterSpacing: '-1px' }}>ENGINEERING BEYOND CODE</h2>
+              <p style={{ fontSize: '20px', color: tText2, margin: 0, textTransform: 'uppercase', letterSpacing: '1px', fontWeight: 'bold' }}>A Systems Engineering Approach to Modern Software</p>
             </div>
-            
-            <div style={{ flex: 1, backgroundColor: 'rgba(0, 243, 255, 0.05)', border: '1px solid rgba(0, 243, 255, 0.15)', borderRadius: '16px', padding: '40px', display: 'flex', flexDirection: 'column', gap: '40px' }}>
-              <p style={{ fontSize: '20px', color: '#a0aec0', lineHeight: '1.6', textTransform: 'uppercase', margin: 0 }}>
-                &gt; Principal Systems Architect and Lead Unity Developer with 12+ years of professional engineering tenure. Specializing in bridging the gap between embedded hardware integrations and interactive software ecosystems. Dedicated to delivering high-performance defense configurations, spatial analytics, and robust enterprise SaaS infrastructures.
+
+            <div style={{ backgroundColor: tCardBg, border: `1px solid ${tBorder}`, borderRadius: '16px', padding: '50px', display: 'flex', flexDirection: 'column', gap: '30px', backdropFilter: 'blur(10px)' }}>
+              <p style={{ fontSize: '18px', color: tText3, lineHeight: '1.7', margin: 0 }}>
+                Razel Tech was founded by a Systems Architect with over a decade of experience building real-time simulation systems for defence applications.
+                <br /><br />
+                Our experience includes multiplayer training environments, hardware-integrated simulators, motion platforms, VR experiences, and complex interactive systems.
+                <br /><br />
+                <strong style={{ color: '#0066ff' }}>Our experience comes from environments where software reliability was critical. That discipline now guides everything we build.</strong>
+                <br /><br />
+                Today, we bring the same engineering discipline to businesses building custom software, immersive experiences, and digital platforms. We don't start with technology. We start with understanding the problem.
               </p>
-              
-              <div style={{ display: 'flex', gap: '20px', borderTop: '1px solid rgba(0, 243, 255, 0.1)', paddingTop: '30px' }}>
-                <div style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.4)', border: '1px solid rgba(0,243,255,0.1)', padding: '20px', borderRadius: '8px' }}>
-                  <span style={{ fontSize: '12px', color: '#607d8b', display: 'block', marginBottom: '8px' }}>ENGINEERING</span>
-                  <span style={{ fontSize: '24px', fontWeight: '900', color: '#ffffff', fontStyle: 'italic' }}>12+ YRS</span>
-                </div>
-                <div style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.4)', border: '1px solid rgba(0,243,255,0.1)', padding: '20px', borderRadius: '8px' }}>
-                  <span style={{ fontSize: '12px', color: '#607d8b', display: 'block', marginBottom: '8px' }}>SECTOR FOCUS</span>
-                  <span style={{ fontSize: '24px', fontWeight: '900', color: '#39ff14', fontStyle: 'italic' }}>DEFENSE_R&D</span>
-                </div>
-                <div style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.4)', border: '1px solid rgba(0,243,255,0.1)', padding: '20px', borderRadius: '8px' }}>
-                  <span style={{ fontSize: '12px', color: '#607d8b', display: 'block', marginBottom: '8px' }}>ENGINES</span>
-                  <span style={{ fontSize: '24px', fontWeight: '900', color: '#00f3ff', fontStyle: 'italic' }}>UNITY_CORE</span>
-                </div>
-                <div style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.4)', border: '1px solid rgba(0,243,255,0.1)', padding: '20px', borderRadius: '8px' }}>
-                  <span style={{ fontSize: '12px', color: '#607d8b', display: 'block', marginBottom: '8px' }}>COMPLIANCE</span>
-                  <span style={{ fontSize: '24px', fontWeight: '900', color: '#ffffff', fontStyle: 'italic' }}>MSME_SECURE</span>
-                </div>
-              </div>
             </div>
           </div>
         </div>
 
-        {/* SLIDE 1: TECHNICAL ARSENAL */}
-        <div id="brochure-page-1" className="brochure-export-page" style={{ 
-          width: '1123px', height: '794px', padding: '60px 80px', 
-          backgroundColor: '#050505', color: '#ffffff', boxSizing: 'border-box', 
-          fontFamily: 'Consolas, Monaco, monospace', overflow: 'hidden', position: 'relative' 
+        {/* PAGE 3: ENGINEERING CAPABILITIES */}
+        <div id="brochure-page-3" className="brochure-export-page" style={{
+          width: '1123px', height: '794px', padding: '60px 80px',
+          backgroundColor: tBg, backgroundImage: tBgImage,
+          color: tText1, boxSizing: 'border-box',
+          fontFamily: '"Inter", "Roboto", sans-serif', overflow: 'hidden', position: 'relative'
         }}>
-          <div style={{ position: 'absolute', inset: 0, opacity: 0.15, backgroundImage: 'linear-gradient(#00f3ff 1px, transparent 1px), linear-gradient(90deg, #00f3ff 1px, transparent 1px)', backgroundSize: '20px 20px', zIndex: 0 }}></div>
-          
-          <div style={{ position: 'relative', zIndex: 10, height: '100%', display: 'flex', flexDirection: 'column' }}>
-            <div style={{ marginBottom: '30px' }}>
-              <span style={{ fontSize: '14px', fontWeight: 'bold', color: '#39ff14', letterSpacing: '2px' }}>SYSTEM_DOSSIER // SLIDE_02</span>
-              <h2 style={{ fontSize: '48px', fontWeight: '900', fontStyle: 'italic', margin: '10px 0 0 0', color: '#ffffff' }}>TECHNICAL ARSENAL</h2>
-              <p style={{ fontSize: '16px', color: '#607d8b', margin: '5px 0 0 0', textTransform: 'uppercase' }}>Core systems & tech stack breakdown</p>
+          <div style={{ position: 'relative', zIndex: 10, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start' }}>
+            <div style={{ height: '140px', marginBottom: '20px' }}>
+              <span style={{ fontSize: '14px', fontWeight: 'bold', color: '#0066ff', letterSpacing: '2px', fontFamily: 'Consolas, Monaco, monospace' }}>02 // WHAT WE BUILD</span>
+              <h2 style={{ fontSize: '48px', fontWeight: '900', margin: '10px 0 5px 0', color: tText1, letterSpacing: '-1px' }}>ENGINEERING CAPABILITIES</h2>
             </div>
-            
-            <div style={{ flex: 1, backgroundColor: 'rgba(0, 243, 255, 0.05)', border: '1px solid rgba(0, 243, 255, 0.15)', borderRadius: '16px', padding: '40px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '30px' }}>
-              
-              <div style={{ backgroundColor: 'rgba(0,0,0,0.4)', border: '1px solid rgba(0,243,255,0.1)', padding: '25px', borderRadius: '8px' }}>
-                <span style={{ fontSize: '18px', fontWeight: '900', color: '#00f3ff', display: 'block', marginBottom: '10px' }}>UNITY ENGINE & C#</span>
-                <p style={{ fontSize: '14px', color: '#607d8b', margin: '0 0 15px 0' }}>// Hardware performance pipeline architectures</p>
-                <div style={{ fontSize: '14px', color: '#a0aec0', lineHeight: '1.6' }}>• Unity 2021.3 LTS enterprise development.<br/>• C# 9.0 performance coding, optimized allocations.<br/>• Advanced editor tools & utility automation.<br/>• Material Property Blocks for memory stability.</div>
-              </div>
-              
-              <div style={{ backgroundColor: 'rgba(0,0,0,0.4)', border: '1px solid rgba(0,243,255,0.1)', padding: '25px', borderRadius: '8px' }}>
-                <span style={{ fontSize: '18px', fontWeight: '900', color: '#00f3ff', display: 'block', marginBottom: '10px' }}>VR, AR & SPATIAL SYSTEMS</span>
-                <p style={{ fontSize: '14px', color: '#607d8b', margin: '0 0 15px 0' }}>// Immersive visualization & interactive configurators</p>
-                <div style={{ fontSize: '14px', color: '#a0aec0', lineHeight: '1.6' }}>• XR Interaction Toolkit for cross-platform VR.<br/>• AR Foundation for web and mobile spatial solutions.<br/>• High-fidelity WebAR systems for browser integration.<br/>• Real-time WebGL BIM core rendering.</div>
-              </div>
-              
-              <div style={{ backgroundColor: 'rgba(0,0,0,0.4)', border: '1px solid rgba(0,243,255,0.1)', padding: '25px', borderRadius: '8px' }}>
-                <span style={{ fontSize: '18px', fontWeight: '900', color: '#00f3ff', display: 'block', marginBottom: '10px' }}>MULTIPLAYER & NETCODE</span>
-                <p style={{ fontSize: '14px', color: '#607d8b', margin: '0 0 15px 0' }}>// Anti-lag, high-volume real-time sync systems</p>
-                <div style={{ fontSize: '14px', color: '#a0aec0', lineHeight: '1.6' }}>• Unity Mirror & Photon engines for robust integration.<br/>• Client-side prediction and server reconciliation.<br/>• HLA and Portico RTI for defense simulations.<br/>• Low-level TCP/UDP sockets for PLC hardware.</div>
-              </div>
-              
-              <div style={{ backgroundColor: 'rgba(0,0,0,0.4)', border: '1px solid rgba(0,243,255,0.1)', padding: '25px', borderRadius: '8px' }}>
-                <span style={{ fontSize: '18px', fontWeight: '900', color: '#00f3ff', display: 'block', marginBottom: '10px' }}>ENTERPRISE SAAS DASHBOARDS</span>
-                <p style={{ fontSize: '14px', color: '#607d8b', margin: '0 0 15px 0' }}>// Secure data layers and analytics portals</p>
-                <div style={{ fontSize: '14px', color: '#a0aec0', lineHeight: '1.6' }}>• React 19 + Vite dashboard architectures.<br/>• Next.js databases with backend integrations.<br/>• Print-ready resume and brochure rendering engines.<br/>• Tailwind-styled premium dark-mode UI.</div>
+
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '30px' }}>
+              <div style={{ backgroundColor: tCardBg, border: `1px solid ${tBorder}`, padding: '35px', borderRadius: '12px' }}>
+                <span style={{ fontSize: '20px', fontWeight: '900', color: tText1, display: 'block', marginBottom: '10px' }}>1. Real-Time 3D, XR & Simulation</span>
+                <p style={{ fontSize: '14px', color: tText2, lineHeight: '1.5', marginBottom: '15px' }}>Building interactive experiences where performance and reliability matter.</p>
+                <p style={{ fontSize: '14px', color: tText3, lineHeight: '1.8', margin: 0 }}>Unity Development, AR/VR Applications, Multiplayer Systems, WebAR Experiences, Hardware Integration.</p>
               </div>
 
+              <div style={{ backgroundColor: tCardBg, border: `1px solid ${tBorder}`, padding: '35px', borderRadius: '12px' }}>
+                <span style={{ fontSize: '20px', fontWeight: '900', color: tText1, display: 'block', marginBottom: '10px' }}>2. BIM & Digital Twin Solutions</span>
+                <p style={{ fontSize: '14px', color: tText2, lineHeight: '1.5', marginBottom: '15px' }}>Transforming complex spatial data into interactive real-time environments.</p>
+                <p style={{ fontSize: '14px', color: tText3, lineHeight: '1.8', margin: 0 }}>IFC to Unity Pipelines, BIM Visualization, Digital Twin Platforms, Metadata Preservation, 3D Model Optimization.</p>
+              </div>
+
+              <div style={{ backgroundColor: tCardBg, border: `1px solid ${tBorder}`, padding: '35px', borderRadius: '12px' }}>
+                <span style={{ fontSize: '20px', fontWeight: '900', color: tText1, display: 'block', marginBottom: '10px' }}>3. Enterprise Software & SaaS Platforms</span>
+                <p style={{ fontSize: '14px', color: tText2, lineHeight: '1.5', marginBottom: '15px' }}>Custom applications designed around your business workflows.</p>
+                <p style={{ fontSize: '14px', color: tText3, lineHeight: '1.8', margin: 0 }}>Enterprise Dashboards, CRM Systems, Business Automation, Billing Platforms, Workflow Management.</p>
+              </div>
+
+              <div style={{ backgroundColor: tCardBg, border: `1px solid ${tBorder}`, padding: '35px', borderRadius: '12px' }}>
+                <span style={{ fontSize: '20px', fontWeight: '900', color: tText1, display: 'block', marginBottom: '10px' }}>4. Custom Software Engineering</span>
+                <p style={{ fontSize: '14px', color: tText2, lineHeight: '1.5', marginBottom: '15px' }}>When existing tools cannot solve your requirements.</p>
+                <p style={{ fontSize: '14px', color: tText3, lineHeight: '1.8', margin: 0 }}>Software Architecture, Full-Stack Applications, System Integrations, Product Development, Technical Consulting.</p>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* SLIDE 2: SIMULATORS */}
-        <div id="brochure-page-2" className="brochure-export-page" style={{ 
-          width: '1123px', height: '794px', padding: '60px 80px', 
-          backgroundColor: '#050505', color: '#ffffff', boxSizing: 'border-box', 
-          fontFamily: 'Consolas, Monaco, monospace', overflow: 'hidden', position: 'relative' 
+        {/* PAGE 4: WHY RAZEL TECH */}
+        <div id="brochure-page-4" className="brochure-export-page" style={{
+          width: '1123px', height: '794px', padding: '60px 80px',
+          backgroundColor: tBg, backgroundImage: tBgImage,
+          color: tText1, boxSizing: 'border-box',
+          fontFamily: '"Inter", "Roboto", sans-serif', overflow: 'hidden', position: 'relative'
         }}>
-          <div style={{ position: 'absolute', inset: 0, opacity: 0.15, backgroundImage: 'linear-gradient(#00f3ff 1px, transparent 1px), linear-gradient(90deg, #00f3ff 1px, transparent 1px)', backgroundSize: '20px 20px', zIndex: 0 }}></div>
-          
-          <div style={{ position: 'relative', zIndex: 10, height: '100%', display: 'flex', flexDirection: 'column' }}>
-            <div style={{ marginBottom: '30px' }}>
-              <span style={{ fontSize: '14px', fontWeight: 'bold', color: '#39ff14', letterSpacing: '2px' }}>SYSTEM_DOSSIER // SLIDE_03</span>
-              <h2 style={{ fontSize: '48px', fontWeight: '900', fontStyle: 'italic', margin: '10px 0 0 0', color: '#ffffff' }}>SIMULATOR DOSSIERS</h2>
-              <p style={{ fontSize: '16px', color: '#607d8b', margin: '5px 0 0 0', textTransform: 'uppercase' }}>Defense training & hardware environments</p>
+          <div style={{ position: 'relative', zIndex: 10, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+            <div style={{ height: '140px', marginBottom: '20px', borderBottom: `1px solid ${tBorder}` }}>
+              <span style={{ fontSize: '14px', fontWeight: 'bold', color: '#0066ff', letterSpacing: '2px', fontFamily: 'Consolas, Monaco, monospace' }}>03 // METHODOLOGY</span>
+              <h2 style={{ fontSize: '48px', fontWeight: '900', margin: '10px 0 5px 0', color: tText1, letterSpacing: '-1px' }}>WHY RAZEL TECH</h2>
+              <p style={{ fontSize: '16px', color: tText2, margin: 0, textTransform: 'uppercase', letterSpacing: '1px' }}>Engineering Mindset, Not Just Development</p>
             </div>
-            
-            <div style={{ flex: 1, backgroundColor: 'rgba(0, 243, 255, 0.05)', border: '1px solid rgba(0, 243, 255, 0.15)', borderRadius: '16px', padding: '30px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
-              
-              <div style={{ backgroundColor: 'rgba(0,0,0,0.4)', border: '1px solid rgba(0,243,255,0.1)', padding: '20px', borderRadius: '8px', display: 'flex', gap: '20px' }}>
-                <div style={{ flex: 1 }}>
-                  <span style={{ fontSize: '10px', color: '#00f3ff', letterSpacing: '1px' }}>UNITY</span>
-                  <h4 style={{ fontSize: '16px', fontWeight: '900', color: '#ffffff', margin: '5px 0', fontStyle: 'italic' }}>T4S_TACTICAL_SIMULATOR</h4>
-                  <span style={{ fontSize: '10px', color: '#39ff14', fontWeight: 'bold' }}>ROLE: LEAD NETWORK ARCHITECT</span>
-                  <p style={{ fontSize: '12px', color: '#a0aec0', marginTop: '10px', lineHeight: '1.4' }}>Tank Troop Simulator. Network synchronization layer built using Unity, Portico RTI, and HLA. Synchronized controls, trajectories, and visual layouts for 50+ concurrent military users.</p>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '30px' }}>
+              <div style={{ display: 'flex', gap: '30px' }}>
+                <div style={{ flex: 1, backgroundColor: tCardBg, borderLeft: '4px solid #0066ff', padding: '30px', borderRadius: '0 8px 8px 0' }}>
+                  <h4 style={{ fontSize: '22px', fontWeight: 'bold', color: tText1, margin: '0 0 10px 0' }}>Understand Before Building</h4>
+                  <p style={{ fontSize: '16px', color: tText3, lineHeight: '1.6', margin: 0 }}>We invest time understanding your domain, workflow, and challenges before choosing the right approach.</p>
                 </div>
-                <div style={{ width: '160px', height: '120px', borderRadius: '6px', overflow: 'hidden', border: '1px solid rgba(0,243,255,0.2)', backgroundColor: '#000' }}>
-                  <img src="./t4s_simulator.png" alt="T4S" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <div style={{ flex: 1, backgroundColor: tCardBg, borderLeft: '4px solid #0066ff', padding: '30px', borderRadius: '0 8px 8px 0' }}>
+                  <h4 style={{ fontSize: '22px', fontWeight: 'bold', color: tText1, margin: '0 0 10px 0' }}>Built For Real Usage</h4>
+                  <p style={{ fontSize: '16px', color: tText3, lineHeight: '1.6', margin: 0 }}>Our experience comes from systems where stability, performance, and reliability were absolutely essential.</p>
                 </div>
               </div>
-
-              <div style={{ backgroundColor: 'rgba(0,0,0,0.4)', border: '1px solid rgba(0,243,255,0.1)', padding: '20px', borderRadius: '8px', display: 'flex', gap: '20px' }}>
-                <div style={{ flex: 1 }}>
-                  <span style={{ fontSize: '10px', color: '#00f3ff', letterSpacing: '1px' }}>UNITY</span>
-                  <h4 style={{ fontSize: '16px', fontWeight: '900', color: '#ffffff', margin: '5px 0', fontStyle: 'italic' }}>AGLSDS_MISSILE_SIMULATOR</h4>
-                  <span style={{ fontSize: '10px', color: '#39ff14', fontWeight: 'bold' }}>ROLE: SYSTEMS TECH LEAD</span>
-                  <p style={{ fontSize: '12px', color: '#a0aec0', marginTop: '10px', lineHeight: '1.4' }}>Anti-Guided Missile Simulator with direct embedded system telemetry. Programmed physical weapon control handshakes, custom ballistics matrices, and real-time training scopes.</p>
+              <div style={{ display: 'flex', gap: '30px' }}>
+                <div style={{ flex: 1, backgroundColor: tCardBg, borderLeft: '4px solid #0066ff', padding: '30px', borderRadius: '0 8px 8px 0' }}>
+                  <h4 style={{ fontSize: '22px', fontWeight: 'bold', color: tText1, margin: '0 0 10px 0' }}>Adaptable Engineering</h4>
+                  <p style={{ fontSize: '16px', color: tText3, lineHeight: '1.6', margin: 0 }}>Every project brings unique challenges. We learn the domain, understand the requirements, and create solutions around real needs.</p>
                 </div>
-                <div style={{ width: '160px', height: '120px', borderRadius: '6px', overflow: 'hidden', border: '1px solid rgba(0,243,255,0.2)', backgroundColor: '#000' }}>
-                  <img src="./aglsds_launcher.png" alt="AGLSDS" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <div style={{ flex: 1, backgroundColor: tCardBg, borderLeft: '4px solid #0066ff', padding: '30px', borderRadius: '0 8px 8px 0' }}>
+                  <h4 style={{ fontSize: '22px', fontWeight: 'bold', color: tText1, margin: '0 0 10px 0' }}>Long-Term Thinking</h4>
+                  <p style={{ fontSize: '16px', color: tText3, lineHeight: '1.6', margin: 0 }}>We focus on maintainable systems that continue delivering value and remain structurally sound long beyond the initial launch.</p>
                 </div>
               </div>
-
-              <div style={{ backgroundColor: 'rgba(0,0,0,0.4)', border: '1px solid rgba(0,243,255,0.1)', padding: '20px', borderRadius: '8px', display: 'flex', gap: '20px' }}>
-                <div style={{ flex: 1 }}>
-                  <span style={{ fontSize: '10px', color: '#00f3ff', letterSpacing: '1px' }}>UNITY</span>
-                  <h4 style={{ fontSize: '16px', fontWeight: '900', color: '#ffffff', margin: '5px 0', fontStyle: 'italic' }}>6DOF_MOTION_SIMULATORS</h4>
-                  <span style={{ fontSize: '10px', color: '#39ff14', fontWeight: 'bold' }}>ROLE: DRIVER INTEGRATOR</span>
-                  <p style={{ fontSize: '12px', color: '#a0aec0', marginTop: '10px', lineHeight: '1.4' }}>Low-level socket systems for physical 3DOF/6DOF motion cabins. Decoupled latency between Unity physics engines and physical hydraulic actuator controllers.</p>
-                </div>
-                <div style={{ width: '160px', height: '120px', borderRadius: '6px', overflow: 'hidden', border: '1px solid rgba(0,243,255,0.2)', backgroundColor: '#000' }}>
-                  <img src="./t4s_simulator.png" alt="6DOF" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                </div>
-              </div>
-
-              <div style={{ backgroundColor: 'rgba(0,0,0,0.4)', border: '1px solid rgba(0,243,255,0.1)', padding: '20px', borderRadius: '8px', display: 'flex', gap: '20px' }}>
-                <div style={{ flex: 1 }}>
-                  <span style={{ fontSize: '10px', color: '#00f3ff', letterSpacing: '1px' }}>UNITY</span>
-                  <h4 style={{ fontSize: '16px', fontWeight: '900', color: '#ffffff', margin: '5px 0', fontStyle: 'italic' }}>RAZEL_STUDIO_XR</h4>
-                  <span style={{ fontSize: '10px', color: '#39ff14', fontWeight: 'bold' }}>ROLE: CORE 3D ARCHITECT</span>
-                  <p style={{ fontSize: '12px', color: '#a0aec0', marginTop: '10px', lineHeight: '1.4' }}>High-fidelity VR paint configurator using Unity XR Toolkit and custom PBR shaders, delivering real-time material swappings and spatial architectural visualization.</p>
-                </div>
-                <div style={{ width: '160px', height: '120px', borderRadius: '6px', overflow: 'hidden', border: '1px solid rgba(0,243,255,0.2)', backgroundColor: '#000' }}>
-                  <img src="./razel_studio.png" alt="Razel Studio" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                </div>
-              </div>
-
             </div>
           </div>
         </div>
 
-        {/* SLIDE 3: SAAS */}
-        <div id="brochure-page-3" className="brochure-export-page" style={{ 
-          width: '1123px', height: '794px', padding: '60px 80px', 
-          backgroundColor: '#050505', color: '#ffffff', boxSizing: 'border-box', 
-          fontFamily: 'Consolas, Monaco, monospace', overflow: 'hidden', position: 'relative' 
+        {/* PAGE 5: FEATURED WORK */}
+        <div id="brochure-page-5" className="brochure-export-page" style={{
+          width: '1123px', height: '794px', padding: '60px 80px',
+          backgroundColor: tBg, backgroundImage: tBgImage,
+          color: tText1, boxSizing: 'border-box',
+          fontFamily: '"Inter", "Roboto", sans-serif', overflow: 'hidden', position: 'relative'
         }}>
-          <div style={{ position: 'absolute', inset: 0, opacity: 0.15, backgroundImage: 'linear-gradient(#00f3ff 1px, transparent 1px), linear-gradient(90deg, #00f3ff 1px, transparent 1px)', backgroundSize: '20px 20px', zIndex: 0 }}></div>
-          
-          <div style={{ position: 'relative', zIndex: 10, height: '100%', display: 'flex', flexDirection: 'column' }}>
-            <div style={{ marginBottom: '30px' }}>
-              <span style={{ fontSize: '14px', fontWeight: 'bold', color: '#39ff14', letterSpacing: '2px' }}>SYSTEM_DOSSIER // SLIDE_04</span>
-              <h2 style={{ fontSize: '48px', fontWeight: '900', fontStyle: 'italic', margin: '10px 0 0 0', color: '#ffffff' }}>ENTERPRISE SAAS & BIM</h2>
-              <p style={{ fontSize: '16px', color: '#607d8b', margin: '5px 0 0 0', textTransform: 'uppercase' }}>SaaS platforms & real-time WebGL engines</p>
+          <div style={{ position: 'relative', zIndex: 10, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+            <div style={{ height: '140px', marginBottom: '20px', borderBottom: `1px solid ${tBorder}` }}>
+              <span style={{ fontSize: '14px', fontWeight: 'bold', color: '#0066ff', letterSpacing: '2px', fontFamily: 'Consolas, Monaco, monospace' }}>04 // PROOF OF CONCEPT</span>
+              <h2 style={{ fontSize: '48px', fontWeight: '900', margin: '10px 0 5px 0', color: tText1, letterSpacing: '-1px' }}>FEATURED WORK</h2>
             </div>
-            
-            <div style={{ flex: 1, backgroundColor: 'rgba(0, 243, 255, 0.05)', border: '1px solid rgba(0, 243, 255, 0.15)', borderRadius: '16px', padding: '40px', display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '20px' }}>
-              
-              <div style={{ backgroundColor: 'rgba(0,0,0,0.4)', border: '1px solid rgba(0,243,255,0.1)', padding: '20px', borderRadius: '8px', display: 'flex', flexDirection: 'column' }}>
-                <div style={{ width: '100%', height: '140px', borderRadius: '6px', overflow: 'hidden', border: '1px solid rgba(0,243,255,0.2)', backgroundColor: '#000', marginBottom: '15px' }}>
-                  <img src="./invoicevault.png" alt="InvoiceVault" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+
+            <div style={{ display: 'flex', gap: '30px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', flex: 1 }}>
+                <div style={{ backgroundColor: tCardBg, border: `1px solid ${tBorder}`, padding: '25px', borderRadius: '12px' }}>
+                  <h3 style={{ fontSize: '18px', fontWeight: 'bold', color: '#0066ff', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '10px', marginBottom: '15px' }}>Real-Time Simulation & Defence</h3>
+                  <ul style={{ fontSize: '15px', color: tText3, lineHeight: '1.8', margin: 0, paddingLeft: '20px' }}>
+                    <li style={{ marginBottom: '10px' }}><strong>T4S Tactical Simulator</strong><br /><span style={{ fontSize: '13px', color: tText2 }}>Tactical Multiplayer Training Simulators</span></li>
+                    <li style={{ marginBottom: '10px' }}><strong>AGLSDS Hardware</strong><br /><span style={{ fontSize: '13px', color: tText2 }}>Hardware-Integrated Simulation Platforms</span></li>
+                    <li><strong>6DOF Motion Simulators</strong><br /><span style={{ fontSize: '13px', color: tText2 }}>Embedded Hardware Communication</span></li>
+                  </ul>
                 </div>
-                <h4 style={{ fontSize: '14px', fontWeight: '900', color: '#ffffff', margin: '0 0 5px 0', fontStyle: 'italic' }}>INVOICE_VAULT_PRO</h4>
-                <span style={{ fontSize: '10px', color: '#00f3ff', letterSpacing: '1px', marginBottom: '10px', display: 'block' }}>DESKTOP BILLING</span>
-                <p style={{ fontSize: '12px', color: '#a0aec0', margin: 0, lineHeight: '1.4' }}>Offline GST billing and business management platform. Complete with GSTR-1/3B generation and automated ledger tracking.</p>
+
+                <div style={{ backgroundColor: tCardBg, border: `1px solid ${tBorder}`, padding: '25px', borderRadius: '12px' }}>
+                  <h3 style={{ fontSize: '18px', fontWeight: 'bold', color: '#0066ff', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '10px', marginBottom: '15px' }}>XR & Digital Experiences</h3>
+                  <ul style={{ fontSize: '15px', color: tText3, lineHeight: '1.8', margin: 0, paddingLeft: '20px' }}>
+                    <li style={{ marginBottom: '10px' }}><strong>Razel Studio XR</strong><br /><span style={{ fontSize: '13px', color: tText2 }}>Interactive interior & material configurator</span></li>
+                    <li style={{ marginBottom: '10px' }}><strong>Industrial BIM Core</strong><br /><span style={{ fontSize: '13px', color: tText2 }}>Real-time workflows for structural datasets</span></li>
+                    <li><strong>WebAR Systems</strong><br /><span style={{ fontSize: '13px', color: tText2 }}>Instant spatial interactions</span></li>
+                  </ul>
+                </div>
               </div>
 
-              <div style={{ backgroundColor: 'rgba(0,0,0,0.4)', border: '1px solid rgba(0,243,255,0.1)', padding: '20px', borderRadius: '8px', display: 'flex', flexDirection: 'column' }}>
-                <div style={{ width: '100%', height: '140px', borderRadius: '6px', overflow: 'hidden', border: '1px solid rgba(0,243,255,0.2)', backgroundColor: '#000', marginBottom: '15px' }}>
-                  <img src="./saas_dashboard.png" alt="MediCorePro" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', flex: 1 }}>
+                <div style={{ backgroundColor: tCardBg, border: `1px solid ${tBorder}`, padding: '25px', borderRadius: '12px' }}>
+                  <h3 style={{ fontSize: '18px', fontWeight: 'bold', color: '#0066ff', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '10px', marginBottom: '15px' }}>Enterprise Applications</h3>
+                  <ul style={{ fontSize: '15px', color: tText3, lineHeight: '1.8', margin: 0, paddingLeft: '20px' }}>
+                    <li style={{ marginBottom: '10px' }}><strong>MediCorePro</strong><br /><span style={{ fontSize: '13px', color: tText2 }}>Clinical intelligence & patient management platform</span></li>
+                    <li style={{ marginBottom: '10px' }}><strong>Invoice Vault Pro</strong><br /><span style={{ fontSize: '13px', color: tText2 }}>Offline GST billing & business management</span></li>
+                    <li><strong>Content Hub OS</strong><br /><span style={{ fontSize: '13px', color: tText2 }}>Multi-tenant marketing workflow platform</span></li>
+                  </ul>
                 </div>
-                <h4 style={{ fontSize: '14px', fontWeight: '900', color: '#ffffff', margin: '0 0 5px 0', fontStyle: 'italic' }}>MEDICOREPRO_SAAS</h4>
-                <span style={{ fontSize: '10px', color: '#00f3ff', letterSpacing: '1px', marginBottom: '10px', display: 'block' }}>CLINICAL DASHBOARD</span>
-                <p style={{ fontSize: '12px', color: '#a0aec0', margin: 0, lineHeight: '1.4' }}>Clinical intelligence suite. Real-time patient telemetry trackers, medical charts, and diagnostics tables. Optimized for load times.</p>
-              </div>
 
-              <div style={{ backgroundColor: 'rgba(0,0,0,0.4)', border: '1px solid rgba(0,243,255,0.1)', padding: '20px', borderRadius: '8px', display: 'flex', flexDirection: 'column' }}>
-                <div style={{ width: '100%', height: '140px', borderRadius: '6px', overflow: 'hidden', border: '1px solid rgba(0,243,255,0.2)', backgroundColor: '#000', marginBottom: '15px' }}>
-                  <img src="./saas_dashboard.png" alt="ShowroomOS" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <div style={{ backgroundColor: tCardBg, border: `1px solid ${tBorder}`, padding: '25px', borderRadius: '12px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
+                  <h3 style={{ fontSize: '24px', fontWeight: 'bold', color: '#0066ff', margin: '0 0 10px 0' }}>Built for Scale</h3>
+                  <p style={{ fontSize: '16px', color: tText2, lineHeight: '1.6', margin: 0, maxWidth: '80%' }}>We specialize in developing robust enterprise and SaaS software capable of handling complex integrations and long-term scalability.</p>
                 </div>
-                <h4 style={{ fontSize: '14px', fontWeight: '900', color: '#ffffff', margin: '0 0 5px 0', fontStyle: 'italic' }}>SHOWROOMOS_CRM</h4>
-                <span style={{ fontSize: '10px', color: '#00f3ff', letterSpacing: '1px', marginBottom: '10px', display: 'block' }}>AUTO SALES CRM</span>
-                <p style={{ fontSize: '12px', color: '#a0aec0', margin: 0, lineHeight: '1.4' }}>Operational management CRM built for Hyundai dealerships. Handles live lead data grids, auto analytics, and dealership pipelines.</p>
               </div>
-
-              <div style={{ backgroundColor: 'rgba(0,0,0,0.4)', border: '1px solid rgba(0,243,255,0.1)', padding: '20px', borderRadius: '8px', display: 'flex', flexDirection: 'column' }}>
-                <div style={{ width: '100%', height: '140px', borderRadius: '6px', overflow: 'hidden', border: '1px solid rgba(0,243,255,0.2)', backgroundColor: '#000', marginBottom: '15px' }}>
-                  <img src="./razel_studio.png" alt="BIM Core" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                </div>
-                <h4 style={{ fontSize: '14px', fontWeight: '900', color: '#ffffff', margin: '0 0 5px 0', fontStyle: 'italic' }}>INDUSTRIAL_BIM_CORE</h4>
-                <span style={{ fontSize: '10px', color: '#00f3ff', letterSpacing: '1px', marginBottom: '10px', display: 'block' }}>WEBGL BIM VIEWER</span>
-                <p style={{ fontSize: '12px', color: '#a0aec0', margin: 0, lineHeight: '1.4' }}>High-fidelity real-time WebGL viewer for rendering complex structural datasets directly in web browsers.</p>
-              </div>
-
             </div>
           </div>
         </div>
 
+        {/* PAGE 6: OUR DEVELOPMENT APPROACH */}
+        <div id="brochure-page-6" className="brochure-export-page" style={{
+          width: '1123px', height: '794px', padding: '60px 80px',
+          backgroundColor: tBg, backgroundImage: tBgImage,
+          color: tText1, boxSizing: 'border-box',
+          fontFamily: '"Inter", "Roboto", sans-serif', overflow: 'hidden', position: 'relative'
+        }}>
+          <div style={{ position: 'relative', zIndex: 10, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start' }}>
+            <div style={{ height: '140px', marginBottom: '20px' }}>
+              <span style={{ fontSize: '14px', fontWeight: 'bold', color: '#0066ff', letterSpacing: '2px', fontFamily: 'Consolas, Monaco, monospace' }}>05 // EXECUTION</span>
+              <h2 style={{ fontSize: '48px', fontWeight: '900', margin: '10px 0 5px 0', color: tText1, letterSpacing: '-1px' }}>DEVELOPMENT APPROACH</h2>
+              <p style={{ fontSize: '16px', color: tText2, margin: 0, textTransform: 'uppercase', letterSpacing: '1px' }}>From Idea To Working System</p>
+            </div>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '20px', backgroundColor: tCardBg, border: `1px solid ${tBorder}`, padding: '20px 30px', borderRadius: '12px' }}>
+                <span style={{ fontSize: '36px', fontWeight: '900', color: '#0066ff', opacity: 0.5 }}>1</span>
+                <div>
+                  <h4 style={{ fontSize: '20px', fontWeight: 'bold', color: tText1, margin: '0 0 5px 0' }}>Discovery</h4>
+                  <p style={{ fontSize: '14px', color: tText3, margin: 0 }}>Understanding your business goals, challenges, and core technical requirements before writing a single line of code.</p>
+                </div>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '20px', backgroundColor: tCardBg, border: `1px solid ${tBorder}`, padding: '20px 30px', borderRadius: '12px' }}>
+                <span style={{ fontSize: '36px', fontWeight: '900', color: '#0066ff', opacity: 0.5 }}>2</span>
+                <div>
+                  <h4 style={{ fontSize: '20px', fontWeight: 'bold', color: tText1, margin: '0 0 5px 0' }}>Architecture</h4>
+                  <p style={{ fontSize: '14px', color: tText3, margin: 0 }}>Designing the right technical foundation, data pipelines, and infrastructure tailored specifically for implementation.</p>
+                </div>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '20px', backgroundColor: tCardBg, border: `1px solid ${tBorder}`, padding: '20px 30px', borderRadius: '12px' }}>
+                <span style={{ fontSize: '36px', fontWeight: '900', color: '#0066ff', opacity: 0.5 }}>3</span>
+                <div>
+                  <h4 style={{ fontSize: '20px', fontWeight: 'bold', color: tText1, margin: '0 0 5px 0' }}>Development</h4>
+                  <p style={{ fontSize: '14px', color: tText3, margin: 0 }}>Building, testing, and refining the solution through iterative development and continuous active collaboration.</p>
+                </div>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '20px', backgroundColor: tCardBg, border: `1px solid ${tBorder}`, padding: '20px 30px', borderRadius: '12px' }}>
+                <span style={{ fontSize: '36px', fontWeight: '900', color: '#0066ff', opacity: 0.5 }}>4</span>
+                <div>
+                  <h4 style={{ fontSize: '20px', fontWeight: 'bold', color: tText1, margin: '0 0 5px 0' }}>Deployment & Growth</h4>
+                  <p style={{ fontSize: '14px', color: tText3, margin: 0 }}>Successfully launching the product, while actively supporting improvements, scaling operations, and future enhancements.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* PAGE 7: WHO WE WORK WITH */}
+        <div id="brochure-page-7" className="brochure-export-page" style={{
+          width: '1123px', height: '794px', padding: '60px 80px',
+          backgroundColor: tBg, backgroundImage: tBgImage,
+          color: tText1, boxSizing: 'border-box',
+          fontFamily: '"Inter", "Roboto", sans-serif', overflow: 'hidden', position: 'relative'
+        }}>
+          <div style={{ position: 'relative', zIndex: 10, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+            <div style={{ height: '140px', marginBottom: '20px' }}>
+              <span style={{ fontSize: '14px', fontWeight: 'bold', color: '#0066ff', letterSpacing: '2px', fontFamily: 'Consolas, Monaco, monospace' }}>06 // PARTNERSHIPS</span>
+              <h2 style={{ fontSize: '48px', fontWeight: '900', margin: '10px 0 5px 0', color: tText1, letterSpacing: '-1px' }}>WHO WE WORK WITH</h2>
+            </div>
+
+            <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <div style={{ backgroundColor: tCardBg, border: `1px solid ${tBorder}`, padding: '50px', borderRadius: '16px', width: '100%' }}>
+                <h3 style={{ fontSize: '24px', color: tText2, marginBottom: '30px' }}>We collaborate seamlessly with:</h3>
+                <ul style={{ fontSize: '20px', color: tText3, lineHeight: '2.4', margin: 0, paddingLeft: '20px', listStyleType: 'square' }}>
+                  <li><strong>Businesses</strong> needing custom software solutions designed for their specific workflows.</li>
+                  <li><strong>AEC teams</strong> building digital twin architectures and spatial tracking pipelines.</li>
+                  <li><strong>Industrial companies</strong> requiring robust visualization systems and dashboards.</li>
+                  <li><strong>Startups</strong> building technically complex SaaS products that must scale securely.</li>
+                  <li><strong>Organizations</strong> facing complex software engineering challenges that demand stability.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        {/* PAGE 8: FINAL CTA & CONTACT */}
+        <div id="brochure-page-8" className="brochure-export-page" style={{
+          width: '1123px', height: '794px',
+          backgroundColor: tBg, backgroundImage: tBgImage,
+          boxSizing: 'border-box',
+          fontFamily: '"Inter", "Roboto", sans-serif', overflow: 'hidden', position: 'relative',
+          display: 'flex', flexDirection: 'column'
+        }}>
+          
+          {/* Top Banner (Contained cleanly) */}
+          <div style={{ height: '600px', width: '100%', padding: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center', boxSizing: 'border-box' }}>
+            <img src="./banner_RT_Services.png" style={{ maxWidth: '100%', maxHeight: '100%', width: 'auto', height: 'auto', objectFit: 'contain' }} alt="Razel Tech Services" />
+          </div>
+
+          {/* Bottom Contact Bar */}
+          <div style={{ height: '194px', width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'flex-start', boxSizing: 'border-box' }}>
+            {/* Contact / Social Hub (Icons Only) */}
+            <div style={{ display: 'flex', gap: '40px', padding: '20px 40px', backgroundColor: pdfTheme === 'dark' ? 'rgba(2, 11, 20, 0.8)' : 'rgba(255, 255, 255, 0.6)', backdropFilter: 'blur(10px)', borderRadius: '100px', border: `1px solid ${tBorder}`, boxShadow: `0 10px 40px ${tBorder}` }}>
+
+              <div data-pdf-link="https://razeltech.github.io/" style={{ color: tText1, cursor: 'pointer', padding: '10px' }}>
+                <Globe size={32} />
+              </div>
+
+              <div data-pdf-link="mailto:razeltech.in@gmail.com" style={{ color: tText1, cursor: 'pointer', padding: '10px' }}>
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              </div>
+
+              <div data-pdf-link="https://www.linkedin.com/company/razel-tech" style={{ color: tText1, cursor: 'pointer', padding: '10px' }}>
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+              </div>
+
+              <div data-pdf-link="https://www.linkedin.com/in/raja-vamsi-dhar-vallabhapurapu-71b10475/" style={{ color: '#0066ff', cursor: 'pointer', padding: '10px' }}>
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+              </div>
+
+              <div data-pdf-link="https://github.com/razeltech" style={{ color: tText1, cursor: 'pointer', padding: '10px' }}>
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+              </div>
+            </div>
+
+          </div>
+        </div>
       </div>
-
     </div>
   );
 }
+
+

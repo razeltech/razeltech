@@ -1,13 +1,13 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { HashRouter as Router, Routes, Route, Link, useParams, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import { 
-  Terminal, 
-  Cpu, 
-  Globe, 
-  Code2, 
-  Box, 
-  Zap, 
+import {
+  Terminal,
+  Cpu,
+  Globe,
+  Code2,
+  Box,
+  Zap,
   ChevronUp
 } from 'lucide-react';
 const CyberGrid = lazy(() => import('./components/CyberGrid'));
@@ -182,7 +182,7 @@ const CAREER_LOG = [
 
 const TypewriterText = ({ text, delay = 0.05 }) => {
   const [displayedText, setDisplayedText] = useState('');
-  
+
   useEffect(() => {
     let i = 0;
     const timer = setInterval(() => {
@@ -223,8 +223,8 @@ const Layout = ({ children }) => {
       {/* RAZEL_ENGINE::Composite_Background_Layer */}
       <div className="fixed inset-0 -z-10 overflow-hidden">
         <Suspense fallback={<div className="absolute inset-0 bg-obsidian" />}>
-          <ShapeGrid 
-            speed={0.2} 
+          <ShapeGrid
+            speed={0.2}
             squareSize={50}
             direction='diagonal'
             borderColor='rgba(0, 243, 255, 0.08)'
@@ -241,7 +241,7 @@ const Layout = ({ children }) => {
 
       <div className="scanline" />
       <CustomCursor mouseX={smoothX} mouseY={smoothY} />
-      
+
       <div className="relative z-10">
         <nav className="px-4 py-3 md:px-6 md:py-6 border-b border-cyber-blue/20 flex justify-between items-center backdrop-blur-md fixed top-0 left-0 w-full z-[100] bg-obsidian/80 transform-gpu">
           <Link to="/" className="flex items-center space-x-1.5 md:space-x-3 group shrink-0" onClick={() => setIsMenuOpen(false)}>
@@ -250,7 +250,7 @@ const Layout = ({ children }) => {
             </div>
             <span className="font-black tracking-tighter text-base sm:text-lg md:text-2xl terminal-text group-hover:text-white transition-colors uppercase">RAZEL TECH</span>
           </Link>
-          
+
           {/* Desktop Nav */}
           <div className="hidden md:flex space-x-6 text-[10px] font-bold tracking-widest text-cyber-blue/60 uppercase">
             <Link to="/core" className="hover:text-cyber-blue transition-colors border-b border-transparent hover:border-cyber-blue pb-1">[ CORE_ENGINES ]</Link>
@@ -262,7 +262,7 @@ const Layout = ({ children }) => {
 
           {/* Mobile Menu Toggle */}
           <div className="md:hidden flex items-center">
-            <button 
+            <button
               className="p-2 text-white bg-cyber-blue/10 hover:bg-cyber-blue/20 rounded-lg transition-all z-[60]"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle Menu"
@@ -286,36 +286,36 @@ const Layout = ({ children }) => {
               className="fixed inset-0 z-40 bg-obsidian/95 backdrop-blur-xl md:hidden pt-24 px-6"
             >
               <div className="flex flex-col space-y-8 text-center">
-                <Link 
-                  to="/core" 
+                <Link
+                  to="/core"
                   onClick={() => setIsMenuOpen(false)}
                   className="text-2xl font-black tracking-[0.2em] text-cyber-blue uppercase"
                 >
                   [ CORE_ENGINES ]
                 </Link>
-                <Link 
-                  to="/logic" 
+                <Link
+                  to="/logic"
                   onClick={() => setIsMenuOpen(false)}
                   className="text-2xl font-black tracking-[0.2em] text-cyber-blue uppercase"
                 >
                   [ LOGIC_DATA ]
                 </Link>
-                <Link 
-                  to="/labs" 
+                <Link
+                  to="/labs"
                   onClick={() => setIsMenuOpen(false)}
                   className="text-2xl font-black tracking-[0.2em] text-cyber-blue uppercase"
                 >
                   [ LABS ]
                 </Link>
-                <Link 
-                  to="/deck" 
+                <Link
+                  to="/deck"
                   onClick={() => setIsMenuOpen(false)}
                   className="text-2xl font-black tracking-[0.2em] text-cyber-blue uppercase"
                 >
                   [ CAPABILITY_DECK ]
                 </Link>
-                <Link 
-                  to="/vcard" 
+                <Link
+                  to="/vcard"
                   onClick={() => setIsMenuOpen(false)}
                   className="text-2xl font-black tracking-[0.2em] text-cyber-blue uppercase"
                 >
@@ -355,11 +355,11 @@ const Layout = ({ children }) => {
 const ScrambledText = ({ text }) => {
   const [displayedText, setDisplayedText] = useState(text);
   const chars = 'ABCDEF0123456789<>-_\\/[]{}!@#$%^&*+';
-  
+
   const scramble = () => {
     let iteration = 0;
     const interval = setInterval(() => {
-      setDisplayedText(prev => 
+      setDisplayedText(prev =>
         text.split('').map((char, index) => {
           if (index < iteration) return text[index];
           // Use fixed-width space for non-visible characters to prevent layout shift
@@ -367,7 +367,7 @@ const ScrambledText = ({ text }) => {
           return chars[Math.floor(Math.random() * chars.length)];
         }).join('')
       );
-      
+
       if (iteration >= text.length) clearInterval(interval);
       iteration += 1 / 3;
     }, 30);
@@ -378,8 +378,8 @@ const ScrambledText = ({ text }) => {
   }, [text]);
 
   return (
-    <span 
-      onMouseEnter={scramble} 
+    <span
+      onMouseEnter={scramble}
       className="cursor-pointer inline-block font-mono max-w-full break-all sm:break-normal transform-gpu"
       style={{ minWidth: `${text.length}ch`, textAlign: 'left' }}
     >
@@ -397,7 +397,7 @@ const NotFound = () => (
         <span>CRITICAL_ERROR // 404 // ACCESS_DENIED</span>
       </div>
     </div>
-    
+
     <h1 className="text-5xl md:text-7xl font-black tracking-tighter mb-8 italic uppercase relative group cursor-crosshair leading-tight">
       <span className="opacity-40 absolute inset-0 text-red-500 blur-md translate-x-2 translate-y-2 animate-pulse">404 Error</span>
       <ScrambledText text="Tech Glitch" /><br />
@@ -406,14 +406,14 @@ const NotFound = () => (
         <ScrambledText text="404 Not Found the Page" />
       </span>
     </h1>
-    
+
     <div className="w-full max-w-lg mb-12 h-1 bg-gradient-to-r from-transparent via-red-500 to-transparent"></div>
-    
+
     <p className="text-red-400 font-mono text-sm md:text-base tracking-widest mb-12 uppercase flex flex-col gap-2 font-bold max-w-xl text-center">
       <span>&gt; FATAL: Requested_Endpoint_Not_Found.</span>
       <span className="text-red-500 animate-pulse">&gt; Awaiting_New_Coordinates...</span>
     </p>
-    
+
     <Link to="/" className="group relative px-10 py-5 border-2 border-red-500/50 text-red-500 text-xs font-black tracking-widest uppercase overflow-hidden transition-all hover:border-red-500 hover:text-black hover:bg-red-500 hover:shadow-[0_0_30px_rgba(239,68,68,0.8)]">
       <span className="relative flex items-center justify-center gap-3">
         <Terminal size={16} />
@@ -434,11 +434,11 @@ const CustomCursor = ({ mouseX, mouseY }) => {
 };
 
 const GithubIcon = ({ size = 24, className = "" }) => (
-  <svg 
-    width={size} 
-    height={size} 
-    viewBox="0 0 24 24" 
-    fill="currentColor" 
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="currentColor"
     className={className}
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -447,11 +447,11 @@ const GithubIcon = ({ size = 24, className = "" }) => (
 );
 
 const LinkedinIcon = ({ size = 24, className = "" }) => (
-  <svg 
-    width={size} 
-    height={size} 
-    viewBox="0 0 24 24" 
-    fill="currentColor" 
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="currentColor"
     className={className}
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -504,17 +504,17 @@ const ScrollToTop = () => {
 };
 
 const ProfileCard = () => (
-  <BorderGlow 
-    borderRadius={16} 
-    glowRadius={6} 
-    edgeSensitivity={40} 
+  <BorderGlow
+    borderRadius={16}
+    glowRadius={6}
+    edgeSensitivity={40}
     glowIntensity={0.5}
     fillOpacity={0}
-    glowColor="180 100 80" 
+    glowColor="180 100 80"
     backgroundColor="#050505"
     colors={['#00f3ff', '#39ff14', '#00f3ff']}
   >
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       className="bg-cyber-blue/5 border border-cyber-blue/10 p-8 rounded-lg backdrop-blur-md w-full lg:w-80 relative overflow-hidden"
@@ -541,32 +541,32 @@ const ProfileCard = () => (
       </div>
 
       <div className="mt-8 pt-6 border-t border-cyber-blue/10">
-         <div className="flex justify-between items-center mb-4">
-            <div className="text-[9px] font-black text-cyber-green animate-pulse uppercase">● Systems_Operational</div>
-            <div className="flex space-x-2">
-               <a href="https://www.linkedin.com/in/raja-vamsi-dhar-vallabhapurapu-71b10475/" target="_blank" rel="noreferrer" className="p-1.5 hover:text-cyber-blue transition-colors">
-                  <LinkedinIcon size={16} />
-               </a>
-               <a href="https://github.com/razeltech" target="_blank" rel="noreferrer" className="p-1.5 hover:text-cyber-blue transition-colors">
-                  <GithubIcon size={16} />
-               </a>
-            </div>
-         </div>
-         <div className="text-[8px] font-bold text-cyber-blue/40 tracking-widest uppercase text-center border border-cyber-blue/10 py-2 rounded">
-            MSME_REG::UDYAM-AP-04-0112603 // LICENSED_STUDIO
-         </div>
-          <Link 
-            to="/deck" 
-            className="mt-3 block text-[8px] font-black text-center text-cyber-blue hover:text-white border border-cyber-blue/30 hover:bg-cyber-blue/15 py-2.5 rounded transition-all tracking-[0.2em] uppercase"
-          >
-             [ VIEW_CAPABILITY_DECK ]
-          </Link>
-          <Link 
-            to="/vcard" 
-            className="mt-2 block text-[8px] font-black text-center text-cyber-blue hover:text-white border border-cyber-blue/30 hover:bg-cyber-blue/15 py-2.5 rounded transition-all tracking-[0.2em] uppercase"
-          >
-             [ INITIALIZE_DIGITAL_VCARD ]
-          </Link>
+        <div className="flex justify-between items-center mb-4">
+          <div className="text-[9px] font-black text-cyber-green animate-pulse uppercase">● Systems_Operational</div>
+          <div className="flex space-x-2">
+            <a href="https://www.linkedin.com/in/raja-vamsi-dhar-vallabhapurapu-71b10475/" target="_blank" rel="noreferrer" className="p-1.5 hover:text-cyber-blue transition-colors">
+              <LinkedinIcon size={16} />
+            </a>
+            <a href="https://github.com/razeltech" target="_blank" rel="noreferrer" className="p-1.5 hover:text-cyber-blue transition-colors">
+              <GithubIcon size={16} />
+            </a>
+          </div>
+        </div>
+        <div className="text-[8px] font-bold text-cyber-blue/40 tracking-widest uppercase text-center border border-cyber-blue/10 py-2 rounded">
+          MSME_REG::UDYAM-AP-04-0112603 // LICENSED_STUDIO
+        </div>
+        <Link
+          to="/deck"
+          className="mt-3 block text-[8px] font-black text-center text-cyber-blue hover:text-white border border-cyber-blue/30 hover:bg-cyber-blue/15 py-2.5 rounded transition-all tracking-[0.2em] uppercase"
+        >
+          [ VIEW_CAPABILITY_DECK ]
+        </Link>
+        <Link
+          to="/vcard"
+          className="mt-2 block text-[8px] font-black text-center text-cyber-blue hover:text-white border border-cyber-blue/30 hover:bg-cyber-blue/15 py-2.5 rounded transition-all tracking-[0.2em] uppercase"
+        >
+          [ INITIALIZE_DIGITAL_VCARD ]
+        </Link>
       </div>
     </motion.div>
   </BorderGlow>
@@ -584,7 +584,7 @@ const CareerTimeline = () => {
 
       <div className="relative border-l border-cyber-blue/20 ml-4 md:ml-8 space-y-12 pb-8">
         {CAREER_LOG.map((item, index) => (
-          <motion.div 
+          <motion.div
             key={index}
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -593,7 +593,7 @@ const CareerTimeline = () => {
           >
             {/* Timeline Node */}
             <div className="absolute -left-[9px] top-0 w-4 h-4 bg-obsidian border-2 border-cyber-blue rounded-full z-10">
-               <div className="absolute inset-0 bg-cyber-blue animate-pulse rounded-full" />
+              <div className="absolute inset-0 bg-cyber-blue animate-pulse rounded-full" />
             </div>
 
             <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
@@ -614,7 +614,7 @@ const CareerTimeline = () => {
               <ScrambledText text={item.role} />
             </h3>
             <div className="text-cyber-green text-[11px] font-bold tracking-widest mb-4 uppercase">@ {item.company}</div>
-            
+
             <ScrollReveal baseOpacity={0.15} blurStrength={3} containerClassName="max-w-2xl">
               {item.description}
             </ScrollReveal>
@@ -630,11 +630,11 @@ const CareerTimeline = () => {
 
 const ProjectGrid = ({ filter = null }) => {
   const [activeFilter, setActiveFilter] = useState(null);
-  
+
   const currentFilter = filter || activeFilter;
-  
-  const filteredProjects = currentFilter 
-    ? PROJECTS.filter(p => p.type === currentFilter) 
+
+  const filteredProjects = currentFilter
+    ? PROJECTS.filter(p => p.type === currentFilter)
     : PROJECTS;
 
   return (
@@ -643,28 +643,28 @@ const ProjectGrid = ({ filter = null }) => {
       {!filter && (
         <div className="flex justify-center mb-12 w-full">
           <div className="bg-obsidian/50 border border-cyber-blue/20 p-1 rounded-full flex overflow-x-auto no-scrollbar">
-            <button 
+            <button
               onClick={() => setActiveFilter(null)}
               className={`px-4 md:px-6 py-2 rounded-full text-[10px] font-black tracking-widest transition-all whitespace-nowrap flex items-center space-x-2 ${!activeFilter ? 'bg-cyber-blue text-black' : 'text-cyber-blue/60 hover:text-white'}`}
             >
               <Globe size={14} />
               <span className="hidden md:inline">ALL_SYSTEMS</span>
             </button>
-            <button 
+            <button
               onClick={() => setActiveFilter('CORE_ENGINE')}
               className={`px-4 md:px-6 py-2 rounded-full text-[10px] font-black tracking-widest transition-all whitespace-nowrap flex items-center space-x-2 ${activeFilter === 'CORE_ENGINE' ? 'bg-cyber-blue text-black' : 'text-cyber-blue/60 hover:text-white'}`}
             >
               <Box size={14} />
               <span className="hidden md:inline">UNITY_PROJECTS</span>
             </button>
-            <button 
+            <button
               onClick={() => setActiveFilter('LOGIC_DATA')}
               className={`px-4 md:px-6 py-2 rounded-full text-[10px] font-black tracking-widest transition-all whitespace-nowrap flex items-center space-x-2 ${activeFilter === 'LOGIC_DATA' ? 'bg-cyber-blue text-black' : 'text-cyber-blue/60 hover:text-white'}`}
             >
               <Terminal size={14} />
               <span className="hidden md:inline">SIMULATORS</span>
             </button>
-            <button 
+            <button
               onClick={() => setActiveFilter('LABS')}
               className={`px-4 md:px-6 py-2 rounded-full text-[10px] font-black tracking-widest transition-all whitespace-nowrap flex items-center space-x-2 ${activeFilter === 'LABS' ? 'bg-cyber-blue text-black' : 'text-cyber-blue/60 hover:text-white'}`}
             >
@@ -706,22 +706,22 @@ const SpotlightCard = ({ project }) => {
   }
 
   return (
-    <BorderGlow 
-      borderRadius={12} 
-      glowRadius={6} 
-      edgeSensitivity={40} 
+    <BorderGlow
+      borderRadius={12}
+      glowRadius={6}
+      edgeSensitivity={40}
       glowIntensity={0.5}
       fillOpacity={0}
-      glowColor="180 100 80" 
+      glowColor="180 100 80"
       backgroundColor="#050505"
       colors={['#00f3ff', '#39ff14', '#00f3ff']}
     >
-      <motion.div 
+      <motion.div
         onMouseMove={handleMouseMove}
         whileHover={{ scale: 1.01 }}
         className="p-8 bg-cyber-blue/5 border border-cyber-blue/10 relative group overflow-hidden spotlight-card h-full"
       >
-        <motion.div 
+        <motion.div
           className="spotlight-glow"
           style={{
             background: useTransform(
@@ -730,11 +730,11 @@ const SpotlightCard = ({ project }) => {
             )
           }}
         />
-        
+
         <div className="relative z-10">
           <div className="absolute top-0 right-0">
             <div className={`text-[9px] font-black px-2 py-1 rounded ${project.status === 'CLASSIFIED' ? 'bg-red-500/20 text-red-500 border border-red-500/50' : 'bg-cyber-green/20 text-cyber-green border border-cyber-green/50'}`}>
-               {project.status}
+              {project.status}
             </div>
           </div>
 
@@ -744,7 +744,7 @@ const SpotlightCard = ({ project }) => {
               <ScrambledText text={project.title} />
             </h3>
           </div>
-          
+
           <ScrollReveal baseOpacity={0.2} blurStrength={5} textClassName="text-sm text-cyber-blue/60 mb-8 leading-relaxed line-clamp-3">
             {project.description}
           </ScrollReveal>
@@ -758,17 +758,17 @@ const SpotlightCard = ({ project }) => {
           </div>
 
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-            <Link 
+            <Link
               to={`/project/${project.id}`}
               className="flex items-center space-x-2 text-[11px] font-black uppercase tracking-widest text-cyber-blue hover:text-black border border-cyber-blue/30 hover:bg-cyber-blue px-4 py-2 rounded transition-all w-full sm:w-auto justify-center"
             >
               <span>Access_Brochure</span>
             </Link>
-            
+
             {project.link !== '#' ? (
-              <a 
-                href={project.link} 
-                target="_blank" 
+              <a
+                href={project.link}
+                target="_blank"
                 rel="noreferrer"
                 className="flex items-center justify-center space-x-2 text-[10px] font-black uppercase tracking-widest text-cyber-blue/60 hover:text-white transition-all w-full sm:w-auto"
               >
@@ -803,11 +803,11 @@ const DossierPage = ({ title, type }) => {
         </div>
       </div>
       <ProjectGrid filter={type} />
-      
+
       <div className="mt-20">
-         <Link to="/" className="text-[10px] font-bold tracking-widest text-cyber-blue hover:text-white transition-colors uppercase">
-            &lt; Return_to_Core_Systems
-         </Link>
+        <Link to="/" className="text-[10px] font-bold tracking-widest text-cyber-blue hover:text-white transition-colors uppercase">
+          &lt; Return_to_Core_Systems
+        </Link>
       </div>
     </div>
   );
@@ -837,8 +837,8 @@ const ProjectDetails = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-6 py-20">
-      <button 
-        onClick={() => navigate(-1)} 
+      <button
+        onClick={() => navigate(-1)}
         className="mb-12 text-[10px] font-bold tracking-widest text-cyber-blue hover:text-white transition-colors uppercase flex items-center space-x-2"
       >
         <span>&lt; Return_To_Previous</span>
@@ -852,11 +852,11 @@ const ProjectDetails = () => {
         <h1 className="text-4xl md:text-6xl font-black tracking-tighter mb-6 italic uppercase">
           <ScrambledText text={project.title} />
         </h1>
-        
+
         {project.link !== '#' && (
-          <a 
-            href={project.link} 
-            target="_blank" 
+          <a
+            href={project.link}
+            target="_blank"
             rel="noreferrer"
             className="inline-flex items-center space-x-3 text-[12px] font-black uppercase tracking-widest text-black bg-cyber-blue hover:bg-white px-8 py-4 rounded transition-all mt-4"
           >
@@ -869,7 +869,7 @@ const ProjectDetails = () => {
       <div className="space-y-24">
         {sections.map((section, idx) => {
           const isReversed = idx % 2 !== 0;
-          
+
           return (
             <div key={idx} className={`flex flex-col ${isReversed ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-12`}>
               {/* Text Column */}
@@ -899,10 +899,10 @@ const ProjectDetails = () => {
                 <div className="border border-cyber-blue/20 bg-cyber-blue/5 p-2 rounded-lg group h-full flex items-center justify-center min-h-[300px]">
                   {section.image ? (
                     <div className="relative overflow-hidden rounded w-full h-full">
-                      <img 
-                        src={`./${section.image}`} 
-                        alt={`${project.title} visual data`} 
-                        className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500 rounded" 
+                      <img
+                        src={`./${section.image}`}
+                        alt={`${project.title} visual data`}
+                        className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500 rounded"
                       />
                       <div className="absolute inset-0 bg-cyber-blue/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
                     </div>
@@ -944,13 +944,13 @@ const Home = () => {
             </span>
           </h1>
           <div className="mb-10 flex items-center space-x-4">
-             <div className="h-px w-12 bg-cyber-blue/50"></div>
-             <span className="text-cyber-blue/60 font-bold tracking-[0.2em] md:tracking-[0.3em] text-[9px] md:text-[12px] uppercase">Razel Tech // Mission-Critical Simulators & Industrial AR/VR</span>
+            <div className="h-px w-12 bg-cyber-blue/50"></div>
+            <span className="text-cyber-blue/60 font-bold tracking-[0.2em] md:tracking-[0.3em] text-[9px] md:text-[12px] uppercase">Razel Tech // Mission-Critical Simulators & Industrial AR/VR</span>
           </div>
           <p className="text-lg md:text-2xl text-cyber-blue/80 max-w-3xl font-medium leading-relaxed mb-12">
             <TypewriterText text="Specializing in defense-grade tactical simulators, high-fidelity BIM pipelines, and spatial intelligence systems. We bridge the gap between complex hardware and immersive software ecosystems." />
           </p>
-          
+
           <div className="flex flex-wrap gap-4">
             <a href="#core" className="px-8 py-4 bg-cyber-blue/10 border border-cyber-blue/30 text-cyber-blue text-[10px] font-black tracking-widest uppercase hover:bg-cyber-blue hover:text-black transition-all">
               View_System_Dossiers
@@ -1036,17 +1036,17 @@ const Home = () => {
 
       {/* Terminal Footer */}
       <section className="mt-32 p-8 bg-black border border-cyber-blue/20 rounded-lg font-mono text-xs">
-         <div className="flex items-center space-x-2 text-cyber-green mb-4">
-            <span className="w-2 h-2 rounded-full bg-cyber-green animate-ping" />
-            <span className="font-bold">STATUS: RAZEL_TECH_STUDIO_LIVE</span>
-         </div>
-         <div className="text-cyber-blue/60 space-y-1">
-            <p className="text-white">&gt; INITIALIZING_DASHBOARD...</p>
-            <p>&gt; SCANNING_SIMULATION_LAYERS... [SUCCESS]</p>
-            <p>&gt; CONNECTING_SAAS_LOGIC... [CONNECTED]</p>
-            <p>&gt; MSME_LICENSING_VERIFIED... [READY]</p>
-            <p>&gt; RAZEL_STUDIO_READY_FOR_ENGAGEMENT.</p>
-         </div>
+        <div className="flex items-center space-x-2 text-cyber-green mb-4">
+          <span className="w-2 h-2 rounded-full bg-cyber-green animate-ping" />
+          <span className="font-bold">STATUS: RAZEL_TECH_STUDIO_LIVE</span>
+        </div>
+        <div className="text-cyber-blue/60 space-y-1">
+          <p className="text-white">&gt; INITIALIZING_DASHBOARD...</p>
+          <p>&gt; SCANNING_SIMULATION_LAYERS... [SUCCESS]</p>
+          <p>&gt; CONNECTING_SAAS_LOGIC... [CONNECTED]</p>
+          <p>&gt; MSME_LICENSING_VERIFIED... [READY]</p>
+          <p>&gt; RAZEL_STUDIO_READY_FOR_ENGAGEMENT.</p>
+        </div>
       </section>
     </div>
   );

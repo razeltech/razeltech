@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  Phone, 
-  Mail, 
-  Globe, 
-  User, 
-  Briefcase, 
-  MapPin, 
-  Share2, 
-  Download, 
-  QrCode, 
-  Check, 
+import {
+  Phone,
+  Mail,
+  Globe,
+  User,
+  Briefcase,
+  MapPin,
+  Share2,
+  Download,
+  QrCode,
+  Check,
   ArrowLeft,
   Cpu,
   Compass
@@ -35,7 +35,7 @@ export default function DigitalCard() {
   const [copied, setCopied] = useState(false);
   const [copiedText, setCopiedText] = useState('Copy URL');
   const [isCardFlipped, setIsCardFlipped] = useState(false);
-  
+
   // Card-specific metadata
   const contact = {
     fullName: "Raja Vamsi Dhar V",
@@ -119,27 +119,27 @@ export default function DigitalCard() {
     <div className="min-h-[85vh] flex flex-col items-center justify-center p-4 md:p-8 space-y-12">
       <div className="w-full max-w-md relative">
         {/* Back Link to Systems Hub */}
-        <Link 
-          to="/" 
+        <Link
+          to="/"
           className="inline-flex items-center space-x-2 text-[10px] font-bold tracking-widest text-cyber-blue hover:text-white mb-6 uppercase transition-colors"
         >
           <ArrowLeft size={12} />
           <span>Return_to_Core_Systems</span>
         </Link>
 
-        <BorderGlow 
-          borderRadius={24} 
-          glowRadius={8} 
-          edgeSensitivity={30} 
+        <BorderGlow
+          borderRadius={24}
+          glowRadius={8}
+          edgeSensitivity={30}
           glowIntensity={0.6}
           fillOpacity={0}
-          glowColor="180 100 80" 
+          glowColor="180 100 80"
           backgroundColor="#050505"
           colors={['#00f3ff', '#39ff14', '#00f3ff']}
         >
           {/* Main Card Container */}
           <div className="bg-obsidian border border-cyber-blue/15 rounded-[24px] p-6 md:p-8 relative overflow-hidden backdrop-blur-xl flex flex-col items-center">
-            
+
             {/* Tech Aesthetic Sub-labels */}
             <div className="w-full flex justify-between items-center mb-6 text-[8px] font-bold text-cyber-blue/40 tracking-widest uppercase">
               <span>SYSTEMS::VCARD_ONLINE</span>
@@ -150,10 +150,10 @@ export default function DigitalCard() {
             <div className="relative mb-6">
               <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-cyber-blue to-cyber-green opacity-40 blur-md animate-pulse" />
               <div className="w-24 h-24 rounded-full bg-[#dcdcdc] border-2 border-cyber-blue flex items-center justify-center relative z-10 overflow-hidden">
-                <img 
-                  src="./logo.png" 
-                  alt="RazelTech Logo" 
-                  className="w-full h-full object-contain p-0 animate-pulse" 
+                <img
+                  src="./logo.png"
+                  alt="RazelTech Logo"
+                  className="w-full h-full object-contain p-0 animate-pulse"
                   onError={(e) => {
                     e.target.style.display = 'none';
                     e.target.nextSibling.style.display = 'flex';
@@ -181,7 +181,7 @@ export default function DigitalCard() {
             {/* Contact Details Grid */}
             <div className="w-full space-y-3 mb-8">
               {/* Direct Actions */}
-              <a 
+              <a
                 href={`tel:${contact.phone}`}
                 className="flex items-center p-3 rounded-lg border border-cyber-blue/10 bg-cyber-blue/5 hover:border-cyber-blue/40 hover:bg-cyber-blue/10 transition-all group"
               >
@@ -194,7 +194,7 @@ export default function DigitalCard() {
                 </div>
               </a>
 
-              <a 
+              <a
                 href={`mailto:${contact.email}`}
                 className="flex items-center p-3 rounded-lg border border-cyber-blue/10 bg-cyber-blue/5 hover:border-cyber-blue/40 hover:bg-cyber-blue/10 transition-all group"
               >
@@ -222,7 +222,7 @@ export default function DigitalCard() {
 
             {/* Main Interactive Action Buttons */}
             <div className="w-full grid grid-cols-2 gap-4 mb-6">
-              <button 
+              <button
                 onClick={handleDownloadVcard}
                 className="w-full flex items-center justify-center space-x-2 py-3.5 bg-cyber-blue text-black font-black text-[10px] tracking-wider uppercase rounded-lg hover:bg-white hover:scale-[1.02] active:scale-95 transition-all cursor-pointer shadow-lg shadow-cyber-blue/20"
               >
@@ -230,7 +230,7 @@ export default function DigitalCard() {
                 <span>Save Contact</span>
               </button>
 
-              <button 
+              <button
                 onClick={handleShare}
                 className="w-full flex items-center justify-center space-x-2 py-3.5 border border-cyber-blue/30 text-cyber-blue font-black text-[10px] tracking-wider uppercase rounded-lg hover:bg-cyber-blue/10 hover:border-cyber-blue active:scale-95 transition-all cursor-pointer"
               >
@@ -240,7 +240,7 @@ export default function DigitalCard() {
             </div>
 
             {/* Secondary Option: QR Code Scan Toggle */}
-            <button 
+            <button
               onClick={() => setShowQr(!showQr)}
               className="w-full flex items-center justify-center space-x-2 py-3 border border-cyber-green/20 text-cyber-green font-bold text-[9px] tracking-widest uppercase rounded-lg hover:bg-cyber-green/10 hover:border-cyber-green/50 transition-all cursor-pointer"
             >
@@ -251,7 +251,7 @@ export default function DigitalCard() {
             {/* QR Modal / Drawer */}
             <AnimatePresence>
               {showQr && (
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: 'auto' }}
                   exit={{ opacity: 0, height: 0 }}
@@ -261,9 +261,9 @@ export default function DigitalCard() {
                     Let a client scan this QR with their mobile camera<br />to instantly pull up your digital card!
                   </p>
                   <div className="p-3 bg-black border border-cyber-blue/30 rounded-xl flex items-center justify-center">
-                    <img 
-                      src={qrCodeUrl} 
-                      alt="vCard QR Code Link" 
+                    <img
+                      src={qrCodeUrl}
+                      alt="vCard QR Code Link"
                       className="w-48 h-48 object-contain"
                     />
                   </div>
@@ -276,37 +276,37 @@ export default function DigitalCard() {
 
             {/* Social Grid Section */}
             <div className="w-full mt-8 pt-6 border-t border-cyber-blue/10 flex justify-center items-center space-x-6">
-              <a 
-                href={contact.linkedin} 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href={contact.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="p-2 rounded-full border border-cyber-blue/20 bg-cyber-blue/5 text-cyber-blue/60 hover:text-cyber-blue hover:border-cyber-blue hover:scale-115 transition-all"
                 title="LinkedIn Profile"
               >
                 <LinkedinIcon size={18} />
               </a>
-              <a 
-                href={contact.githubPersonal} 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href={contact.githubPersonal}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="p-2 rounded-full border border-cyber-blue/20 bg-cyber-blue/5 text-cyber-blue/60 hover:text-cyber-blue hover:border-cyber-blue hover:scale-115 transition-all"
                 title="GitHub (razeltech)"
               >
                 <GithubIcon size={18} />
               </a>
-              <a 
-                href={contact.githubOrg} 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href={contact.githubOrg}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="p-2 rounded-full border border-cyber-green/20 bg-cyber-green/5 text-cyber-green/60 hover:text-cyber-green hover:border-cyber-green hover:scale-115 transition-all"
                 title="Corporate GitHub (razeltech)"
               >
                 <GithubIcon size={18} />
               </a>
-              <a 
-                href={contact.website} 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href={contact.website}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="p-2 rounded-full border border-cyber-blue/20 bg-cyber-blue/5 text-cyber-blue/60 hover:text-cyber-blue hover:border-cyber-blue hover:scale-115 transition-all"
                 title="Company Portal"
               >
@@ -335,13 +335,13 @@ export default function DigitalCard() {
           </p>
         </div>
 
-        <div 
+        <div
           onClick={() => setIsCardFlipped(!isCardFlipped)}
           className="w-full aspect-[1.75] cursor-pointer flip-card relative"
           style={{ height: '230px' }}
         >
           <div className={`w-full h-full relative flip-card-inner duration-500 transform-gpu ${isCardFlipped ? 'flipped' : ''}`}>
-            
+
             {/* FRONT SIDE */}
             <div className="flip-card-front rounded-[20px] bg-obsidian border border-cyber-blue/30 p-6 flex flex-col justify-between overflow-hidden shadow-2xl hover:shadow-cyber-blue/10 transition-all select-none">
               <div className="absolute inset-0 grid-bg opacity-30 pointer-events-none" />
@@ -376,7 +376,7 @@ export default function DigitalCard() {
             <div className="flip-card-back rounded-[20px] bg-obsidian border border-cyber-green/30 p-6 flex flex-col justify-between overflow-hidden shadow-2xl hover:shadow-cyber-green/10 transition-all select-none">
               <div className="absolute inset-0 grid-bg opacity-20 pointer-events-none" />
               <div className="absolute inset-0 bg-gradient-to-br from-cyber-green/[0.02] to-transparent pointer-events-none" />
-              
+
               {/* Back Top Header */}
               <div className="flex justify-between items-start">
                 <div className="text-left">
@@ -422,12 +422,12 @@ export default function DigitalCard() {
                     ● SYSTEMS_OPERATIONAL
                   </span>
                 </div>
-                
+
                 {/* Visual mock QR Server placeholder */}
                 <div className="w-8 h-8 bg-black border border-cyber-green/30 p-0.5 rounded shrink-0 flex items-center justify-center">
-                  <img 
-                    src={`https://api.qrserver.com/v1/create-qr-code/?size=50x50&color=39ff14&bgcolor=050505&data=${encodeURIComponent(cardUrl)}`} 
-                    alt="Scan Card" 
+                  <img
+                    src={`https://api.qrserver.com/v1/create-qr-code/?size=50x50&color=39ff14&bgcolor=050505&data=${encodeURIComponent(cardUrl)}`}
+                    alt="Scan Card"
                     className="w-full h-full object-contain"
                   />
                 </div>
