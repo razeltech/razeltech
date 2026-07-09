@@ -1091,7 +1091,7 @@ const Home = () => {
             <span className="truncate">No_Bloatware // No_Templates // 100%_Custom_Architecture</span>
           </div>
           <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tighter mb-6 leading-[0.9] italic uppercase w-full pointer-events-auto">
-            <span className="inline-block"><ScrambledText text="WE_ARCHITECT" /></span><br />
+            <span className="inline-block"><ScrambledText text="ARCHITECTING" /></span><br />
             <span className="text-cyber-blue terminal-text inline-block mt-2">
               <ScrambledText text="PRECISION_SYSTEMS" />
             </span>
@@ -1118,7 +1118,7 @@ const Home = () => {
         </div>
 
         {/* Floating Desktop Icons */}
-        <div className="hidden lg:block absolute inset-0 pointer-events-none">
+        <div className="hidden lg:block absolute inset-0 pointer-events-none z-20">
           {techIcons.map((tech) => (
             <motion.div
               key={tech.id}
@@ -1127,9 +1127,12 @@ const Home = () => {
               animate={{ y: [0, -15, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: tech.delay }}
             >
-              <div className="relative group flex flex-col items-center">
+              <div 
+                className="relative group flex flex-col items-center"
+                onMouseEnter={() => setActiveIcon(tech.id)}
+                onMouseLeave={() => setActiveIcon(null)}
+              >
                 <button 
-                  onClick={() => setActiveIcon(activeIcon === tech.id ? null : tech.id)}
                   className={`w-14 h-14 rounded-full border flex items-center justify-center backdrop-blur-md transition-all duration-300 relative z-20 ${activeIcon === tech.id ? 'bg-cyber-blue border-cyber-blue shadow-[0_0_20px_rgba(0,243,255,0.6)]' : 'bg-black/60 border-cyber-blue/30 hover:border-cyber-blue hover:bg-cyber-blue/10'}`}
                 >
                   <img src={tech.icon} alt={tech.name} className={`w-7 h-7 transition-all duration-300 ${activeIcon === tech.id ? 'filter brightness-0' : 'opacity-80 group-hover:opacity-100 group-hover:scale-110'}`} />
@@ -1218,7 +1221,7 @@ const Home = () => {
             </div>
             <div>
               <h3 className="text-lg font-black uppercase mb-2 text-white">Systems Architecture & Custom Dev</h3>
-              <p className="text-sm text-cyber-blue/60 leading-relaxed">When existing tools cannot solve your requirements. We provide end-to-end software architecture consulting and full-stack development focused on long-term maintainability.</p>
+              <p className="text-sm text-cyber-blue/60 leading-relaxed">When existing tools cannot solve your requirements. Razel Tech provides end-to-end software architecture consulting and full-stack development focused on long-term maintainability.</p>
             </div>
           </div>
         </div>

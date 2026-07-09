@@ -361,7 +361,7 @@ export default function CapabilityDeck() {
                       <p className="text-sm md:text-base text-cyber-blue/80 font-mono leading-relaxed uppercase">
                         &gt; Principal Systems Architect with over a decade of experience creating reliable software for complex real-world challenges. My journey began in 2014 building simulation systems for the Indian Army. During that period, I contributed to more than six defense training simulators involving multiplayer networking, VR, embedded hardware integration, and 6DOF motion platforms.
                         <br/><br/>
-                        &gt; Working in such a demanding space shaped my engineering mindset—systems must be stable, precise, and dependable. In 2025, I founded Razel Tech to help businesses create software that matches their actual workflows instead of adapting to generic solutions. Technology is not the destination—it is the medium. We engineer premium, scalable solutions with an emphasis on lean, cost-effective architectures that eliminate traditional enterprise bloat.
+                        &gt; Working in such a demanding space shaped my engineering mindset—systems must be stable, precise, and dependable. In 2025, I founded Razel Tech to help businesses create software that matches their actual workflows instead of adapting to generic solutions. Technology is not the destination—it is the medium. Razel Tech engineers premium, scalable solutions with an emphasis on lean, cost-effective architectures that eliminate traditional enterprise bloat.
                       </p>
 
                       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-4 border-t border-cyber-blue/10">
@@ -675,7 +675,7 @@ export default function CapabilityDeck() {
           <img src="./MainPage_logo.png" style={{ maxWidth: '100%', maxHeight: '100%', width: 'auto', height: 'auto', objectFit: 'contain' }} alt="Razel Tech Cover" />
         </div>
 
-        {/* PAGE 2: WHO WE ARE */}
+        {/* PAGE 2: WHO RAZEL TECH IS */}
         <div id="brochure-page-2" className="brochure-export-page" style={{
           width: '1123px', height: '794px', padding: '60px 80px',
           backgroundColor: tBg, backgroundImage: tBgImage,
@@ -684,7 +684,7 @@ export default function CapabilityDeck() {
         }}>
           <div style={{ position: 'relative', zIndex: 10, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
             <div style={{ height: '140px', marginBottom: '20px' }}>
-              <span style={{ fontSize: '14px', fontWeight: 'bold', color: '#0066ff', letterSpacing: '2px', fontFamily: 'Consolas, Monaco, monospace' }}>01 // WHO WE ARE</span>
+              <span style={{ fontSize: '14px', fontWeight: 'bold', color: '#0066ff', letterSpacing: '2px', fontFamily: 'Consolas, Monaco, monospace' }}>01 // WHO RAZEL TECH IS</span>
               <h2 style={{ fontSize: '56px', fontWeight: '900', margin: '10px 0 5px 0', color: tText1, letterSpacing: '-1px' }}>ENGINEERING BEYOND CODE</h2>
               <p style={{ fontSize: '20px', color: tText2, margin: 0, textTransform: 'uppercase', letterSpacing: '1px', fontWeight: 'bold' }}>A Systems Engineering Approach to Modern Software</p>
             </div>
@@ -697,7 +697,7 @@ export default function CapabilityDeck() {
                 <br /><br />
                 <strong style={{ color: '#0066ff' }}>We believe technology is not the destination—it is the medium. The real focus is understanding the need, choosing the right approach, and creating something valuable that lasts.</strong>
                 <br /><br />
-                Today, we help businesses create custom software that matches their actual workflows instead of adapting to generic solutions. Whether it's enterprise SaaS, BIM pipelines, or real-time WebGL, we engineer premium solutions with lean, cost-effective architectures.
+                Today, Razel Tech helps businesses create custom software that matches their actual workflows instead of adapting to generic solutions. Whether it's enterprise SaaS, BIM pipelines, or real-time WebGL, the firm engineers premium solutions with lean, cost-effective architectures.
               </p>
             </div>
           </div>
@@ -712,7 +712,7 @@ export default function CapabilityDeck() {
         }}>
           <div style={{ position: 'relative', zIndex: 10, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start' }}>
             <div style={{ height: '140px', marginBottom: '20px' }}>
-              <span style={{ fontSize: '14px', fontWeight: 'bold', color: '#0066ff', letterSpacing: '2px', fontFamily: 'Consolas, Monaco, monospace' }}>02 // WHAT WE BUILD</span>
+              <span style={{ fontSize: '14px', fontWeight: 'bold', color: '#0066ff', letterSpacing: '2px', fontFamily: 'Consolas, Monaco, monospace' }}>02 // WHAT RAZEL TECH BUILDS</span>
               <h2 style={{ fontSize: '48px', fontWeight: '900', margin: '10px 0 5px 0', color: tText1, letterSpacing: '-1px' }}>ENGINEERING CAPABILITIES</h2>
             </div>
 
@@ -772,7 +772,7 @@ export default function CapabilityDeck() {
               <div style={{ display: 'flex', gap: '30px' }}>
                 <div style={{ flex: 1, backgroundColor: tCardBg, borderLeft: '4px solid #0066ff', padding: '30px', borderRadius: '0 8px 8px 0' }}>
                   <h4 style={{ fontSize: '22px', fontWeight: 'bold', color: tText1, margin: '0 0 10px 0' }}>Adaptable Engineering</h4>
-                  <p style={{ fontSize: '16px', color: tText3, lineHeight: '1.6', margin: 0 }}>Every project brings unique challenges. We learn the domain, understand the requirements, and create solutions around real needs.</p>
+                  <p style={{ fontSize: '16px', color: tText3, lineHeight: '1.6', margin: 0 }}>Every project brings unique challenges. Razel Tech learns the domain, understands the requirements, and creates solutions around real needs.</p>
                 </div>
                 <div style={{ flex: 1, backgroundColor: tCardBg, borderLeft: '4px solid #0066ff', padding: '30px', borderRadius: '0 8px 8px 0' }}>
                   <h4 style={{ fontSize: '22px', fontWeight: 'bold', color: tText1, margin: '0 0 10px 0' }}>Long-Term Thinking</h4>
@@ -883,7 +883,7 @@ export default function CapabilityDeck() {
           </div>
         </div>
 
-        {/* PAGE 7: WHO WE WORK WITH */}
+        {/* PAGE 7: WHO RAZEL TECH WORKS WITH */}
         <div id="brochure-page-7" className="brochure-export-page" style={{
           width: '1123px', height: '794px', padding: '60px 80px',
           backgroundColor: tBg, backgroundImage: tBgImage,
@@ -893,7 +893,7 @@ export default function CapabilityDeck() {
           <div style={{ position: 'relative', zIndex: 10, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
             <div style={{ height: '140px', marginBottom: '20px' }}>
               <span style={{ fontSize: '14px', fontWeight: 'bold', color: '#0066ff', letterSpacing: '2px', fontFamily: 'Consolas, Monaco, monospace' }}>06 // PARTNERSHIPS</span>
-              <h2 style={{ fontSize: '48px', fontWeight: '900', margin: '10px 0 5px 0', color: tText1, letterSpacing: '-1px' }}>WHO WE WORK WITH</h2>
+              <h2 style={{ fontSize: '48px', fontWeight: '900', margin: '10px 0 5px 0', color: tText1, letterSpacing: '-1px' }}>FIRM CLIENTELE</h2>
             </div>
 
             <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>

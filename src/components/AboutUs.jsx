@@ -4,8 +4,8 @@ import { Terminal, Shield, Zap, AlertTriangle, Layers, Code2, Activity, Database
 
 const StepCard = ({ step, index, isLeft }) => {
   const nodeRef = useRef(null);
-  // Extremely tight trigger window: Only middle 4% of the viewport (matching the RT circle position)
-  const isInView = useInView(nodeRef, { margin: "-48% 0px -48% 0px", once: false });
+  // Trigger window: Middle 50% of the viewport. Provides a clean offset so the card stays visible while the RT circle is nearby.
+  const isInView = useInView(nodeRef, { margin: "-25% 0px -25% 0px", once: false });
 
   return (
     <div className={`mb-40 relative flex flex-col md:flex-row md:justify-between items-start md:items-center w-full ${isLeft ? 'md:flex-row-reverse' : ''}`}>

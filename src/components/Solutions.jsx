@@ -6,7 +6,7 @@ import { Network, Cloud, Layers, Workflow, Shield, Zap, Box, Code2, Activity, Te
 const customApps = [
   {
     title: 'Clinic Medicorepro',
-    reason: 'Why we built it: The industry focuses solely on large hospitals, leaving private clinics drowning in paper. We provided a clean, digital OPD system tailored for clinics at just ₹1000/month.',
+    reason: 'Why it was built: The industry focuses solely on large hospitals, leaving private clinics drowning in paper. Razel Tech provided a clean, digital OPD system tailored for clinics at just ₹1000/month.',
     icon: <Activity size={24} className="text-cyber-green" />,
     links: [
       { label: 'Promo Site', url: 'https://r2dapps.github.io/ClinicAppDemo/' },
@@ -15,7 +15,7 @@ const customApps = [
   },
   {
     title: 'RazelStudio',
-    reason: 'Why we built it: Traditional AEC pipelines require massive subscriptions. We built a clean pipeline from Revit to Unity IFC, allowing stakeholders to view interior paints and textures dynamically on a budget.',
+    reason: 'Why it was built: Traditional AEC pipelines require massive subscriptions. Razel Tech built a clean pipeline from Revit to Unity IFC, allowing stakeholders to view interior paints and textures dynamically on a budget.',
     icon: <Layers size={24} className="text-cyber-blue" />,
     links: [
       { label: 'Platform Demo', url: 'https://r2dapps.github.io/RazelStudio/' }
@@ -23,7 +23,7 @@ const customApps = [
   },
   {
     title: 'InvoiceVault',
-    reason: 'Why we built it: SMBs were struggling with scattered accounting. InvoiceVault acts as a mini-ERP with direct GST ledgers (GSTR-1, 3B) and Excel exports straight from direct bills and inventory.',
+    reason: 'Why it was built: SMBs were struggling with scattered accounting. InvoiceVault acts as a mini-ERP with direct GST ledgers (GSTR-1, 3B) and Excel exports straight from direct bills and inventory.',
     icon: <Terminal size={24} className="text-white" />,
     links: [
       { label: 'Platform', url: 'https://razeltech.github.io/InvoiceVaultDemo/' }
@@ -31,7 +31,7 @@ const customApps = [
   },
   {
     title: 'ContentHub',
-    reason: 'Why we built it: Digital marketing teams were still using messy Excel sheets. We built a dedicated dashboard to centralize content marketing data and analytics.',
+    reason: 'Why it was built: Digital marketing teams were still using messy Excel sheets. Razel Tech built a dedicated dashboard to centralize content marketing data and analytics.',
     icon: <Cloud size={24} className="text-cyber-blue" />,
     links: [
       { label: 'Platform', url: 'https://contenthub-demo.vercel.app/' }
@@ -39,7 +39,7 @@ const customApps = [
   },
   {
     title: 'Resume Builder Suite',
-    reason: 'Why we built it: Too many job platforms charge for basic resume exports, locking out candidates who can\'t afford them. We built a free builder with 15+ templates as a community utility.',
+    reason: 'Why it was built: Too many job platforms charge for basic resume exports, locking out candidates who cannot afford them. Razel Tech built a free builder with 15+ templates as a community utility.',
     icon: <Code2 size={24} className="text-cyber-green" />,
     links: [
       { label: 'V1 App', url: 'https://r2dapps.github.io/react-resume-builder/' },
