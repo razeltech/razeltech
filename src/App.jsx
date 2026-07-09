@@ -21,7 +21,8 @@ import {
   Database,
   Shield,
   ShieldCheck,
-  Lock
+  Lock,
+  CircleDollarSign
 } from 'lucide-react';
 const CyberGrid = lazy(() => import('./components/CyberGrid'));
 const ShapeGrid = lazy(() => import('./components/ShapeGrid'));
@@ -1113,54 +1114,38 @@ const SystemTopology = () => {
           {activeNode === 'core' && <Tooltip title="CORE_ENGINE" stack=".NET / C# / Unity / Microservices" />}
         </div>
 
-        {/* Orbiting Nodes */}
-        <motion.div 
-          className="absolute top-0 left-1/2 -translate-x-1/2 -mt-4 md:-mt-6 w-10 h-10 md:w-12 md:h-12 bg-black/80 backdrop-blur-sm border border-cyber-blue/50 rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(0,243,255,0.2)] z-20 pointer-events-auto cursor-crosshair transition-colors hover:bg-cyber-blue/10" 
-          animate={{ y: [0, -10, 0] }} 
-          transition={{ duration: 3, repeat: Infinity }}
-          onMouseEnter={() => setActiveNode('db')}
-          onMouseLeave={() => setActiveNode(null)}
-        >
-          <Database size={16} className="text-cyber-blue" />
-          <div className="absolute -right-20 text-[6px] md:text-[7px] font-mono text-cyber-blue/60 tracking-widest whitespace-nowrap">INDEXED_DB</div>
-          {activeNode === 'db' && <Tooltip title="DB_CLUSTER" stack="PostgreSQL / Redis / Replication" />}
-        </motion.div>
-
-        <motion.div 
-          className="absolute bottom-0 left-1/2 -translate-x-1/2 mb-4 md:mb-6 w-10 h-10 md:w-12 md:h-12 bg-black/80 backdrop-blur-sm border border-cyber-blue/50 rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(0,243,255,0.2)] z-20 pointer-events-auto cursor-crosshair transition-colors hover:bg-cyber-blue/10" 
-          animate={{ y: [0, 10, 0] }} 
-          transition={{ duration: 3, repeat: Infinity, delay: 1 }}
-          onMouseEnter={() => setActiveNode('vr')}
-          onMouseLeave={() => setActiveNode(null)}
-        >
-          <Glasses size={16} className="text-cyber-blue" />
-          <div className="absolute -left-24 text-[6px] md:text-[7px] font-mono text-cyber-blue/60 tracking-widest whitespace-nowrap">AR_VR_MODULE</div>
-          {activeNode === 'vr' && <Tooltip title="XR_INTERFACE" stack="OpenXR / Meta Quest / WebXR" />}
-        </motion.div>
-
-        <motion.div 
-          className="absolute left-0 top-1/2 -translate-y-1/2 -ml-4 md:-ml-6 w-10 h-10 md:w-12 md:h-12 bg-black/80 backdrop-blur-sm border border-cyber-blue/50 rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(0,243,255,0.2)] z-20 pointer-events-auto cursor-crosshair transition-colors hover:bg-cyber-blue/10" 
-          animate={{ x: [0, -10, 0] }} 
-          transition={{ duration: 3, repeat: Infinity, delay: 0.5 }}
-          onMouseEnter={() => setActiveNode('sim')}
-          onMouseLeave={() => setActiveNode(null)}
-        >
-          <Activity size={16} className="text-cyber-blue" />
-          <div className="absolute -top-6 text-[6px] md:text-[7px] font-mono text-cyber-blue/60 tracking-widest whitespace-nowrap">SIM_LOGIC</div>
-          {activeNode === 'sim' && <Tooltip title="SIMULATION" stack="Physics / Multi-Agent / Deterministic" />}
-        </motion.div>
-
-        <motion.div 
-          className="absolute right-0 top-1/2 -translate-y-1/2 -mr-4 md:-mr-6 w-10 h-10 md:w-12 md:h-12 bg-black/80 backdrop-blur-sm border border-cyber-blue/50 rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(0,243,255,0.2)] z-20 pointer-events-auto cursor-crosshair transition-colors hover:bg-cyber-blue/10" 
-          animate={{ x: [0, 10, 0] }} 
-          transition={{ duration: 3, repeat: Infinity, delay: 1.5 }}
-          onMouseEnter={() => setActiveNode('node')}
-          onMouseLeave={() => setActiveNode(null)}
-        >
-          <Server size={16} className="text-cyber-blue" />
-          <div className="absolute -bottom-6 text-[6px] md:text-[7px] font-mono text-cyber-blue/60 tracking-widest whitespace-nowrap">LOCAL_NODE</div>
-          {activeNode === 'node' && <Tooltip title="API_GATEWAY" stack="Node.js / Express / TCP Brokers" />}
-        </motion.div>
+        {/* Orbiting Artifacts */}
+        {[
+          { id: 'react', angle: 0, icon: <img src="https://cdn.simpleicons.org/react/00f3ff" className="w-5 h-5 md:w-6 md:h-6" alt="React" />, title: 'FRONTEND_SaaS', stack: 'React / WebGL / Three.js' },
+          { id: 'unity', angle: 60, icon: <img src="https://cdn.simpleicons.org/unity/00f3ff" className="w-5 h-5 md:w-6 md:h-6" alt="Unity" />, title: 'CORE_ENGINE', stack: 'Unity3D / C# / Physics' },
+          { id: 'vr', angle: 120, icon: <Glasses size={18} className="text-cyber-blue" />, title: 'XR_MODULE', stack: 'OpenXR / Spatial Computing' },
+          { id: 'git', angle: 180, icon: <img src="https://cdn.simpleicons.org/git/00f3ff" className="w-5 h-5 md:w-6 md:h-6" alt="Git" />, title: 'VERSION_CONTROL', stack: 'Git / CI/CD Pipelines' },
+          { id: 'unreal', angle: 240, icon: <img src="https://cdn.simpleicons.org/unrealengine/00f3ff" className="w-5 h-5 md:w-6 md:h-6" alt="Unreal" />, title: 'AAA_ENGINE', stack: 'Unreal Engine 5 / C++' },
+          { id: 'finance', angle: 300, icon: <CircleDollarSign size={18} className="text-cyber-blue" />, title: 'FINTECH_LEDGER', stack: 'Secure Billing / Analytics' },
+        ].map((node) => (
+          <motion.div 
+            key={node.id}
+            className="absolute top-1/2 left-1/2 w-full h-full pointer-events-none z-20"
+            style={{ x: '-50%', y: '-50%' }}
+            animate={{ rotate: [node.angle, node.angle + 360] }}
+            transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+          >
+            <motion.div 
+              className="absolute top-0 left-1/2 -translate-x-1/2 -mt-4 md:-mt-6 w-10 h-10 md:w-12 md:h-12 bg-black/80 backdrop-blur-sm border border-cyber-blue/50 rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(0,243,255,0.2)] pointer-events-auto cursor-crosshair transition-colors hover:bg-cyber-blue/10"
+              animate={{ rotate: [-node.angle, -(node.angle + 360)] }}
+              transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+              onMouseEnter={() => setActiveNode(node.id)}
+              onMouseLeave={() => setActiveNode(null)}
+            >
+              {node.icon}
+              {activeNode === node.id && (
+                <div className="absolute top-0 left-0">
+                   <Tooltip title={node.title} stack={node.stack} />
+                </div>
+              )}
+            </motion.div>
+          </motion.div>
+        ))}
       </div>
     </div>
   );
@@ -1201,7 +1186,7 @@ const Home = () => {
               Razel Tech engineers custom, zero-bloat architecture around your actual business processes—not templates.
             </p>
             <p className="text-base md:text-lg text-cyber-blue font-bold leading-relaxed">
-              Own your technology instead of renting it every month.
+              Flexible SaaS solutions & full-ownership custom IP tailored for scale.
             </p>
           </div>
 
@@ -1228,11 +1213,11 @@ const Home = () => {
       <div className="w-full border-y border-cyber-blue/10 bg-cyber-blue/5 py-8 mb-32 -mx-6 px-6 relative overflow-hidden flex items-center justify-center">
         <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(0,243,255,0.03)_50%,transparent_75%,transparent_100%)] bg-[length:20px_20px]"></div>
         <div className="text-center relative z-10 flex flex-col md:flex-row items-center gap-4 md:gap-12 text-[10px] md:text-[14px] font-black uppercase tracking-[0.3em] text-white/80">
-          <span>No Monthly Licenses</span>
+          <span>Managed Cloud & SaaS</span>
           <span className="hidden md:block w-1.5 h-1.5 bg-cyber-blue rounded-full"></span>
           <span>100% Custom Code</span>
           <span className="hidden md:block w-1.5 h-1.5 bg-cyber-blue rounded-full"></span>
-          <span className="text-cyber-blue text-[12px] md:text-[16px]">You Own Everything</span>
+          <span className="text-cyber-blue text-[12px] md:text-[16px]">Enterprise Grade</span>
         </div>
       </div>
 
