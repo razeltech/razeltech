@@ -1109,9 +1109,9 @@ const SystemTopology = () => {
           onMouseEnter={() => setActiveNode('core')}
           onMouseLeave={() => setActiveNode(null)}
         >
-          <Box className="w-8 h-8 md:w-10 md:h-10 text-cyber-blue" />
-          <div className="absolute -bottom-6 text-[7px] md:text-[8px] font-mono text-cyber-blue tracking-widest whitespace-nowrap">UNITY_WEBGL</div>
-          {activeNode === 'core' && <Tooltip title="CORE_ENGINE" stack=".NET / C# / Unity / Microservices" />}
+          <span className="font-black text-2xl md:text-3xl text-cyber-blue tracking-tighter">RT</span>
+          <div className="absolute -bottom-6 text-[7px] md:text-[8px] font-mono text-cyber-blue tracking-widest whitespace-nowrap">RAZEL_TECH</div>
+          {activeNode === 'core' && <Tooltip title="CORE_ENGINE" stack="Precision Systems & Architecture" />}
         </div>
 
         {/* Orbiting Artifacts */}
