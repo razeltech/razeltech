@@ -1,7 +1,52 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Network, Cloud, Layers, Workflow, Shield, Zap, Box, Code2 } from 'lucide-react';
+import { Network, Cloud, Layers, Workflow, Shield, Zap, Box, Code2, Activity, Terminal } from 'lucide-react';
+
+const customApps = [
+  {
+    title: 'Clinic Medicorepro',
+    reason: 'Why we built it: The industry focuses solely on large hospitals, leaving private clinics drowning in paper. We provided a clean, digital OPD system tailored for clinics at just ₹1000/month.',
+    icon: <Activity size={24} className="text-cyber-green" />,
+    links: [
+      { label: 'Promo Site', url: 'https://r2dapps.github.io/ClinicAppDemo/' },
+      { label: 'Actual Site', url: 'https://medi-core-pro.vercel.app/' }
+    ]
+  },
+  {
+    title: 'RazelStudio',
+    reason: 'Why we built it: Traditional AEC pipelines require massive subscriptions. We built a clean pipeline from Revit to Unity IFC, allowing stakeholders to view interior paints and textures dynamically on a budget.',
+    icon: <Layers size={24} className="text-cyber-blue" />,
+    links: [
+      { label: 'Platform Demo', url: 'https://r2dapps.github.io/RazelStudio/' }
+    ]
+  },
+  {
+    title: 'InvoiceVault',
+    reason: 'Why we built it: SMBs were struggling with scattered accounting. InvoiceVault acts as a mini-ERP with direct GST ledgers (GSTR-1, 3B) and Excel exports straight from direct bills and inventory.',
+    icon: <Terminal size={24} className="text-white" />,
+    links: [
+      { label: 'Platform', url: 'https://razeltech.github.io/InvoiceVaultDemo/' }
+    ]
+  },
+  {
+    title: 'ContentHub',
+    reason: 'Why we built it: Digital marketing teams were still using messy Excel sheets. We built a dedicated dashboard to centralize content marketing data and analytics.',
+    icon: <Cloud size={24} className="text-cyber-blue" />,
+    links: [
+      { label: 'Platform', url: 'https://contenthub-demo.vercel.app/' }
+    ]
+  },
+  {
+    title: 'Resume Builder Suite',
+    reason: 'Why we built it: Too many job platforms charge for basic resume exports, locking out candidates who can\'t afford them. We built a free builder with 15+ templates as a community utility.',
+    icon: <Code2 size={24} className="text-cyber-green" />,
+    links: [
+      { label: 'V1 App', url: 'https://r2dapps.github.io/react-resume-builder/' },
+      { label: 'V2 App', url: 'https://r2dapps.github.io/ResumeBuilder/' }
+    ]
+  }
+];
 
 const techIcons = [
   { id: 'unity', name: 'Unity 3D', icon: 'https://img.icons8.com/ios-filled/50/00f3ff/unity.png', desc: 'Core real-time engine for simulation & rendering.' },
@@ -50,7 +95,7 @@ const Solutions = () => {
           Architecting <span className="text-cyber-blue">Business Systems</span>
         </h1>
         <p className="text-cyber-blue/70 text-lg md:text-xl leading-relaxed">
-          We don't sell templates. We deliver highly customized software architecture tailored to complex industrial, defense, and enterprise workflows. Below are the four core pillars of our technical capabilities.
+          Razel Tech does not sell templates. Razel Tech delivers highly customized software architecture tailored to complex industrial, defense, and enterprise workflows. Below are the four core pillars of the firm's technical capabilities.
         </p>
       </motion.div>
 
@@ -79,9 +124,9 @@ const Solutions = () => {
           <div className="bg-cyber-blue/10 w-16 h-16 rounded-lg flex items-center justify-center mb-8 group-hover:bg-cyber-blue border border-cyber-blue/30 group-hover:border-cyber-blue transition-all">
             <Network size={32} className="text-cyber-blue group-hover:text-black transition-colors" />
           </div>
-          <h2 className="text-2xl font-black uppercase text-white mb-4">Simulation & Multiplayer</h2>
+          <h2 className="text-2xl font-black uppercase text-white mb-4">Defense-Grade Simulation</h2>
           <p className="text-cyber-blue/60 mb-6 leading-relaxed min-h-[100px]">
-            Drawing from our extensive background in defense-grade tactical simulators, we build highly robust networked environments. Whether it's HLA/RTI integrations or scalable multi-user sessions, we ensure zero-latency synchronization.
+            Drawing from an extensive background in military-grade tactical simulators, Razel Tech builds highly robust networked environments. Whether it's complex HLA/RTI integrations using C++ or scalable multi-agent Unity systems, the firm engineers zero-latency synchronization.
           </p>
           <ul className="space-y-3 mb-8">
             <li className="flex items-center text-sm text-cyber-blue/80"><Zap size={14} className="text-cyber-green mr-3" /> Tactical Training Environments</li>
@@ -96,9 +141,9 @@ const Solutions = () => {
           <div className="bg-cyber-blue/10 w-16 h-16 rounded-lg flex items-center justify-center mb-8 group-hover:bg-cyber-blue border border-cyber-blue/30 group-hover:border-cyber-blue transition-all">
             <Cloud size={32} className="text-cyber-blue group-hover:text-black transition-colors" />
           </div>
-          <h2 className="text-2xl font-black uppercase text-white mb-4">Enterprise SaaS</h2>
+          <h2 className="text-2xl font-black uppercase text-white mb-4">Zero-Bloat Enterprise SaaS</h2>
           <p className="text-cyber-blue/60 mb-6 leading-relaxed min-h-[100px]">
-            We design secure, scalable cloud dashboards and CRM systems that map directly to your business logic. We focus on 'No Bloatware'—meaning faster load times, optimized databases, and an interface that your team will actually want to use.
+            Razel Tech rejects the industry standard of bloated retainers and slow dashboards. The firm engineers lean, high-performance React and Node.js applications, local IndexedDB offline CRMs, and complex billing systems that integrate directly into actual business logic.
           </p>
           <ul className="space-y-3 mb-8">
             <li className="flex items-center text-sm text-cyber-blue/80"><Shield size={14} className="text-cyber-green mr-3" /> Secure Offline & Cloud Billing Systems</li>
@@ -113,9 +158,9 @@ const Solutions = () => {
           <div className="bg-cyber-blue/10 w-16 h-16 rounded-lg flex items-center justify-center mb-8 group-hover:bg-cyber-blue border border-cyber-blue/30 group-hover:border-cyber-blue transition-all">
             <Layers size={32} className="text-cyber-blue group-hover:text-black transition-colors" />
           </div>
-          <h2 className="text-2xl font-black uppercase text-white mb-4">Spatial & 3D Visualization</h2>
+          <h2 className="text-2xl font-black uppercase text-white mb-4">Digital Twins & Spatial Computing</h2>
           <p className="text-cyber-blue/60 mb-6 leading-relaxed min-h-[100px]">
-            Elevate your product presentation and facility management. We integrate WebGL, AR/VR, and Digital Twins (BIM/IFC) directly into the browser, allowing your clients and engineers to interact with your assets in real-time.
+            Elevating asset management. Razel Tech bridges the gap between physical and digital by engineering Unity WebGL, Three.js, and heavy BIM/IFC data directly into the browser, allowing stakeholders to interact with enterprise assets in real-time.
           </p>
           <ul className="space-y-3 mb-8">
             <li className="flex items-center text-sm text-cyber-blue/80"><Box size={14} className="text-cyber-green mr-3" /> Interactive Product Configurators</li>
@@ -130,9 +175,9 @@ const Solutions = () => {
           <div className="bg-cyber-blue/10 w-16 h-16 rounded-lg flex items-center justify-center mb-8 group-hover:bg-cyber-blue border border-cyber-blue/30 group-hover:border-cyber-blue transition-all">
             <Workflow size={32} className="text-cyber-blue group-hover:text-black transition-colors" />
           </div>
-          <h2 className="text-2xl font-black uppercase text-white mb-4">Systems Architecture & Custom Dev</h2>
+          <h2 className="text-2xl font-black uppercase text-white mb-4">Mission-Critical Architecture</h2>
           <p className="text-cyber-blue/60 mb-6 leading-relaxed min-h-[100px]">
-            When off-the-shelf tools fail to meet your operational requirements, we step in. We offer end-to-end full-stack development, database architecture consulting, and legacy system modernization with a focus on long-term maintainability.
+            When off-the-shelf subscriptions fail to meet operational requirements, Razel Tech architects custom logic. The firm offers absolute technical leadership, end-to-end SQL/NoSQL database optimization, and legacy system modernization.
           </p>
           <ul className="space-y-3 mb-8">
             <li className="flex items-center text-sm text-cyber-blue/80"><Code2 size={14} className="text-cyber-green mr-3" /> React, Next.js, and Unity Integrations</li>
@@ -142,9 +187,40 @@ const Solutions = () => {
         </motion.div>
       </motion.div>
 
+      {/* Case Studies / App Philosophy Section */}
+      <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="mt-40 mb-20 text-center">
+        <h2 className="text-3xl font-black uppercase text-white mb-6 border-b border-cyber-blue/20 inline-block pb-4">Architectural Rationale</h2>
+        <p className="text-cyber-blue/70 max-w-2xl mx-auto mb-16">
+          Razel Tech does not build software just to build it. The firm builds it to replace bloated, expensive, or outdated systems. Here are a few examples of exactly why these specific solutions were engineered.
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
+          {customApps.map((app, idx) => (
+            <div key={idx} className="p-8 border border-cyber-blue/10 bg-black/40 rounded-xl hover:border-cyber-blue transition-all group flex flex-col h-full">
+              <div className="w-12 h-12 rounded-lg bg-cyber-blue/5 border border-cyber-blue/20 flex items-center justify-center mb-6 group-hover:bg-cyber-blue/20 transition-all shrink-0">
+                {app.icon}
+              </div>
+              <h3 className="text-xl font-bold text-white mb-3">{app.title}</h3>
+              <p className="text-sm text-cyber-blue/60 leading-relaxed group-hover:text-cyber-blue/80 transition-colors mb-6 flex-grow">
+                {app.reason}
+              </p>
+              {app.links && app.links.length > 0 && (
+                <div className="flex flex-wrap gap-3 mt-auto pt-4 border-t border-cyber-blue/10">
+                  {app.links.map((link, lidx) => (
+                    <a key={lidx} href={link.url} target="_blank" rel="noopener noreferrer" className="text-[9px] font-bold tracking-widest uppercase px-3 py-1.5 border border-cyber-blue/30 text-cyber-blue hover:bg-cyber-blue hover:text-black transition-all">
+                      {link.label}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </motion.div>
+
       <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="mt-32 p-12 bg-cyber-blue/5 border border-cyber-blue/20 rounded-xl text-center">
         <h2 className="text-3xl font-black uppercase italic text-white mb-4">Ready to Build Your System?</h2>
-        <p className="text-cyber-blue/70 max-w-2xl mx-auto mb-8">Stop adapting to bloatware. Let's architect a solution that is as precise as your business demands.</p>
+        <p className="text-cyber-blue/70 max-w-2xl mx-auto mb-8">Stop adapting to bloatware. Let Razel Tech architect a solution that is as precise as your business demands.</p>
         <a href="mailto:razeltech.in@gmail.com" className="inline-block px-10 py-5 bg-cyber-blue text-black font-black uppercase tracking-[0.2em] hover:bg-white hover:scale-105 transition-all shadow-[0_0_30px_rgba(0,243,255,0.3)]">
           INITIATE_CONTACT
         </a>

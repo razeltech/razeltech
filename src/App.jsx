@@ -1087,23 +1087,23 @@ const Home = () => {
       <section className="mb-24 md:mb-32 relative min-h-[60vh] flex flex-col justify-center">
         <div className="max-w-3xl relative z-10 pointer-events-none">
           <div className="inline-flex items-center space-x-2 text-cyber-green text-[7px] md:text-[10px] font-bold tracking-[0.1em] md:tracking-[0.2em] mb-6 uppercase max-w-full pointer-events-auto">
-            <Zap size={12} className="shrink-0" />
-            <span className="truncate">Enterprise_Engineering_Architecture // razel_tech // stable_release</span>
+            <ShieldAlertIcon size={12} className="shrink-0" />
+            <span className="truncate">No_Bloatware // No_Templates // 100%_Custom_Architecture</span>
           </div>
           <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tighter mb-6 leading-[0.9] italic uppercase w-full pointer-events-auto">
-            <span className="inline-block"><ScrambledText text="PRACTICAL_SYSTEMS" /></span><br />
+            <span className="inline-block"><ScrambledText text="WE_ARCHITECT" /></span><br />
             <span className="text-cyber-blue terminal-text inline-block mt-2">
-              <ScrambledText text="FOR_COMPLEX_BUSINESS" />
+              <ScrambledText text="PRECISION_SYSTEMS" />
             </span>
           </h1>
           <div className="mb-10 flex items-center space-x-4 pointer-events-auto">
             <div className="h-px w-12 bg-cyber-blue/50"></div>
-            <span className="text-cyber-blue/60 font-bold tracking-[0.2em] md:tracking-[0.3em] text-[9px] md:text-[12px] uppercase">Razel Tech // Reliable Custom Software & Advanced Architecture</span>
+            <span className="text-cyber-blue/60 font-bold tracking-[0.2em] md:tracking-[0.3em] text-[9px] md:text-[12px] uppercase">Razel Tech // Stop Paying For Subscriptions You Don't Need</span>
           </div>
           
           <div className="relative max-w-2xl mb-12 pointer-events-auto">
             <p className="text-lg md:text-2xl text-cyber-blue/80 font-medium leading-relaxed min-h-[140px] sm:min-h-[100px]">
-              <TypewriterText text="We don't adapt your business to generic solutions. We build highly reliable custom software that matches your actual workflows. Backed by a decade of defense-grade simulation engineering, we deliver performance, stability, and extreme cost-efficiency." delay={0.02} />
+              <TypewriterText text="The enterprise software industry is broken. Agencies charge exorbitant retainers for bloated templates and trap clients in massive monthly subscriptions. Razel Tech does not. Razel Tech engineers zero-latency, defense-grade architecture exactly to your business logic." delay={0.02} />
             </p>
           </div>
 
