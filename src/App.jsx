@@ -1017,13 +1017,7 @@ const ProjectDetails = () => {
   );
 };
 
-const techIcons = [
-  { id: 'unity', name: 'Unity 3D', icon: 'https://img.icons8.com/ios-filled/50/00f3ff/unity.png', desc: 'Core real-time engine for simulation & rendering.', pos: { top: '15%', right: '8%' }, delay: 0 },
-  { id: 'sim', name: 'Simulations', icon: 'https://img.icons8.com/ios-filled/50/00f3ff/virtual-machine.png', desc: 'Defense-grade physics & multi-agent systems.', pos: { top: '40%', right: '3%' }, delay: 0.5 },
-  { id: 'vr', name: 'AR / VR', icon: 'https://img.icons8.com/ios-filled/50/00f3ff/virtual-reality.png', desc: 'Immersive spatial computing interfaces.', pos: { bottom: '25%', right: '10%' }, delay: 1 },
-  { id: 'bim', name: 'Digital Twins', icon: 'https://img.icons8.com/ios-filled/50/00f3ff/blueprint.png', desc: 'BIM/IFC data visualization & facility management.', pos: { bottom: '15%', right: '25%' }, delay: 1.5 },
-  { id: 'saas', name: 'SaaS Products', icon: 'https://img.icons8.com/ios-filled/50/00f3ff/cloud-sync.png', desc: 'Scalable cloud dashboards & business logic.', pos: { top: '65%', right: '18%' }, delay: 2 },
-];
+
 
 const TestimonialSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -1078,114 +1072,113 @@ const TestimonialSlider = () => {
   );
 };
 
+const SystemTopology = () => {
+  return (
+    <div className="hidden lg:block absolute inset-0 right-0 w-full h-full pointer-events-none overflow-hidden z-0">
+      <div className="absolute right-[5%] xl:right-[10%] top-1/2 -translate-y-1/2 w-[400px] h-[400px] xl:w-[500px] xl:h-[500px]">
+        {/* Spinning Rings */}
+        <div className="absolute inset-0 border border-cyber-blue/10 rounded-full animate-[spin_20s_linear_infinite]"></div>
+        <div className="absolute inset-8 border border-cyber-blue/20 rounded-full border-dashed animate-[spin_15s_linear_infinite_reverse]"></div>
+        <div className="absolute inset-20 border border-cyber-blue/30 rounded-full animate-[spin_10s_linear_infinite]"></div>
+        
+        {/* Center Node */}
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-black border border-cyber-blue rounded-xl flex items-center justify-center shadow-[0_0_40px_rgba(0,243,255,0.3)] z-10">
+          <Server size={32} className="text-cyber-blue" />
+          <div className="absolute -bottom-6 text-[8px] font-mono text-cyber-blue tracking-widest">CORE_ENGINE</div>
+        </div>
+
+        {/* Orbiting Nodes */}
+        <motion.div className="absolute top-0 left-1/2 -translate-x-1/2 -mt-6 w-12 h-12 bg-black/80 backdrop-blur-sm border border-cyber-blue/50 rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(0,243,255,0.2)]" animate={{ y: [0, -10, 0] }} transition={{ duration: 3, repeat: Infinity }}>
+          <Database size={16} className="text-cyber-blue" />
+          <div className="absolute -right-20 text-[7px] font-mono text-cyber-blue/60 tracking-widest whitespace-nowrap">DB_CLUSTER</div>
+        </motion.div>
+        <motion.div className="absolute bottom-0 left-1/2 -translate-x-1/2 mb-6 w-12 h-12 bg-black/80 backdrop-blur-sm border border-cyber-blue/50 rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(0,243,255,0.2)]" animate={{ y: [0, 10, 0] }} transition={{ duration: 3, repeat: Infinity, delay: 1 }}>
+          <ShieldAlertIcon size={16} className="text-cyber-blue" />
+          <div className="absolute -left-20 text-[7px] font-mono text-cyber-blue/60 tracking-widest whitespace-nowrap">AUTH_GATE</div>
+        </motion.div>
+        <motion.div className="absolute left-0 top-1/2 -translate-y-1/2 -ml-6 w-12 h-12 bg-black/80 backdrop-blur-sm border border-cyber-blue/50 rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(0,243,255,0.2)]" animate={{ x: [0, -10, 0] }} transition={{ duration: 3, repeat: Infinity, delay: 0.5 }}>
+          <Cloud size={16} className="text-cyber-blue" />
+          <div className="absolute -top-6 text-[7px] font-mono text-cyber-blue/60 tracking-widest whitespace-nowrap">CLOUD_SYNC</div>
+        </motion.div>
+        <motion.div className="absolute right-0 top-1/2 -translate-y-1/2 -mr-6 w-12 h-12 bg-black/80 backdrop-blur-sm border border-cyber-blue/50 rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(0,243,255,0.2)]" animate={{ x: [0, 10, 0] }} transition={{ duration: 3, repeat: Infinity, delay: 1.5 }}>
+          <Network size={16} className="text-cyber-blue" />
+          <div className="absolute -bottom-6 text-[7px] font-mono text-cyber-blue/60 tracking-widest whitespace-nowrap">WSS_NODE</div>
+        </motion.div>
+      </div>
+    </div>
+  );
+};
+
 const Home = () => {
-  const [activeIcon, setActiveIcon] = useState(null);
 
   return (
     <div className="max-w-7xl mx-auto px-6 py-20">
       {/* Hero Section */}
-      <section className="mb-24 md:mb-32 relative min-h-[60vh] flex flex-col justify-center">
+      <section className="mb-20 md:mb-32 relative min-h-[70vh] flex flex-col justify-center">
+        <SystemTopology />
+        
         <div className="max-w-3xl relative z-10 pointer-events-none">
-          <div className="inline-flex items-center space-x-2 text-cyber-green text-[7px] md:text-[10px] font-bold tracking-[0.1em] md:tracking-[0.2em] mb-6 uppercase max-w-full pointer-events-auto">
-            <ShieldAlertIcon size={12} className="shrink-0" />
-            <span className="truncate">No_Bloatware // No_Templates // 100%_Custom_Architecture</span>
+          <div className="inline-flex items-center space-x-2 text-cyber-green text-[7px] md:text-[10px] font-bold tracking-[0.1em] md:tracking-[0.2em] mb-6 uppercase max-w-full pointer-events-auto border border-cyber-green/30 bg-cyber-green/5 px-3 py-1 rounded-full">
+            <ShieldAlertIcon size={12} className="shrink-0 animate-pulse" />
+            <span className="truncate">Defense-Grade Systems For Modern Business</span>
           </div>
-          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tighter mb-6 leading-[0.9] italic uppercase w-full pointer-events-auto">
+          
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5rem] font-black tracking-tighter mb-6 leading-[0.9] italic uppercase w-full pointer-events-auto">
             <span className="inline-block"><ScrambledText text="ARCHITECTING" /></span><br />
             <span className="text-cyber-blue terminal-text inline-block mt-2">
               <ScrambledText text="PRECISION_SYSTEMS" />
             </span>
           </h1>
+          
           <div className="mb-10 flex items-center space-x-4 pointer-events-auto">
             <div className="h-px w-12 bg-cyber-blue/50"></div>
-            <span className="text-cyber-blue/60 font-bold tracking-[0.2em] md:tracking-[0.3em] text-[9px] md:text-[12px] uppercase">Razel Tech // Stop Paying For Subscriptions You Don't Need</span>
+            <span className="text-cyber-blue/60 font-bold tracking-[0.2em] md:tracking-[0.3em] text-[9px] md:text-[11px] uppercase">Custom Software That Replaces Expensive Subscriptions</span>
           </div>
           
-          <div className="relative max-w-2xl mb-12 pointer-events-auto">
-            <p className="text-lg md:text-2xl text-cyber-blue/80 font-medium leading-relaxed min-h-[140px] sm:min-h-[100px]">
-              <TypewriterText text="The enterprise software industry is broken. Agencies charge exorbitant retainers for bloated templates and trap clients in massive monthly subscriptions. Razel Tech does not. Razel Tech engineers zero-latency, defense-grade architecture exactly to your business logic." delay={0.02} />
+          <div className="relative max-w-xl mb-12 pointer-events-auto space-y-4">
+            <p className="text-lg md:text-xl text-white/90 font-medium leading-relaxed">
+              Enterprise software is broken.
+            </p>
+            <p className="text-base md:text-lg text-white/70 font-medium leading-relaxed">
+              Razel Tech engineers custom, zero-bloat architecture around your actual workflow—not generic templates.
+            </p>
+            <p className="text-base md:text-lg text-cyber-blue font-bold leading-relaxed">
+              Own your technology instead of renting it every month.
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-4 pointer-events-auto">
-            <Link to="/solutions" className="px-8 py-4 bg-cyber-blue/10 border border-cyber-blue/30 text-cyber-blue text-[10px] font-black tracking-widest uppercase hover:bg-cyber-blue hover:text-black transition-all">
-              Explore_Solutions
-            </Link>
-            <Link to="/deck" className="px-8 py-4 border border-cyber-blue/10 text-cyber-blue/40 text-[10px] font-black tracking-widest uppercase hover:text-white transition-colors">
-              View_Capability_Deck
+          <div className="flex flex-col sm:flex-row flex-wrap gap-4 pointer-events-auto mb-12">
+            <a href="mailto:razeltech.in@gmail.com" className="px-8 py-4 bg-cyber-blue text-black text-[10px] font-black tracking-widest uppercase hover:bg-white hover:scale-105 transition-all shadow-[0_0_20px_rgba(0,243,255,0.4)] text-center">
+              SCHEDULE_SYSTEM_AUDIT
+            </a>
+            <Link to="/deck" className="px-8 py-4 border border-cyber-blue/30 bg-black/60 backdrop-blur text-cyber-blue text-[10px] font-black tracking-widest uppercase hover:border-cyber-blue hover:bg-cyber-blue/10 transition-colors text-center">
+              VIEW_CAPABILITY_DECK
             </Link>
           </div>
-        </div>
 
-        {/* Floating Desktop Icons */}
-        <div className="hidden lg:block absolute inset-0 pointer-events-none z-20">
-          {techIcons.map((tech) => (
-            <motion.div
-              key={tech.id}
-              className="absolute pointer-events-auto"
-              style={tech.pos}
-              animate={{ y: [0, -15, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: tech.delay }}
-            >
-              <div 
-                className="relative group flex flex-col items-center"
-                onMouseEnter={() => setActiveIcon(tech.id)}
-                onMouseLeave={() => setActiveIcon(null)}
-              >
-                <button 
-                  className={`w-14 h-14 rounded-full border flex items-center justify-center backdrop-blur-md transition-all duration-300 relative z-20 ${activeIcon === tech.id ? 'bg-cyber-blue border-cyber-blue shadow-[0_0_20px_rgba(0,243,255,0.6)]' : 'bg-black/60 border-cyber-blue/30 hover:border-cyber-blue hover:bg-cyber-blue/10'}`}
-                >
-                  <img src={tech.icon} alt={tech.name} className={`w-7 h-7 transition-all duration-300 ${activeIcon === tech.id ? 'filter brightness-0' : 'opacity-80 group-hover:opacity-100 group-hover:scale-110'}`} />
-                </button>
-
-                <AnimatePresence>
-                  {activeIcon === tech.id && (
-                    <motion.div
-                      initial={{ opacity: 0, scale: 0.9, y: 0 }}
-                      animate={{ opacity: 1, scale: 1, y: 10 }}
-                      exit={{ opacity: 0, scale: 0.9, y: 0 }}
-                      className="absolute top-full mt-2 w-48 p-4 bg-black/95 border border-cyber-blue shadow-[0_0_15px_rgba(0,243,255,0.2)] rounded-lg z-30"
-                    >
-                      <div className="text-[10px] font-black uppercase text-cyber-blue mb-2 tracking-widest border-b border-cyber-blue/30 pb-1">{tech.name}</div>
-                      <div className="text-[9px] text-cyber-blue/70 leading-relaxed font-mono">{tech.desc}</div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            </motion.div>
-          ))}
+          {/* Trust Signals */}
+          <div className="flex flex-wrap gap-x-6 gap-y-3 pointer-events-auto text-[8px] md:text-[10px] font-mono tracking-widest uppercase text-cyber-blue/50">
+            <span className="flex items-center gap-2"><div className="w-1 h-1 bg-cyber-blue rounded-full"></div> 12+ Years Eng.</span>
+            <span className="flex items-center gap-2"><div className="w-1 h-1 bg-cyber-blue rounded-full"></div> Defense-Grade Core</span>
+            <span className="flex items-center gap-2"><div className="w-1 h-1 bg-cyber-blue rounded-full"></div> Zero Vendor Lock-in</span>
+            <span className="flex items-center gap-2"><div className="w-1 h-1 bg-cyber-green rounded-full"></div> 100% Ownership</span>
+          </div>
         </div>
       </section>
 
-      {/* Mobile/Tablet Inline Icons */}
-      <section className="mb-24 py-10 border-y border-cyber-blue/10 overflow-hidden lg:hidden">
-        <div className="text-[10px] font-black text-cyber-blue/40 tracking-[0.3em] uppercase mb-8 text-center">Core Technologies</div>
-        <div className="flex flex-wrap justify-center gap-6 md:gap-12 opacity-80">
-          {techIcons.map((tech) => (
-            <div key={tech.id} className="flex flex-col items-center gap-3 w-20 text-center">
-              <button 
-                onClick={() => setActiveIcon(activeIcon === tech.id ? null : tech.id)}
-                className={`w-12 h-12 rounded-full border flex items-center justify-center transition-all ${activeIcon === tech.id ? 'bg-cyber-blue border-cyber-blue' : 'bg-black/60 border-cyber-blue/30'}`}
-              >
-                <img src={tech.icon} alt={tech.name} className={`w-6 h-6 transition-all ${activeIcon === tech.id ? 'filter brightness-0' : 'opacity-80'}`} />
-              </button>
-              <span className="text-[8px] font-bold uppercase tracking-widest text-cyber-blue/60 leading-tight">{tech.name}</span>
-              <AnimatePresence>
-                {activeIcon === tech.id && (
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    exit={{ opacity: 0, height: 0 }}
-                    className="w-full text-[9px] text-cyber-blue/70 mt-2 font-mono"
-                  >
-                    {tech.desc}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          ))}
+      {/* Anti-Bloatware Strip */}
+      <div className="w-full border-y border-cyber-blue/10 bg-cyber-blue/5 py-8 mb-32 -mx-6 px-6 relative overflow-hidden flex items-center justify-center">
+        <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(0,243,255,0.03)_50%,transparent_75%,transparent_100%)] bg-[length:20px_20px]"></div>
+        <div className="text-center relative z-10 flex flex-col md:flex-row items-center gap-4 md:gap-12 text-[10px] md:text-[14px] font-black uppercase tracking-[0.3em] text-white/80">
+          <span>No Monthly Licenses</span>
+          <span className="hidden md:block w-1.5 h-1.5 bg-cyber-blue rounded-full"></span>
+          <span>100% Custom Code</span>
+          <span className="hidden md:block w-1.5 h-1.5 bg-cyber-blue rounded-full"></span>
+          <span className="text-cyber-blue text-[12px] md:text-[16px]">You Own Everything</span>
         </div>
-      </section>
+      </div>
+
+
 
       {/* Solution Domains (Poster Bottom Row) */}
       <section id="solutions" className="mb-32">
