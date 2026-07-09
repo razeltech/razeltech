@@ -359,7 +359,9 @@ export default function CapabilityDeck() {
                     // Slide 1: Mission Profile & About Me
                     <div className="space-y-6">
                       <p className="text-sm md:text-base text-cyber-blue/80 font-mono leading-relaxed uppercase">
-                        &gt; Principal Systems Architect and Lead Unity Developer with 12+ years of professional engineering tenure. Specializing in bridging the gap between embedded hardware integrations and interactive software ecosystems. Dedicated to delivering high-performance defense configurations, spatial analytics, and robust enterprise SaaS infrastructures.
+                        &gt; Principal Systems Architect with over a decade of experience creating reliable software for complex real-world challenges. My journey began in 2014 building simulation systems for the Indian Army. During that period, I contributed to more than six defense training simulators involving multiplayer networking, VR, embedded hardware integration, and 6DOF motion platforms.
+                        <br/><br/>
+                        &gt; Working in such a demanding space shaped my engineering mindset—systems must be stable, precise, and dependable. In 2025, I founded Razel Tech to help businesses create software that matches their actual workflows instead of adapting to generic solutions. Technology is not the destination—it is the medium. We engineer premium, scalable solutions with an emphasis on lean, cost-effective architectures that eliminate traditional enterprise bloat.
                       </p>
 
                       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-4 border-t border-cyber-blue/10">
@@ -466,6 +468,7 @@ export default function CapabilityDeck() {
                             <ul className="list-disc pl-4 space-y-1 text-[11px]">
                               <li>React 19 + Vite dashboard architectures for extreme loading speed.</li>
                               <li>Next.js databases with backend integrations and CRM logic.</li>
+                              <li>Lean, cost-effective infrastructure designed to maximize ROI and eliminate bloat.</li>
                               <li>Print-ready resume and brochure rendering engines with 100% PDF parity.</li>
                               <li>Tailwind-styled premium dark-mode, cyberpunk dashboards.</li>
                             </ul>
@@ -688,13 +691,13 @@ export default function CapabilityDeck() {
 
             <div style={{ backgroundColor: tCardBg, border: `1px solid ${tBorder}`, borderRadius: '16px', padding: '50px', display: 'flex', flexDirection: 'column', gap: '30px', backdropFilter: 'blur(10px)' }}>
               <p style={{ fontSize: '18px', color: tText3, lineHeight: '1.7', margin: 0 }}>
-                Razel Tech was founded by a Systems Architect with over a decade of experience building real-time simulation systems for defence applications.
+                Razel Tech was founded in 2025 by a Systems Architect with over a decade of experience creating reliable software for complex real-world challenges. Our journey began in 2014 building simulation systems for the Indian Army, involving multiplayer networking, VR, embedded hardware, and 6DOF motion platforms.
                 <br /><br />
-                Our experience includes multiplayer training environments, hardware-integrated simulators, motion platforms, VR experiences, and complex interactive systems.
+                Working in such a demanding space shaped our engineering mindset—systems must be stable, precise, and dependable.
                 <br /><br />
-                <strong style={{ color: '#0066ff' }}>Our experience comes from environments where software reliability was critical. That discipline now guides everything we build.</strong>
+                <strong style={{ color: '#0066ff' }}>We believe technology is not the destination—it is the medium. The real focus is understanding the need, choosing the right approach, and creating something valuable that lasts.</strong>
                 <br /><br />
-                Today, we bring the same engineering discipline to businesses building custom software, immersive experiences, and digital platforms. We don't start with technology. We start with understanding the problem.
+                Today, we help businesses create custom software that matches their actual workflows instead of adapting to generic solutions. Whether it's enterprise SaaS, BIM pipelines, or real-time WebGL, we engineer premium solutions with lean, cost-effective architectures.
               </p>
             </div>
           </div>

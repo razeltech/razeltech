@@ -1,5 +1,5 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
-import { HashRouter as Router, Routes, Route, Link, useParams, useNavigate } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Link, useParams, useNavigate, useLocation, Navigate } from 'react-router-dom';
 import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import {
   Terminal,
@@ -8,12 +8,22 @@ import {
   Code2,
   Box,
   Zap,
-  ChevronUp
+  ChevronUp,
+  Activity,
+  Glasses,
+  Copy,
+  Building,
+  Network,
+  Cloud,
+  Layers,
+  Workflow
 } from 'lucide-react';
 const CyberGrid = lazy(() => import('./components/CyberGrid'));
 const ShapeGrid = lazy(() => import('./components/ShapeGrid'));
 const DigitalCard = lazy(() => import('./components/DigitalCard'));
 const CapabilityDeck = lazy(() => import('./components/CapabilityDeck'));
+const Solutions = lazy(() => import('./components/Solutions'));
+const AboutUs = lazy(() => import('./components/AboutUs'));
 import DotField from './components/DotField';
 import BorderGlow from './components/BorderGlow';
 import ScrollReveal from './components/ScrollReveal';
@@ -197,12 +207,15 @@ const TypewriterText = ({ text, delay = 0.05 }) => {
 };
 
 const Layout = ({ children }) => {
+  const location = useLocation();
+  const hideFooter = location.pathname === '/vcard' || location.pathname === '/deck';
+  
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   const [rawMouse, setRawMouse] = useState({ x: 0, y: 0 });
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const springConfig = { damping: 25, stiffness: 700 };
+  const springConfig = { damping: 20, stiffness: 1500 };
   const smoothX = useSpring(mouseX, springConfig);
   const smoothY = useSpring(mouseY, springConfig);
 
@@ -253,9 +266,9 @@ const Layout = ({ children }) => {
 
           {/* Desktop Nav */}
           <div className="hidden md:flex space-x-6 text-[10px] font-bold tracking-widest text-cyber-blue/60 uppercase">
-            <Link to="/core" className="hover:text-cyber-blue transition-colors border-b border-transparent hover:border-cyber-blue pb-1">[ CORE_ENGINES ]</Link>
-            <Link to="/logic" className="hover:text-cyber-blue transition-colors border-b border-transparent hover:border-cyber-blue pb-1">[ LOGIC_DATA ]</Link>
-            <Link to="/labs" className="hover:text-cyber-blue transition-colors border-b border-transparent hover:border-cyber-blue pb-1">[ LABS ]</Link>
+            <Link to="/" className="hover:text-cyber-blue transition-colors border-b border-transparent hover:border-cyber-blue pb-1">[ HOME ]</Link>
+            <Link to="/about" className="hover:text-cyber-blue transition-colors border-b border-transparent hover:border-cyber-blue pb-1">[ ABOUT_US ]</Link>
+            <Link to="/solutions" className="hover:text-cyber-blue transition-colors border-b border-transparent hover:border-cyber-blue pb-1">[ SOLUTIONS ]</Link>
             <Link to="/deck" className="hover:text-cyber-blue transition-colors border-b border-transparent hover:border-cyber-blue pb-1">[ CAPABILITY_DECK ]</Link>
             <Link to="/vcard" className="hover:text-cyber-blue transition-colors border-b border-transparent hover:border-cyber-blue pb-1">[ VCARD ]</Link>
           </div>
@@ -287,25 +300,25 @@ const Layout = ({ children }) => {
             >
               <div className="flex flex-col space-y-8 text-center">
                 <Link
-                  to="/core"
+                  to="/"
                   onClick={() => setIsMenuOpen(false)}
                   className="text-2xl font-black tracking-[0.2em] text-cyber-blue uppercase"
                 >
-                  [ CORE_ENGINES ]
+                  [ HOME ]
                 </Link>
                 <Link
-                  to="/logic"
+                  to="/about"
                   onClick={() => setIsMenuOpen(false)}
                   className="text-2xl font-black tracking-[0.2em] text-cyber-blue uppercase"
                 >
-                  [ LOGIC_DATA ]
+                  [ ABOUT_US ]
                 </Link>
                 <Link
-                  to="/labs"
+                  to="/solutions"
                   onClick={() => setIsMenuOpen(false)}
                   className="text-2xl font-black tracking-[0.2em] text-cyber-blue uppercase"
                 >
-                  [ LABS ]
+                  [ SOLUTIONS ]
                 </Link>
                 <Link
                   to="/deck"
@@ -324,8 +337,9 @@ const Layout = ({ children }) => {
                 <div className="pt-12 border-t border-cyber-blue/10">
                   <div className="text-[10px] text-cyber-blue/40 tracking-widest uppercase mb-4">Secure_Session_Active</div>
                   <div className="flex justify-center space-x-6">
-                    <a href="https://linkedin.com" className="text-cyber-blue/60 hover:text-white transition-colors"><LinkedinIcon size={20} /></a>
-                    <a href="https://github.com" className="text-cyber-blue/60 hover:text-white transition-colors"><GithubIcon size={20} /></a>
+                    <a href="https://www.linkedin.com/company/razel-tech" target="_blank" rel="noopener noreferrer" className="text-cyber-blue/60 hover:text-white transition-colors">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -335,18 +349,86 @@ const Layout = ({ children }) => {
 
         <main className="relative z-10 pt-[53px] md:pt-[88px] transform-gpu">{children}</main>
         <ScrollToTop />
-        <footer className="p-8 md:p-12 border-t border-cyber-blue/10 text-center text-[8px] md:text-[10px] text-cyber-blue/40 tracking-[0.2em] md:tracking-[0.3em] uppercase">
-          <div className="mb-4 text-cyber-blue/20">SYSTEM_ACCESS::AUTHENTICATED // BUFFER_STATUS::SYNCED</div>
-          <div className="mb-2 text-cyber-blue/10 flex flex-col md:flex-row items-center justify-center gap-2">
-            <span>MSME_REG::UDYAM-AP-04-0112603</span>
-            <div className="flex items-center space-x-2">
-              <img src="./verified_badge.png" alt="Verified" className="w-3 h-3 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all cursor-help" title="MSME Certified" />
-              <span className="md:hidden opacity-40">//</span>
+        {!hideFooter && (
+          <footer className="border-t border-cyber-blue/10 bg-black/80 backdrop-blur-md pt-16 pb-8 px-6 lg:px-12 relative overflow-hidden mt-32">
+            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-12 mb-16 relative z-10">
+              <div className="md:col-span-1">
+                <div className="flex items-center space-x-3 mb-6">
+                  <img src="./logo.png" alt="RazelTech" className="w-8 h-8 object-contain" />
+                  <span className="font-black tracking-tighter text-xl text-white uppercase">RAZEL TECH</span>
+                </div>
+                <p className="text-xs text-cyber-blue/60 leading-relaxed mb-6 font-mono">
+                  Mission-critical software architecture for defense, industrial, and enterprise operations.
+                </p>
+                <div className="flex space-x-4">
+                  <a href="https://www.linkedin.com/company/razel-tech" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full border border-cyber-blue/30 flex items-center justify-center text-cyber-blue/60 hover:bg-cyber-blue hover:text-black hover:border-cyber-blue transition-all">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                  </a>
+                </div>
+              </div>
+              
+              <div>
+                <h4 className="text-[10px] font-black uppercase text-white tracking-[0.2em] mb-6">Site Index</h4>
+                <ul className="space-y-4 text-xs font-mono text-cyber-blue/60">
+                  <li><Link to="/" className="hover:text-cyber-blue transition-colors">Home</Link></li>
+                  <li><Link to="/about" className="hover:text-cyber-blue transition-colors">About Us</Link></li>
+                  <li><Link to="/deck" className="hover:text-cyber-blue transition-colors">Capability Deck</Link></li>
+                  <li><Link to="/vcard" className="hover:text-cyber-blue transition-colors">VCard</Link></li>
+                </ul>
+              </div>
+              
+              <div>
+                <h4 className="text-[10px] font-black uppercase text-white tracking-[0.2em] mb-6">Firm Capabilities</h4>
+                <ul className="space-y-4 text-xs font-mono text-cyber-blue/60">
+                  <li><Link to="/solutions#simulation" className="hover:text-cyber-blue transition-colors">Simulation Systems</Link></li>
+                <li><Link to="/solutions#saas" className="hover:text-cyber-blue transition-colors">Enterprise SaaS</Link></li>
+                <li><Link to="/solutions#spatial" className="hover:text-cyber-blue transition-colors">Spatial & Digital Twins</Link></li>
+                <li><Link to="/solutions#architecture" className="hover:text-cyber-blue transition-colors">Systems Architecture</Link></li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="text-[10px] font-black uppercase text-white tracking-[0.2em] mb-6">Headquarters</h4>
+                <ul className="space-y-4 text-xs font-mono text-cyber-blue/60">
+                  <li>Guntur, Andhra Pradesh (Reg)</li>
+                  <li>Hyderabad / Vijayawada (Ops)</li>
+                  <li className="pt-2 text-cyber-blue hover:text-white transition-colors">
+                    <a href="mailto:razeltech.in@gmail.com">razeltech.in@gmail.com</a>
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="text-[10px] font-black uppercase text-white tracking-[0.2em] mb-6">Compliance</h4>
+                <ul className="space-y-4 text-xs font-mono text-cyber-blue/60 flex flex-col items-start">
+                  <li className="flex flex-col gap-1">
+                    <span className="text-[9px] uppercase tracking-widest text-cyber-blue/40">MSME UDYAM REGISTRATION</span>
+                    <span className="text-white">UDYAM-AP-04-0112603</span>
+                  </li>
+                  <li className="flex flex-col gap-1 pt-2">
+                    <span className="text-[9px] uppercase tracking-widest text-cyber-blue/40">AP SHOPS & ESTTS ACT</span>
+                    <span className="text-white">AP-07-27-002-04080705</span>
+                  </li>
+                  <li className="pt-4 flex items-center space-x-2 text-cyber-green text-[9px] uppercase tracking-widest font-bold">
+                    <span className="w-1.5 h-1.5 rounded-full bg-cyber-green animate-pulse"></span>
+                    <span>VERIFIED_FIRM</span>
+                  </li>
+                </ul>
+              </div>
             </div>
-            <span>RAZEL_TECH_SOLUTIONS // ANDHRA_PRADESH</span>
-          </div>
-          © RAZELTECH // SYSTEMS_EST_2025 // ALL_RIGHTS_RESERVED
-        </footer>
+
+            <div className="max-w-7xl mx-auto border-t border-cyber-blue/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-[9px] text-cyber-blue/40 tracking-[0.2em] uppercase font-mono relative z-10">
+              <div>© RAZELTECH // SYSTEMS_EST_2025</div>
+              <div className="flex space-x-6">
+                <Link to="/deck" className="hover:text-cyber-blue transition-colors">CAPABILITY_DECK</Link>
+                <Link to="/vcard" className="hover:text-cyber-blue transition-colors">VCARD</Link>
+              </div>
+              <div>STATUS::OPERATIONAL</div>
+            </div>
+            
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-cyber-blue/5 rounded-full blur-[100px] pointer-events-none -z-10"></div>
+          </footer>
+        )}
       </div>
     </div>
   );
@@ -732,9 +814,17 @@ const SpotlightCard = ({ project }) => {
         />
 
         <div className="relative z-10">
-          <div className="absolute top-0 right-0">
-            <div className={`text-[9px] font-black px-2 py-1 rounded ${project.status === 'CLASSIFIED' ? 'bg-red-500/20 text-red-500 border border-red-500/50' : 'bg-cyber-green/20 text-cyber-green border border-cyber-green/50'}`}>
-              {project.status}
+          <div className="absolute top-0 right-0 z-20">
+            <div className={`group/blip relative flex items-center justify-end h-6 w-6 cursor-help`}>
+              <div className={`overflow-hidden absolute right-0 w-6 group-hover/blip:w-[100px] transition-all duration-300 ease-out h-6 rounded-full border border-transparent ${project.status === 'CLASSIFIED' ? 'group-hover/blip:border-red-500/30 group-hover/blip:bg-red-500/10' : 'group-hover/blip:border-cyber-green/30 group-hover/blip:bg-cyber-green/10'} flex items-center justify-center`}>
+                <span className={`absolute right-1 w-4 h-4 flex items-center justify-center`}>
+                  <span className={`absolute w-3 h-3 rounded-full animate-ping opacity-75 ${project.status === 'CLASSIFIED' ? 'bg-red-500' : 'bg-cyber-green'}`}></span>
+                  <span className={`relative w-1.5 h-1.5 rounded-full ${project.status === 'CLASSIFIED' ? 'bg-red-500' : 'bg-cyber-green'}`}></span>
+                </span>
+                <span className={`pr-5 whitespace-nowrap text-[8px] font-black tracking-widest uppercase opacity-0 group-hover/blip:opacity-100 transition-opacity duration-300 delay-75 ${project.status === 'CLASSIFIED' ? 'text-red-500' : 'text-cyber-green'}`}>
+                  {project.status}
+                </span>
+              </div>
             </div>
           </div>
 
@@ -745,9 +835,9 @@ const SpotlightCard = ({ project }) => {
             </h3>
           </div>
 
-          <ScrollReveal baseOpacity={0.2} blurStrength={5} textClassName="text-sm text-cyber-blue/60 mb-8 leading-relaxed line-clamp-3">
+          <p className="text-sm text-cyber-blue/60 mb-8 leading-relaxed line-clamp-3">
             {project.description}
-          </ScrollReveal>
+          </p>
 
           <div className="flex flex-wrap gap-2 mb-10">
             {project.tags.map(tag => (
@@ -770,9 +860,9 @@ const SpotlightCard = ({ project }) => {
                 href={project.link}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center justify-center space-x-2 text-[10px] font-black uppercase tracking-widest text-cyber-blue/60 hover:text-white transition-all w-full sm:w-auto"
+                className="flex items-center justify-center space-x-2 text-[10px] font-black uppercase tracking-widest bg-cyber-blue text-black hover:bg-white hover:text-black px-4 py-2 rounded transition-all w-full sm:w-auto"
               >
-                <span>Initialize_Interface</span>
+                <span>Launch_WebSite</span>
                 <ExternalLinkIcon size={12} />
               </a>
             ) : (
@@ -860,7 +950,7 @@ const ProjectDetails = () => {
             rel="noreferrer"
             className="inline-flex items-center space-x-3 text-[12px] font-black uppercase tracking-widest text-black bg-cyber-blue hover:bg-white px-8 py-4 rounded transition-all mt-4"
           >
-            <span>Initialize_Interface</span>
+            <span>Launch_Platform</span>
             <ExternalLinkIcon size={16} />
           </a>
         )}
@@ -927,125 +1017,263 @@ const ProjectDetails = () => {
   );
 };
 
+const techIcons = [
+  { id: 'unity', name: 'Unity 3D', icon: 'https://img.icons8.com/ios-filled/50/00f3ff/unity.png', desc: 'Core real-time engine for simulation & rendering.', pos: { top: '15%', right: '8%' }, delay: 0 },
+  { id: 'sim', name: 'Simulations', icon: 'https://img.icons8.com/ios-filled/50/00f3ff/virtual-machine.png', desc: 'Defense-grade physics & multi-agent systems.', pos: { top: '40%', right: '3%' }, delay: 0.5 },
+  { id: 'vr', name: 'AR / VR', icon: 'https://img.icons8.com/ios-filled/50/00f3ff/virtual-reality.png', desc: 'Immersive spatial computing interfaces.', pos: { bottom: '25%', right: '10%' }, delay: 1 },
+  { id: 'bim', name: 'Digital Twins', icon: 'https://img.icons8.com/ios-filled/50/00f3ff/blueprint.png', desc: 'BIM/IFC data visualization & facility management.', pos: { bottom: '15%', right: '25%' }, delay: 1.5 },
+  { id: 'saas', name: 'SaaS Products', icon: 'https://img.icons8.com/ios-filled/50/00f3ff/cloud-sync.png', desc: 'Scalable cloud dashboards & business logic.', pos: { top: '65%', right: '18%' }, delay: 2 },
+];
+
+const TestimonialSlider = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const testimonials = [
+    { quote: "Razel Tech delivered an incredibly stable system where generic software failed. Their 'no bloatware' approach saved us massive server costs.", author: "InvisionXR Studios", role: "Partners" },
+    { quote: "The architectural precision and reliability is unmatched. Their defense-grade background truly translates into how they write enterprise code.", author: "Elements3D", role: "Partners" },
+    { quote: "A rare breed of engineering. They didn't just write code, they fixed our fundamental business logic before building the SaaS product.", author: "Green Vision Solutions (GVS)", role: "Simulation Clients" }
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, [testimonials.length]);
+
+  return (
+    <div className="relative mb-32 py-16 bg-cyber-blue/5 border-y border-cyber-blue/10 overflow-hidden">
+      <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
+        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-cyber-blue/5 rounded-full blur-[80px]"></div>
+      </div>
+      <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
+        <div className="text-[10px] font-black text-cyber-blue/40 tracking-[0.3em] uppercase mb-12">Client Feedback // System Validation</div>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentIndex}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.5 }}
+            className="min-h-[150px] flex flex-col justify-center"
+          >
+            <p className="text-xl md:text-3xl font-medium italic text-white mb-8 leading-relaxed">"{testimonials[currentIndex].quote}"</p>
+            <div>
+              <div className="text-sm font-black text-cyber-blue uppercase tracking-widest">{testimonials[currentIndex].author}</div>
+              <div className="text-[10px] font-mono text-cyber-blue/50 uppercase">{testimonials[currentIndex].role}</div>
+            </div>
+          </motion.div>
+        </AnimatePresence>
+        <div className="flex justify-center space-x-3 mt-10">
+          {testimonials.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setCurrentIndex(idx)}
+              className={`w-12 h-1 transition-all ${idx === currentIndex ? 'bg-cyber-blue' : 'bg-cyber-blue/20 hover:bg-cyber-blue/50'}`}
+              aria-label={`Go to slide ${idx + 1}`}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const Home = () => {
+  const [activeIcon, setActiveIcon] = useState(null);
+
   return (
     <div className="max-w-7xl mx-auto px-6 py-20">
       {/* Hero Section */}
-      <section className="mb-24 md:mb-32">
-        <div className="max-w-4xl">
-          <div className="inline-flex items-center space-x-2 text-cyber-green text-[7px] md:text-[10px] font-bold tracking-[0.1em] md:tracking-[0.2em] mb-6 uppercase max-w-full">
+      <section className="mb-24 md:mb-32 relative min-h-[60vh] flex flex-col justify-center">
+        <div className="max-w-3xl relative z-10 pointer-events-none">
+          <div className="inline-flex items-center space-x-2 text-cyber-green text-[7px] md:text-[10px] font-bold tracking-[0.1em] md:tracking-[0.2em] mb-6 uppercase max-w-full pointer-events-auto">
             <Zap size={12} className="shrink-0" />
-            <span className="truncate">Secure_Link_Established // razel_tech // industrial_division</span>
+            <span className="truncate">Enterprise_Engineering_Architecture // razel_tech // stable_release</span>
           </div>
-          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tighter mb-6 leading-[0.9] italic uppercase w-full">
-            <span className="inline-block"><ScrambledText text="PRECISION" /></span><br />
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tighter mb-6 leading-[0.9] italic uppercase w-full pointer-events-auto">
+            <span className="inline-block"><ScrambledText text="PRACTICAL_SYSTEMS" /></span><br />
             <span className="text-cyber-blue terminal-text inline-block mt-2">
-              <ScrambledText text="SYSTEMS_ENGINEERING" />
+              <ScrambledText text="FOR_COMPLEX_BUSINESS" />
             </span>
           </h1>
-          <div className="mb-10 flex items-center space-x-4">
+          <div className="mb-10 flex items-center space-x-4 pointer-events-auto">
             <div className="h-px w-12 bg-cyber-blue/50"></div>
-            <span className="text-cyber-blue/60 font-bold tracking-[0.2em] md:tracking-[0.3em] text-[9px] md:text-[12px] uppercase">Razel Tech // Mission-Critical Simulators & Industrial AR/VR</span>
+            <span className="text-cyber-blue/60 font-bold tracking-[0.2em] md:tracking-[0.3em] text-[9px] md:text-[12px] uppercase">Razel Tech // Reliable Custom Software & Advanced Architecture</span>
           </div>
-          <p className="text-lg md:text-2xl text-cyber-blue/80 max-w-3xl font-medium leading-relaxed mb-12">
-            <TypewriterText text="Specializing in defense-grade tactical simulators, high-fidelity BIM pipelines, and spatial intelligence systems. We bridge the gap between complex hardware and immersive software ecosystems." />
-          </p>
+          
+          <div className="relative max-w-2xl mb-12 pointer-events-auto">
+            <p className="text-lg md:text-2xl text-cyber-blue/80 font-medium leading-relaxed min-h-[140px] sm:min-h-[100px]">
+              <TypewriterText text="We don't adapt your business to generic solutions. We build highly reliable custom software that matches your actual workflows. Backed by a decade of defense-grade simulation engineering, we deliver performance, stability, and extreme cost-efficiency." delay={0.02} />
+            </p>
+          </div>
 
-          <div className="flex flex-wrap gap-4">
-            <a href="#core" className="px-8 py-4 bg-cyber-blue/10 border border-cyber-blue/30 text-cyber-blue text-[10px] font-black tracking-widest uppercase hover:bg-cyber-blue hover:text-black transition-all">
-              View_System_Dossiers
-            </a>
-            <div className="px-8 py-4 border border-cyber-blue/10 text-cyber-blue/40 text-[10px] font-black tracking-widest uppercase">
-              EST_2025 // AP_REGION
+          <div className="flex flex-wrap gap-4 pointer-events-auto">
+            <Link to="/solutions" className="px-8 py-4 bg-cyber-blue/10 border border-cyber-blue/30 text-cyber-blue text-[10px] font-black tracking-widest uppercase hover:bg-cyber-blue hover:text-black transition-all">
+              Explore_Solutions
+            </Link>
+            <Link to="/deck" className="px-8 py-4 border border-cyber-blue/10 text-cyber-blue/40 text-[10px] font-black tracking-widest uppercase hover:text-white transition-colors">
+              View_Capability_Deck
+            </Link>
+          </div>
+        </div>
+
+        {/* Floating Desktop Icons */}
+        <div className="hidden lg:block absolute inset-0 pointer-events-none">
+          {techIcons.map((tech) => (
+            <motion.div
+              key={tech.id}
+              className="absolute pointer-events-auto"
+              style={tech.pos}
+              animate={{ y: [0, -15, 0] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: tech.delay }}
+            >
+              <div className="relative group flex flex-col items-center">
+                <button 
+                  onClick={() => setActiveIcon(activeIcon === tech.id ? null : tech.id)}
+                  className={`w-14 h-14 rounded-full border flex items-center justify-center backdrop-blur-md transition-all duration-300 relative z-20 ${activeIcon === tech.id ? 'bg-cyber-blue border-cyber-blue shadow-[0_0_20px_rgba(0,243,255,0.6)]' : 'bg-black/60 border-cyber-blue/30 hover:border-cyber-blue hover:bg-cyber-blue/10'}`}
+                >
+                  <img src={tech.icon} alt={tech.name} className={`w-7 h-7 transition-all duration-300 ${activeIcon === tech.id ? 'filter brightness-0' : 'opacity-80 group-hover:opacity-100 group-hover:scale-110'}`} />
+                </button>
+
+                <AnimatePresence>
+                  {activeIcon === tech.id && (
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.9, y: 0 }}
+                      animate={{ opacity: 1, scale: 1, y: 10 }}
+                      exit={{ opacity: 0, scale: 0.9, y: 0 }}
+                      className="absolute top-full mt-2 w-48 p-4 bg-black/95 border border-cyber-blue shadow-[0_0_15px_rgba(0,243,255,0.2)] rounded-lg z-30"
+                    >
+                      <div className="text-[10px] font-black uppercase text-cyber-blue mb-2 tracking-widest border-b border-cyber-blue/30 pb-1">{tech.name}</div>
+                      <div className="text-[9px] text-cyber-blue/70 leading-relaxed font-mono">{tech.desc}</div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* Mobile/Tablet Inline Icons */}
+      <section className="mb-24 py-10 border-y border-cyber-blue/10 overflow-hidden lg:hidden">
+        <div className="text-[10px] font-black text-cyber-blue/40 tracking-[0.3em] uppercase mb-8 text-center">Core Technologies</div>
+        <div className="flex flex-wrap justify-center gap-6 md:gap-12 opacity-80">
+          {techIcons.map((tech) => (
+            <div key={tech.id} className="flex flex-col items-center gap-3 w-20 text-center">
+              <button 
+                onClick={() => setActiveIcon(activeIcon === tech.id ? null : tech.id)}
+                className={`w-12 h-12 rounded-full border flex items-center justify-center transition-all ${activeIcon === tech.id ? 'bg-cyber-blue border-cyber-blue' : 'bg-black/60 border-cyber-blue/30'}`}
+              >
+                <img src={tech.icon} alt={tech.name} className={`w-6 h-6 transition-all ${activeIcon === tech.id ? 'filter brightness-0' : 'opacity-80'}`} />
+              </button>
+              <span className="text-[8px] font-bold uppercase tracking-widest text-cyber-blue/60 leading-tight">{tech.name}</span>
+              <AnimatePresence>
+                {activeIcon === tech.id && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
+                    className="w-full text-[9px] text-cyber-blue/70 mt-2 font-mono"
+                  >
+                    {tech.desc}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Solution Domains (Poster Bottom Row) */}
+      <section id="solutions" className="mb-32">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl font-black italic uppercase text-white mb-4">Business & Industrial Solutions</h2>
+          <p className="text-cyber-blue/60 max-w-2xl mx-auto text-sm">Architecting scalable, maintainable systems for specialized sectors.</p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="p-8 border border-cyber-blue/20 bg-black/40 rounded-xl hover:border-cyber-blue/50 transition-colors group">
+            <div className="bg-cyber-blue/10 w-12 h-12 rounded-lg flex items-center justify-center mb-6 group-hover:bg-cyber-blue/20 transition-colors">
+              <Network size={24} className="text-cyber-blue" />
+            </div>
+            <h3 className="text-lg font-black uppercase mb-3 text-white">Simulation & Multiplayer</h3>
+            <p className="text-sm text-cyber-blue/60 leading-relaxed">Defense-grade tactical simulators, motion platform integrations, and high-volume real-time network programming.</p>
+          </div>
+          <div className="p-8 border border-cyber-blue/20 bg-black/40 rounded-xl hover:border-cyber-blue/50 transition-colors group">
+            <div className="bg-cyber-blue/10 w-12 h-12 rounded-lg flex items-center justify-center mb-6 group-hover:bg-cyber-blue/20 transition-colors">
+              <Cloud size={24} className="text-cyber-blue" />
+            </div>
+            <h3 className="text-lg font-black uppercase mb-3 text-white">Enterprise SaaS</h3>
+            <p className="text-sm text-cyber-blue/60 leading-relaxed">Custom cloud dashboards, CRM platforms, offline billing systems, and strict business automation pipelines.</p>
+          </div>
+          <div className="p-8 border border-cyber-blue/20 bg-black/40 rounded-xl hover:border-cyber-blue/50 transition-colors group">
+            <div className="bg-cyber-blue/10 w-12 h-12 rounded-lg flex items-center justify-center mb-6 group-hover:bg-cyber-blue/20 transition-colors">
+              <Layers size={24} className="text-cyber-blue" />
+            </div>
+            <h3 className="text-lg font-black uppercase mb-3 text-white">Spatial & 3D Visualization</h3>
+            <p className="text-sm text-cyber-blue/60 leading-relaxed">Interactive product configurators, digital twin environments, and optimized BIM rendering for web and XR.</p>
+          </div>
+          <div className="p-8 border border-cyber-blue/20 bg-black/40 rounded-xl hover:border-cyber-blue/50 transition-colors group lg:col-span-3 lg:w-2/3 mx-auto flex flex-col md:flex-row items-center gap-6">
+            <div className="bg-cyber-blue/10 w-16 h-16 shrink-0 rounded-lg flex items-center justify-center group-hover:bg-cyber-blue/20 transition-colors">
+              <Workflow size={32} className="text-cyber-blue" />
+            </div>
+            <div>
+              <h3 className="text-lg font-black uppercase mb-2 text-white">Systems Architecture & Custom Dev</h3>
+              <p className="text-sm text-cyber-blue/60 leading-relaxed">When existing tools cannot solve your requirements. We provide end-to-end software architecture consulting and full-stack development focused on long-term maintainability.</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Corporate Capabilities */}
-      <section className="mb-32 grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div className="p-8 border border-cyber-blue/10 bg-cyber-blue/5 rounded-lg">
-          <div className="text-cyber-blue mb-4"><Cpu size={32} /></div>
-          <h3 className="text-lg font-black uppercase mb-2">Defense_Simulations</h3>
-          <p className="text-xs text-cyber-blue/60 leading-relaxed uppercase tracking-wider">Tactical training environments, AGLSDS hardware integration, and multi-user HLA platforms.</p>
-        </div>
-        <div className="p-8 border border-cyber-blue/10 bg-cyber-blue/5 rounded-lg">
-          <div className="text-cyber-blue mb-4"><Box size={32} /></div>
-          <h3 className="text-lg font-black uppercase mb-2">Industrial_SaaS</h3>
-          <p className="text-xs text-cyber-blue/60 leading-relaxed uppercase tracking-wider">ShowroomOS automotive CRM, MediCorePro clinical intelligence, and enterprise healthcare dashboards.</p>
-        </div>
-        <div className="p-8 border border-cyber-blue/10 bg-cyber-blue/5 rounded-lg">
-          <div className="text-cyber-blue mb-4"><Zap size={32} /></div>
-          <h3 className="text-lg font-black uppercase mb-2">XR_Configurators</h3>
-          <p className="text-xs text-cyber-blue/60 leading-relaxed uppercase tracking-wider">Razel Studio interior configurators, Painter Pro Studio, and high-fidelity WebAR visualizers.</p>
-        </div>
-      </section>
-
-      {/* Stats / Capabilities */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-32 border-y border-cyber-blue/10 py-12">
-        <div>
-          <div className="text-cyber-blue/40 text-[10px] font-bold uppercase tracking-widest mb-2 flex items-center gap-2">
-            <span className="w-1 h-1 bg-cyber-blue rounded-full"></span> Service_Tenure
-          </div>
-          <div className="text-2xl sm:text-3xl font-black italic">12+ YEARS</div>
-        </div>
-        <div>
-          <div className="text-cyber-blue/40 text-[10px] font-bold uppercase tracking-widest mb-2 flex items-center gap-2">
-            <span className="w-1 h-1 bg-cyber-blue rounded-full"></span> Production_Deployments
-          </div>
-          <div className="text-2xl sm:text-3xl font-black italic underline decoration-cyber-blue/30 underline-offset-8">25+ CORE</div>
-        </div>
-        <div>
-          <div className="text-cyber-blue/40 text-[10px] font-bold uppercase tracking-widest mb-2 flex items-center gap-2">
-            <span className="w-1 h-1 bg-cyber-blue rounded-full"></span> Sector_Focus
-          </div>
-          <div className="text-2xl sm:text-3xl font-black text-cyber-green italic">DEFENSE_R&D</div>
-        </div>
-        <div>
-          <div className="text-cyber-blue/40 text-[10px] font-bold uppercase tracking-widest mb-2 flex items-center gap-2">
-            <span className="w-1 h-1 bg-cyber-blue rounded-full"></span> Platform_Lead
-          </div>
-          <div className="text-2xl sm:text-3xl font-black text-cyber-blue italic">UNITY_SYSTEMS</div>
-        </div>
-      </div>
-
-      {/* Career Timeline */}
-      <CareerTimeline />
-
       {/* Featured Projects */}
       <section id="core" className="mb-32">
         <div className="flex items-center space-x-4 mb-12">
           <div className="w-12 h-px bg-cyber-blue/30"></div>
-          <h2 className="text-xl font-black tracking-tighter uppercase italic">
-            <ScrambledText text="Mission_Operational_Systems" />
+          <h2 className="text-2xl font-black tracking-tighter uppercase italic text-white">
+            Proof of Execution // Featured Systems
           </h2>
         </div>
         <ProjectGrid />
       </section>
 
+      {/* Thematic Testimonial Slider */}
+      <TestimonialSlider />
+
+      {/* Engineering Mindset / Stats */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-32 border-y border-cyber-blue/10 py-12">
+        <div>
+          <div className="text-cyber-blue/40 text-[10px] font-bold uppercase tracking-widest mb-2 flex items-center gap-2">
+            <span className="w-1 h-1 bg-cyber-blue rounded-full"></span> Engineering_Tenure
+          </div>
+          <div className="text-2xl sm:text-3xl font-black italic text-white">12+ YEARS</div>
+        </div>
+        <div>
+          <div className="text-cyber-blue/40 text-[10px] font-bold uppercase tracking-widest mb-2 flex items-center gap-2">
+            <span className="w-1 h-1 bg-cyber-blue rounded-full"></span> Core_Philosophy
+          </div>
+          <div className="text-xl sm:text-2xl font-black italic text-cyber-green">COST_EFFECTIVE</div>
+        </div>
+        <div>
+          <div className="text-cyber-blue/40 text-[10px] font-bold uppercase tracking-widest mb-2 flex items-center gap-2">
+            <span className="w-1 h-1 bg-cyber-blue rounded-full"></span> Methodology
+          </div>
+          <div className="text-xl sm:text-2xl font-black italic text-white">NO_BLOATWARE</div>
+        </div>
+        <div>
+          <div className="text-cyber-blue/40 text-[10px] font-bold uppercase tracking-widest mb-2 flex items-center gap-2">
+            <span className="w-1 h-1 bg-cyber-blue rounded-full"></span> Systems_Built
+          </div>
+          <div className="text-2xl sm:text-3xl font-black italic text-cyber-blue underline decoration-cyber-blue/30 underline-offset-8">STABLE_&_PRECISE</div>
+        </div>
+      </div>
+
       {/* Leadership Profile */}
       <section className="mb-32 flex flex-col items-center">
         <div className="text-center mb-16">
-          <div className="text-[10px] font-black text-cyber-blue/40 tracking-[0.5em] uppercase mb-4">// System_Leadership //</div>
-          <h2 className="text-3xl font-black italic uppercase">CEO & Founder Profile</h2>
+          <div className="text-[10px] font-black text-cyber-blue/40 tracking-[0.5em] uppercase mb-4">// Technical_Leadership //</div>
+          <h2 className="text-3xl font-black italic uppercase text-white">Meet The Architect</h2>
         </div>
         <div className="w-full flex justify-center">
           <ProfileCard />
-        </div>
-      </section>
-
-      {/* Terminal Footer */}
-      <section className="mt-32 p-8 bg-black border border-cyber-blue/20 rounded-lg font-mono text-xs">
-        <div className="flex items-center space-x-2 text-cyber-green mb-4">
-          <span className="w-2 h-2 rounded-full bg-cyber-green animate-ping" />
-          <span className="font-bold">STATUS: RAZEL_TECH_STUDIO_LIVE</span>
-        </div>
-        <div className="text-cyber-blue/60 space-y-1">
-          <p className="text-white">&gt; INITIALIZING_DASHBOARD...</p>
-          <p>&gt; SCANNING_SIMULATION_LAYERS... [SUCCESS]</p>
-          <p>&gt; CONNECTING_SAAS_LOGIC... [CONNECTED]</p>
-          <p>&gt; MSME_LICENSING_VERIFIED... [READY]</p>
-          <p>&gt; RAZEL_STUDIO_READY_FOR_ENGAGEMENT.</p>
         </div>
       </section>
     </div>
@@ -1058,13 +1286,15 @@ function App() {
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/solutions" element={<Suspense fallback={<div className="min-h-screen bg-obsidian flex items-center justify-center text-cyber-blue font-mono animate-pulse">LOADING_SYSTEMS...</div>}><Solutions /></Suspense>} />
           <Route path="/core" element={<DossierPage title="CORE_ENGINES" type="CORE_ENGINE" />} />
           <Route path="/logic" element={<DossierPage title="LOGIC_DATA" type="LOGIC_DATA" />} />
           <Route path="/labs" element={<DossierPage title="LABS" type="LABS" />} />
-          <Route path="/vcard" element={<DigitalCard />} />
           <Route path="/deck" element={<CapabilityDeck />} />
+          <Route path="/vcard" element={<DigitalCard />} />
+          <Route path="/about" element={<Suspense fallback={<div className="min-h-screen bg-obsidian flex items-center justify-center text-cyber-blue font-mono animate-pulse">LOADING_ABOUT...</div>}><AboutUs /></Suspense>} />
           <Route path="/project/:id" element={<ProjectDetails />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Layout>
     </Router>

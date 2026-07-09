@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
+# FUTURE CUSTOM DOMAIN EDIT: Change this domain link when you upgrade
 Sitemap: https://razeltech.github.io/sitemap.xml
