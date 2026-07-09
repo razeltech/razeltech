@@ -19,7 +19,6 @@ import {
   Workflow,
   Server,
   Database,
-  ShieldAlertIcon,
   Shield
 } from 'lucide-react';
 const CyberGrid = lazy(() => import('./components/CyberGrid'));
