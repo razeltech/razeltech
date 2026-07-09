@@ -1,6 +1,43 @@
 import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import { Terminal, Shield, Zap, AlertTriangle, Layers, Code2, Activity, Database, Cloud } from 'lucide-react';
+
+const StepCard = ({ step, index, isLeft }) => {
+  const nodeRef = useRef(null);
+  // Extremely tight trigger window: Only middle 4% of the viewport (matching the RT circle position)
+  const isInView = useInView(nodeRef, { margin: "-48% 0px -48% 0px", once: false });
+
+  return (
+    <div className={`mb-40 relative flex flex-col md:flex-row md:justify-between items-start md:items-center w-full ${isLeft ? 'md:flex-row-reverse' : ''}`}>
+      
+      {/* Empty space for alternating layout on desktop */}
+      <div className="hidden md:block w-5/12"></div>
+      
+      {/* Static Timeline Node attached to useInView ref */}
+      <div ref={nodeRef} className="absolute left-0 md:relative md:left-auto md:mx-auto z-20 w-8 h-8 flex items-center justify-center rounded-full bg-cyber-blue/30 border border-cyber-blue shadow-[0_0_10px_rgba(0,243,255,0.2)] transition-all duration-300">
+        <div className={`w-2 h-2 rounded-full transition-all duration-300 ${isInView ? 'bg-white shadow-[0_0_10px_#fff]' : 'bg-cyber-blue'}`}></div>
+      </div>
+      
+      {/* Content Card - Controlled strictly by the Node's visibility */}
+      <motion.div 
+        initial={false}
+        animate={isInView ? { opacity: 1, x: 0, scale: 1 } : { opacity: 0, x: isLeft ? 150 : -150, scale: 0.8 }} 
+        transition={{ duration: 0.5, type: "spring", bounce: 0.4 }}
+        className="w-full md:w-5/12 pl-20 md:pl-0 mt-4 md:mt-0"
+      >
+        <div className={`p-8 border-2 border-cyber-blue/30 bg-black/80 backdrop-blur-md rounded-xl hover:border-cyber-blue transition-all relative overflow-hidden group shadow-[0_0_30px_rgba(0,0,0,0.8)]`}>
+          <div className="absolute top-0 right-0 p-24 bg-cyber-blue/10 rounded-full blur-3xl -mr-12 -mt-12 group-hover:bg-cyber-blue/20 transition-colors pointer-events-none"></div>
+          <div className="flex items-center gap-4 mb-4">
+            <div className="text-[12px] font-black tracking-[0.2em] text-cyber-blue uppercase">{step.year}</div>
+            <div className="flex-grow h-px bg-cyber-blue/30"></div>
+          </div>
+          <h3 className="text-2xl font-bold text-white mb-4">{step.title}</h3>
+          <p className="text-sm text-cyber-blue/80 leading-relaxed relative z-10">{step.desc}</p>
+        </div>
+      </motion.div>
+    </div>
+  );
+};
 
 const AboutUs = () => {
   const containerRef = useRef(null);
@@ -113,40 +150,9 @@ const AboutUs = () => {
             <span className="text-[14px] font-black text-cyber-blue tracking-tighter">RT</span>
           </motion.div>
 
-          {journeySteps.map((step, index) => {
-            const isLeft = index % 2 === 0;
-            return (
-              <div key={index} className={`mb-40 relative flex flex-col md:flex-row md:justify-between items-start md:items-center w-full ${isLeft ? 'md:flex-row-reverse' : ''}`}>
-                
-                {/* Empty space for alternating layout on desktop */}
-                <div className="hidden md:block w-5/12"></div>
-                
-                {/* Static Timeline Node */}
-                <div className="absolute left-0 md:relative md:left-auto md:mx-auto z-20 w-8 h-8 flex items-center justify-center rounded-full bg-cyber-blue/30 border border-cyber-blue shadow-[0_0_10px_rgba(0,243,255,0.2)]">
-                  <div className="w-2 h-2 rounded-full bg-cyber-blue"></div>
-                </div>
-                
-                {/* Content Card - Two way snap animation matching RT circle (center of screen) */}
-                <motion.div 
-                  initial={{ opacity: 0, x: isLeft ? 150 : -150, scale: 0.8 }} 
-                  whileInView={{ opacity: 1, x: 0, scale: 1 }} 
-                  transition={{ duration: 0.5, type: "spring", bounce: 0.4 }}
-                  viewport={{ once: false, margin: "-40% 0px -40% 0px" }}
-                  className="w-full md:w-5/12 pl-20 md:pl-0 mt-4 md:mt-0"
-                >
-                  <div className={`p-8 border-2 border-cyber-blue/30 bg-black/80 backdrop-blur-md rounded-xl hover:border-cyber-blue transition-all relative overflow-hidden group shadow-[0_0_30px_rgba(0,0,0,0.8)]`}>
-                    <div className="absolute top-0 right-0 p-24 bg-cyber-blue/10 rounded-full blur-3xl -mr-12 -mt-12 group-hover:bg-cyber-blue/20 transition-colors pointer-events-none"></div>
-                    <div className="flex items-center gap-4 mb-4">
-                      <div className="text-[12px] font-black tracking-[0.2em] text-cyber-blue uppercase">{step.year}</div>
-                      <div className="flex-grow h-px bg-cyber-blue/30"></div>
-                    </div>
-                    <h3 className="text-2xl font-bold text-white mb-4">{step.title}</h3>
-                    <p className="text-sm text-cyber-blue/80 leading-relaxed relative z-10">{step.desc}</p>
-                  </div>
-                </motion.div>
-              </div>
-            );
-          })}
+          {journeySteps.map((step, index) => (
+            <StepCard key={index} step={step} index={index} isLeft={index % 2 === 0} />
+          ))}
         </div>
 
         {/* Call to Action */}
