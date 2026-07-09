@@ -1077,35 +1077,35 @@ const TestimonialSlider = () => {
 
 const SystemTopology = () => {
   return (
-    <div className="hidden lg:block absolute inset-0 right-0 w-full h-full pointer-events-none overflow-hidden z-0">
-      <div className="absolute right-[5%] xl:right-[10%] top-1/2 -translate-y-1/2 w-[400px] h-[400px] xl:w-[500px] xl:h-[500px]">
+    <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden z-0">
+      <div className="absolute -right-[10%] md:right-[-5%] lg:right-[5%] xl:right-[10%] top-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[400px] md:h-[400px] xl:w-[500px] xl:h-[500px] opacity-15 md:opacity-30 lg:opacity-100">
         {/* Spinning Rings */}
         <div className="absolute inset-0 border border-cyber-blue/10 rounded-full animate-[spin_20s_linear_infinite]"></div>
         <div className="absolute inset-8 border border-cyber-blue/20 rounded-full border-dashed animate-[spin_15s_linear_infinite_reverse]"></div>
         <div className="absolute inset-20 border border-cyber-blue/30 rounded-full animate-[spin_10s_linear_infinite]"></div>
         
         {/* Center Node */}
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-black border border-cyber-blue rounded-xl flex items-center justify-center shadow-[0_0_40px_rgba(0,243,255,0.3)] z-10">
-          <Server size={32} className="text-cyber-blue" />
-          <div className="absolute -bottom-6 text-[8px] font-mono text-cyber-blue tracking-widest">CORE_ENGINE</div>
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 md:w-24 md:h-24 bg-black border border-cyber-blue rounded-xl flex items-center justify-center shadow-[0_0_40px_rgba(0,243,255,0.3)] z-10">
+          <Box className="w-8 h-8 md:w-10 md:h-10 text-cyber-blue" />
+          <div className="absolute -bottom-6 text-[7px] md:text-[8px] font-mono text-cyber-blue tracking-widest whitespace-nowrap">UNITY_WEBGL</div>
         </div>
 
         {/* Orbiting Nodes */}
-        <motion.div className="absolute top-0 left-1/2 -translate-x-1/2 -mt-6 w-12 h-12 bg-black/80 backdrop-blur-sm border border-cyber-blue/50 rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(0,243,255,0.2)]" animate={{ y: [0, -10, 0] }} transition={{ duration: 3, repeat: Infinity }}>
+        <motion.div className="absolute top-0 left-1/2 -translate-x-1/2 -mt-4 md:-mt-6 w-10 h-10 md:w-12 md:h-12 bg-black/80 backdrop-blur-sm border border-cyber-blue/50 rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(0,243,255,0.2)]" animate={{ y: [0, -10, 0] }} transition={{ duration: 3, repeat: Infinity }}>
           <Database size={16} className="text-cyber-blue" />
-          <div className="absolute -right-20 text-[7px] font-mono text-cyber-blue/60 tracking-widest whitespace-nowrap">DB_CLUSTER</div>
+          <div className="absolute -right-20 text-[6px] md:text-[7px] font-mono text-cyber-blue/60 tracking-widest whitespace-nowrap">INDEXED_DB</div>
         </motion.div>
-        <motion.div className="absolute bottom-0 left-1/2 -translate-x-1/2 mb-6 w-12 h-12 bg-black/80 backdrop-blur-sm border border-cyber-blue/50 rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(0,243,255,0.2)]" animate={{ y: [0, 10, 0] }} transition={{ duration: 3, repeat: Infinity, delay: 1 }}>
-          <ShieldAlertIcon size={16} className="text-cyber-blue" />
-          <div className="absolute -left-20 text-[7px] font-mono text-cyber-blue/60 tracking-widest whitespace-nowrap">AUTH_GATE</div>
+        <motion.div className="absolute bottom-0 left-1/2 -translate-x-1/2 mb-4 md:mb-6 w-10 h-10 md:w-12 md:h-12 bg-black/80 backdrop-blur-sm border border-cyber-blue/50 rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(0,243,255,0.2)]" animate={{ y: [0, 10, 0] }} transition={{ duration: 3, repeat: Infinity, delay: 1 }}>
+          <Glasses size={16} className="text-cyber-blue" />
+          <div className="absolute -left-24 text-[6px] md:text-[7px] font-mono text-cyber-blue/60 tracking-widest whitespace-nowrap">AR_VR_MODULE</div>
         </motion.div>
-        <motion.div className="absolute left-0 top-1/2 -translate-y-1/2 -ml-6 w-12 h-12 bg-black/80 backdrop-blur-sm border border-cyber-blue/50 rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(0,243,255,0.2)]" animate={{ x: [0, -10, 0] }} transition={{ duration: 3, repeat: Infinity, delay: 0.5 }}>
-          <Cloud size={16} className="text-cyber-blue" />
-          <div className="absolute -top-6 text-[7px] font-mono text-cyber-blue/60 tracking-widest whitespace-nowrap">CLOUD_SYNC</div>
+        <motion.div className="absolute left-0 top-1/2 -translate-y-1/2 -ml-4 md:-ml-6 w-10 h-10 md:w-12 md:h-12 bg-black/80 backdrop-blur-sm border border-cyber-blue/50 rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(0,243,255,0.2)]" animate={{ x: [0, -10, 0] }} transition={{ duration: 3, repeat: Infinity, delay: 0.5 }}>
+          <Activity size={16} className="text-cyber-blue" />
+          <div className="absolute -top-6 text-[6px] md:text-[7px] font-mono text-cyber-blue/60 tracking-widest whitespace-nowrap">SIM_LOGIC</div>
         </motion.div>
-        <motion.div className="absolute right-0 top-1/2 -translate-y-1/2 -mr-6 w-12 h-12 bg-black/80 backdrop-blur-sm border border-cyber-blue/50 rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(0,243,255,0.2)]" animate={{ x: [0, 10, 0] }} transition={{ duration: 3, repeat: Infinity, delay: 1.5 }}>
-          <Network size={16} className="text-cyber-blue" />
-          <div className="absolute -bottom-6 text-[7px] font-mono text-cyber-blue/60 tracking-widest whitespace-nowrap">WSS_NODE</div>
+        <motion.div className="absolute right-0 top-1/2 -translate-y-1/2 -mr-4 md:-mr-6 w-10 h-10 md:w-12 md:h-12 bg-black/80 backdrop-blur-sm border border-cyber-blue/50 rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(0,243,255,0.2)]" animate={{ x: [0, 10, 0] }} transition={{ duration: 3, repeat: Infinity, delay: 1.5 }}>
+          <Server size={16} className="text-cyber-blue" />
+          <div className="absolute -bottom-6 text-[6px] md:text-[7px] font-mono text-cyber-blue/60 tracking-widest whitespace-nowrap">LOCAL_NODE</div>
         </motion.div>
       </div>
     </div>
@@ -1120,25 +1120,25 @@ const Home = () => {
       <section className="mb-20 md:mb-32 relative min-h-[70vh] flex flex-col justify-center">
         <SystemTopology />
         
-        <div className="max-w-3xl relative z-10 pointer-events-none">
+        <div className="max-w-2xl lg:max-w-xl xl:max-w-2xl relative z-10 pointer-events-none">
           <div className="inline-flex items-center space-x-2 text-cyber-green text-[7px] md:text-[10px] font-bold tracking-[0.1em] md:tracking-[0.2em] mb-6 uppercase max-w-full pointer-events-auto border border-cyber-green/30 bg-cyber-green/5 px-3 py-1 rounded-full">
             <ShieldAlertIcon size={12} className="shrink-0 animate-pulse" />
             <span className="truncate">Defense-Grade Systems For Modern Business</span>
           </div>
           
-          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5rem] font-black tracking-tighter mb-6 leading-[0.9] italic uppercase w-full pointer-events-auto">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-[4rem] xl:text-[5rem] font-black tracking-tighter mb-6 leading-[0.9] italic uppercase w-full pointer-events-auto">
             <span className="inline-block"><ScrambledText text="ARCHITECTING" /></span><br />
             <span className="text-cyber-blue terminal-text inline-block mt-2">
               <ScrambledText text="PRECISION_SYSTEMS" />
             </span>
           </h1>
           
-          <div className="mb-10 flex items-center space-x-4 pointer-events-auto">
-            <div className="h-px w-12 bg-cyber-blue/50"></div>
-            <span className="text-cyber-blue/60 font-bold tracking-[0.2em] md:tracking-[0.3em] text-[9px] md:text-[11px] uppercase">Custom Software That Replaces Expensive Subscriptions</span>
+          <div className="mb-8 flex items-center space-x-4 pointer-events-auto">
+            <div className="h-px w-8 md:w-12 bg-cyber-blue/50"></div>
+            <span className="text-cyber-blue/60 font-bold tracking-[0.15em] md:tracking-[0.3em] text-[8px] md:text-[11px] uppercase">Custom Software That Replaces Expensive Subscriptions</span>
           </div>
           
-          <div className="relative max-w-xl mb-12 pointer-events-auto space-y-4">
+          <div className="relative max-w-lg xl:max-w-xl mb-12 pointer-events-auto space-y-4">
             <p className="text-lg md:text-xl text-white/90 font-medium leading-relaxed">
               Enterprise software is broken.
             </p>
