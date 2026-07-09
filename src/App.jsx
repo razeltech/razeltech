@@ -16,7 +16,11 @@ import {
   Network,
   Cloud,
   Layers,
-  Workflow
+  Workflow,
+  Server,
+  Database,
+  ShieldAlertIcon,
+  Shield
 } from 'lucide-react';
 const CyberGrid = lazy(() => import('./components/CyberGrid'));
 const ShapeGrid = lazy(() => import('./components/ShapeGrid'));
