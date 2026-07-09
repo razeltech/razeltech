@@ -19,7 +19,9 @@ import {
   Workflow,
   Server,
   Database,
-  Shield
+  Shield,
+  ShieldCheck,
+  Lock
 } from 'lucide-react';
 const CyberGrid = lazy(() => import('./components/CyberGrid'));
 const ShapeGrid = lazy(() => import('./components/ShapeGrid'));
@@ -1076,6 +1078,22 @@ const TestimonialSlider = () => {
 };
 
 const SystemTopology = () => {
+  const [activeNode, setActiveNode] = useState(null);
+
+  const Tooltip = ({ title, stack }) => (
+    <AnimatePresence>
+      <motion.div
+        initial={{ opacity: 0, y: 10, scale: 0.9 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        exit={{ opacity: 0, y: 5, scale: 0.95 }}
+        className="absolute top-full mt-4 left-1/2 -translate-x-1/2 bg-black/90 border border-cyber-blue/40 px-3 py-2 rounded shadow-[0_0_15px_rgba(0,243,255,0.2)] z-50 pointer-events-none min-w-max text-center"
+      >
+        <div className="text-[10px] font-black text-white mb-1">{title}</div>
+        <div className="text-[8px] font-mono text-cyber-blue/70">{stack}</div>
+      </motion.div>
+    </AnimatePresence>
+  );
+
   return (
     <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden z-0">
       <div className="absolute -right-[10%] md:right-[-5%] lg:right-[5%] xl:right-[10%] top-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[400px] md:h-[400px] xl:w-[500px] xl:h-[500px] opacity-15 md:opacity-30 lg:opacity-100">
@@ -1085,27 +1103,63 @@ const SystemTopology = () => {
         <div className="absolute inset-20 border border-cyber-blue/30 rounded-full animate-[spin_10s_linear_infinite]"></div>
         
         {/* Center Node */}
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 md:w-24 md:h-24 bg-black border border-cyber-blue rounded-xl flex items-center justify-center shadow-[0_0_40px_rgba(0,243,255,0.3)] z-10">
+        <div 
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 md:w-24 md:h-24 bg-black border border-cyber-blue rounded-xl flex items-center justify-center shadow-[0_0_40px_rgba(0,243,255,0.3)] z-20 pointer-events-auto cursor-crosshair transition-colors hover:bg-cyber-blue/10"
+          onMouseEnter={() => setActiveNode('core')}
+          onMouseLeave={() => setActiveNode(null)}
+        >
           <Box className="w-8 h-8 md:w-10 md:h-10 text-cyber-blue" />
           <div className="absolute -bottom-6 text-[7px] md:text-[8px] font-mono text-cyber-blue tracking-widest whitespace-nowrap">UNITY_WEBGL</div>
+          {activeNode === 'core' && <Tooltip title="CORE_ENGINE" stack=".NET / C# / Unity / Microservices" />}
         </div>
 
         {/* Orbiting Nodes */}
-        <motion.div className="absolute top-0 left-1/2 -translate-x-1/2 -mt-4 md:-mt-6 w-10 h-10 md:w-12 md:h-12 bg-black/80 backdrop-blur-sm border border-cyber-blue/50 rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(0,243,255,0.2)]" animate={{ y: [0, -10, 0] }} transition={{ duration: 3, repeat: Infinity }}>
+        <motion.div 
+          className="absolute top-0 left-1/2 -translate-x-1/2 -mt-4 md:-mt-6 w-10 h-10 md:w-12 md:h-12 bg-black/80 backdrop-blur-sm border border-cyber-blue/50 rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(0,243,255,0.2)] z-20 pointer-events-auto cursor-crosshair transition-colors hover:bg-cyber-blue/10" 
+          animate={{ y: [0, -10, 0] }} 
+          transition={{ duration: 3, repeat: Infinity }}
+          onMouseEnter={() => setActiveNode('db')}
+          onMouseLeave={() => setActiveNode(null)}
+        >
           <Database size={16} className="text-cyber-blue" />
           <div className="absolute -right-20 text-[6px] md:text-[7px] font-mono text-cyber-blue/60 tracking-widest whitespace-nowrap">INDEXED_DB</div>
+          {activeNode === 'db' && <Tooltip title="DB_CLUSTER" stack="PostgreSQL / Redis / Replication" />}
         </motion.div>
-        <motion.div className="absolute bottom-0 left-1/2 -translate-x-1/2 mb-4 md:mb-6 w-10 h-10 md:w-12 md:h-12 bg-black/80 backdrop-blur-sm border border-cyber-blue/50 rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(0,243,255,0.2)]" animate={{ y: [0, 10, 0] }} transition={{ duration: 3, repeat: Infinity, delay: 1 }}>
+
+        <motion.div 
+          className="absolute bottom-0 left-1/2 -translate-x-1/2 mb-4 md:mb-6 w-10 h-10 md:w-12 md:h-12 bg-black/80 backdrop-blur-sm border border-cyber-blue/50 rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(0,243,255,0.2)] z-20 pointer-events-auto cursor-crosshair transition-colors hover:bg-cyber-blue/10" 
+          animate={{ y: [0, 10, 0] }} 
+          transition={{ duration: 3, repeat: Infinity, delay: 1 }}
+          onMouseEnter={() => setActiveNode('vr')}
+          onMouseLeave={() => setActiveNode(null)}
+        >
           <Glasses size={16} className="text-cyber-blue" />
           <div className="absolute -left-24 text-[6px] md:text-[7px] font-mono text-cyber-blue/60 tracking-widest whitespace-nowrap">AR_VR_MODULE</div>
+          {activeNode === 'vr' && <Tooltip title="XR_INTERFACE" stack="OpenXR / Meta Quest / WebXR" />}
         </motion.div>
-        <motion.div className="absolute left-0 top-1/2 -translate-y-1/2 -ml-4 md:-ml-6 w-10 h-10 md:w-12 md:h-12 bg-black/80 backdrop-blur-sm border border-cyber-blue/50 rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(0,243,255,0.2)]" animate={{ x: [0, -10, 0] }} transition={{ duration: 3, repeat: Infinity, delay: 0.5 }}>
+
+        <motion.div 
+          className="absolute left-0 top-1/2 -translate-y-1/2 -ml-4 md:-ml-6 w-10 h-10 md:w-12 md:h-12 bg-black/80 backdrop-blur-sm border border-cyber-blue/50 rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(0,243,255,0.2)] z-20 pointer-events-auto cursor-crosshair transition-colors hover:bg-cyber-blue/10" 
+          animate={{ x: [0, -10, 0] }} 
+          transition={{ duration: 3, repeat: Infinity, delay: 0.5 }}
+          onMouseEnter={() => setActiveNode('sim')}
+          onMouseLeave={() => setActiveNode(null)}
+        >
           <Activity size={16} className="text-cyber-blue" />
           <div className="absolute -top-6 text-[6px] md:text-[7px] font-mono text-cyber-blue/60 tracking-widest whitespace-nowrap">SIM_LOGIC</div>
+          {activeNode === 'sim' && <Tooltip title="SIMULATION" stack="Physics / Multi-Agent / Deterministic" />}
         </motion.div>
-        <motion.div className="absolute right-0 top-1/2 -translate-y-1/2 -mr-4 md:-mr-6 w-10 h-10 md:w-12 md:h-12 bg-black/80 backdrop-blur-sm border border-cyber-blue/50 rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(0,243,255,0.2)]" animate={{ x: [0, 10, 0] }} transition={{ duration: 3, repeat: Infinity, delay: 1.5 }}>
+
+        <motion.div 
+          className="absolute right-0 top-1/2 -translate-y-1/2 -mr-4 md:-mr-6 w-10 h-10 md:w-12 md:h-12 bg-black/80 backdrop-blur-sm border border-cyber-blue/50 rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(0,243,255,0.2)] z-20 pointer-events-auto cursor-crosshair transition-colors hover:bg-cyber-blue/10" 
+          animate={{ x: [0, 10, 0] }} 
+          transition={{ duration: 3, repeat: Infinity, delay: 1.5 }}
+          onMouseEnter={() => setActiveNode('node')}
+          onMouseLeave={() => setActiveNode(null)}
+        >
           <Server size={16} className="text-cyber-blue" />
           <div className="absolute -bottom-6 text-[6px] md:text-[7px] font-mono text-cyber-blue/60 tracking-widest whitespace-nowrap">LOCAL_NODE</div>
+          {activeNode === 'node' && <Tooltip title="API_GATEWAY" stack="Node.js / Express / TCP Brokers" />}
         </motion.div>
       </div>
     </div>
@@ -1126,31 +1180,32 @@ const Home = () => {
             <span className="truncate">Defense-Grade Systems For Modern Business</span>
           </div>
           
-          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-[4rem] xl:text-[5rem] font-black tracking-tighter mb-6 leading-[0.9] italic uppercase w-full pointer-events-auto">
+          <h1 className="sr-only">Custom Enterprise Software Development Company</h1>
+          
+          <div aria-hidden="true" className="text-3xl sm:text-5xl md:text-6xl lg:text-[4rem] xl:text-[5rem] font-black tracking-tighter mb-4 leading-[0.9] italic uppercase w-full pointer-events-auto">
             <span className="inline-block"><ScrambledText text="ARCHITECTING" /></span><br />
             <span className="text-cyber-blue terminal-text inline-block mt-2">
               <ScrambledText text="PRECISION_SYSTEMS" />
             </span>
-          </h1>
-          
-          <div className="mb-8 flex items-center space-x-4 pointer-events-auto">
-            <div className="h-px w-8 md:w-12 bg-cyber-blue/50"></div>
-            <span className="text-cyber-blue/60 font-bold tracking-[0.15em] md:tracking-[0.3em] text-[8px] md:text-[11px] uppercase">Custom Software That Replaces Expensive Subscriptions</span>
+          </div>
+
+          <div className="mb-10 font-mono text-cyber-blue/80 text-[9px] sm:text-[10px] md:text-xs tracking-[0.15em] uppercase pointer-events-auto border-l-2 border-cyber-blue pl-4 py-1 leading-relaxed">
+            Enterprise Software <span className="text-cyber-green mx-1 sm:mx-2">•</span> Digital Twins <span className="text-cyber-green mx-1 sm:mx-2">•</span> Unity Engineering <span className="text-cyber-green mx-1 sm:mx-2">•</span> AI Systems
           </div>
           
-          <div className="relative max-w-lg xl:max-w-xl mb-12 pointer-events-auto space-y-4">
+          <div className="relative max-w-lg xl:max-w-xl mb-16 pointer-events-auto space-y-6">
             <p className="text-lg md:text-xl text-white/90 font-medium leading-relaxed">
-              Enterprise software is broken.
+              Stop changing your workflow to fit generic software.
             </p>
             <p className="text-base md:text-lg text-white/70 font-medium leading-relaxed">
-              Razel Tech engineers custom, zero-bloat architecture around your actual workflow—not generic templates.
+              Razel Tech engineers custom, zero-bloat architecture around your actual business processes—not templates.
             </p>
             <p className="text-base md:text-lg text-cyber-blue font-bold leading-relaxed">
               Own your technology instead of renting it every month.
             </p>
           </div>
 
-          <div className="flex flex-col sm:flex-row flex-wrap gap-4 pointer-events-auto mb-12">
+          <div className="flex flex-col sm:flex-row flex-wrap gap-4 pointer-events-auto mb-16">
             <a href="mailto:razeltech.in@gmail.com" className="px-8 py-4 bg-cyber-blue text-black text-[10px] font-black tracking-widest uppercase hover:bg-white hover:scale-105 transition-all shadow-[0_0_20px_rgba(0,243,255,0.4)] text-center">
               SCHEDULE_SYSTEM_AUDIT
             </a>
@@ -1160,11 +1215,11 @@ const Home = () => {
           </div>
 
           {/* Trust Signals */}
-          <div className="flex flex-wrap gap-x-6 gap-y-3 pointer-events-auto text-[8px] md:text-[10px] font-mono tracking-widest uppercase text-cyber-blue/50">
-            <span className="flex items-center gap-2"><div className="w-1 h-1 bg-cyber-blue rounded-full"></div> 12+ Years Eng.</span>
-            <span className="flex items-center gap-2"><div className="w-1 h-1 bg-cyber-blue rounded-full"></div> Defense-Grade Core</span>
-            <span className="flex items-center gap-2"><div className="w-1 h-1 bg-cyber-blue rounded-full"></div> Zero Vendor Lock-in</span>
-            <span className="flex items-center gap-2"><div className="w-1 h-1 bg-cyber-green rounded-full"></div> 100% Ownership</span>
+          <div className="flex flex-wrap gap-x-8 gap-y-4 pointer-events-auto text-[10px] md:text-xs font-mono tracking-widest uppercase text-cyber-blue/80">
+            <span className="flex items-center gap-2"><ShieldCheck size={14} className="text-cyber-green"/> 12+ Years Eng.</span>
+            <span className="flex items-center gap-2"><Cpu size={14} className="text-cyber-green"/> Defense-Grade Core</span>
+            <span className="flex items-center gap-2"><Network size={14} className="text-cyber-green"/> Zero Vendor Lock-in</span>
+            <span className="flex items-center gap-2"><Lock size={14} className="text-cyber-green"/> 100% Ownership</span>
           </div>
         </div>
       </section>
@@ -1182,6 +1237,40 @@ const Home = () => {
       </div>
 
 
+
+      {/* Systems Built Showcase */}
+      <section className="mb-32">
+        <div className="text-[10px] font-black text-cyber-blue/40 tracking-[0.4em] uppercase mb-12 text-center">// Systems_Constructed</div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-6 lg:px-0">
+          <div className="bg-black/60 border border-cyber-blue/20 p-6 hover:border-cyber-blue/50 transition-colors group">
+            <h3 className="text-lg font-bold text-white mb-2 group-hover:text-cyber-blue transition-colors">Healthcare Platform</h3>
+            <p className="text-cyber-blue/60 text-[10px] tracking-widest uppercase font-mono mb-4">Enterprise SaaS</p>
+            <div className="h-px w-full bg-cyber-blue/20 mb-4"></div>
+            <p className="text-xs text-white/60 leading-relaxed">HIPAA compliant, highly secure multi-tenant architecture processing real-time patient data.</p>
+          </div>
+          
+          <div className="bg-black/60 border border-cyber-blue/20 p-6 hover:border-cyber-blue/50 transition-colors group">
+            <h3 className="text-lg font-bold text-white mb-2 group-hover:text-cyber-blue transition-colors">Industrial Digital Twin</h3>
+            <p className="text-cyber-blue/60 text-[10px] tracking-widest uppercase font-mono mb-4">Unity + IFC + BIM</p>
+            <div className="h-px w-full bg-cyber-blue/20 mb-4"></div>
+            <p className="text-xs text-white/60 leading-relaxed">High-fidelity 3D facility tracking with live sensor data integration for manufacturing.</p>
+          </div>
+
+          <div className="bg-black/60 border border-cyber-blue/20 p-6 hover:border-cyber-blue/50 transition-colors group">
+            <h3 className="text-lg font-bold text-white mb-2 group-hover:text-cyber-blue transition-colors">Defense Simulation</h3>
+            <p className="text-cyber-blue/60 text-[10px] tracking-widest uppercase font-mono mb-4">Real-Time Visualization</p>
+            <div className="h-px w-full bg-cyber-blue/20 mb-4"></div>
+            <p className="text-xs text-white/60 leading-relaxed">Multi-agent deterministic physics environments for critical path and resource analysis.</p>
+          </div>
+
+          <div className="bg-black/60 border border-cyber-blue/20 p-6 hover:border-cyber-blue/50 transition-colors group">
+            <h3 className="text-lg font-bold text-white mb-2 group-hover:text-cyber-blue transition-colors">AI Workflow Engine</h3>
+            <p className="text-cyber-blue/60 text-[10px] tracking-widest uppercase font-mono mb-4">Custom LLM Integration</p>
+            <div className="h-px w-full bg-cyber-blue/20 mb-4"></div>
+            <p className="text-xs text-white/60 leading-relaxed">Local-hosted, isolated RAG pipelines automating proprietary internal business logic.</p>
+          </div>
+        </div>
+      </section>
 
       {/* Solution Domains (Poster Bottom Row) */}
       <section id="solutions" className="mb-32">
