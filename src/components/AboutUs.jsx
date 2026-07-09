@@ -126,12 +126,12 @@ const AboutUs = () => {
                   <div className="w-2 h-2 rounded-full bg-cyber-blue"></div>
                 </div>
                 
-                {/* Content Card - Two way snap animation (once: false) */}
+                {/* Content Card - Two way snap animation matching RT circle (center of screen) */}
                 <motion.div 
                   initial={{ opacity: 0, x: isLeft ? 150 : -150, scale: 0.8 }} 
                   whileInView={{ opacity: 1, x: 0, scale: 1 }} 
-                  transition={{ duration: 0.6, type: "spring", bounce: 0.5 }}
-                  viewport={{ once: false, amount: 0.8, margin: "0px 0px -10% 0px" }}
+                  transition={{ duration: 0.5, type: "spring", bounce: 0.4 }}
+                  viewport={{ once: false, margin: "-40% 0px -40% 0px" }}
                   className="w-full md:w-5/12 pl-20 md:pl-0 mt-4 md:mt-0"
                 >
                   <div className={`p-8 border-2 border-cyber-blue/30 bg-black/80 backdrop-blur-md rounded-xl hover:border-cyber-blue transition-all relative overflow-hidden group shadow-[0_0_30px_rgba(0,0,0,0.8)]`}>
