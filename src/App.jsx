@@ -84,6 +84,15 @@ const PROJECTS = [
     status: 'STABLE'
   },
   {
+    id: 'photobooth-pro',
+    title: 'PHOTOBOOTH_PRO_PWA',
+    type: 'LABS',
+    tags: ['Vanilla JS', 'Canvas', 'PWA', 'Shaders'],
+    description: 'High-performance in-browser vintage photobooth studio & PWA. Features 35mm Silver Gelatin shaders, custom background uploads, draggable props, GIF motion export & native WhatsApp sharing.',
+    link: 'https://razeltech.github.io/PhotoboothPro/',
+    status: 'OPERATIONAL'
+  },
+  {
     id: 'invoicevault',
     title: 'INVOICE_VAULT_PRO',
     type: 'LABS',

@@ -1,9 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Network, Cloud, Layers, Workflow, Shield, Zap, Box, Code2, Activity, Terminal } from 'lucide-react';
+import { Network, Cloud, Layers, Workflow, Shield, Zap, Box, Code2, Activity, Terminal, Camera } from 'lucide-react';
 
 const customApps = [
+  {
+    title: 'Photobooth Pro Studio',
+    reason: 'Why it was built: Event photobooth and photo strip apps are usually filled with ads or force cloud uploads. Razel Tech engineered a 100% in-browser, privacy-first 35mm photobooth studio and PWA with zero cloud dependency.',
+    icon: <Camera size={24} className="text-cyber-blue" />,
+    links: [
+      { label: 'Live App', url: 'https://razeltech.github.io/PhotoboothPro/' }
+    ]
+  },
   {
     title: 'Clinic Medicorepro',
     reason: 'Why it was built: The industry focuses solely on large hospitals, leaving private clinics drowning in paper. Razel Tech provided a clean, digital OPD system tailored for clinics at just ₹1000/month.',
