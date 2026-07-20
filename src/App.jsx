@@ -1187,15 +1187,9 @@ const Home = () => {
             <TypewriterText text="Enterprise Software • Digital Twins • Unity Engineering • AI Systems" delay={0.03} />
           </div>
           
-          <div className="relative max-w-lg xl:max-w-xl mb-16 pointer-events-auto space-y-6">
-            <p className="text-lg md:text-xl text-white/90 font-medium leading-relaxed">
-              <TypewriterText text="Stop changing your workflow to fit generic software." delay={0.02} />
-            </p>
-            <p className="text-base md:text-lg text-white/70 font-medium leading-relaxed">
-              <TypewriterText text="Razel Tech engineers custom, zero-bloat architecture around your actual business processes—not templates." delay={0.02} />
-            </p>
-            <p className="text-base md:text-lg text-cyber-blue font-bold leading-relaxed">
-              <TypewriterText text="Flexible SaaS solutions & full-ownership custom IP tailored for scale." delay={0.02} />
+          <div className="relative max-w-lg xl:max-w-xl mb-16 pointer-events-auto min-h-[140px] space-y-6">
+            <p className="text-lg md:text-xl text-white/90 font-medium leading-relaxed whitespace-pre-line">
+              <TypewriterText text={"Stop changing your workflow to fit generic software.\n\nRazel Tech engineers custom, zero-bloat architecture around your actual business processes—not templates.\n\nFlexible SaaS solutions & full-ownership custom IP tailored for scale."} delay={0.02} />
             </p>
           </div>
 
