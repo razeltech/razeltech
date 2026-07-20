@@ -43,7 +43,7 @@ export default function DigitalCard() {
     roleName: "Founder & CEO // Lead Systems Architect",
     email: "razeltech.in@gmail.com",
     phone: "", // Temporarily hidden until new number is available
-    website: "https://razeltech.github.io/razeltech/",
+    website: "https://razeltech.github.io/",
     linkedin: "https://www.linkedin.com/in/raja-vamsi-dhar-vallabhapurapu-71b10475/",
     githubPersonal: "https://github.com/razeltech",
     githubOrg: "https://github.com/razeltech",
