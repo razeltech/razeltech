@@ -1179,7 +1179,7 @@ const Home = () => {
           <div aria-hidden="true" className="text-3xl sm:text-5xl md:text-6xl lg:text-[4rem] xl:text-[5rem] font-black tracking-tighter mb-4 leading-[0.9] italic uppercase w-full pointer-events-auto">
             <span className="inline-block"><ScrambledText text="ARCHITECTING" /></span><br />
             <span className="text-cyber-blue terminal-text inline-block mt-2">
-              <ScrambledText text="PRECISION_SYSTEMS" />
+              <TypewriterText text="PRECISION_SYSTEMS" delay={0.08} />
             </span>
           </div>
 
