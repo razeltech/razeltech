@@ -1189,13 +1189,13 @@ const Home = () => {
           
           <div className="relative max-w-lg xl:max-w-xl mb-16 pointer-events-auto space-y-6">
             <p className="text-lg md:text-xl text-white/90 font-medium leading-relaxed">
-              Stop changing your workflow to fit generic software.
+              <TypewriterText text="Stop changing your workflow to fit generic software." delay={0.02} />
             </p>
             <p className="text-base md:text-lg text-white/70 font-medium leading-relaxed">
-              Razel Tech engineers custom, zero-bloat architecture around your actual business processes—not templates.
+              <TypewriterText text="Razel Tech engineers custom, zero-bloat architecture around your actual business processes—not templates." delay={0.02} />
             </p>
             <p className="text-base md:text-lg text-cyber-blue font-bold leading-relaxed">
-              Flexible SaaS solutions & full-ownership custom IP tailored for scale.
+              <TypewriterText text="Flexible SaaS solutions & full-ownership custom IP tailored for scale." delay={0.02} />
             </p>
           </div>
 
