@@ -1179,12 +1179,12 @@ const Home = () => {
           <div aria-hidden="true" className="text-3xl sm:text-5xl md:text-6xl lg:text-[4rem] xl:text-[5rem] font-black tracking-tighter mb-4 leading-[0.9] italic uppercase w-full pointer-events-auto">
             <span className="inline-block"><ScrambledText text="ARCHITECTING" /></span><br />
             <span className="text-cyber-blue terminal-text inline-block mt-2">
-              <TypewriterText text="PRECISION_SYSTEMS" delay={0.08} />
+              <ScrambledText text="PRECISION_SYSTEMS" />
             </span>
           </div>
 
           <div className="mb-10 font-mono text-cyber-blue/80 text-[9px] sm:text-[10px] md:text-xs tracking-[0.15em] uppercase pointer-events-auto border-l-2 border-cyber-blue pl-4 py-1 leading-relaxed">
-            Enterprise Software <span className="text-cyber-green mx-1 sm:mx-2">•</span> Digital Twins <span className="text-cyber-green mx-1 sm:mx-2">•</span> Unity Engineering <span className="text-cyber-green mx-1 sm:mx-2">•</span> AI Systems
+            <TypewriterText text="Enterprise Software • Digital Twins • Unity Engineering • AI Systems" delay={0.03} />
           </div>
           
           <div className="relative max-w-lg xl:max-w-xl mb-16 pointer-events-auto space-y-6">
