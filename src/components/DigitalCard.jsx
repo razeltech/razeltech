@@ -42,7 +42,7 @@ export default function DigitalCard() {
     orgName: "Razel Tech",
     roleName: "Founder & CEO // Lead Systems Architect",
     email: "razeltech.in@gmail.com",
-    phone: "+91 94949 15264", // Main corporate line
+    phone: "", // Temporarily hidden until new number is available
     website: "https://razeltech.github.io/razeltech/",
     linkedin: "https://www.linkedin.com/in/raja-vamsi-dhar-vallabhapurapu-71b10475/",
     githubPersonal: "https://github.com/razeltech",
@@ -71,7 +71,7 @@ export default function DigitalCard() {
       `ORG:${contact.orgName}`,
       `TITLE:${contact.roleName}`,
       `EMAIL;TYPE=PREF,INTERNET:${contact.email}`,
-      `TEL;TYPE=CELL,VOICE:${contact.phone}`,
+      ...(contact.phone ? [`TEL;TYPE=CELL,VOICE:${contact.phone}`] : []),
       `URL:${contact.website}`,
       `X-SOCIALPROFILE;TYPE=linkedin:${contact.linkedin}`,
       `X-SOCIALPROFILE;TYPE=github:${contact.githubPersonal}`,
@@ -181,18 +181,20 @@ export default function DigitalCard() {
             {/* Contact Details Grid */}
             <div className="w-full space-y-3 mb-8">
               {/* Direct Actions */}
-              <a
-                href={`tel:${contact.phone}`}
-                className="flex items-center p-3 rounded-lg border border-cyber-blue/10 bg-cyber-blue/5 hover:border-cyber-blue/40 hover:bg-cyber-blue/10 transition-all group"
-              >
-                <div className="p-2 rounded bg-cyber-blue/10 text-cyber-blue mr-3 group-hover:scale-110 transition-transform">
-                  <Phone size={16} />
-                </div>
-                <div className="flex-1 text-left">
-                  <div className="text-[8px] text-cyber-blue/40 font-bold tracking-wider uppercase">Direct Voice Line</div>
-                  <div className="text-xs font-bold text-white font-mono">{contact.phone}</div>
-                </div>
-              </a>
+              {contact.phone && (
+                <a
+                  href={`tel:${contact.phone}`}
+                  className="flex items-center p-3 rounded-lg border border-cyber-blue/10 bg-cyber-blue/5 hover:border-cyber-blue/40 hover:bg-cyber-blue/10 transition-all group"
+                >
+                  <div className="p-2 rounded bg-cyber-blue/10 text-cyber-blue mr-3 group-hover:scale-110 transition-transform">
+                    <Phone size={16} />
+                  </div>
+                  <div className="flex-1 text-left">
+                    <div className="text-[8px] text-cyber-blue/40 font-bold tracking-wider uppercase">Direct Voice Line</div>
+                    <div className="text-xs font-bold text-white font-mono">{contact.phone}</div>
+                  </div>
+                </a>
+              )}
 
               <a
                 href={`mailto:${contact.email}`}
@@ -394,10 +396,12 @@ export default function DigitalCard() {
 
               {/* Back Content Grid */}
               <div className="my-3 space-y-1 text-[8px] font-bold tracking-widest text-cyber-blue/60 uppercase text-left">
-                <div className="flex items-center space-x-2">
-                  <span className="text-cyber-green w-8 shrink-0">TEL:</span>
-                  <span className="text-white font-mono">{contact.phone}</span>
-                </div>
+                {contact.phone && (
+                  <div className="flex items-center space-x-2">
+                    <span className="text-cyber-green w-8 shrink-0">TEL:</span>
+                    <span className="text-white font-mono">{contact.phone}</span>
+                  </div>
+                )}
                 <div className="flex items-center space-x-2">
                   <span className="text-cyber-green w-8 shrink-0">MAIL:</span>
                   <span className="text-white font-mono">{contact.email}</span>
