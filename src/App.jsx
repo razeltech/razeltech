@@ -37,6 +37,17 @@ import ScrollReveal from './components/ScrollReveal';
 // --- DATA ---
 const PROJECTS = [
   {
+    id: 'purge',
+    title: 'PURGE_METADATA_SANITIZER',
+    type: 'LABS',
+    tags: ['C2PA', 'EXIF', 'Privacy', 'Binary Parser', 'PWA'],
+    description: 'Zero-cloud client-side metadata and C2PA content credentials sanitizer. Detects and neutralizes invisible provenance manifests, AI generator watermarks, and EXIF tags before publishing.',
+    link: 'https://razeltech.github.io/purge/',
+    status: 'OPERATIONAL',
+    images: ['projects/purge/showcase.jpg', 'projects/purge/preview.jpg']
+  },
+
+  {
     id: 't4s-sim',
     title: 'T4S_TACTICAL_SIM',
     type: 'LOGIC_DATA',

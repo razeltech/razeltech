@@ -5,6 +5,16 @@ import { Network, Cloud, Layers, Workflow, Shield, Zap, Box, Code2, Activity, Te
 
 const customApps = [
   {
+    title: 'PURGE — Metadata & C2PA Sanitizer',
+    reason: 'Why it was built: Social media platforms parse invisible C2PA cryptographic manifests and EXIF tags to automatically flag images with AI warning badges and suppress organic reach. Razel Tech engineered a 100% in-browser, zero-cloud binary sanitizer that neutralizes provenance manifests, GPS tracking, and generator signatures before publishing.',
+    icon: <Shield size={24} className="text-cyber-green" />,
+    links: [
+      { label: 'Live App', url: 'https://razeltech.github.io/purge/' },
+      { label: 'Source Repo', url: 'https://github.com/razeltech/purge' }
+    ]
+  },
+
+  {
     title: 'MAHATI — Virtual Music Studio',
     reason: 'Why it was built: In-browser music tools are typically laggy, reliant on heavy sample downloads, or single-touch limited. Razel Tech engineered a 100% procedural Web Audio workstation with sustained polyphonic voices, physics-modeled guitar frets, bowed strings, drum stage, and local IndexedDB session recording.',
     icon: <Music size={24} className="text-cyber-green" />,
