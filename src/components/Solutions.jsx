@@ -1,15 +1,34 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Network, Cloud, Layers, Workflow, Shield, Zap, Box, Code2, Activity, Terminal, Camera } from 'lucide-react';
+import { Network, Cloud, Layers, Workflow, Shield, Zap, Box, Code2, Activity, Terminal, Camera, Music, Eye } from 'lucide-react';
 
 const customApps = [
+  {
+    title: 'MAHATI — Virtual Music Studio',
+    reason: 'Why it was built: In-browser music tools are typically laggy, reliant on heavy sample downloads, or single-touch limited. Razel Tech engineered a 100% procedural Web Audio workstation with sustained polyphonic voices, physics-modeled guitar frets, bowed strings, drum stage, and local IndexedDB session recording.',
+    icon: <Music size={24} className="text-cyber-green" />,
+    links: [
+      { label: 'Live Studio', url: 'https://razeltech.github.io/virtual-music-studio/' },
+      { label: 'Source Repo', url: 'https://github.com/razeltech/virtual-music-studio' }
+    ]
+  },
+  {
+    title: 'Divya Drusti — Spatial Vision Studio',
+    reason: 'Why it was built: Web-based augmented reality usually requires bulky app installs or sends sensitive video to the cloud. Razel Tech built a zero-cloud, 100% on-device spatial interaction lab using WebGL2 shaders and MediaPipe AI for real-time facial mesh, AI hair/makeup simulation, kinetic gesture spells, and 3D motion capture.',
+    icon: <Eye size={24} className="text-cyber-blue" />,
+    links: [
+      { label: 'Live Studio', url: 'https://razeltech.github.io/divya-drusti/' },
+      { label: 'Source Repo', url: 'https://github.com/razeltech/divya-drusti' }
+    ]
+  },
   {
     title: 'Photobooth Pro Studio',
     reason: 'Why it was built: Event photobooth and photo strip apps are usually filled with ads or force cloud uploads. Razel Tech engineered a 100% in-browser, privacy-first 35mm photobooth studio and PWA with zero cloud dependency.',
     icon: <Camera size={24} className="text-cyber-blue" />,
     links: [
-      { label: 'Live App', url: 'https://razeltech.github.io/PhotoboothPro/' }
+      { label: 'Live App', url: 'https://razeltech.github.io/PhotoboothPro/' },
+      { label: 'Source Repo', url: 'https://github.com/razeltech/PhotoboothPro' }
     ]
   },
   {

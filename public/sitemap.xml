@@ -1,22 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://razeltech.github.io/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://razeltech.github.io/#/deck</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://razeltech.github.io/#/vcard</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://razeltech.github.io/#/labs</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://razeltech.github.io/#/project/t4s-sim</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://razeltech.github.io/#/project/aglsds-sim</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://razeltech.github.io/#/project/motion-sims</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://razeltech.github.io/#/project/razel-studio</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://razeltech.github.io/#/project/painter-pro</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://razeltech.github.io/#/project/invoicevault</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://razeltech.github.io/#/project/contenthub</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://razeltech.github.io/#/project/moodstreak</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://razeltech.github.io/#/project/showroom-os</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://razeltech.github.io/#/project/medicore-pro</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://razeltech.github.io/#/project/medicore-demo</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://razeltech.github.io/#/project/bim-web</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://razeltech.github.io/#/project/webar-demo</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://razeltech.github.io/#/project/resume-react</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://razeltech.github.io/#/project/resume-basic</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Razel Tech Main Engineering Portal -->
+  <url>
+    <loc>https://razeltech.github.io/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://razeltech.github.io/logo.png</image:loc>
+      <image:title>Razel Tech | Custom Software Development &amp; Spatial Labs</image:title>
+    </image:image>
+  </url>
+
+  <!-- MAHATI - Virtual Music Studio -->
+  <url>
+    <loc>https://razeltech.github.io/virtual-music-studio/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://razeltech.github.io/virtual-music-studio/assets/og-preview.png</image:loc>
+      <image:title>MAHATI - Virtual Music Studio</image:title>
+      <image:caption>Zero-latency polyphonic procedural Web Audio synthesizer, multi-octave piano, acoustic guitar, string section, and drum machine</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://razeltech.github.io/virtual-music-studio/assets/banner.png</image:loc>
+      <image:title>MAHATI Web Audio Workstation</image:title>
+    </image:image>
+  </url>
+
+  <!-- Divya Drusti - Spatial Vision Studio -->
+  <url>
+    <loc>https://razeltech.github.io/divya-drusti/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://razeltech.github.io/divya-drusti/assets/preview.png</image:loc>
+      <image:title>Divya Drusti - Spatial Vision Studio</image:title>
+      <image:caption>On-device augmented reality, 468-point facial mesh tracking, and real-time computer vision lab</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Photobooth Pro Studio -->
+  <url>
+    <loc>https://razeltech.github.io/PhotoboothPro/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://razeltech.github.io/PhotoboothPro/assets/og-preview.png</image:loc>
+      <image:title>Photobooth Pro Studio</image:title>
+      <image:caption>In-browser vintage 35mm photobooth studio and progressive web app</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Invoice Vault Demo -->
+  <url>
+    <loc>https://razeltech.github.io/InvoiceVaultDemo/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>

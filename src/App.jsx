@@ -84,6 +84,24 @@ const PROJECTS = [
     status: 'STABLE'
   },
   {
+    id: 'mahati-studio',
+    title: 'MAHATI_MUSIC_STUDIO',
+    type: 'LABS',
+    tags: ['Web Audio API', 'Polyphonic', 'IndexedDB', 'PWA'],
+    description: 'Zero-latency polyphonic procedural Web Audio workstation. Features sustained 8-voice polyphony, Karplus-Strong string synthesis, multi-track drum engine, and offline session recording.',
+    link: 'https://razeltech.github.io/virtual-music-studio/',
+    status: 'OPERATIONAL'
+  },
+  {
+    id: 'divya-drusti',
+    title: 'DIVYA_DRUSTI_VISION',
+    type: 'LABS',
+    tags: ['WebGL2', 'MediaPipe', 'Computer Vision', 'AR'],
+    description: 'On-device spatial vision and kinetic gesture studio. Real-time 468-point facial geometry tracking, dynamic AI shaders, gesture particle spells, and 3D motion capture with zero cloud compute.',
+    link: 'https://razeltech.github.io/divya-drusti/',
+    status: 'OPERATIONAL'
+  },
+  {
     id: 'photobooth-pro',
     title: 'PHOTOBOOTH_PRO_PWA',
     type: 'LABS',
