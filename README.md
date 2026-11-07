@@ -9,20 +9,20 @@
 </a>
 
 # RAZEL TECH
-### Principal Systems Architecture &amp; Real-Time Engineering Studio
+### Real-Time Systems Architecture, Defense Simulators &amp; Custom Software Engineering
 
 **RAJA VAMSI DHAR V**  
-Founder &amp; Chief Executive Officer // Principal Systems Architect  
+Founder &amp; Chief Executive Officer // Lead Systems Architect  
 *MSME Registered Enterprise &bull; Government of India*
 
 [![Enterprise Status](https://img.shields.io/badge/Enterprise-MSME%20Certified-0284C7?style=for-the-badge&logo=shield)](https://razeltech.github.io/)
-[![Experience](https://img.shields.io/badge/Experience-12%2B%20Years%20Engineering-1E293B?style=for-the-badge)](https://razeltech.github.io/)
-[![Defense Deployments](https://img.shields.io/badge/Defense%20Simulators-10%2B%20Multi--User%20Systems-0F172A?style=for-the-badge)](https://razeltech.github.io/)
-[![Live Systems](https://img.shields.io/badge/Production%20Deployments-25%2B%20Platforms-0369A1?style=for-the-badge)](https://razeltech.github.io/)
+[![Experience](https://img.shields.io/badge/Experience-11%2B%20Years%20(Since%202014)-1E293B?style=for-the-badge)](https://razeltech.github.io/)
+[![Studio Inception](https://img.shields.io/badge/Razel%20Tech-Est.%20Sep%202025-0F172A?style=for-the-badge)](https://razeltech.github.io/)
+[![Production Deployments](https://img.shields.io/badge/Production%20Systems-25%2B%20Platforms-0369A1?style=for-the-badge)](https://razeltech.github.io/)
 [![Engineering Portal](https://img.shields.io/badge/Official%20Portal-razeltech.github.io-2563EB?style=for-the-badge&logo=googlechrome&logoColor=white)](https://razeltech.github.io/)
 
 <p align="center">
-  <strong>Bridging mission-critical defense hardware integration, real-time spatial computing, and zero-compromise resilient software architecture. Delivering high-throughput tactical simulators, WebGL graphics pipelines, and air-gapped clinical intelligence systems.</strong>
+  <strong>Bridging mission-critical defense hardware integration, real-time spatial computing, and zero-compromise resilient software architecture. Delivering high-throughput tactical simulators, WebGL graphics pipelines, and air-gapped enterprise software systems.</strong>
 </p>
 
 <p align="center">
@@ -39,9 +39,16 @@ Founder &amp; Chief Executive Officer // Principal Systems Architect
 
 ## Executive Mission Profile
 
-Razel Tech is an MSME-certified advanced software engineering firm led by **Raja Vamsi Dhar V**, specialized in designing and deploying high-integrity real-time systems. With over twelve years of end-to-end architecture experience, Razel Tech engineers mission-critical tactical simulators for defense applications, hardware-in-the-loop (HIL) motion platforms, high-performance WebGL spatial computing engines, and zero-cloud offline-first Progressive Web Applications for enterprise healthcare and data sanitization.
+Razel Tech is an MSME-certified advanced software engineering firm established in **September 2025** by **Raja Vamsi Dhar V**. 
 
-Every system is constructed under rigorous engineering boundaries: zero speculative overhead, deterministic state management, memory-disciplined lifecycle management, and absolute data sovereignty.
+Beginning his software engineering career in **2014**, Raja accrued over 11 continuous years of hands-on systems architecture experience — progressing from ground-level software engineering to lead simulation developer on high-consequence military defense simulators at **Green Vision Solutions (GVS)**, and advising engineering teams as **Technical Director (Consulting Support)** for partner organizations including **InvisionXR Studios**.
+
+Today, Razel Tech operates as an independent engineering studio delivering end-to-end custom systems:
+- **Defense Simulation & Hardware Integration**: Multi-trainee distributed HLA/RTI network nodes, 3DOF/6DOF hydraulic motion platforms, and hardware-in-the-loop (HIL) telemetry buses.
+- **Enterprise SaaS & Clinical Software**: Air-gapped GST accounting engines, outpatient medical practice automation, and real-time operations dashboards.
+- **Real-Time Spatial Graphics & WebGL**: Zero-compromise 60 FPS Three.js graphics, custom PBR HLSL shaders, and WebRTC peer-to-peer telemetry.
+
+Every system is constructed under strict engineering discipline: zero speculative bloat, deterministic state machines, memory-conscious lifecycle teardowns, and absolute data sovereignty.
 
 ---
 
@@ -57,28 +64,33 @@ Every system is constructed under rigorous engineering boundaries: zero speculat
   </thead>
   <tbody>
     <tr>
-      <td><strong>Industry Tenure</strong></td>
-      <td>12+ Years Real-Time Systems Architecture &amp; Delivery</td>
-      <td><code>ESTABLISHED LEADERSHIP</code></td>
+      <td><strong>Engineering Tenure</strong></td>
+      <td>11+ Years Continuous Systems Architecture (Since 2014)</td>
+      <td><code>VERIFIED SENIORITY</code></td>
     </tr>
     <tr>
-      <td><strong>Defense Projects</strong></td>
-      <td>10+ High-Consequence Tactical &amp; Hardware Simulators</td>
-      <td><code>PRODUCTION VERIFIED</code></td>
+      <td><strong>Studio Foundation</strong></td>
+      <td>Established September 2025 (MSME Certified Enterprise)</td>
+      <td><code>LEGALLY REGISTERED</code></td>
+    </tr>
+    <tr>
+      <td><strong>Defense Simulators</strong></td>
+      <td>10+ High-Consequence Tactical &amp; Hardware Platforms (GVS)</td>
+      <td><code>PRODUCTION FIELD-TESTED</code></td>
+    </tr>
+    <tr>
+      <td><strong>Technical Direction</strong></td>
+      <td>Technical Director Consulting Support (InvisionXR Studios)</td>
+      <td><code>ENTERPRISE COLLABORATION</code></td>
     </tr>
     <tr>
       <td><strong>Active Platforms</strong></td>
-      <td>25+ WebGL, PWA, SaaS, and Digital Twin Deployments</td>
-      <td><code>GLOBALLY ACCESSIBLE</code></td>
-    </tr>
-    <tr>
-      <td><strong>Regulatory Status</strong></td>
-      <td>MSME Registered Enterprise (Government of India)</td>
-      <td><code>LEGALLY CERTIFIED</code></td>
+      <td>25+ WebGL, PWA, SaaS, and Digital Twin Systems</td>
+      <td><code>LIVE IN PRODUCTION</code></td>
     </tr>
     <tr>
       <td><strong>Core Specialization</strong></td>
-      <td>Unity 3D, HLA/RTI, WebGL / Three.js, React, W3C IndexedDB</td>
+      <td>Unity 3D, IEEE 1516 HLA/RTI, Three.js WebGL, React 19, W3C IndexedDB</td>
       <td><code>FULL-STACK MASTERY</code></td>
     </tr>
   </tbody>
@@ -91,42 +103,74 @@ Every system is constructed under rigorous engineering boundaries: zero speculat
 <table width="100%">
   <tr>
     <td width="50%" valign="top">
+      <h3>InvoiceVault ERP</h3>
+      <code>DOMAIN: FINANCIAL INFRASTRUCTURE &amp; GST COMPLIANCE</code>
+      <br/><br/>
+      Enterprise-grade Indian GST billing, multi-tier inventory accounting, and audit reconciliation platform. Features instant HSN/SAC automated tax rate determination, offline-first IndexedDB vaulting, tamper-evident audit logs, and thermal invoice dispatch. Built with zero external accounting templates.
+      <br/><br/>
+      <a href="https://razeltech.github.io/InvoiceVaultDemo/"><strong>[ Launch Live Platform ]</strong></a>
+    </td>
+    <td width="50%" valign="top">
       <h3>MEDIC — Family Medicine Guardian</h3>
       <code>DOMAIN: OFFLINE-FIRST CLINICAL PWA</code>
       <br/><br/>
       A resilient, 100% air-gapped healthcare PWA engineered for Indian multi-generational households. Incorporates an interactive monthly calendar dose adherence engine, 145+ PMBJP Jan Aushadhi generic formulations, two-way brand-to-salt matching, natural Indian cadence voice read-aloud (EN/HI/TE), on-device packaging OCR, and 1-tap WhatsApp pharmacy refills. Zero cloud dependencies, zero surveillance.
       <br/><br/>
-      <a href="https://razeltech.github.io/medic/"><strong>[ Launch Live PWA ]</strong></a> &bull; 
-      <a href="https://github.com/razeltech/medic"><strong>[ Source Repository ]</strong></a>
-    </td>
-    <td width="50%" valign="top">
-      <h3>Chess Arena 3D — Grandmaster WebGL</h3>
-      <code>DOMAIN: SPATIAL COMPUTING &amp; WEBRTC MULTIPLAYER</code>
-      <br/><br/>
-      A tournament-grade 3D chess environment built with Three.js WebGL, custom PBR material shaders, a dedicated Web Worker minimax AI bot, and real-time PeerJS peer-to-peer WebRTC matchmaking with zero signaling server overhead. Features responsive desktop/mobile HUD, spectator cameras, and PWA offline packaging.
-      <br/><br/>
-      <a href="https://razeltech.github.io/chessarena/"><strong>[ Launch Live Arena ]</strong></a> &bull; 
-      <a href="https://github.com/razeltech/chessarena"><strong>[ Source Repository ]</strong></a>
+      <a href="https://razeltech.github.io/medic/"><strong>[ Launch Live Platform ]</strong></a>
     </td>
   </tr>
   <tr>
     <td width="50%" valign="top">
-      <h3>PURGE — Binary Metadata &amp; C2PA Sanitizer</h3>
+      <h3>MediCore Pro</h3>
+      <code>DOMAIN: CLINICAL ENTERPRISE SAAS</code>
+      <br/><br/>
+      Comprehensive outpatient clinical management platform featuring interactive multi-surface odontograms, prescription engines, diagnostic appointment scheduling, and patient history ledger. Deployed for real-time practice workflow automation.
+      <br/><br/>
+      <a href="https://medi-core-pro.vercel.app"><strong>[ Launch Live Platform ]</strong></a>
+    </td>
+    <td width="50%" valign="top">
+      <h3>TeamFlow OS</h3>
+      <code>DOMAIN: DISTRIBUTED TEAM ORCHESTRATION</code>
+      <br/><br/>
+      High-throughput team operations system with automated daily standup intelligence, sprint velocity tracking, task lifecycle auditing, and cross-timezone sync management for distributed engineering teams.
+      <br/><br/>
+      <a href="https://teamflow-rt.vercel.app"><strong>[ Launch Live Platform ]</strong></a>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <h3>ShowroomOS</h3>
+      <code>DOMAIN: AUTOMOTIVE RETAIL WORKFLOW</code>
+      <br/><br/>
+      Dealership management suite engineered for high-volume automotive showrooms (Hyundai Vijayawada deployment). Coordinates walk-in intake, test-drive telemetry logging, inventory dispatch tracking, and customer journey analytics.
+      <br/><br/>
+      <a href="https://showroomos.vercel.app"><strong>[ Launch Live Platform ]</strong></a>
+    </td>
+    <td width="50%" valign="top">
+      <h3>Chess Arena 3D</h3>
+      <code>DOMAIN: SPATIAL COMPUTING &amp; WEBRTC MULTIPLAYER</code>
+      <br/><br/>
+      A tournament-grade 3D chess environment built with Three.js WebGL, custom PBR material shaders, a dedicated Web Worker minimax AI bot, and real-time PeerJS peer-to-peer WebRTC matchmaking with zero signaling server overhead. Features responsive desktop/mobile HUD and spectator modes.
+      <br/><br/>
+      <a href="https://razeltech.github.io/chessarena/"><strong>[ Launch Live Platform ]</strong></a>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <h3>Social Media Content Hub</h3>
+      <code>DOMAIN: MULTI-TENANT MEDIA ORCHESTRATION</code>
+      <br/><br/>
+      Multi-tenant content scheduling, cross-channel publishing calendar, and campaign asset pipeline. Coordinates real-time media reviews, asset approvals, and automated publishing dispatch.
+      <br/><br/>
+      <a href="https://contenthub-dashboarddemo.vercel.app"><strong>[ Launch Live Platform ]</strong></a>
+    </td>
+    <td width="50%" valign="top">
+      <h3>PURGE — Binary Sanitizer</h3>
       <code>DOMAIN: CLIENT-SIDE PRIVACY &amp; DATA SECURITY</code>
       <br/><br/>
       A zero-cloud, 100% in-browser binary sanitizer that parses and neutralizes hidden C2PA cryptographic provenance manifests, AI generator tracking tags, and EXIF geolocation data before publishing to public networks. Employs byte-level chunk stripping with zero remote transmission.
       <br/><br/>
-      <a href="https://razeltech.github.io/purge/"><strong>[ Launch Live Tool ]</strong></a> &bull; 
-      <a href="https://github.com/razeltech/purge"><strong>[ Source Repository ]</strong></a>
-    </td>
-    <td width="50%" valign="top">
-      <h3>MAHATI — Procedural Web Audio Studio</h3>
-      <code>DOMAIN: WEB AUDIO API &amp; DSP SYNTHESIS</code>
-      <br/><br/>
-      A multi-octave digital audio workstation synthesizing polyphonic concert grand piano, physics-modeled acoustic guitar frets, bowed strings, and rhythm instruments with zero external sample downloads. Features interactive visual score tutorials and local IndexedDB multi-track recording.
-      <br/><br/>
-      <a href="https://razeltech.github.io/virtual-music-studio/"><strong>[ Launch Live Studio ]</strong></a> &bull; 
-      <a href="https://github.com/razeltech/virtual-music-studio"><strong>[ Source Repository ]</strong></a>
+      <a href="https://razeltech.github.io/purge/"><strong>[ Launch Live Platform ]</strong></a>
     </td>
   </tr>
   <tr>
@@ -136,7 +180,7 @@ Every system is constructed under rigorous engineering boundaries: zero speculat
       <br/><br/>
       High-consequence distributed simulation supporting 50+ concurrent military trainees across synchronized tactical scenarios. Engineered using Portico RTI and IEEE 1516 High Level Architecture (HLA) protocols for sub-millisecond object model replication.
       <br/><br/>
-      <code>STATUS: DEPLOYED TO INSTITUTIONAL PARTNERS</code>
+      <code>STATUS: DEPLOYED DEFENSE ASSET (GVS PARTNERSHIP)</code>
     </td>
     <td width="50%" valign="top">
       <h3>AGLSDS Missile Launcher Simulator</h3>
@@ -144,26 +188,25 @@ Every system is constructed under rigorous engineering boundaries: zero speculat
       <br/><br/>
       Anti-Guided Missile Launcher hardware simulation system interfacing direct military weapon controls, embedded microcontrollers, and multi-display target tracking environments with custom telemetry bus communication.
       <br/><br/>
-      <code>STATUS: MISSION-CRITICAL DEPLOYMENT</code>
+      <code>STATUS: MISSION-CRITICAL DEPLOYMENT (GVS PARTNERSHIP)</code>
     </td>
   </tr>
   <tr>
     <td width="50%" valign="top">
-      <h3>Jwala — Pure Light Diwali</h3>
-      <code>DOMAIN: PROCEDURAL PARTICLE DYNAMICS &amp; DSP AUDIO</code>
+      <h3>MAHATI — Procedural Web Audio Studio</h3>
+      <code>DOMAIN: WEB AUDIO API &amp; DSP SYNTHESIS</code>
       <br/><br/>
-      An emission-free interactive festival courtyard synthesizing 60 FPS HTML5 Canvas particle physics, fluid flame convection, and full-spectrum Web Audio explosive acoustics (bombs, ladis, anaars, chakris, rockets with 13 algorithmic sky breaks). Zero external assets or samples.
+      A multi-octave digital audio workstation synthesizing polyphonic concert grand piano, physics-modeled acoustic guitar frets, bowed strings, and rhythm instruments with zero external sample downloads. Features interactive visual score tutorials and local IndexedDB multi-track recording.
       <br/><br/>
-      <a href="https://razeltech.github.io/diwali/"><strong>[ Launch Live Courtyard ]</strong></a> &bull; 
-      <a href="https://github.com/razeltech/diwali"><strong>[ Source Repository ]</strong></a>
+      <a href="https://razeltech.github.io/virtual-music-studio/"><strong>[ Launch Live Platform ]</strong></a>
     </td>
     <td width="50%" valign="top">
-      <h3>DIVYA DRUSTI — Real-Time Spatial Radar</h3>
-      <code>DOMAIN: SPATIAL COMPUTING &amp; SENSOR TELEMETRY</code>
+      <h3>CityBuilder 3D</h3>
+      <code>DOMAIN: REAL-TIME COLLABORATIVE SPATIAL WEBRTC</code>
       <br/><br/>
-      Tactical airspace and terrain monitoring dashboard rendering multi-layered spatial radar sweeps, high-density threat telemetry, and deterministic 3D coordinate mapping.
+      Peer-to-peer 3D municipal sandbox built on Three.js WebGL and WebRTC data channels. Multiple participants build, zone, and simulate road topologies simultaneously with zero backend database latency.
       <br/><br/>
-      <code>STATUS: PROPRIETARY DEFENSE ASSET</code>
+      <a href="https://razeltech.github.io/citybuilder3d/"><strong>[ Launch Live Platform ]</strong></a>
     </td>
   </tr>
 </table>
@@ -198,7 +241,7 @@ Every system is constructed under rigorous engineering boundaries: zero speculat
     </tr>
     <tr>
       <td><strong>Enterprise SaaS &amp; Business Logic</strong></td>
-      <td>Private Outpatient Clinical Management (MediCorePro), Air-Gapped Financial Ledger Engines (Invoice Vault Pro), Multi-Tenant Media Orchestration (Content Hub OS).</td>
+      <td>GST Accounting &amp; Ledger Automation (InvoiceVault), Private Outpatient Clinical Management (MediCore Pro), Team Ops &amp; Sprint Velocity (TeamFlow OS), Multi-Tenant Media Orchestration (Content Hub).</td>
     </tr>
   </tbody>
 </table>
