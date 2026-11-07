@@ -256,18 +256,25 @@ const PROJECTS = [
 
 const CAREER_LOG = [
   {
-    year: '2025 - PRESENT',
-    role: 'PRINCIPAL_SYSTEMS_ENGINEER',
+    year: 'SEP 2025 - PRESENT',
+    role: 'FOUNDER & CEO // LEAD SYSTEMS ARCHITECT',
     company: 'RAZEL TECH',
-    description: 'Leading a specialized MSME studio focused on defense-grade Unity simulations, high-fidelity BIM visualization, and custom AR/VR frameworks.',
-    type: 'STRATEGIC_LEAD'
+    description: 'Founded an independent MSME studio (UDYAM-AP-04-0112603). Engineering custom enterprise software, offline clinical systems, WebGL graphics, and digital twin pipelines with supporting teams.',
+    type: 'STUDIO_FOUNDER'
+  },
+  {
+    year: '2024 - 2025',
+    role: 'TECHNICAL DIRECTOR (SUPPORT & CONSULTING)',
+    company: 'INVISIONXR STUDIOS & PARTNER TEAMS',
+    description: 'Senior technical architecture, spatial computing pipeline integration, and WebRTC streaming advisory across partner teams.',
+    type: 'TECHNICAL_LEADERSHIP'
   },
   {
     year: '2014 - 2025',
-    role: 'LEAD UNITY DEVELOPER / TECH LEAD',
+    role: 'SOFTWARE DEVELOPER -> LEAD SIMULATION DEVELOPER',
     company: 'GREEN VISION SOLUTIONS (GVS)',
-    description: 'Architecture and delivery of 10+ mission-critical tactical simulators for the Indian Army. Specializing in HLA/RTI networking and 6DOF motion hardware.',
-    type: 'DEFENSE_ENGINEERING'
+    description: 'Continuous 11-year engineering tenure starting as a junior developer in 2014 and advancing to Lead Developer. Delivered 10+ mission-critical tactical military simulators for the Indian Army, focusing on HLA/RTI distributed networking and 6DOF motion platform kinematics.',
+    type: 'DEFENSE_SIMULATION'
   }
 ];
 
@@ -1272,10 +1279,10 @@ const Home = () => {
 
           {/* Trust Signals */}
           <div className="flex flex-wrap gap-x-8 gap-y-4 pointer-events-auto text-[10px] md:text-xs font-mono tracking-widest uppercase text-cyber-blue/80">
-            <span className="flex items-center gap-2"><ShieldCheck size={14} className="text-cyber-green"/> 12+ Years Eng.</span>
-            <span className="flex items-center gap-2"><Cpu size={14} className="text-cyber-green"/> Defense-Grade Core</span>
+            <span className="flex items-center gap-2"><ShieldCheck size={14} className="text-cyber-green"/> 11+ Yrs Eng (Since 2014)</span>
+            <span className="flex items-center gap-2"><Cpu size={14} className="text-cyber-green"/> Razel Tech (Est. Sep 2025)</span>
             <span className="flex items-center gap-2"><Network size={14} className="text-cyber-green"/> Zero Vendor Lock-in</span>
-            <span className="flex items-center gap-2"><Lock size={14} className="text-cyber-green"/> 100% Ownership</span>
+            <span className="flex items-center gap-2"><Lock size={14} className="text-cyber-green"/> 100% Client Ownership</span>
           </div>
         </div>
       </section>
@@ -1416,7 +1423,7 @@ const Home = () => {
           <div className="text-cyber-blue/40 text-[10px] font-bold uppercase tracking-widest mb-2 flex items-center gap-2">
             <span className="w-1 h-1 bg-cyber-blue rounded-full"></span> Engineering_Tenure
           </div>
-          <div className="text-2xl sm:text-3xl font-black italic text-white">12+ YEARS</div>
+          <div className="text-2xl sm:text-3xl font-black italic text-white">11+ YEARS</div>
         </div>
         <div>
           <div className="text-cyber-blue/40 text-[10px] font-bold uppercase tracking-widest mb-2 flex items-center gap-2">
