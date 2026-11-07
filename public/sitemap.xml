@@ -100,4 +100,28 @@
     </image:image>
   </url>
 
+  <!-- Chess Arena 3D — Grandmaster WebGL Arena -->
+  <url>
+    <loc>https://razeltech.github.io/chessarena/</loc>
+    <lastmod>2026-11-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://razeltech.github.io/chessarena/assets/icon.svg</image:loc>
+      <image:title>Chess Arena 3D — WebGL Three.js Chess with AI and P2P</image:title>
+    </image:image>
+  </url>
+
+  <!-- Jwala — Pure Light Diwali Festival Courtyard -->
+  <url>
+    <loc>https://razeltech.github.io/diwali/</loc>
+    <lastmod>2026-11-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://razeltech.github.io/diwali/banner.svg</image:loc>
+      <image:title>Jwala - Pure Light Diwali Festival Courtyard and Pooja Diya</image:title>
+    </image:image>
+  </url>
+
 </urlset>
