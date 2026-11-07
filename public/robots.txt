@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /PhotoboothPro/
 
 # FUTURE CUSTOM DOMAIN EDIT: Change this domain link when you upgrade
 Sitemap: https://razeltech.github.io/sitemap.xml
