@@ -79,4 +79,25 @@
     </image:image>
   </url>
 
+  <!-- MEDIC - Offline-First Family Medicine Routine & Inventory Guardian -->
+  <url>
+    <loc>https://razeltech.github.io/medic/</loc>
+    <lastmod>2026-11-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://razeltech.github.io/medic/banner.svg</image:loc>
+      <image:title>MEDIC - Offline-First Family Medicine Routine and Inventory Guardian</image:title>
+      <image:caption>Resilient 100% offline-first PWA for multi-generational Indian households with 145+ PMBJP Jan Aushadhi generic formulations, monthly dose calendar history, and authentic Indian voice guidance</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://razeltech.github.io/medic/telemetry.svg</image:loc>
+      <image:title>MEDIC Live Vital Telemetry &amp; System Verification</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://razeltech.github.io/medic/favicon.svg</image:loc>
+      <image:title>MEDIC Clinical Icon</image:title>
+    </image:image>
+  </url>
+
 </urlset>
