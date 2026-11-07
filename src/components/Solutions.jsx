@@ -5,6 +5,24 @@ import { Network, Cloud, Layers, Workflow, Shield, Zap, Box, Code2, Activity, Te
 
 const customApps = [
   {
+    title: 'MEDIC — Family Medicine Routine & Inventory Guardian',
+    reason: 'Why it was built: Commercial healthcare apps enforce cloud surveillance, subscription walls, or require constant internet access. Razel Tech engineered a 100% offline-first PWA for multi-generational Indian households featuring an interactive monthly dose calendar adherence engine, 145+ PMBJP Jan Aushadhi generic formulations, natural voice guidance, client-side packaging OCR, and 1-tap WhatsApp pharmacy refills.',
+    icon: <Activity size={24} className="text-cyber-green" />,
+    links: [
+      { label: 'Live App', url: 'https://razeltech.github.io/medic/' },
+      { label: 'Source Repo', url: 'https://github.com/razeltech/medic' }
+    ]
+  },
+  {
+    title: 'Chess Arena 3D — Grandmaster WebGL Arena',
+    reason: 'Why it was built: Web chess is typically limited to flat 2D boards with heavy backend servers. Razel Tech engineered a tournament-grade 3D chess environment with realistic Three.js WebGL graphics, procedural Web Worker minimax AI bot, and peer-to-peer WebRTC multiplayer via PeerJS with zero server overhead.',
+    icon: <Box size={24} className="text-cyber-blue" />,
+    links: [
+      { label: 'Live Arena', url: 'https://razeltech.github.io/chessarena/' },
+      { label: 'Source Repo', url: 'https://github.com/razeltech/chessarena' }
+    ]
+  },
+  {
     title: 'PURGE — Metadata & C2PA Sanitizer',
     reason: 'Why it was built: Social media platforms parse invisible C2PA cryptographic manifests and EXIF tags to automatically flag images with AI warning badges and suppress organic reach. Razel Tech engineered a 100% in-browser, zero-cloud binary sanitizer that neutralizes provenance manifests, GPS tracking, and generator signatures before publishing.',
     icon: <Shield size={24} className="text-cyber-green" />,

@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520">
+  <defs>
+    <linearGradient id="tacBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050C0A" />
+      <stop offset="50%" stop-color="#081A14" />
+      <stop offset="100%" stop-color="#030A08" />
+    </linearGradient>
+    <linearGradient id="radarSweep" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10B981" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#047857" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="520" rx="16" fill="url(#tacBg)" stroke="#064E3B" stroke-width="1.5" />
+
+  <!-- Tactical Reticle & Coordinate Grid -->
+  <g stroke="#064E3B" stroke-width="0.75" opacity="0.4">
+    <line x1="0" y1="260" x2="1200" y2="260" stroke="#10B981" stroke-width="1" opacity="0.3" />
+    <line x1="600" y1="0" x2="600" y2="520" stroke="#10B981" stroke-width="1" opacity="0.3" />
+    <circle cx="600" cy="260" r="180" fill="none" stroke="#047857" stroke-width="1" stroke-dasharray="6, 6" />
+    <circle cx="600" cy="260" r="280" fill="none" stroke="#064E3B" stroke-width="0.8" />
+  </g>
+
+  <!-- Left: Tactical Radar Sweeper -->
+  <g transform="translate(180, 200)">
+    <circle cx="0" cy="0" r="85" fill="#042F2E" stroke="#10B981" stroke-width="1.5" />
+    <circle cx="0" cy="0" r="55" fill="none" stroke="#059669" stroke-width="1" stroke-dasharray="4, 4" />
+    <circle cx="0" cy="0" r="25" fill="none" stroke="#059669" stroke-width="0.8" />
+    <line x1="-85" y1="0" x2="85" y2="0" stroke="#059669" stroke-width="0.8" />
+    <line x1="0" y1="-85" x2="0" y2="85" stroke="#059669" stroke-width="0.8" />
+    <!-- Rotating Sweep Beam -->
+    <line x1="0" y1="0" x2="60" y2="-60" stroke="#34D399" stroke-width="2">
+      <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="4s" repeatCount="indefinite" />
+    </line>
+    <!-- Blips -->
+    <circle cx="35" cy="-25" r="3.5" fill="#34D399"><animate attributeName="opacity" values="1;0.2;1" dur="1.2s" repeatCount="indefinite" /></circle>
+    <circle cx="-40" cy="30" r="3" fill="#10B981"><animate attributeName="opacity" values="0.8;0.1;0.8" dur="1.8s" repeatCount="indefinite" /></circle>
+    <text x="0" y="115" text-anchor="middle" fill="#A7F3D0" font-family="ui-monospace, monospace" font-size="10" font-weight="700">RADAR // RANGE 50KM</text>
+  </g>
+
+  <!-- Right: Kinematic Telemetry -->
+  <g transform="translate(940, 130)">
+    <rect width="180" height="150" rx="6" fill="#031F18" stroke="#059669" stroke-width="1" />
+    <text x="14" y="22" fill="#34D399" font-family="ui-monospace, monospace" font-size="10" font-weight="700">6DOF TELEMETRY</text>
+    <line x1="14" y1="30" x2="166" y2="30" stroke="#064E3B" stroke-width="1" />
+    <text x="14" y="52" fill="#D1FAE5" font-family="ui-monospace, monospace" font-size="10">PITCH: +12.4&deg; [SYNC]</text>
+    <text x="14" y="72" fill="#D1FAE5" font-family="ui-monospace, monospace" font-size="10">ROLL:  -04.8&deg; [SYNC]</text>
+    <text x="14" y="92" fill="#D1FAE5" font-family="ui-monospace, monospace" font-size="10">YAW:   +88.2&deg; [SYNC]</text>
+    <text x="14" y="115" fill="#6EE7B7" font-family="ui-monospace, monospace" font-size="10">PORTICO RTI: OK</text>
+    <text x="14" y="135" fill="#6EE7B7" font-family="ui-monospace, monospace" font-size="10">LATENCY: &lt;1.8ms</text>
+  </g>
+
+  <!-- Central RT Monogram in Tactical Green/White -->
+  <g transform="translate(435, 60)">
+    <path d="M 40 40 L 130 40 Q 185 40 185 95 Q 185 140 145 150 L 195 240 L 140 240 L 98 160 L 78 160 L 78 240 L 40 240 Z"
+          fill="#064E3B" stroke="#10B981" stroke-width="2" />
+    <path d="M 78 72 L 125 72 Q 148 72 148 95 Q 148 122 125 122 L 78 122 Z"
+          fill="#022C22" stroke="#065F46" stroke-width="1.2" />
+
+    <path d="M 195 40 L 330 40 L 330 75 L 280 75 L 280 240 L 242 240 L 242 75 L 195 75 Z"
+          fill="#10B981" stroke="#34D399" stroke-width="1.5" />
+
+    <path d="M -110 245 C 50 195, 160 125, 360 35" fill="none" stroke="#34D399" stroke-width="3" stroke-dasharray="80, 400">
+      <animate attributeName="stroke-dashoffset" values="480;-480" dur="2.8s" repeatCount="indefinite" />
+    </path>
+  </g>
+
+  <!-- Brand Typography -->
+  <g transform="translate(600, 360)" text-anchor="middle">
+    <text y="0" fill="#ECFDF5" font-family="-apple-system, sans-serif" font-size="44" font-weight="900" letter-spacing="9">RAZEL<tspan fill="#10B981">TECH</tspan></text>
+    <text y="28" fill="#6EE7B7" font-family="ui-monospace, monospace" font-size="12" font-weight="700" letter-spacing="4">DEFENSE SIMULATION // TACTICAL HARDWARE // REAL-TIME KINEMATICS</text>
+  </g>
+
+  <!-- Bottom Badges -->
+  <g transform="translate(600, 445)" text-anchor="middle">
+    <text fill="#A7F3D0" font-family="ui-monospace, monospace" font-size="10.5" font-weight="700" letter-spacing="2">
+      IEEE 1516 HLA/RTI &bull; 6DOF MOTION SIMULATORS &bull; ANTI-GUIDED WEAPON SYSTEMS &bull; MILITARY PWA SYSTEMS
+    </text>
+  </g>
+</svg>
