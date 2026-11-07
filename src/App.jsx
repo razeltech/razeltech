@@ -37,6 +37,33 @@ import ScrollReveal from './components/ScrollReveal';
 // --- DATA ---
 const PROJECTS = [
   {
+    id: 'medic',
+    title: 'MEDIC_CLINICAL_GUARDIAN',
+    type: 'LABS',
+    tags: ['React 19', 'Clinical PWA', 'Jan Aushadhi', 'IndexedDB', 'Web Audio'],
+    description: '100% offline-first clinical medicine manager with 145+ PMBJP generic formulations, dose calendar adherence analytics, on-device OCR, and natural voice guidance.',
+    link: 'https://razeltech.github.io/medic/',
+    status: 'ACTIVE_PRODUCTION'
+  },
+  {
+    id: 'chessarena',
+    title: 'CHESS_ARENA_3D',
+    type: 'CORE_ENGINE',
+    tags: ['Three.js', 'WebGL', 'WebRTC', 'Web Worker', 'PeerJS'],
+    description: 'Tournament-grade 3D chess environment with custom PBR material shaders, Web Worker minimax AI bot, and peer-to-peer multiplayer with zero signaling server overhead.',
+    link: 'https://razeltech.github.io/chessarena/',
+    status: 'ACTIVE_PRODUCTION'
+  },
+  {
+    id: 'diwali',
+    title: 'JWALA_PURE_LIGHT_DIWALI',
+    type: 'CORE_ENGINE',
+    tags: ['Canvas 2D', 'Web Audio API', 'Physics', 'Zero Emissions'],
+    description: 'Interactive festival courtyard synthesizing 60 FPS HTML5 Canvas particle physics, fluid flame convection, and full-spectrum Web Audio acoustics with 13 algorithmic sky breaks.',
+    link: 'https://razeltech.github.io/diwali/',
+    status: 'ACTIVE_PRODUCTION'
+  },
+  {
     id: 'purge',
     title: 'PURGE_METADATA_SANITIZER',
     type: 'LABS',
@@ -170,15 +197,7 @@ const PROJECTS = [
     link: 'https://medi-core-pro.vercel.app/',
     status: 'OPERATIONAL'
   },
-  {
-    id: 'medicore-demo',
-    title: 'CLINIC_APP_DEMO',
-    type: 'LABS',
-    tags: ['React', 'Healthcare', 'Demo'],
-    description: 'Sales and demonstration platform for the MediCorePro healthcare ecosystem.',
-    link: 'https://r2dapps.github.io/ClinicAppDemo/',
-    status: 'ACTIVE'
-  },
+
   {
     id: 'bim-web',
     title: 'INDUSTRIAL_BIM_CORE',
@@ -1261,12 +1280,26 @@ const Home = () => {
       <section className="mb-32">
         <div className="text-[10px] font-black text-cyber-blue/40 tracking-[0.4em] uppercase mb-12 text-center">// Systems_Constructed</div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-6 lg:px-0">
-          <div className="bg-black/60 border border-cyber-blue/20 p-6 hover:border-cyber-blue/50 transition-colors group">
-            <h3 className="text-lg font-bold text-white mb-2 group-hover:text-cyber-blue transition-colors">Healthcare Platform</h3>
-            <p className="text-cyber-blue/60 text-[10px] tracking-widest uppercase font-mono mb-4">Enterprise SaaS</p>
+          <a
+            href="https://razeltech.github.io/medic/"
+            target="_blank"
+            rel="noreferrer"
+            className="bg-black/60 border border-cyber-blue/30 p-6 hover:border-cyber-blue transition-all group block relative overflow-hidden hover:shadow-[0_0_20px_rgba(0,243,255,0.2)]"
+          >
+            <div className="flex items-center justify-between mb-2">
+              <h3 className="text-lg font-bold text-white group-hover:text-cyber-blue transition-colors flex items-center gap-2">
+                MEDIC Platform
+              </h3>
+              <ExternalLinkIcon size={14} className="text-cyber-blue/60 group-hover:text-cyber-blue transition-colors shrink-0" />
+            </div>
+            <p className="text-cyber-blue/60 text-[10px] tracking-widest uppercase font-mono mb-4">Clinical Medicine PWA</p>
             <div className="h-px w-full bg-cyber-blue/20 mb-4"></div>
-            <p className="text-xs text-white/60 leading-relaxed">HIPAA compliant, highly secure multi-tenant architecture processing real-time patient data.</p>
-          </div>
+            <p className="text-xs text-white/70 leading-relaxed mb-4">100% offline-first clinical guardian with 145+ Jan Aushadhi generic formulations, adherence calendar, and natural voice guidance.</p>
+            <div className="text-[9px] font-mono tracking-widest text-cyber-green uppercase flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-cyber-green animate-pulse"></span>
+              <span>LIVE // RAZELTECH.GITHUB.IO/MEDIC</span>
+            </div>
+          </a>
           
           <div className="bg-black/60 border border-cyber-blue/20 p-6 hover:border-cyber-blue/50 transition-colors group">
             <h3 className="text-lg font-bold text-white mb-2 group-hover:text-cyber-blue transition-colors">Industrial Digital Twin</h3>
@@ -1282,12 +1315,26 @@ const Home = () => {
             <p className="text-xs text-white/60 leading-relaxed">Multi-agent deterministic physics environments for critical path and resource analysis.</p>
           </div>
 
-          <div className="bg-black/60 border border-cyber-blue/20 p-6 hover:border-cyber-blue/50 transition-colors group">
-            <h3 className="text-lg font-bold text-white mb-2 group-hover:text-cyber-blue transition-colors">AI Workflow Engine</h3>
-            <p className="text-cyber-blue/60 text-[10px] tracking-widest uppercase font-mono mb-4">Custom LLM Integration</p>
+          <a
+            href="https://razeltech.github.io/chessarena/"
+            target="_blank"
+            rel="noreferrer"
+            className="bg-black/60 border border-cyber-blue/30 p-6 hover:border-cyber-blue transition-all group block relative overflow-hidden hover:shadow-[0_0_20px_rgba(0,243,255,0.2)]"
+          >
+            <div className="flex items-center justify-between mb-2">
+              <h3 className="text-lg font-bold text-white group-hover:text-cyber-blue transition-colors flex items-center gap-2">
+                Chess Arena 3D
+              </h3>
+              <ExternalLinkIcon size={14} className="text-cyber-blue/60 group-hover:text-cyber-blue transition-colors shrink-0" />
+            </div>
+            <p className="text-cyber-blue/60 text-[10px] tracking-widest uppercase font-mono mb-4">Three.js WebGL &amp; WebRTC</p>
             <div className="h-px w-full bg-cyber-blue/20 mb-4"></div>
-            <p className="text-xs text-white/60 leading-relaxed">Local-hosted, isolated RAG pipelines automating proprietary internal business logic.</p>
-          </div>
+            <p className="text-xs text-white/70 leading-relaxed mb-4">Tournament-grade 3D chess with custom PBR shaders, dedicated minimax bot, and peer-to-peer multiplayer.</p>
+            <div className="text-[9px] font-mono tracking-widest text-cyber-green uppercase flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-cyber-green animate-pulse"></span>
+              <span>LIVE // RAZELTECH.GITHUB.IO/CHESSARENA</span>
+            </div>
+          </a>
         </div>
       </section>
 
