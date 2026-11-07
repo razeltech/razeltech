@@ -9,8 +9,7 @@ const customApps = [
     reason: 'Why it was built: Commercial healthcare apps enforce cloud surveillance, subscription walls, or require constant internet access. Razel Tech engineered a 100% offline-first PWA for multi-generational Indian households featuring an interactive monthly dose calendar adherence engine, 145+ PMBJP Jan Aushadhi generic formulations, natural voice guidance, client-side packaging OCR, and 1-tap WhatsApp pharmacy refills.',
     icon: <Activity size={24} className="text-cyber-green" />,
     links: [
-      { label: 'Live App', url: 'https://razeltech.github.io/medic/' },
-      { label: 'Source Repo', url: 'https://github.com/razeltech/medic' }
+      { label: 'Launch Live PWA', url: 'https://razeltech.github.io/medic/' }
     ]
   },
   {
@@ -18,8 +17,15 @@ const customApps = [
     reason: 'Why it was built: Web chess is typically limited to flat 2D boards with heavy backend servers. Razel Tech engineered a tournament-grade 3D chess environment with realistic Three.js WebGL graphics, procedural Web Worker minimax AI bot, and peer-to-peer WebRTC multiplayer via PeerJS with zero server overhead.',
     icon: <Box size={24} className="text-cyber-blue" />,
     links: [
-      { label: 'Live Arena', url: 'https://razeltech.github.io/chessarena/' },
-      { label: 'Source Repo', url: 'https://github.com/razeltech/chessarena' }
+      { label: 'Launch Live Arena', url: 'https://razeltech.github.io/chessarena/' }
+    ]
+  },
+  {
+    title: 'Jwala — Pure Light Diwali Courtyard',
+    reason: 'Why it was built: Festival software is often static or ad-riddled. Razel Tech synthesized an emission-free festive courtyard using HTML5 Canvas particle dynamics and procedural Web Audio DSP to generate realistic flame convection, ballistic rocket ascents, and concussive sound waves with zero sampled audio.',
+    icon: <Zap size={24} className="text-cyber-green" />,
+    links: [
+      { label: 'Launch Courtyard', url: 'https://razeltech.github.io/diwali/' }
     ]
   },
   {
@@ -27,18 +33,15 @@ const customApps = [
     reason: 'Why it was built: Social media platforms parse invisible C2PA cryptographic manifests and EXIF tags to automatically flag images with AI warning badges and suppress organic reach. Razel Tech engineered a 100% in-browser, zero-cloud binary sanitizer that neutralizes provenance manifests, GPS tracking, and generator signatures before publishing.',
     icon: <Shield size={24} className="text-cyber-green" />,
     links: [
-      { label: 'Live App', url: 'https://razeltech.github.io/purge/' },
-      { label: 'Source Repo', url: 'https://github.com/razeltech/purge' }
+      { label: 'Launch Tool', url: 'https://razeltech.github.io/purge/' }
     ]
   },
-
   {
     title: 'MAHATI — Virtual Music Studio',
     reason: 'Why it was built: In-browser music tools are typically laggy, reliant on heavy sample downloads, or single-touch limited. Razel Tech engineered a 100% procedural Web Audio workstation with sustained polyphonic voices, physics-modeled guitar frets, bowed strings, drum stage, and local IndexedDB session recording.',
     icon: <Music size={24} className="text-cyber-green" />,
     links: [
-      { label: 'Live Studio', url: 'https://razeltech.github.io/virtual-music-studio/' },
-      { label: 'Source Repo', url: 'https://github.com/razeltech/virtual-music-studio' }
+      { label: 'Launch Studio', url: 'https://razeltech.github.io/virtual-music-studio/' }
     ]
   },
   {
@@ -46,8 +49,7 @@ const customApps = [
     reason: 'Why it was built: Web-based augmented reality usually requires bulky app installs or sends sensitive video to the cloud. Razel Tech built a zero-cloud, 100% on-device spatial interaction lab using WebGL2 shaders and MediaPipe AI for real-time facial mesh, AI hair/makeup simulation, kinetic gesture spells, and 3D motion capture.',
     icon: <Eye size={24} className="text-cyber-blue" />,
     links: [
-      { label: 'Live Studio', url: 'https://razeltech.github.io/divya-drusti/' },
-      { label: 'Source Repo', url: 'https://github.com/razeltech/divya-drusti' }
+      { label: 'Launch Vision Lab', url: 'https://razeltech.github.io/divya-drusti/' }
     ]
   },
   {
@@ -55,50 +57,55 @@ const customApps = [
     reason: 'Why it was built: Event photobooth and photo strip apps are usually filled with ads or force cloud uploads. Razel Tech engineered a 100% in-browser, privacy-first 35mm photobooth studio and PWA with zero cloud dependency.',
     icon: <Camera size={24} className="text-cyber-blue" />,
     links: [
-      { label: 'Live App', url: 'https://razeltech.github.io/PhotoboothPro/' },
-      { label: 'Source Repo', url: 'https://github.com/razeltech/PhotoboothPro' }
+      { label: 'Launch Photobooth', url: 'https://razeltech.github.io/PhotoboothPro/' }
     ]
   },
   {
-    title: 'Clinic Medicorepro',
-    reason: 'Why it was built: The industry focuses solely on large hospitals, leaving private clinics drowning in paper. Razel Tech provided a clean, digital OPD system tailored for clinics at just ₹1000/month.',
+    title: 'MediCorePro Clinical SaaS',
+    reason: 'Why it was built: Private outpatient clinics struggle with complex enterprise software that requires IT staff. Razel Tech provided a streamlined, digital clinical management dashboard with dental odontograms, patient timelines, and billing analytics.',
     icon: <Activity size={24} className="text-cyber-green" />,
     links: [
-      { label: 'Promo Site', url: 'https://r2dapps.github.io/ClinicAppDemo/' },
-      { label: 'Actual Site', url: 'https://medi-core-pro.vercel.app/' }
+      { label: 'Launch SaaS Dashboard', url: 'https://medi-core-pro.vercel.app/' }
     ]
   },
   {
-    title: 'RazelStudio',
-    reason: 'Why it was built: Traditional AEC pipelines require massive subscriptions. Razel Tech built a clean pipeline from Revit to Unity IFC, allowing stakeholders to view interior paints and textures dynamically on a budget.',
-    icon: <Layers size={24} className="text-cyber-blue" />,
-    links: [
-      { label: 'Platform Demo', url: 'https://r2dapps.github.io/RazelStudio/' }
-    ]
-  },
-  {
-    title: 'InvoiceVault',
-    reason: 'Why it was built: SMBs were struggling with scattered accounting. InvoiceVault acts as a mini-ERP with direct GST ledgers (GSTR-1, 3B) and Excel exports straight from direct bills and inventory.',
-    icon: <Terminal size={24} className="text-white" />,
-    links: [
-      { label: 'Platform', url: 'https://razeltech.github.io/InvoiceVaultDemo/' }
-    ]
-  },
-  {
-    title: 'ContentHub',
-    reason: 'Why it was built: Digital marketing teams were still using messy Excel sheets. Razel Tech built a dedicated dashboard to centralize content marketing data and analytics.',
+    title: 'ContentHub Multi-Tenant Marketing OS',
+    reason: 'Why it was built: Digital marketing teams lose time coordinating assets across disconnected tools. Razel Tech engineered a central multi-tenant workspace for scheduling, asset moderation, and workflow automation.',
     icon: <Cloud size={24} className="text-cyber-blue" />,
     links: [
-      { label: 'Platform', url: 'https://contenthub-demo.vercel.app/' }
+      { label: 'Launch Marketing OS', url: 'https://contenthub-dashboarddemo.vercel.app/' }
     ]
   },
   {
-    title: 'Resume Builder Suite',
-    reason: 'Why it was built: Too many job platforms charge for basic resume exports, locking out candidates who cannot afford them. Razel Tech built a free builder with 15+ templates as a community utility.',
-    icon: <Code2 size={24} className="text-cyber-green" />,
+    title: 'Showroom OS — Dealership CRM',
+    reason: 'Why it was built: High-volume automotive showrooms need fast lead capture and real-time inventory matching. Razel Tech engineered an enterprise sales CRM for automotive dealerships with live revenue pipelines.',
+    icon: <Workflow size={24} className="text-cyber-blue" />,
     links: [
-      { label: 'V1 App', url: 'https://r2dapps.github.io/react-resume-builder/' },
-      { label: 'V2 App', url: 'https://r2dapps.github.io/ResumeBuilder/' }
+      { label: 'Launch Showroom CRM', url: 'https://showroomos.vercel.app/' }
+    ]
+  },
+  {
+    title: 'TeamFlow — Agile Workstream Platform',
+    reason: 'Why it was built: Engineering teams require low-latency coordination without bloated project management suites. TeamFlow provides real-time sprint tracking and workload telemetry.',
+    icon: <Layers size={24} className="text-cyber-blue" />,
+    links: [
+      { label: 'Launch TeamFlow', url: 'https://teamflow-rt.vercel.app/' }
+    ]
+  },
+  {
+    title: 'MotoLog — Fleet Telemetry Platform',
+    reason: 'Why it was built: Vehicle fleet tracking often requires proprietary GPS hardware. MotoLog enables progressive logging of service schedules, fuel consumption, and operational cost metrics.',
+    icon: <Zap size={24} className="text-cyber-green" />,
+    links: [
+      { label: 'Launch Fleet App', url: 'https://motologger.vercel.app/' }
+    ]
+  },
+  {
+    title: 'InvoiceVault GST Ledger Engine',
+    reason: 'Why it was built: SMBs need reliable, air-gapped billing without recurring cloud fees. InvoiceVault acts as a private mini-ERP with direct GST ledgers (GSTR-1, 3B) and Excel exports straight from client-side storage.',
+    icon: <Terminal size={24} className="text-white" />,
+    links: [
+      { label: 'Launch Billing Engine', url: 'https://razeltech.github.io/InvoiceVaultDemo/' }
     ]
   }
 ];

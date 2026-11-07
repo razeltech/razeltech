@@ -166,9 +166,27 @@ const PROJECTS = [
     type: 'LABS',
     tags: ['React', 'Firebase', 'Marketing', 'Automation'],
     description: 'The Multi-Tenant Marketing OS. A secure, premium marketing suite designed to centralize media assets, automate multi-platform scheduling, and facilitate collaboration.',
-    link: 'https://contenthub-demo.vercel.app/',
+    link: 'https://contenthub-dashboarddemo.vercel.app/',
     status: 'OPERATIONAL',
     images: ['projects/contenthub/dashboard.png', 'projects/contenthub/workflow.png']
+  },
+  {
+    id: 'teamflow',
+    title: 'TEAM_FLOW_AGILE_OS',
+    type: 'LABS',
+    tags: ['React', 'SaaS', 'Real-Time', 'Sprint Telemetry'],
+    description: 'Enterprise agile workstream and team coordination platform. Real-time task boards, sprint telemetry, and workload distribution analytics.',
+    link: 'https://teamflow-rt.vercel.app/',
+    status: 'OPERATIONAL'
+  },
+  {
+    id: 'motolog',
+    title: 'MOTO_LOG_FLEET_TELEMETRY',
+    type: 'LABS',
+    tags: ['React', 'Fleet Management', 'Telemetry', 'PWA'],
+    description: 'Automotive fleet maintenance and fuel economy logging platform with service interval tracking, expense telemetry, and multi-vehicle profiles.',
+    link: 'https://motologger.vercel.app/',
+    status: 'OPERATIONAL'
   },
   {
     id: 'moodstreak',
