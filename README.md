@@ -147,6 +147,25 @@ Every system is constructed under rigorous engineering boundaries: zero speculat
       <code>STATUS: MISSION-CRITICAL DEPLOYMENT</code>
     </td>
   </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <h3>Jwala — Pure Light Diwali</h3>
+      <code>DOMAIN: PROCEDURAL PARTICLE DYNAMICS &amp; DSP AUDIO</code>
+      <br/><br/>
+      An emission-free interactive festival courtyard synthesizing 60 FPS HTML5 Canvas particle physics, fluid flame convection, and full-spectrum Web Audio explosive acoustics (bombs, ladis, anaars, chakris, rockets with 13 algorithmic sky breaks). Zero external assets or samples.
+      <br/><br/>
+      <a href="https://razeltech.github.io/diwali/"><strong>[ Launch Live Courtyard ]</strong></a> &bull; 
+      <a href="https://github.com/razeltech/diwali"><strong>[ Source Repository ]</strong></a>
+    </td>
+    <td width="50%" valign="top">
+      <h3>DIVYA DRUSTI — Real-Time Spatial Radar</h3>
+      <code>DOMAIN: SPATIAL COMPUTING &amp; SENSOR TELEMETRY</code>
+      <br/><br/>
+      Tactical airspace and terrain monitoring dashboard rendering multi-layered spatial radar sweeps, high-density threat telemetry, and deterministic 3D coordinate mapping.
+      <br/><br/>
+      <code>STATUS: PROPRIETARY DEFENSE ASSET</code>
+    </td>
+  </tr>
 </table>
 
 ---

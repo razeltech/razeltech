@@ -1,349 +1,127 @@
-<svg xmlns="http://www.w3.org/2000/svg"
-     xmlns:xlink="http://www.w3.org/1999/xlink"
-     width="1200" height="520"
-     viewBox="0 0 1200 520">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1200 750" width="1200" height="750" role="img" aria-labelledby="t d" xmlns:c2pa="http://c2pa.org/manifest"><metadata><c2pa:manifest>AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYToyZTJmYzk3OS00YjE5LTRjOTQtYjJkZi0xM2E4MzYxOTAzMmIAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaLCBSksgvj51S0fRSp22+3UAAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDo1MWVjYzljMC0wNDYxLTQ2NzItYTAwNS04YjE1NWVlMzY2ODBscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNoa5/cizHlDmoUMV2f8wnnugAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFggJwrd0khwVmwlL+ZZat96hH/7KHprJHEecvsnzOF85xCkZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaPndznz/PKIhQ5AAYkXRYXMAAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRNAAAAAAAAAAAAAAAAAGRoYXNoWCDUOmMpasGhm8VAQuoFHR0I/1iDWkLgw0tOGwqTyXRq6WRuYW1lbmp1bWJmIG1hbmlmZXN0amV4Y2x1c2lvbnOBomVzdGFydBjkZmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOjJlMmZjOTc5LTRiMTktNGM5NC1iMmRmLTEzYTgzNjE5MDMyYi9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOjVkMzhjYjhmLWQzZTQtNDdiYy1iMGUwLWRkMjk3NDY4NjBiNHJjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCAnCt3SSHBWbCUv5llq33qEf/soemskcR5y+yfM4XznEKJjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFgg6gDSti4fWZTH93qGrX0qGC/35ksInqXfz9hSpKZUlU6iY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFggoNU+ulVoE43KvMLAtv1R51+zsSNqXFn/wQnTIByMACh0Y2xhaW1fZ2VuZXJhdG9yX2luZm+jZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj+OPEz5o+nMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1+UCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9+1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQBCTOnbN522XFXgsn2owWjO7STB/fqhljdAxZk/Cxd/4hdOMVJLphxgTvbNeyFvqF+3ujqOQT2JdgqNTfmq/aEU=</c2pa:manifest></metadata>
+<title id="t">Razel Tech — Engineering Reality. Building Intelligence.</title>
+<desc id="d">Animated banner for Razel Tech: real-time 3D, simulation, WebGL and enterprise software engineering studio, with core competencies, featured projects and technology stack.</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#060B17"/><stop offset=".6" stop-color="#0A1630"/><stop offset="1" stop-color="#0D2150"/></linearGradient>
+<linearGradient id="bd" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2F7BFF" stop-opacity=".1"/><stop offset=".5" stop-color="#2F7BFF" stop-opacity=".7"/><stop offset="1" stop-color="#2F7BFF" stop-opacity=".1"/></linearGradient>
+<linearGradient id="sw" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#2F7BFF" stop-opacity="0"/><stop offset=".5" stop-color="#2F7BFF"/><stop offset="1" stop-color="#9CC3FF"/></linearGradient>
+<linearGradient id="scan" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2F7BFF" stop-opacity="0"/><stop offset=".5" stop-color="#2F7BFF" stop-opacity=".14"/><stop offset="1" stop-color="#2F7BFF" stop-opacity="0"/></linearGradient>
+<linearGradient id="shim" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2F7BFF" stop-opacity="0"/><stop offset=".5" stop-color="#9CC3FF"/><stop offset="1" stop-color="#2F7BFF" stop-opacity="0"/></linearGradient>
+<linearGradient id="fade" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000"/><stop offset=".07" stop-color="#fff"/><stop offset=".93" stop-color="#fff"/><stop offset="1" stop-color="#000"/></linearGradient>
+<mask id="tm"><rect x="0" y="596" width="1200" height="100" fill="url(#fade)"/></mask>
+<radialGradient id="glow"><stop offset="0" stop-color="#2F7BFF" stop-opacity=".35"/><stop offset="1" stop-color="#2F7BFF" stop-opacity="0"/></radialGradient>
+<pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#2F7BFF" stroke-opacity=".08"/><animateTransform attributeName="patternTransform" type="translate" from="0 0" to="40 40" dur="8s" repeatCount="indefinite"/></pattern>
+<g id="rtR"><path d="M309.0,469.3C252.7,404.6 256.0,408.7 256.0,404.2L256.0,400.1L273.2,388.6C282.7,382.3 294.3,374.4 299.0,371.1C313.2,360.9 310.6,359.4 341.1,394.3C425.6,490.9 427.0,492.6 427.0,497.0L427.0,501.0L381.8,501.0L336.5,500.9L309.0,469.3ZM220.0,366.8C213.7,359.6 193.9,337.5 176.1,317.6C140.8,278.3 138.9,275.8 135.8,265.7C128.3,241.0 142.6,216.7 168.5,209.9C185.6,205.5 199.1,209.3 217.4,223.9C249.0,249.1 303.3,235.3 322.9,197.3C342.7,158.6 326.3,113.2 286.9,97.6C270.9,91.3 276.5,91.7 171.5,91.1L75.6,90.5L65.5,76.8C60.0,69.3 50.0,55.7 43.2,46.6C31.9,31.1 31.0,29.6 31.0,25.5L31.0,21.0L161.4,21.0C304.5,21.0 299.7,20.8 318.4,27.1C361.0,41.4 393.4,78.5 404.8,126.3C408.9,143.4 408.8,178.7 404.6,196.5C389.1,262.5 340.1,308.2 282.2,310.7C275.0,311.0 269.0,311.6 269.0,311.9C269.1,312.2 273.5,317.4 279.0,323.5C288.5,334.0 289.0,334.7 289.0,339.0L289.0,343.5L270.7,357.1C232.2,385.9 236.1,385.2 220.0,366.8Z" fill="#EAF0FA" fill-rule="evenodd"/></g>
+<g id="rtT"><path d="M519.9,476.8C513.1,469.5 500.2,455.9 491.2,446.6L475.0,429.5L475.0,337.4L475.0,245.2L480.2,240.8C502.6,221.9 534.2,200.0 539.1,200.0L543.0,200.0L543.0,345.0L542.9,490.0L537.6,490.0L532.3,490.0L519.9,476.8ZM475.0,139.5L475.0,91.0L441.5,91.0L408.0,91.0L405.9,86.8C396.2,67.6 379.6,48.0 361.3,34.3L354.0,28.8L354.0,23.4L354.0,18.0L525.6,18.0L697.2,18.0L696.8,22.2C696.5,26.0 693.6,30.4 673.0,58.7L649.5,90.9L596.2,90.9L543.0,91.0L543.0,122.2L543.0,153.5L527.8,161.5C519.4,165.9 505.6,173.6 497.1,178.7C486.0,185.4 480.6,188.0 478.3,188.0L475.0,188.0L475.0,139.5Z" fill="#2F7BFF" fill-rule="evenodd"/></g>
+<g id="rtS"><path d="M73.0,481.9C73.0,480.2 75.7,478.0 77.9,478.0C79.1,478.0 80.0,477.6 80.0,477.0C80.0,476.4 81.1,476.0 82.4,476.0C83.7,476.0 85.0,475.6 85.2,475.1C85.3,474.6 90.2,472.1 96.0,469.5C177.5,433.0 257.2,382.2 339.5,314.6C345.6,309.6 361.8,296.0 375.5,284.4C499.9,179.6 592.0,127.0 698.9,100.0C712.7,96.5 712.0,96.6 712.0,98.3C712.0,99.0 705.8,101.6 697.3,104.5C600.0,137.2 519.8,186.1 395.0,289.0C274.6,388.2 190.6,439.6 83.5,479.6C73.5,483.3 73.0,483.5 73.0,481.9Z" fill="#2F7BFF" fill-rule="evenodd"/></g>
+<clipPath id="cR"><rect x="0" y="0" width="0" height="520"><animate attributeName="width" from="0" to="745" dur="1s" begin="0s" fill="freeze" calcMode="spline" keySplines=".6 0 .2 1" keyTimes="0;1"/></rect></clipPath>
+<clipPath id="cT"><rect x="0" y="0" width="745" height="0"><animate attributeName="height" from="0" to="520" dur=".9s" begin=".6s" fill="freeze" calcMode="spline" keySplines=".6 0 .2 1" keyTimes="0;1"/></rect></clipPath>
+<clipPath id="cS"><rect x="0" y="0" width="0" height="520"><animate attributeName="width" from="0" to="745" dur="1.1s" begin="1.2s" fill="freeze" calcMode="spline" keySplines=".6 0 .2 1" keyTimes="0;1"/></rect></clipPath>
+<clipPath id="card"><rect width="1200" height="750" rx="18"/></clipPath>
+</defs>
+<style>
+text{font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif}
+.draw{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.3s cubic-bezier(.6,0,.2,1) forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.up{opacity:0;animation:up .8s ease-out forwards}
+@keyframes up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.wm{font-size:62px;font-weight:800;letter-spacing:4px}
+.tag{font-size:13px;letter-spacing:3.2px;font-weight:600}
+.sub{font-size:15px;fill:#8FA3C0;letter-spacing:.4px}
+.statn{font-size:30px;font-weight:800;fill:#EAF0FA}
+.statl{font-size:10px;font-weight:600;fill:#8FA3C0;letter-spacing:1.2px}
+.node{font-size:10px;font-weight:700;fill:#8FA3C0;letter-spacing:1.4px}
+.chip{font-size:12.5px;letter-spacing:.4px}
+.chipd{font-size:11.5px;fill:#8FA3C0}
+.tchip{font-size:10.5px;font-weight:700;letter-spacing:1px;fill:#EAF0FA}
+.ct{font-size:12px;font-weight:800;letter-spacing:.8px;fill:#EAF0FA}
+.ln{font-size:12px;fill:#8FA3C0}
+.small{font-size:11px;letter-spacing:2.4px;fill:#8FA3C0;font-weight:600}
+.orbit{transform-box:fill-box;transform-origin:center;animation:spin 24s linear infinite}
+.orbit2{transform-box:fill-box;transform-origin:center;animation:spin 38s linear infinite reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+.ticker{animation:tick 85s linear infinite}
+@keyframes tick{to{transform:translateX(-4650px)}}
+.tickerr{animation:tickr 95s linear infinite}
+@keyframes tickr{from{transform:translateX(-3300px)}to{transform:translateX(0)}}
+.pulse{animation:pulse 3s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes pulse{0%,100%{opacity:.6;transform:scale(1)}50%{opacity:1;transform:scale(1.15)}}
+</style>
 
-  <defs>
-    <!-- Background Gradients -->
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#040914" />
-      <stop offset="45%" stop-color="#091528" />
-      <stop offset="100%" stop-color="#050C18" />
-    </linearGradient>
+<g clip-path="url(#card)">
+<rect width="1200" height="750" fill="url(#bg)"/>
+<rect width="1200" height="750" fill="url(#grid)"/>
+<circle cx="1010" cy="205" r="230" fill="url(#glow)" class="pulse"/>
+<rect y="0" width="260" height="750" fill="url(#scan)"><animateTransform attributeName="transform" type="translate" from="-300 0" to="1500 0" dur="7s" repeatCount="indefinite"/></rect>
+<circle cx="683" cy="117" r="1.4" fill="#2F7BFF" opacity="0"><animate attributeName="cy" values="117;57" dur="11.2s" begin="0.4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;.7;0" dur="11.2s" begin="0.4s" repeatCount="indefinite"/></circle><circle cx="1117" cy="88" r="1.4" fill="#2F7BFF" opacity="0"><animate attributeName="cy" values="88;28" dur="10.7s" begin="5.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;.7;0" dur="10.7s" begin="5.5s" repeatCount="indefinite"/></circle><circle cx="459" cy="59" r="1" fill="#2F7BFF" opacity="0"><animate attributeName="cy" values="59;-1" dur="9.5s" begin="0.4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;.7;0" dur="9.5s" begin="0.4s" repeatCount="indefinite"/></circle><circle cx="205" cy="322" r="1.4" fill="#2F7BFF" opacity="0"><animate attributeName="cy" values="322;262" dur="6.5s" begin="3.4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;.7;0" dur="6.5s" begin="3.4s" repeatCount="indefinite"/></circle><circle cx="477" cy="338" r="1" fill="#2F7BFF" opacity="0"><animate attributeName="cy" values="338;278" dur="10.6s" begin="2.4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;.7;0" dur="10.6s" begin="2.4s" repeatCount="indefinite"/></circle><circle cx="472" cy="63" r="1.8" fill="#2F7BFF" opacity="0"><animate attributeName="cy" values="63;3" dur="12.9s" begin="1.7s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;.7;0" dur="12.9s" begin="1.7s" repeatCount="indefinite"/></circle><circle cx="315" cy="316" r="1" fill="#2F7BFF" opacity="0"><animate attributeName="cy" values="316;256" dur="10.6s" begin="3.4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;.7;0" dur="10.6s" begin="3.4s" repeatCount="indefinite"/></circle><circle cx="390" cy="92" r="1.8" fill="#2F7BFF" opacity="0"><animate attributeName="cy" values="92;32" dur="10.6s" begin="1.1s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;.7;0" dur="10.6s" begin="1.1s" repeatCount="indefinite"/></circle><circle cx="219" cy="320" r="1.8" fill="#2F7BFF" opacity="0"><animate attributeName="cy" values="320;260" dur="6.5s" begin="0.4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;.7;0" dur="6.5s" begin="0.4s" repeatCount="indefinite"/></circle><circle cx="441" cy="294" r="1.8" fill="#2F7BFF" opacity="0"><animate attributeName="cy" values="294;234" dur="10.3s" begin="4.7s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;.7;0" dur="10.3s" begin="4.7s" repeatCount="indefinite"/></circle><circle cx="973" cy="339" r="1.4" fill="#2F7BFF" opacity="0"><animate attributeName="cy" values="339;279" dur="8.9s" begin="1.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;.7;0" dur="8.9s" begin="1.5s" repeatCount="indefinite"/></circle><circle cx="388" cy="164" r="1" fill="#2F7BFF" opacity="0"><animate attributeName="cy" values="164;104" dur="10.6s" begin="3.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;.7;0" dur="10.6s" begin="3.2s" repeatCount="indefinite"/></circle><circle cx="723" cy="269" r="1.4" fill="#2F7BFF" opacity="0"><animate attributeName="cy" values="269;209" dur="10.9s" begin="0.4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;.7;0" dur="10.9s" begin="0.4s" repeatCount="indefinite"/></circle><circle cx="1068" cy="254" r="1" fill="#2F7BFF" opacity="0"><animate attributeName="cy" values="254;194" dur="12.1s" begin="0.9s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;.7;0" dur="12.1s" begin="0.9s" repeatCount="indefinite"/></circle><circle cx="1021" cy="255" r="1" fill="#2F7BFF" opacity="0"><animate attributeName="cy" values="255;195" dur="13.7s" begin="0.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;.7;0" dur="13.7s" begin="0.5s" repeatCount="indefinite"/></circle><circle cx="1162" cy="333" r="1.4" fill="#2F7BFF" opacity="0"><animate attributeName="cy" values="333;273" dur="8.7s" begin="2.1s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;.7;0" dur="8.7s" begin="2.1s" repeatCount="indefinite"/></circle><circle cx="1037" cy="336" r="1.4" fill="#2F7BFF" opacity="0"><animate attributeName="cy" values="336;276" dur="6.6s" begin="0.6s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;.7;0" dur="6.6s" begin="0.6s" repeatCount="indefinite"/></circle><circle cx="572" cy="282" r="1.8" fill="#2F7BFF" opacity="0"><animate attributeName="cy" values="282;222" dur="11.3s" begin="0.4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;.7;0" dur="11.3s" begin="0.4s" repeatCount="indefinite"/></circle><circle cx="654" cy="335" r="1.8" fill="#2F7BFF" opacity="0"><animate attributeName="cy" values="335;275" dur="12.6s" begin="1.7s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;.7;0" dur="12.6s" begin="1.7s" repeatCount="indefinite"/></circle><circle cx="810" cy="217" r="1" fill="#2F7BFF" opacity="0"><animate attributeName="cy" values="217;157" dur="13.5s" begin="2.1s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;.7;0" dur="13.5s" begin="2.1s" repeatCount="indefinite"/></circle><circle cx="259" cy="292" r="1" fill="#2F7BFF" opacity="0"><animate attributeName="cy" values="292;232" dur="7.7s" begin="1.7s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;.7;0" dur="7.7s" begin="1.7s" repeatCount="indefinite"/></circle><circle cx="527" cy="243" r="1.4" fill="#2F7BFF" opacity="0"><animate attributeName="cy" values="243;183" dur="13.3s" begin="3.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;.7;0" dur="13.3s" begin="3.0s" repeatCount="indefinite"/></circle><circle cx="360" cy="269" r="1.4" fill="#2F7BFF" opacity="0"><animate attributeName="cy" values="269;209" dur="10.4s" begin="5.3s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;.7;0" dur="10.4s" begin="5.3s" repeatCount="indefinite"/></circle><circle cx="901" cy="321" r="1.4" fill="#2F7BFF" opacity="0"><animate attributeName="cy" values="321;261" dur="11.7s" begin="5.9s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;.7;0" dur="11.7s" begin="5.9s" repeatCount="indefinite"/></circle>
 
-    <!-- Arc Glow Gradient -->
-    <linearGradient id="arcGrad" x1="0%" y1="100%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#0284C7" stop-opacity="0.2" />
-      <stop offset="50%" stop-color="#00D2FF" />
-      <stop offset="100%" stop-color="#2563EB" />
-    </linearGradient>
+<g class="up" style="animation-delay:.2s">
+<circle cx="56" cy="38" r="4" fill="#27D17F"><animate attributeName="opacity" values="1;.25;1" dur="1.6s" repeatCount="indefinite"/></circle>
+<text x="70" y="42" class="small">SYSTEM ONLINE  //  MSME REGISTERED ENTERPRISE  //  INDIA</text>
+<text x="1150" y="42" text-anchor="end" class="small" style="fill:#2F7BFF">RAZELTECH.GITHUB.IO</text>
+</g>
 
-    <!-- T-Stem Gradient -->
-    <linearGradient id="tGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0284C7" />
-      <stop offset="50%" stop-color="#0EA5E9" />
-      <stop offset="100%" stop-color="#1D4ED8" />
-    </linearGradient>
+<g transform="translate(46,92) scale(.295)">
+<g clip-path="url(#cR)"><use href="#rtR" xlink:href="#rtR"/></g>
+<g clip-path="url(#cT)"><use href="#rtT" xlink:href="#rtT"/></g>
+<g clip-path="url(#cS)"><use href="#rtS" xlink:href="#rtS"/><rect x="-100" y="0" width="90" height="520" fill="#fff" opacity="0" style="mix-blend-mode:screen"/></g>
+</g>
+<g class="up" style="animation-delay:.9s">
+<text x="290" y="160" class="wm"><tspan fill="#EAF0FA">RAZEL</tspan><tspan fill="#2F7BFF">TECH</tspan></text>
+<text x="292" y="190" class="sub">Principal Systems Architecture &amp; Real-Time Engineering Studio</text>
+</g>
+<g class="up" style="animation-delay:1.3s">
+<line x1="292" y1="214" x2="332" y2="214" stroke="#2F7BFF" stroke-width="2"/>
+<text x="292" y="243" class="tag"><tspan fill="#EAF0FA">ENGINEERING </tspan><tspan fill="#2F7BFF">REALITY.</tspan><tspan fill="#EAF0FA"> BUILDING </tspan><tspan fill="#2F7BFF">INTELLIGENCE.</tspan></text>
+</g>
 
-    <!-- R-Stem Gradient -->
-    <linearGradient id="rGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#334155" />
-      <stop offset="50%" stop-color="#1E293B" />
-      <stop offset="100%" stop-color="#0F172A" />
-    </linearGradient>
+<g class="up" style="animation-delay:1.6s"><g transform="translate(50,290)"><rect width="225" height="64" rx="10" fill="#0F2347" fill-opacity=".6" stroke="#2F7BFF" stroke-opacity=".35"/><rect width="4" height="64" rx="2" fill="#2F7BFF"/><text x="22" y="42" class="statn">12+</text><text x="92" y="29" class="statl">YEARS REAL-TIME</text><text x="92" y="44" class="statl">ARCHITECTURE</text></g></g><g class="up" style="animation-delay:1.85s"><g transform="translate(295,290)"><rect width="225" height="64" rx="10" fill="#0F2347" fill-opacity=".6" stroke="#2F7BFF" stroke-opacity=".35"/><rect width="4" height="64" rx="2" fill="#2F7BFF"/><text x="22" y="42" class="statn">10+</text><text x="92" y="29" class="statl">DEFENSE</text><text x="92" y="44" class="statl">SIMULATORS</text></g></g><g class="up" style="animation-delay:2.1s"><g transform="translate(540,290)"><rect width="225" height="64" rx="10" fill="#0F2347" fill-opacity=".6" stroke="#2F7BFF" stroke-opacity=".35"/><rect width="4" height="64" rx="2" fill="#2F7BFF"/><text x="22" y="42" class="statn">25+</text><text x="92" y="29" class="statl">LIVE</text><text x="92" y="44" class="statl">PLATFORMS</text></g></g>
 
-    <!-- Badge Background -->
-    <linearGradient id="badgeBg" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#0E223D" />
-      <stop offset="100%" stop-color="#071424" />
-    </linearGradient>
-  </defs>
+<g class="up" style="animation-delay:.6s">
+<circle class="orbit" cx="1010" cy="205" r="62" fill="none" stroke="#2F7BFF" stroke-opacity=".5" stroke-dasharray="3 9"/>
+<circle class="orbit2" cx="1010" cy="205" r="92" fill="none" stroke="#2F7BFF" stroke-opacity=".25" stroke-dasharray="14 10"/>
+<line x1="885" y1="105" x2="1105" y2="100" stroke="#2F7BFF" stroke-opacity=".18"/><line x1="1105" y1="100" x2="1140" y2="215" stroke="#2F7BFF" stroke-opacity=".18"/><line x1="1140" y1="215" x2="1095" y2="325" stroke="#2F7BFF" stroke-opacity=".18"/><line x1="1095" y1="325" x2="900" y2="320" stroke="#2F7BFF" stroke-opacity=".18"/><line x1="900" y1="320" x2="860" y2="212" stroke="#2F7BFF" stroke-opacity=".18"/><line x1="860" y1="212" x2="885" y2="105" stroke="#2F7BFF" stroke-opacity=".18"/><line x1="1010" y1="205" x2="885" y2="105" stroke="#2F7BFF" stroke-opacity=".4" stroke-dasharray="4 5"><animate attributeName="stroke-dashoffset" values="0;-18" dur="1.4s" repeatCount="indefinite"/></line><line x1="1010" y1="205" x2="1105" y2="100" stroke="#2F7BFF" stroke-opacity=".4" stroke-dasharray="4 5"><animate attributeName="stroke-dashoffset" values="0;-18" dur="1.4s" repeatCount="indefinite"/></line><line x1="1010" y1="205" x2="1140" y2="215" stroke="#2F7BFF" stroke-opacity=".4" stroke-dasharray="4 5"><animate attributeName="stroke-dashoffset" values="0;-18" dur="1.4s" repeatCount="indefinite"/></line><line x1="1010" y1="205" x2="1095" y2="325" stroke="#2F7BFF" stroke-opacity=".4" stroke-dasharray="4 5"><animate attributeName="stroke-dashoffset" values="0;-18" dur="1.4s" repeatCount="indefinite"/></line><line x1="1010" y1="205" x2="900" y2="320" stroke="#2F7BFF" stroke-opacity=".4" stroke-dasharray="4 5"><animate attributeName="stroke-dashoffset" values="0;-18" dur="1.4s" repeatCount="indefinite"/></line><line x1="1010" y1="205" x2="860" y2="212" stroke="#2F7BFF" stroke-opacity=".4" stroke-dasharray="4 5"><animate attributeName="stroke-dashoffset" values="0;-18" dur="1.4s" repeatCount="indefinite"/></line><circle r="3" fill="#7FB0FF"><animateMotion dur="2.20s" begin="0.0s" repeatCount="indefinite" path="M1010,205 L885,105"/><animate attributeName="opacity" values="0;1;1;0" dur="2.20s" begin="0.0s" repeatCount="indefinite"/></circle><circle r="3" fill="#EAF0FA"><animateMotion dur="3.20s" begin="0.3s" repeatCount="indefinite" path="M885,105 L1010,205"/><animate attributeName="opacity" values="0;1;1;0" dur="3.20s" begin="0.3s" repeatCount="indefinite"/></circle><circle r="3" fill="#7FB0FF"><animateMotion dur="2.55s" begin="0.4s" repeatCount="indefinite" path="M1010,205 L1105,100"/><animate attributeName="opacity" values="0;1;1;0" dur="2.55s" begin="0.4s" repeatCount="indefinite"/></circle><circle r="3" fill="#EAF0FA"><animateMotion dur="3.55s" begin="1.0s" repeatCount="indefinite" path="M1105,100 L1010,205"/><animate attributeName="opacity" values="0;1;1;0" dur="3.55s" begin="1.0s" repeatCount="indefinite"/></circle><circle r="3" fill="#7FB0FF"><animateMotion dur="2.90s" begin="0.8s" repeatCount="indefinite" path="M1010,205 L1140,215"/><animate attributeName="opacity" values="0;1;1;0" dur="2.90s" begin="0.8s" repeatCount="indefinite"/></circle><circle r="3" fill="#EAF0FA"><animateMotion dur="3.90s" begin="1.7s" repeatCount="indefinite" path="M1140,215 L1010,205"/><animate attributeName="opacity" values="0;1;1;0" dur="3.90s" begin="1.7s" repeatCount="indefinite"/></circle><circle r="3" fill="#7FB0FF"><animateMotion dur="3.25s" begin="1.2s" repeatCount="indefinite" path="M1010,205 L1095,325"/><animate attributeName="opacity" values="0;1;1;0" dur="3.25s" begin="1.2s" repeatCount="indefinite"/></circle><circle r="3" fill="#EAF0FA"><animateMotion dur="4.25s" begin="2.4s" repeatCount="indefinite" path="M1095,325 L1010,205"/><animate attributeName="opacity" values="0;1;1;0" dur="4.25s" begin="2.4s" repeatCount="indefinite"/></circle><circle r="3" fill="#7FB0FF"><animateMotion dur="3.60s" begin="1.6s" repeatCount="indefinite" path="M1010,205 L900,320"/><animate attributeName="opacity" values="0;1;1;0" dur="3.60s" begin="1.6s" repeatCount="indefinite"/></circle><circle r="3" fill="#EAF0FA"><animateMotion dur="4.60s" begin="3.1s" repeatCount="indefinite" path="M900,320 L1010,205"/><animate attributeName="opacity" values="0;1;1;0" dur="4.60s" begin="3.1s" repeatCount="indefinite"/></circle><circle r="3" fill="#7FB0FF"><animateMotion dur="3.95s" begin="2.0s" repeatCount="indefinite" path="M1010,205 L860,212"/><animate attributeName="opacity" values="0;1;1;0" dur="3.95s" begin="2.0s" repeatCount="indefinite"/></circle><circle r="3" fill="#EAF0FA"><animateMotion dur="4.95s" begin="3.8s" repeatCount="indefinite" path="M860,212 L1010,205"/><animate attributeName="opacity" values="0;1;1;0" dur="4.95s" begin="3.8s" repeatCount="indefinite"/></circle><g><circle cx="885" cy="105" r="15" fill="#0B1A36" stroke="#2F7BFF" stroke-width="1.5"/><circle cx="885" cy="105" r="5" fill="#2F7BFF"><animate attributeName="r" values="4;6.5;4" dur="2.0s" repeatCount="indefinite"/></circle><text x="885" y="83" text-anchor="middle" class="node">UNITY 3D</text></g><g><circle cx="1105" cy="100" r="15" fill="#0B1A36" stroke="#2F7BFF" stroke-width="1.5"/><circle cx="1105" cy="100" r="5" fill="#2F7BFF"><animate attributeName="r" values="4;6.5;4" dur="2.3s" repeatCount="indefinite"/></circle><text x="1105" y="78" text-anchor="middle" class="node">WEBGL</text></g><g><circle cx="1140" cy="215" r="15" fill="#0B1A36" stroke="#2F7BFF" stroke-width="1.5"/><circle cx="1140" cy="215" r="5" fill="#2F7BFF"><animate attributeName="r" values="4;6.5;4" dur="2.6s" repeatCount="indefinite"/></circle><text x="1140" y="245" text-anchor="middle" class="node">WEBRTC</text></g><g><circle cx="1095" cy="325" r="15" fill="#0B1A36" stroke="#2F7BFF" stroke-width="1.5"/><circle cx="1095" cy="325" r="5" fill="#2F7BFF"><animate attributeName="r" values="4;6.5;4" dur="2.9s" repeatCount="indefinite"/></circle><text x="1095" y="355" text-anchor="middle" class="node">PWA</text></g><g><circle cx="900" cy="320" r="15" fill="#0B1A36" stroke="#2F7BFF" stroke-width="1.5"/><circle cx="900" cy="320" r="5" fill="#2F7BFF"><animate attributeName="r" values="4;6.5;4" dur="3.2s" repeatCount="indefinite"/></circle><text x="900" y="350" text-anchor="middle" class="node">BIM / IFC</text></g><g><circle cx="860" cy="212" r="15" fill="#0B1A36" stroke="#2F7BFF" stroke-width="1.5"/><circle cx="860" cy="212" r="5" fill="#2F7BFF"><animate attributeName="r" values="4;6.5;4" dur="3.5s" repeatCount="indefinite"/></circle><text x="860" y="242" text-anchor="middle" class="node">AI / ML</text></g>
+<circle cx="1010" cy="205" r="34" fill="#0B1A36" stroke="#2F7BFF" stroke-width="2"/>
+<circle cx="1010" cy="205" r="34" fill="none" stroke="#2F7BFF" stroke-opacity=".6"><animate attributeName="r" values="34;70" dur="3s" repeatCount="indefinite"/><animate attributeName="opacity" values=".7;0" dur="3s" repeatCount="indefinite"/></circle>
+<g transform="translate(992,192.4) scale(.0483)"><use href="#rtR" xlink:href="#rtR"/><use href="#rtT" xlink:href="#rtT"/><use href="#rtS" xlink:href="#rtS"/></g>
+<text x="1010" y="259" text-anchor="middle" class="node" style="fill:#EAF0FA">HLA / RTI</text>
+</g>
 
-  <!-- Frame Background -->
-  <rect width="1200" height="520" rx="18" fill="url(#bgGrad)" stroke="#1E3A5F" stroke-width="1.5" />
+<text x="50" y="390" class="small" style="fill:#2F7BFF">CORE COMPETENCIES</text>
+<g class="up" style="animation-delay:2.1s"><g transform="translate(50,404)">
+<rect width="260" height="168" rx="12" fill="#0F2347" fill-opacity=".55" stroke="#2F7BFF" stroke-opacity=".3"/>
+<rect x="0" y="0" width="70" height="2" fill="url(#shim)"><animateTransform attributeName="transform" type="translate" from="0 0" to="190 0" dur="3.2s" begin="0.0s" repeatCount="indefinite"/></rect>
+<g transform="translate(26,26)"><circle r="8" fill="none" stroke="#2F7BFF" stroke-width="1.8"/><path d="M-12,0H-4M4,0H12M0,-12V-4M0,4V12" stroke="#2F7BFF" stroke-width="1.8"/><circle r="1.8" fill="#EAF0FA"/></g>
+<text x="48" y="31" class="ct">SIMULATION &amp; DEFENSE</text>
+<line x1="16" y1="44" x2="244" y2="44" stroke="#2F7BFF" stroke-opacity=".25"/>
+<g class="up" style="animation-delay:2.30s"><circle cx="26" cy="58" r="2" fill="#2F7BFF"/><text x="38" y="62" class="ln">IEEE 1516 HLA · Portico RTI</text></g><g class="up" style="animation-delay:2.42s"><circle cx="26" cy="78" r="2" fill="#2F7BFF"/><text x="38" y="82" class="ln">3DOF / 6DOF Motion Platforms</text></g><g class="up" style="animation-delay:2.54s"><circle cx="26" cy="98" r="2" fill="#2F7BFF"/><text x="38" y="102" class="ln">Hardware-in-the-Loop (HIL)</text></g><g class="up" style="animation-delay:2.66s"><circle cx="26" cy="118" r="2" fill="#2F7BFF"/><text x="38" y="122" class="ln">UDP / TCP Socket Kinematics</text></g><g class="up" style="animation-delay:2.78s"><circle cx="26" cy="138" r="2" fill="#2F7BFF"/><text x="38" y="142" class="ln">Embedded Telemetry Buses</text></g></g></g><g class="up" style="animation-delay:2.3000000000000003s"><g transform="translate(330,404)">
+<rect width="260" height="168" rx="12" fill="#0F2347" fill-opacity=".55" stroke="#2F7BFF" stroke-opacity=".3"/>
+<rect x="0" y="0" width="70" height="2" fill="url(#shim)"><animateTransform attributeName="transform" type="translate" from="0 0" to="190 0" dur="3.2s" begin="0.8s" repeatCount="indefinite"/></rect>
+<g transform="translate(26,26)"><polygon points="0,-10 9,-5 9,5 0,10 -9,5 -9,-5" fill="none" stroke="#2F7BFF" stroke-width="1.8"/><path d="M0,0V10M0,0L-9,-5M0,0L9,-5" stroke="#2F7BFF" stroke-width="1.5" fill="none"/></g>
+<text x="48" y="31" class="ct">REAL-TIME 3D &amp; SPATIAL</text>
+<line x1="16" y1="44" x2="244" y2="44" stroke="#2F7BFF" stroke-opacity=".25"/>
+<g class="up" style="animation-delay:2.50s"><circle cx="26" cy="58" r="2" fill="#2F7BFF"/><text x="38" y="62" class="ln">Unity 3D · URP / HDRP</text></g><g class="up" style="animation-delay:2.62s"><circle cx="26" cy="78" r="2" fill="#2F7BFF"/><text x="38" y="82" class="ln">Three.js · WebGL / WebGL2</text></g><g class="up" style="animation-delay:2.74s"><circle cx="26" cy="98" r="2" fill="#2F7BFF"/><text x="38" y="102" class="ln">HLSL &amp; PBR Shader Authoring</text></g><g class="up" style="animation-delay:2.86s"><circle cx="26" cy="118" r="2" fill="#2F7BFF"/><text x="38" y="122" class="ln">AR / VR · Meta Quest 3</text></g><g class="up" style="animation-delay:2.98s"><circle cx="26" cy="138" r="2" fill="#2F7BFF"/><text x="38" y="142" class="ln">Digital Twins · BIM / IFC</text></g></g></g><g class="up" style="animation-delay:2.5s"><g transform="translate(610,404)">
+<rect width="260" height="168" rx="12" fill="#0F2347" fill-opacity=".55" stroke="#2F7BFF" stroke-opacity=".3"/>
+<rect x="0" y="0" width="70" height="2" fill="url(#shim)"><animateTransform attributeName="transform" type="translate" from="0 0" to="190 0" dur="3.2s" begin="1.6s" repeatCount="indefinite"/></rect>
+<g transform="translate(26,26)"><text x="0" y="5" text-anchor="middle" style="font-size:15px;font-weight:800;fill:#2F7BFF">&lt;/&gt;</text></g>
+<text x="48" y="31" class="ct">WEB &amp; OFFLINE-FIRST</text>
+<line x1="16" y1="44" x2="244" y2="44" stroke="#2F7BFF" stroke-opacity=".25"/>
+<g class="up" style="animation-delay:2.70s"><circle cx="26" cy="58" r="2" fill="#2F7BFF"/><text x="38" y="62" class="ln">React 19 · TypeScript</text></g><g class="up" style="animation-delay:2.82s"><circle cx="26" cy="78" r="2" fill="#2F7BFF"/><text x="38" y="82" class="ln">Tailwind · Modern ESNext</text></g><g class="up" style="animation-delay:2.94s"><circle cx="26" cy="98" r="2" fill="#2F7BFF"/><text x="38" y="102" class="ln">PWA · Service Workers</text></g><g class="up" style="animation-delay:3.06s"><circle cx="26" cy="118" r="2" fill="#2F7BFF"/><text x="38" y="122" class="ln">IndexedDB · CacheStorage</text></g><g class="up" style="animation-delay:3.18s"><circle cx="26" cy="138" r="2" fill="#2F7BFF"/><text x="38" y="142" class="ln">WebRTC · PeerJS · WebSockets</text></g></g></g><g class="up" style="animation-delay:2.7s"><g transform="translate(890,404)">
+<rect width="260" height="168" rx="12" fill="#0F2347" fill-opacity=".55" stroke="#2F7BFF" stroke-opacity=".3"/>
+<rect x="0" y="0" width="70" height="2" fill="url(#shim)"><animateTransform attributeName="transform" type="translate" from="0 0" to="190 0" dur="3.2s" begin="2.4000000000000004s" repeatCount="indefinite"/></rect>
+<g transform="translate(26,26)"><rect x="-7" y="-7" width="14" height="14" rx="2" fill="none" stroke="#2F7BFF" stroke-width="1.8"/><path d="M-3,-11V-7M3,-11V-7M-3,7V11M3,7V11M-11,-3H-7M-11,3H-7M7,-3H11M7,3H11" stroke="#2F7BFF" stroke-width="1.5"/><circle r="2" fill="#EAF0FA"/></g>
+<text x="48" y="31" class="ct">AI, AUDIO &amp; SAAS</text>
+<line x1="16" y1="44" x2="244" y2="44" stroke="#2F7BFF" stroke-opacity=".25"/>
+<g class="up" style="animation-delay:2.90s"><circle cx="26" cy="58" r="2" fill="#2F7BFF"/><text x="38" y="62" class="ln">MediaPipe On-device AI</text></g><g class="up" style="animation-delay:3.02s"><circle cx="26" cy="78" r="2" fill="#2F7BFF"/><text x="38" y="82" class="ln">Tesseract.js OCR</text></g><g class="up" style="animation-delay:3.14s"><circle cx="26" cy="98" r="2" fill="#2F7BFF"/><text x="38" y="102" class="ln">Web Audio &amp; Speech APIs</text></g><g class="up" style="animation-delay:3.26s"><circle cx="26" cy="118" r="2" fill="#2F7BFF"/><text x="38" y="122" class="ln">C# .NET 8/9 · C++</text></g><g class="up" style="animation-delay:3.38s"><circle cx="26" cy="138" r="2" fill="#2F7BFF"/><text x="38" y="142" class="ln">Multi-tenant SaaS Platforms</text></g></g></g>
 
-  <!-- Technical Grid System -->
-  <g stroke="#162B48" stroke-width="0.75" opacity="0.45">
-    <!-- Vertical Grid -->
-    <line x1="60" y1="0" x2="60" y2="520" />
-    <line x1="120" y1="0" x2="120" y2="520" />
-    <line x1="180" y1="0" x2="180" y2="520" />
-    <line x1="240" y1="0" x2="240" y2="520" stroke="#0284C7" stroke-width="1" opacity="0.3" />
-    <line x1="300" y1="0" x2="300" y2="520" />
-    <line x1="360" y1="0" x2="360" y2="520" />
-    <line x1="420" y1="0" x2="420" y2="520" />
-    <line x1="480" y1="0" x2="480" y2="520" stroke="#0284C7" stroke-width="1" opacity="0.3" />
-    <line x1="540" y1="0" x2="540" y2="520" />
-    <line x1="600" y1="0" x2="600" y2="520" stroke="#38BDF8" stroke-width="1.2" opacity="0.35" />
-    <line x1="660" y1="0" x2="660" y2="520" />
-    <line x1="720" y1="0" x2="720" y2="520" stroke="#0284C7" stroke-width="1" opacity="0.3" />
-    <line x1="780" y1="0" x2="780" y2="520" />
-    <line x1="840" y1="0" x2="840" y2="520" />
-    <line x1="900" y1="0" x2="900" y2="520" />
-    <line x1="960" y1="0" x2="960" y2="520" stroke="#0284C7" stroke-width="1" opacity="0.3" />
-    <line x1="1020" y1="0" x2="1020" y2="520" />
-    <line x1="1080" y1="0" x2="1080" y2="520" />
-    <line x1="1140" y1="0" x2="1140" y2="520" />
+<text x="50" y="598" class="small" style="fill:#2F7BFF">FEATURED PRODUCTION ARCHITECTURES</text>
+<g mask="url(#tm)">
+<g transform="translate(0,608)"><g class="ticker"><g transform="translate(30,0)"><rect width="290" height="36" rx="18" fill="#0F2347" fill-opacity=".75" stroke="#2F7BFF" stroke-opacity=".45"/><circle cx="20" cy="18" r="3.5" fill="#2F7BFF"/><text x="34" y="23" class="chip" fill="#EAF0FA" font-weight="700">MEDIC</text><text x="272" y="23" text-anchor="end" class="chipd">Clinical PWA</text></g><g transform="translate(340,0)"><rect width="290" height="36" rx="18" fill="#0F2347" fill-opacity=".75" stroke="#2F7BFF" stroke-opacity=".45"/><circle cx="20" cy="18" r="3.5" fill="#2F7BFF"/><text x="34" y="23" class="chip" fill="#EAF0FA" font-weight="700">CHESS ARENA 3D</text><text x="272" y="23" text-anchor="end" class="chipd">WebGL · P2P</text></g><g transform="translate(650,0)"><rect width="290" height="36" rx="18" fill="#0F2347" fill-opacity=".75" stroke="#2F7BFF" stroke-opacity=".45"/><circle cx="20" cy="18" r="3.5" fill="#2F7BFF"/><text x="34" y="23" class="chip" fill="#EAF0FA" font-weight="700">PURGE</text><text x="272" y="23" text-anchor="end" class="chipd">C2PA Sanitizer</text></g><g transform="translate(960,0)"><rect width="290" height="36" rx="18" fill="#0F2347" fill-opacity=".75" stroke="#2F7BFF" stroke-opacity=".45"/><circle cx="20" cy="18" r="3.5" fill="#2F7BFF"/><text x="34" y="23" class="chip" fill="#EAF0FA" font-weight="700">MAHATI</text><text x="272" y="23" text-anchor="end" class="chipd">Web Audio DAW</text></g><g transform="translate(1270,0)"><rect width="290" height="36" rx="18" fill="#0F2347" fill-opacity=".75" stroke="#2F7BFF" stroke-opacity=".45"/><circle cx="20" cy="18" r="3.5" fill="#2F7BFF"/><text x="34" y="23" class="chip" fill="#EAF0FA" font-weight="700">DIVYA DRUSTI</text><text x="272" y="23" text-anchor="end" class="chipd">AR Vision AI</text></g><g transform="translate(1580,0)"><rect width="290" height="36" rx="18" fill="#0F2347" fill-opacity=".75" stroke="#2F7BFF" stroke-opacity=".45"/><circle cx="20" cy="18" r="3.5" fill="#2F7BFF"/><text x="34" y="23" class="chip" fill="#EAF0FA" font-weight="700">T4S</text><text x="272" y="23" text-anchor="end" class="chipd">HLA/RTI Defense Sim</text></g><g transform="translate(1890,0)"><rect width="290" height="36" rx="18" fill="#0F2347" fill-opacity=".75" stroke="#2F7BFF" stroke-opacity=".45"/><circle cx="20" cy="18" r="3.5" fill="#2F7BFF"/><text x="34" y="23" class="chip" fill="#EAF0FA" font-weight="700">AGLSDS</text><text x="272" y="23" text-anchor="end" class="chipd">HIL Launcher Sim</text></g><g transform="translate(2200,0)"><rect width="290" height="36" rx="18" fill="#0F2347" fill-opacity=".75" stroke="#2F7BFF" stroke-opacity=".45"/><circle cx="20" cy="18" r="3.5" fill="#2F7BFF"/><text x="34" y="23" class="chip" fill="#EAF0FA" font-weight="700">LOTOTO</text><text x="272" y="23" text-anchor="end" class="chipd">Quest 3 VR Safety</text></g><g transform="translate(2510,0)"><rect width="290" height="36" rx="18" fill="#0F2347" fill-opacity=".75" stroke="#2F7BFF" stroke-opacity=".45"/><circle cx="20" cy="18" r="3.5" fill="#2F7BFF"/><text x="34" y="23" class="chip" fill="#EAF0FA" font-weight="700">ANATOVR</text><text x="272" y="23" text-anchor="end" class="chipd">VR Anatomy Lab</text></g><g transform="translate(2820,0)"><rect width="290" height="36" rx="18" fill="#0F2347" fill-opacity=".75" stroke="#2F7BFF" stroke-opacity=".45"/><circle cx="20" cy="18" r="3.5" fill="#2F7BFF"/><text x="34" y="23" class="chip" fill="#EAF0FA" font-weight="700">PRISM HAIR</text><text x="272" y="23" text-anchor="end" class="chipd">Live AI Try-on</text></g><g transform="translate(3130,0)"><rect width="290" height="36" rx="18" fill="#0F2347" fill-opacity=".75" stroke="#2F7BFF" stroke-opacity=".45"/><circle cx="20" cy="18" r="3.5" fill="#2F7BFF"/><text x="34" y="23" class="chip" fill="#EAF0FA" font-weight="700">INTERIORSPACE 3D</text><text x="272" y="23" text-anchor="end" class="chipd">Walkthrough Engine</text></g><g transform="translate(3440,0)"><rect width="290" height="36" rx="18" fill="#0F2347" fill-opacity=".75" stroke="#2F7BFF" stroke-opacity=".45"/><circle cx="20" cy="18" r="3.5" fill="#2F7BFF"/><text x="34" y="23" class="chip" fill="#EAF0FA" font-weight="700">CITY BUILDER</text><text x="272" y="23" text-anchor="end" class="chipd">WebRTC Multiplayer</text></g><g transform="translate(3750,0)"><rect width="290" height="36" rx="18" fill="#0F2347" fill-opacity=".75" stroke="#2F7BFF" stroke-opacity=".45"/><circle cx="20" cy="18" r="3.5" fill="#2F7BFF"/><text x="34" y="23" class="chip" fill="#EAF0FA" font-weight="700">INVOICE VAULT</text><text x="272" y="23" text-anchor="end" class="chipd">Air-gapped Ledger</text></g><g transform="translate(4060,0)"><rect width="290" height="36" rx="18" fill="#0F2347" fill-opacity=".75" stroke="#2F7BFF" stroke-opacity=".45"/><circle cx="20" cy="18" r="3.5" fill="#2F7BFF"/><text x="34" y="23" class="chip" fill="#EAF0FA" font-weight="700">TEAMFLOW</text><text x="272" y="23" text-anchor="end" class="chipd">SME SaaS</text></g><g transform="translate(4370,0)"><rect width="290" height="36" rx="18" fill="#0F2347" fill-opacity=".75" stroke="#2F7BFF" stroke-opacity=".45"/><circle cx="20" cy="18" r="3.5" fill="#2F7BFF"/><text x="34" y="23" class="chip" fill="#EAF0FA" font-weight="700">PAINTVISION</text><text x="272" y="23" text-anchor="end" class="chipd">Colour Visualizer</text></g><g transform="translate(4680,0)"><rect width="290" height="36" rx="18" fill="#0F2347" fill-opacity=".75" stroke="#2F7BFF" stroke-opacity=".45"/><circle cx="20" cy="18" r="3.5" fill="#2F7BFF"/><text x="34" y="23" class="chip" fill="#EAF0FA" font-weight="700">MEDIC</text><text x="272" y="23" text-anchor="end" class="chipd">Clinical PWA</text></g><g transform="translate(4990,0)"><rect width="290" height="36" rx="18" fill="#0F2347" fill-opacity=".75" stroke="#2F7BFF" stroke-opacity=".45"/><circle cx="20" cy="18" r="3.5" fill="#2F7BFF"/><text x="34" y="23" class="chip" fill="#EAF0FA" font-weight="700">CHESS ARENA 3D</text><text x="272" y="23" text-anchor="end" class="chipd">WebGL · P2P</text></g><g transform="translate(5300,0)"><rect width="290" height="36" rx="18" fill="#0F2347" fill-opacity=".75" stroke="#2F7BFF" stroke-opacity=".45"/><circle cx="20" cy="18" r="3.5" fill="#2F7BFF"/><text x="34" y="23" class="chip" fill="#EAF0FA" font-weight="700">PURGE</text><text x="272" y="23" text-anchor="end" class="chipd">C2PA Sanitizer</text></g><g transform="translate(5610,0)"><rect width="290" height="36" rx="18" fill="#0F2347" fill-opacity=".75" stroke="#2F7BFF" stroke-opacity=".45"/><circle cx="20" cy="18" r="3.5" fill="#2F7BFF"/><text x="34" y="23" class="chip" fill="#EAF0FA" font-weight="700">MAHATI</text><text x="272" y="23" text-anchor="end" class="chipd">Web Audio DAW</text></g><g transform="translate(5920,0)"><rect width="290" height="36" rx="18" fill="#0F2347" fill-opacity=".75" stroke="#2F7BFF" stroke-opacity=".45"/><circle cx="20" cy="18" r="3.5" fill="#2F7BFF"/><text x="34" y="23" class="chip" fill="#EAF0FA" font-weight="700">DIVYA DRUSTI</text><text x="272" y="23" text-anchor="end" class="chipd">AR Vision AI</text></g><g transform="translate(6230,0)"><rect width="290" height="36" rx="18" fill="#0F2347" fill-opacity=".75" stroke="#2F7BFF" stroke-opacity=".45"/><circle cx="20" cy="18" r="3.5" fill="#2F7BFF"/><text x="34" y="23" class="chip" fill="#EAF0FA" font-weight="700">T4S</text><text x="272" y="23" text-anchor="end" class="chipd">HLA/RTI Defense Sim</text></g><g transform="translate(6540,0)"><rect width="290" height="36" rx="18" fill="#0F2347" fill-opacity=".75" stroke="#2F7BFF" stroke-opacity=".45"/><circle cx="20" cy="18" r="3.5" fill="#2F7BFF"/><text x="34" y="23" class="chip" fill="#EAF0FA" font-weight="700">AGLSDS</text><text x="272" y="23" text-anchor="end" class="chipd">HIL Launcher Sim</text></g><g transform="translate(6850,0)"><rect width="290" height="36" rx="18" fill="#0F2347" fill-opacity=".75" stroke="#2F7BFF" stroke-opacity=".45"/><circle cx="20" cy="18" r="3.5" fill="#2F7BFF"/><text x="34" y="23" class="chip" fill="#EAF0FA" font-weight="700">LOTOTO</text><text x="272" y="23" text-anchor="end" class="chipd">Quest 3 VR Safety</text></g><g transform="translate(7160,0)"><rect width="290" height="36" rx="18" fill="#0F2347" fill-opacity=".75" stroke="#2F7BFF" stroke-opacity=".45"/><circle cx="20" cy="18" r="3.5" fill="#2F7BFF"/><text x="34" y="23" class="chip" fill="#EAF0FA" font-weight="700">ANATOVR</text><text x="272" y="23" text-anchor="end" class="chipd">VR Anatomy Lab</text></g><g transform="translate(7470,0)"><rect width="290" height="36" rx="18" fill="#0F2347" fill-opacity=".75" stroke="#2F7BFF" stroke-opacity=".45"/><circle cx="20" cy="18" r="3.5" fill="#2F7BFF"/><text x="34" y="23" class="chip" fill="#EAF0FA" font-weight="700">PRISM HAIR</text><text x="272" y="23" text-anchor="end" class="chipd">Live AI Try-on</text></g><g transform="translate(7780,0)"><rect width="290" height="36" rx="18" fill="#0F2347" fill-opacity=".75" stroke="#2F7BFF" stroke-opacity=".45"/><circle cx="20" cy="18" r="3.5" fill="#2F7BFF"/><text x="34" y="23" class="chip" fill="#EAF0FA" font-weight="700">INTERIORSPACE 3D</text><text x="272" y="23" text-anchor="end" class="chipd">Walkthrough Engine</text></g><g transform="translate(8090,0)"><rect width="290" height="36" rx="18" fill="#0F2347" fill-opacity=".75" stroke="#2F7BFF" stroke-opacity=".45"/><circle cx="20" cy="18" r="3.5" fill="#2F7BFF"/><text x="34" y="23" class="chip" fill="#EAF0FA" font-weight="700">CITY BUILDER</text><text x="272" y="23" text-anchor="end" class="chipd">WebRTC Multiplayer</text></g><g transform="translate(8400,0)"><rect width="290" height="36" rx="18" fill="#0F2347" fill-opacity=".75" stroke="#2F7BFF" stroke-opacity=".45"/><circle cx="20" cy="18" r="3.5" fill="#2F7BFF"/><text x="34" y="23" class="chip" fill="#EAF0FA" font-weight="700">INVOICE VAULT</text><text x="272" y="23" text-anchor="end" class="chipd">Air-gapped Ledger</text></g><g transform="translate(8710,0)"><rect width="290" height="36" rx="18" fill="#0F2347" fill-opacity=".75" stroke="#2F7BFF" stroke-opacity=".45"/><circle cx="20" cy="18" r="3.5" fill="#2F7BFF"/><text x="34" y="23" class="chip" fill="#EAF0FA" font-weight="700">TEAMFLOW</text><text x="272" y="23" text-anchor="end" class="chipd">SME SaaS</text></g><g transform="translate(9020,0)"><rect width="290" height="36" rx="18" fill="#0F2347" fill-opacity=".75" stroke="#2F7BFF" stroke-opacity=".45"/><circle cx="20" cy="18" r="3.5" fill="#2F7BFF"/><text x="34" y="23" class="chip" fill="#EAF0FA" font-weight="700">PAINTVISION</text><text x="272" y="23" text-anchor="end" class="chipd">Colour Visualizer</text></g></g></g>
+<g transform="translate(0,656)"><g class="tickerr"><g transform="translate(30,0)"><rect width="132" height="28" rx="14" fill="#0F2347" fill-opacity=".5" stroke="#2F7BFF" stroke-opacity=".3"/><text x="66" y="18.5" text-anchor="middle" class="tchip">UNITY 3D</text></g><g transform="translate(180,0)"><rect width="132" height="28" rx="14" fill="#0F2347" fill-opacity=".5" stroke="#2F7BFF" stroke-opacity=".3"/><text x="66" y="18.5" text-anchor="middle" class="tchip">C# / .NET</text></g><g transform="translate(330,0)"><rect width="132" height="28" rx="14" fill="#0F2347" fill-opacity=".5" stroke="#2F7BFF" stroke-opacity=".3"/><text x="66" y="18.5" text-anchor="middle" class="tchip">C++</text></g><g transform="translate(480,0)"><rect width="132" height="28" rx="14" fill="#0F2347" fill-opacity=".5" stroke="#2F7BFF" stroke-opacity=".3"/><text x="66" y="18.5" text-anchor="middle" class="tchip">THREE.JS</text></g><g transform="translate(630,0)"><rect width="132" height="28" rx="14" fill="#0F2347" fill-opacity=".5" stroke="#2F7BFF" stroke-opacity=".3"/><text x="66" y="18.5" text-anchor="middle" class="tchip">WEBGL2</text></g><g transform="translate(780,0)"><rect width="132" height="28" rx="14" fill="#0F2347" fill-opacity=".5" stroke="#2F7BFF" stroke-opacity=".3"/><text x="66" y="18.5" text-anchor="middle" class="tchip">HLSL</text></g><g transform="translate(930,0)"><rect width="132" height="28" rx="14" fill="#0F2347" fill-opacity=".5" stroke="#2F7BFF" stroke-opacity=".3"/><text x="66" y="18.5" text-anchor="middle" class="tchip">REACT 19</text></g><g transform="translate(1080,0)"><rect width="132" height="28" rx="14" fill="#0F2347" fill-opacity=".5" stroke="#2F7BFF" stroke-opacity=".3"/><text x="66" y="18.5" text-anchor="middle" class="tchip">TYPESCRIPT</text></g><g transform="translate(1230,0)"><rect width="132" height="28" rx="14" fill="#0F2347" fill-opacity=".5" stroke="#2F7BFF" stroke-opacity=".3"/><text x="66" y="18.5" text-anchor="middle" class="tchip">TAILWIND</text></g><g transform="translate(1380,0)"><rect width="132" height="28" rx="14" fill="#0F2347" fill-opacity=".5" stroke="#2F7BFF" stroke-opacity=".3"/><text x="66" y="18.5" text-anchor="middle" class="tchip">PWA</text></g><g transform="translate(1530,0)"><rect width="132" height="28" rx="14" fill="#0F2347" fill-opacity=".5" stroke="#2F7BFF" stroke-opacity=".3"/><text x="66" y="18.5" text-anchor="middle" class="tchip">INDEXEDDB</text></g><g transform="translate(1680,0)"><rect width="132" height="28" rx="14" fill="#0F2347" fill-opacity=".5" stroke="#2F7BFF" stroke-opacity=".3"/><text x="66" y="18.5" text-anchor="middle" class="tchip">WEBRTC</text></g><g transform="translate(1830,0)"><rect width="132" height="28" rx="14" fill="#0F2347" fill-opacity=".5" stroke="#2F7BFF" stroke-opacity=".3"/><text x="66" y="18.5" text-anchor="middle" class="tchip">PEERJS</text></g><g transform="translate(1980,0)"><rect width="132" height="28" rx="14" fill="#0F2347" fill-opacity=".5" stroke="#2F7BFF" stroke-opacity=".3"/><text x="66" y="18.5" text-anchor="middle" class="tchip">PORTICO RTI</text></g><g transform="translate(2130,0)"><rect width="132" height="28" rx="14" fill="#0F2347" fill-opacity=".5" stroke="#2F7BFF" stroke-opacity=".3"/><text x="66" y="18.5" text-anchor="middle" class="tchip">HLA 1516</text></g><g transform="translate(2280,0)"><rect width="132" height="28" rx="14" fill="#0F2347" fill-opacity=".5" stroke="#2F7BFF" stroke-opacity=".3"/><text x="66" y="18.5" text-anchor="middle" class="tchip">MEDIAPIPE</text></g><g transform="translate(2430,0)"><rect width="132" height="28" rx="14" fill="#0F2347" fill-opacity=".5" stroke="#2F7BFF" stroke-opacity=".3"/><text x="66" y="18.5" text-anchor="middle" class="tchip">TESSERACT.JS</text></g><g transform="translate(2580,0)"><rect width="132" height="28" rx="14" fill="#0F2347" fill-opacity=".5" stroke="#2F7BFF" stroke-opacity=".3"/><text x="66" y="18.5" text-anchor="middle" class="tchip">WEB AUDIO API</text></g><g transform="translate(2730,0)"><rect width="132" height="28" rx="14" fill="#0F2347" fill-opacity=".5" stroke="#2F7BFF" stroke-opacity=".3"/><text x="66" y="18.5" text-anchor="middle" class="tchip">BLENDER</text></g><g transform="translate(2880,0)"><rect width="132" height="28" rx="14" fill="#0F2347" fill-opacity=".5" stroke="#2F7BFF" stroke-opacity=".3"/><text x="66" y="18.5" text-anchor="middle" class="tchip">META QUEST</text></g><g transform="translate(3030,0)"><rect width="132" height="28" rx="14" fill="#0F2347" fill-opacity=".5" stroke="#2F7BFF" stroke-opacity=".3"/><text x="66" y="18.5" text-anchor="middle" class="tchip">BIM / IFC</text></g><g transform="translate(3180,0)"><rect width="132" height="28" rx="14" fill="#0F2347" fill-opacity=".5" stroke="#2F7BFF" stroke-opacity=".3"/><text x="66" y="18.5" text-anchor="middle" class="tchip">UDP / TCP</text></g><g transform="translate(3330,0)"><rect width="132" height="28" rx="14" fill="#0F2347" fill-opacity=".5" stroke="#2F7BFF" stroke-opacity=".3"/><text x="66" y="18.5" text-anchor="middle" class="tchip">UNITY 3D</text></g><g transform="translate(3480,0)"><rect width="132" height="28" rx="14" fill="#0F2347" fill-opacity=".5" stroke="#2F7BFF" stroke-opacity=".3"/><text x="66" y="18.5" text-anchor="middle" class="tchip">C# / .NET</text></g><g transform="translate(3630,0)"><rect width="132" height="28" rx="14" fill="#0F2347" fill-opacity=".5" stroke="#2F7BFF" stroke-opacity=".3"/><text x="66" y="18.5" text-anchor="middle" class="tchip">C++</text></g><g transform="translate(3780,0)"><rect width="132" height="28" rx="14" fill="#0F2347" fill-opacity=".5" stroke="#2F7BFF" stroke-opacity=".3"/><text x="66" y="18.5" text-anchor="middle" class="tchip">THREE.JS</text></g><g transform="translate(3930,0)"><rect width="132" height="28" rx="14" fill="#0F2347" fill-opacity=".5" stroke="#2F7BFF" stroke-opacity=".3"/><text x="66" y="18.5" text-anchor="middle" class="tchip">WEBGL2</text></g><g transform="translate(4080,0)"><rect width="132" height="28" rx="14" fill="#0F2347" fill-opacity=".5" stroke="#2F7BFF" stroke-opacity=".3"/><text x="66" y="18.5" text-anchor="middle" class="tchip">HLSL</text></g><g transform="translate(4230,0)"><rect width="132" height="28" rx="14" fill="#0F2347" fill-opacity=".5" stroke="#2F7BFF" stroke-opacity=".3"/><text x="66" y="18.5" text-anchor="middle" class="tchip">REACT 19</text></g><g transform="translate(4380,0)"><rect width="132" height="28" rx="14" fill="#0F2347" fill-opacity=".5" stroke="#2F7BFF" stroke-opacity=".3"/><text x="66" y="18.5" text-anchor="middle" class="tchip">TYPESCRIPT</text></g><g transform="translate(4530,0)"><rect width="132" height="28" rx="14" fill="#0F2347" fill-opacity=".5" stroke="#2F7BFF" stroke-opacity=".3"/><text x="66" y="18.5" text-anchor="middle" class="tchip">TAILWIND</text></g><g transform="translate(4680,0)"><rect width="132" height="28" rx="14" fill="#0F2347" fill-opacity=".5" stroke="#2F7BFF" stroke-opacity=".3"/><text x="66" y="18.5" text-anchor="middle" class="tchip">PWA</text></g><g transform="translate(4830,0)"><rect width="132" height="28" rx="14" fill="#0F2347" fill-opacity=".5" stroke="#2F7BFF" stroke-opacity=".3"/><text x="66" y="18.5" text-anchor="middle" class="tchip">INDEXEDDB</text></g><g transform="translate(4980,0)"><rect width="132" height="28" rx="14" fill="#0F2347" fill-opacity=".5" stroke="#2F7BFF" stroke-opacity=".3"/><text x="66" y="18.5" text-anchor="middle" class="tchip">WEBRTC</text></g><g transform="translate(5130,0)"><rect width="132" height="28" rx="14" fill="#0F2347" fill-opacity=".5" stroke="#2F7BFF" stroke-opacity=".3"/><text x="66" y="18.5" text-anchor="middle" class="tchip">PEERJS</text></g><g transform="translate(5280,0)"><rect width="132" height="28" rx="14" fill="#0F2347" fill-opacity=".5" stroke="#2F7BFF" stroke-opacity=".3"/><text x="66" y="18.5" text-anchor="middle" class="tchip">PORTICO RTI</text></g><g transform="translate(5430,0)"><rect width="132" height="28" rx="14" fill="#0F2347" fill-opacity=".5" stroke="#2F7BFF" stroke-opacity=".3"/><text x="66" y="18.5" text-anchor="middle" class="tchip">HLA 1516</text></g><g transform="translate(5580,0)"><rect width="132" height="28" rx="14" fill="#0F2347" fill-opacity=".5" stroke="#2F7BFF" stroke-opacity=".3"/><text x="66" y="18.5" text-anchor="middle" class="tchip">MEDIAPIPE</text></g><g transform="translate(5730,0)"><rect width="132" height="28" rx="14" fill="#0F2347" fill-opacity=".5" stroke="#2F7BFF" stroke-opacity=".3"/><text x="66" y="18.5" text-anchor="middle" class="tchip">TESSERACT.JS</text></g><g transform="translate(5880,0)"><rect width="132" height="28" rx="14" fill="#0F2347" fill-opacity=".5" stroke="#2F7BFF" stroke-opacity=".3"/><text x="66" y="18.5" text-anchor="middle" class="tchip">WEB AUDIO API</text></g><g transform="translate(6030,0)"><rect width="132" height="28" rx="14" fill="#0F2347" fill-opacity=".5" stroke="#2F7BFF" stroke-opacity=".3"/><text x="66" y="18.5" text-anchor="middle" class="tchip">BLENDER</text></g><g transform="translate(6180,0)"><rect width="132" height="28" rx="14" fill="#0F2347" fill-opacity=".5" stroke="#2F7BFF" stroke-opacity=".3"/><text x="66" y="18.5" text-anchor="middle" class="tchip">META QUEST</text></g><g transform="translate(6330,0)"><rect width="132" height="28" rx="14" fill="#0F2347" fill-opacity=".5" stroke="#2F7BFF" stroke-opacity=".3"/><text x="66" y="18.5" text-anchor="middle" class="tchip">BIM / IFC</text></g><g transform="translate(6480,0)"><rect width="132" height="28" rx="14" fill="#0F2347" fill-opacity=".5" stroke="#2F7BFF" stroke-opacity=".3"/><text x="66" y="18.5" text-anchor="middle" class="tchip">UDP / TCP</text></g></g></g>
+</g>
 
-    <!-- Horizontal Grid -->
-    <line x1="0" y1="48" x2="1200" y2="48" stroke="#0284C7" stroke-width="1" opacity="0.35" />
-    <line x1="0" y1="96" x2="1200" y2="96" />
-    <line x1="0" y1="144" x2="1200" y2="144" />
-    <line x1="0" y1="192" x2="1200" y2="192" />
-    <line x1="0" y1="240" x2="1200" y2="240" stroke="#38BDF8" stroke-width="1" opacity="0.25" />
-    <line x1="0" y1="288" x2="1200" y2="288" />
-    <line x1="0" y1="336" x2="1200" y2="336" stroke="#0284C7" stroke-width="1" opacity="0.3" />
-    <line x1="0" y1="384" x2="1200" y2="384" />
-    <line x1="0" y1="432" x2="1200" y2="432" stroke="#0284C7" stroke-width="1" opacity="0.35" />
-    <line x1="0" y1="480" x2="1200" y2="480" />
-  </g>
-
-  <!-- TOP DISCIPLINE PILLS -->
-  <g transform="translate(0, 16)">
-    <!-- Pill 1: Unity 3D -->
-    <g transform="translate(80, 0)">
-      <rect width="140" height="26" rx="13" fill="url(#badgeBg)" stroke="#1E3A5F" stroke-width="1" />
-      <polygon points="18,13 24,7 30,13 24,19" fill="#38BDF8" opacity="0.9" />
-      <text x="38" y="17" fill="#E2E8F0" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif" font-size="11" font-weight="700" letter-spacing="0.8">UNITY 3D</text>
-    </g>
-
-    <!-- Pill 2: Real-Time 3D -->
-    <g transform="translate(245, 0)">
-      <rect width="150" height="26" rx="13" fill="url(#badgeBg)" stroke="#1E3A5F" stroke-width="1" />
-      <rect x="18" y="8" width="10" height="10" fill="none" stroke="#38BDF8" stroke-width="1.5" />
-      <text x="38" y="17" fill="#E2E8F0" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif" font-size="11" font-weight="700" letter-spacing="0.8">REAL-TIME 3D</text>
-    </g>
-
-    <!-- Pill 3: AR / VR -->
-    <g transform="translate(420, 0)">
-      <rect width="130" height="26" rx="13" fill="url(#badgeBg)" stroke="#1E3A5F" stroke-width="1" />
-      <rect x="18" y="9" width="12" height="8" rx="2" fill="none" stroke="#38BDF8" stroke-width="1.5" />
-      <text x="38" y="17" fill="#E2E8F0" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif" font-size="11" font-weight="700" letter-spacing="0.8">AR / VR</text>
-    </g>
-
-    <!-- Pill 4: Digital Twins -->
-    <g transform="translate(575, 0)">
-      <rect width="155" height="26" rx="13" fill="url(#badgeBg)" stroke="#1E3A5F" stroke-width="1" />
-      <circle cx="23" cy="13" r="3.5" fill="#38BDF8" />
-      <circle cx="31" cy="9" r="2" fill="#0284C7" />
-      <circle cx="31" cy="17" r="2" fill="#0284C7" />
-      <line x1="23" y1="13" x2="31" y2="9" stroke="#38BDF8" stroke-width="1" />
-      <line x1="23" y1="13" x2="31" y2="17" stroke="#38BDF8" stroke-width="1" />
-      <text x="40" y="17" fill="#E2E8F0" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif" font-size="11" font-weight="700" letter-spacing="0.8">DIGITAL TWINS</text>
-    </g>
-
-    <!-- Pill 5: BIM / IFC -->
-    <g transform="translate(755, 0)">
-      <rect width="135" height="26" rx="13" fill="url(#badgeBg)" stroke="#1E3A5F" stroke-width="1" />
-      <path d="M 18 19 L 18 11 L 23 7 L 28 11 L 28 19 Z" fill="none" stroke="#38BDF8" stroke-width="1.5" />
-      <text x="36" y="17" fill="#E2E8F0" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif" font-size="11" font-weight="700" letter-spacing="0.8">BIM / IFC</text>
-    </g>
-
-    <!-- Pill 6: WebGL -->
-    <g transform="translate(915, 0)">
-      <rect width="135" height="26" rx="13" fill="url(#badgeBg)" stroke="#1E3A5F" stroke-width="1" />
-      <circle cx="24" cy="13" r="5" fill="none" stroke="#38BDF8" stroke-width="1.5" />
-      <ellipse cx="24" cy="13" rx="2" ry="5" fill="none" stroke="#38BDF8" stroke-width="1" />
-      <text x="38" y="17" fill="#E2E8F0" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif" font-size="11" font-weight="700" letter-spacing="0.8">WEBGL</text>
-    </g>
-  </g>
-
-  <!-- LEFT GRAPHIC: ARCHITECTURAL BIM & CRANE BLUEPRINT -->
-  <g transform="translate(60, 90)" opacity="0.85">
-    <!-- Blueprint Lines -->
-    <!-- Tower Crane -->
-    <line x1="190" y1="20" x2="190" y2="230" stroke="#38BDF8" stroke-width="1.5" stroke-dasharray="4, 4" />
-    <line x1="140" y1="20" x2="270" y2="20" stroke="#38BDF8" stroke-width="2" />
-    <line x1="190" y1="5" x2="200" y2="20" stroke="#38BDF8" stroke-width="1.5" />
-    <line x1="190" y1="5" x2="170" y2="20" stroke="#38BDF8" stroke-width="1.5" />
-    <line x1="140" y1="20" x2="190" y2="5" stroke="#0284C7" stroke-width="1" />
-    <line x1="260" y1="20" x2="190" y2="5" stroke="#0284C7" stroke-width="1" />
-    <line x1="240" y1="20" x2="240" y2="70" stroke="#60A5FA" stroke-width="1" />
-    <circle cx="240" cy="72" r="3" fill="#60A5FA" />
-
-    <!-- Building 1 (Tall Skyscraper Wireframe) -->
-    <rect x="40" y="60" width="85" height="170" fill="#0A1E35" stroke="#1E4976" stroke-width="1.5" />
-    <!-- Floor Grid -->
-    <line x1="40" y1="85" x2="125" y2="85" stroke="#1E4976" stroke-width="0.75" />
-    <line x1="40" y1="110" x2="125" y2="110" stroke="#1E4976" stroke-width="0.75" />
-    <line x1="40" y1="135" x2="125" y2="135" stroke="#1E4976" stroke-width="0.75" />
-    <line x1="40" y1="160" x2="125" y2="160" stroke="#1E4976" stroke-width="0.75" />
-    <line x1="40" y1="185" x2="125" y2="185" stroke="#1E4976" stroke-width="0.75" />
-    <line x1="40" y1="210" x2="125" y2="210" stroke="#1E4976" stroke-width="0.75" />
-    <line x1="68" y1="60" x2="68" y2="230" stroke="#1E4976" stroke-width="0.75" />
-    <line x1="97" y1="60" x2="97" y2="230" stroke="#1E4976" stroke-width="0.75" />
-
-    <!-- Building 2 (Mid-Rise BIM Structure) -->
-    <rect x="135" y="90" width="105" height="140" fill="#07172B" stroke="#0284C7" stroke-width="1.2" />
-    <!-- Cross Bracing -->
-    <line x1="135" y1="90" x2="185" y2="135" stroke="#1E3A5F" stroke-width="1" />
-    <line x1="185" y1="90" x2="135" y2="135" stroke="#1E3A5F" stroke-width="1" />
-    <line x1="185" y1="90" x2="240" y2="135" stroke="#1E3A5F" stroke-width="1" />
-    <line x1="240" y1="90" x2="185" y2="135" stroke="#1E3A5F" stroke-width="1" />
-    <line x1="135" y1="135" x2="185" y2="180" stroke="#1E3A5F" stroke-width="1" />
-    <line x1="185" y1="135" x2="135" y2="180" stroke="#1E3A5F" stroke-width="1" />
-    <line x1="185" y1="135" x2="240" y2="180" stroke="#1E3A5F" stroke-width="1" />
-    <line x1="240" y1="135" x2="185" y2="180" stroke="#1E3A5F" stroke-width="1" />
-
-    <!-- Pulse Beacon on Building Roof -->
-    <circle cx="82" cy="58" r="3" fill="#38BDF8">
-      <animate attributeName="opacity" values="1;0.2;1" dur="2s" repeatCount="indefinite" />
-    </circle>
-  </g>
-
-  <!-- RIGHT GRAPHIC: SPATIAL COMPUTING & CONNECTED DATA NODES -->
-  <g transform="translate(820, 85)" opacity="0.9">
-    <!-- Connected Neural / Global Mesh -->
-    <g stroke="#0284C7" stroke-width="1" opacity="0.6">
-      <line x1="120" y1="20" x2="190" y2="35" />
-      <line x1="190" y1="35" x2="260" y2="20" />
-      <line x1="190" y1="35" x2="170" y2="80" />
-      <line x1="120" y1="20" x2="80" y2="60" />
-      <line x1="80" y1="60" x2="170" y2="80" />
-      <line x1="170" y1="80" x2="240" y2="70" />
-      <line x1="260" y1="20" x2="240" y2="70" />
-      <line x1="240" y1="70" x2="280" y2="90" />
-    </g>
-
-    <!-- Pulsing Mesh Nodes -->
-    <circle cx="120" cy="20" r="4" fill="#38BDF8" />
-    <circle cx="190" cy="35" r="5" fill="#60A5FA" />
-    <circle cx="260" cy="20" r="4" fill="#38BDF8" />
-    <circle cx="80" cy="60" r="3.5" fill="#0284C7" />
-    <circle cx="170" cy="80" r="4.5" fill="#38BDF8" />
-    <circle cx="240" cy="70" r="4" fill="#0284C7" />
-    <circle cx="280" cy="90" r="3" fill="#60A5FA" />
-
-    <!-- Floating Holographic Analytics Card -->
-    <g transform="translate(20, 95)">
-      <rect width="180" height="110" rx="6" fill="#061A30" stroke="#0284C7" stroke-width="1.2" opacity="0.85" />
-      <line x1="10" y1="22" x2="170" y2="22" stroke="#1E3A5F" stroke-width="1" />
-      <text x="14" y="16" fill="#38BDF8" font-family="ui-monospace, monospace" font-size="9" font-weight="700" letter-spacing="1">SYSTEM TELEMETRY</text>
-      <circle cx="162" cy="14" r="3" fill="#10B981">
-        <animate attributeName="opacity" values="1;0.3;1" dur="1.6s" repeatCount="indefinite" />
-      </circle>
-
-      <!-- Mini Chart Bars -->
-      <rect x="20" y="65" width="12" height="30" fill="#0284C7" />
-      <rect x="40" y="45" width="12" height="50" fill="#38BDF8" />
-      <rect x="60" y="55" width="12" height="40" fill="#0284C7" />
-      <rect x="80" y="35" width="12" height="60" fill="#60A5FA" />
-      <rect x="100" y="50" width="12" height="45" fill="#38BDF8" />
-
-      <!-- Circular Radar / Gauge -->
-      <circle cx="145" cy="60" r="20" fill="none" stroke="#1E3A5F" stroke-width="2" />
-      <circle cx="145" cy="60" r="20" fill="none" stroke="#00D2FF" stroke-width="2" stroke-dasharray="80, 45">
-        <animate attributeName="stroke-dashoffset" values="125;-125" dur="4s" repeatCount="indefinite" />
-      </circle>
-    </g>
-
-    <!-- Stylized VR / Spatial Engineer Silhouette -->
-    <g transform="translate(195, 95)" opacity="0.95">
-      <!-- Head and Goggles -->
-      <path d="M 40 40 Q 42 20 60 18 Q 78 20 80 40 Q 82 55 60 62 Q 42 55 40 40 Z" fill="#0A2240" stroke="#1E4976" stroke-width="1.2" />
-      <!-- VR Goggles / Visor -->
-      <rect x="36" y="28" width="30" height="14" rx="4" fill="#0284C7" stroke="#38BDF8" stroke-width="1.5">
-        <animate attributeName="stroke-opacity" values="1;0.4;1" dur="2.2s" repeatCount="indefinite" />
-      </rect>
-      <!-- Visor Scan Glow -->
-      <line x1="38" y1="35" x2="64" y2="35" stroke="#FFFFFF" stroke-width="1.5" opacity="0.8" />
-      <!-- Gesturing Arm -->
-      <path d="M 38 65 Q 15 70 -5 55 Q -18 45 -35 48" fill="none" stroke="#38BDF8" stroke-width="2" />
-      <!-- Finger Interaction Beam -->
-      <circle cx="-35" cy="48" r="3.5" fill="#00D2FF">
-        <animate attributeName="r" values="3.5;5.5;3.5" dur="1.5s" repeatCount="indefinite" />
-      </circle>
-    </g>
-  </g>
-
-  <!-- CENTER ICONIC MONOGRAM: RT WITH DYNAMIC CUTTING ENERGY ARC -->
-  <g transform="translate(420, 60)">
-    <!-- 'R' Letterform (Solid Industrial Slate) -->
-    <path d="M 40 40 L 130 40 Q 185 40 185 95 Q 185 140 145 150 L 195 240 L 140 240 L 98 160 L 78 160 L 78 240 L 40 240 Z"
-          fill="url(#rGrad)" stroke="#475569" stroke-width="2" />
-    <path d="M 78 72 L 125 72 Q 148 72 148 95 Q 148 122 125 122 L 78 122 Z"
-          fill="#071222" stroke="#1E3A5F" stroke-width="1.5" />
-
-    <!-- 'T' Letterform (Electric Cobalt Blue) -->
-    <path d="M 195 40 L 330 40 L 330 75 L 280 75 L 280 240 L 242 240 L 242 75 L 195 75 Z"
-          fill="url(#tGrad)" stroke="#38BDF8" stroke-width="1.5" />
-
-    <!-- Dynamic Slicing Energy Arc (Swoosh cutting through R & T) -->
-    <path d="M -110 245 C 50 200, 160 130, 360 40 C 270 95, 140 170, -110 245 Z"
-          fill="url(#arcGrad)" opacity="0.95" />
-
-    <!-- Animated Arc Laser Beam (SMIL) -->
-    <path d="M -110 245 C 50 200, 160 130, 360 40"
-          fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-dasharray="80, 400">
-      <animate attributeName="stroke-dashoffset" values="480;-480" dur="2.4s" repeatCount="indefinite" />
-    </path>
-  </g>
-
-  <!-- CORPORATE WORDMARK & SUBTITLE -->
-  <g transform="translate(600, 350)" text-anchor="middle">
-    <!-- Main Brand Name -->
-    <text y="0" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="44" font-weight="900" letter-spacing="9">
-      RAZEL<tspan fill="#00D2FF">TECH</tspan>
-    </text>
-
-    <!-- Corporate Subtitle -->
-    <text y="28" fill="#94A3B8" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12.5" font-weight="700" letter-spacing="4.5">
-      ENGINEERING REALITY. BUILDING <tspan fill="#38BDF8">INTELLIGENCE.</tspan>
-    </text>
-  </g>
-
-  <!-- BOTTOM DISCIPLINE CHIPS (10 Core Competencies from Image) -->
-  <g transform="translate(40, 420)">
-    <!-- Base Divider Line -->
-    <line x1="0" y1="0" x2="1120" y2="0" stroke="#1E3A5F" stroke-width="1" />
-
-    <g transform="translate(0, 15)">
-      <!-- Item 1 -->
-      <g transform="translate(0, 0)">
-        <circle cx="6" cy="11" r="3" fill="#38BDF8" />
-        <text x="14" y="15" fill="#CBD5E1" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" font-weight="700" letter-spacing="0.5">SIMULATION</text>
-      </g>
-
-      <!-- Item 2 -->
-      <g transform="translate(105, 0)">
-        <circle cx="6" cy="11" r="3" fill="#38BDF8" />
-        <text x="14" y="15" fill="#CBD5E1" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" font-weight="700" letter-spacing="0.5">MULTIPLAYER</text>
-      </g>
-
-      <!-- Item 3 -->
-      <g transform="translate(210, 0)">
-        <circle cx="6" cy="11" r="3" fill="#38BDF8" />
-        <text x="14" y="15" fill="#CBD5E1" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" font-weight="700" letter-spacing="0.5">NETWORK ENG</text>
-      </g>
-
-      <!-- Item 4 -->
-      <g transform="translate(325, 0)">
-        <circle cx="6" cy="11" r="3" fill="#38BDF8" />
-        <text x="14" y="15" fill="#CBD5E1" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" font-weight="700" letter-spacing="0.5">ENTERPRISE SAAS</text>
-      </g>
-
-      <!-- Item 5 -->
-      <g transform="translate(455, 0)">
-        <circle cx="6" cy="11" r="3" fill="#38BDF8" />
-        <text x="14" y="15" fill="#CBD5E1" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" font-weight="700" letter-spacing="0.5">CUSTOM DEV</text>
-      </g>
-
-      <!-- Item 6 -->
-      <g transform="translate(565, 0)">
-        <circle cx="6" cy="11" r="3" fill="#38BDF8" />
-        <text x="14" y="15" fill="#CBD5E1" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" font-weight="700" letter-spacing="0.5">SOFTWARE ARCH</text>
-      </g>
-
-      <!-- Item 7 -->
-      <g transform="translate(690, 0)">
-        <circle cx="6" cy="11" r="3" fill="#38BDF8" />
-        <text x="14" y="15" fill="#CBD5E1" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" font-weight="700" letter-spacing="0.5">SYSTEMS ARCH</text>
-      </g>
-
-      <!-- Item 8 -->
-      <g transform="translate(810, 0)">
-        <circle cx="6" cy="11" r="3" fill="#38BDF8" />
-        <text x="14" y="15" fill="#CBD5E1" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" font-weight="700" letter-spacing="0.5">AUTOMATION</text>
-      </g>
-
-      <!-- Item 9 -->
-      <g transform="translate(925, 0)">
-        <circle cx="6" cy="11" r="3" fill="#38BDF8" />
-        <text x="14" y="15" fill="#CBD5E1" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" font-weight="700" letter-spacing="0.5">SPATIAL COMP</text>
-      </g>
-
-      <!-- Item 10 -->
-      <g transform="translate(1035, 0)">
-        <circle cx="6" cy="11" r="3" fill="#38BDF8" />
-        <text x="14" y="15" fill="#CBD5E1" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" font-weight="700" letter-spacing="0.5">3D VISUALS</text>
-      </g>
-    </g>
-  </g>
-
-  <!-- BOTTOM FOOTER TAGLINE -->
-  <g transform="translate(600, 485)" text-anchor="middle">
-    <text fill="#64748B" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10.5" font-weight="700" letter-spacing="3.5">
-      REAL-TIME TECHNOLOGIES // INTELLIGENT SOLUTIONS // LIMITLESS POSSIBILITIES
-    </text>
-  </g>
+<line x1="50" y1="704" x2="1150" y2="704" stroke="url(#bd)"/>
+<text x="600" y="730" text-anchor="middle" class="small">REAL-TIME TECHNOLOGIES  •  INTELLIGENT SOLUTIONS  •  LIMITLESS POSSIBILITIES</text>
+</g>
+<rect x=".75" y=".75" width="1198.5" height="748.5" rx="18" fill="none" stroke="url(#bd)" stroke-width="1.5"/>
 </svg>
